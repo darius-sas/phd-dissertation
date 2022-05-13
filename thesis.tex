@@ -1,49 +1,25 @@
-\documentclass[10pt]{phdthesis}
+\documentclass[b5paper,10pt,twoside]{phdthesis}
+\usepackage[total={5in, 7in}]{geometry}
 \usepackage{epigraph}
-\usepackage{palatino}
+\usepackage{fancyhdr}
 \usepackage{multirow}
+\usepackage{multicol}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{fancyhdr}
 \usepackage{hyperref}
-\usepackage[resetlabels]{multibib}
-\usepackage{float}
-\usepackage[font={small}]{caption}
 \usepackage{subfig}
 \usepackage{acronym}
 \usepackage[table,dvipsnames,svgnames,x11names]{xcolor}
-\usepackage{lscape}
-\usepackage[geometry]{ifsym}
 \usepackage[latin9]{inputenc}
-\usepackage{setspace}
-\usepackage{wrapfig}
-\usepackage{paralist}
-\usepackage{afterpage}
-\usepackage{bm}
 \usepackage[english, dutch]{babel}
 \usepackage{booktabs}
-\usepackage{mathpazo}
-\usepackage{multicol}
-\usepackage{bigstrut}
-\usepackage{hhline}
-\usepackage{textcomp} %tilde
-\usepackage{chngpage} %change margin to fit table
-\usepackage{pifont}% http://ctan.org/pkg/pifont
-\usepackage{listings}
-\usepackage[markup=underlined]{changes}
-\usepackage{graphicx}
-\usepackage{textcomp}
-%\usepackage{subfigure}
-\usepackage{subfloat}
-\usepackage{color}
-\usepackage{framed}
-\usepackage{array}
-\usepackage{marvosym}
-\usepackage{enumitem}
-\usepackage{appendix}
-\usepackage{longtable}
 \usepackage{url}
-\usepackage[figuresright]{rotating}
+\usepackage{pxfonts}
+\usepackage{lettrine}
+
+% Epigraph config
+\setlength{\epigraphwidth}{25em}
+\setlength{\epigraphrule}{0pt}
 
 \makeatletter
 \g@addto@macro{\UrlBreaks}{\UrlOrds}
@@ -220,7 +196,7 @@ Technical Debt (TD) is a metaphor used to describe a ...}
 \cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{Bibliography}
-\bibliographystyle{mykluwer}
+\bibliographystyle{ieeetr}
 \bibliography{bibliography}
 
 
