@@ -1,0 +1,83 @@
+\chapter{Introduction}\label{chap:introduction}
+
+\epigraph{the quality of an E-type system will appear to be declining unless it is rigorously maintained and adapted to operational environment changes}{Hellol}
+\epigraph{Architectural refactoring is hard, and we're still ignorant of its full costs, but it isn't impossible.}{Hello}
+
+\section{Technical Debt}
+The concept of \textit{debt} in Software Engineering was initially introduced by Cunningham in 1992 \cite{Cunningham1992}.
+Technical debt (TD) reflects the technical compromises that software practitioners make in order to achieve a short-term advantage at the expense of creating a technical context that increases complexity and cost in the long-term \cite{Avgeriou2016}.  
+
+Hence, a company can get into debt and, as long as it is aware of the debt and is planning to repay it in the medium-term period, leverage on it to temporarily increase productivity.
+However, if the company is not aware that it is accruing TD, or does not repay it on time, the amount of interest may become too high, causing the failure of the project due to the huge cost of implementing changes.
+
+During the course of the years, the metaphor has been extended by the research community and has assumed a wider meaning, englobing several aspects of the software development process like architecture, design, requirements, testing and documentation \cite{brown_managing_2010}.
+It is very hard to state a single definition that incorporates all the facets of such a big metaphor. 
+But the current literature has explored the concept in all of its vastness and has proposed and analyzed multiple taxonomies and types of TD.
+A common way of categorising TD is by the type of artefacts it affects. Using this approach, Li et al. identified several different types of TD \cite{li_systematic_2015}, namely \emph{Requirements TD}, \emph{Architectural TD}, \emph{Design TD}, \emph{Code TD}, \emph{Test TD}, \emph{Build TD}, \emph{Documentation TD}, \emph{Infrastructure TD}, and \emph{Versioning TD}.
+
+
+\subsubsection{Financial terminology}
+Since TD is a metaphor, it shares a common terminology with the financial debt.
+The core financial terms adopted by the TD metaphor, as described by Ampatzoglou et al. \cite{ampatzoglou_financial_2015}, are:
+\begin{itemize}
+    \item \textit{Principal} is the effort required to address the difference between the current and the optimal level of design-time quality, in an immature software artefact or in the complete software system.
+    \item \textit{Interest} is the additional effort required to maintain a certain artefact because of its decayed design-time quality. It was summarized by Cunningham as \textit{``every minute spent on not-quite-right code counts as interest on that debt''} \cite{Cunningham1992}. A noteworthy aspect of the interest is that it might have different rates across different parts of the system. The rates are influenced by (a) how often a company modifies the code of a particular feature and/or (b) how frequently the users actually use that feature \cite{ries_embradetd_2009,tom_exploration_2016}.
+    \item \textit{Repayment} is the amount of effort spent on improving design-time quality. This effort will also decrease the effort required for future maintenance tasks.
+    Not all TD must be repaid, in fact, for some short-term projects it may be financially more profitable to not pay it at all.
+    \item \textit{Bankruptcy} of a software project is declared when there are large maintenance costs caused by the accumulation of TD. It is hard to identify the precise point of bankruptcy of a project, but it is usually set at the point when the cost of improving the existing code is higher than the cost of rewriting it \cite{elm2009design}.
+\end{itemize}
+
+\subsubsection{Metaphor's weaknesses and limitations}
+The use of the metaphor to describe software issues has received some criticism from the research community too.
+One of the major shortcomings of the metaphor, according to Schmid \cite{schmid_limitstd_2013}, is the lack of a standard unit of measurement and the difficulty to measure it because of the fuzzy boundaries of the different TD components.
+Moreover, still according to Schmid \cite{schmid_limitstd_2013}, not all TD is \textit{effective} TD, but it can also be \textit{potential} TD, since it is not sure if there will be any interest to be paid on that debt.
+This may be the case when some specific code will never require to be modified again, hence no interest will be ever paid on such code: as if it had no debt.
+Schmid also argues that the more detailed is the effect of TD taken into account, the higher its estimation gets: adding up individual contributions to TD will result in counting the same underlying cost multiple times, leading to an exaggerated value of TD \cite{schmid_limitstd_2013}.
+
+Other studies point out that the metaphor may encourage the detrimental behaviour in people of incurring into debt thinking that they will deliver faster, without any drawbacks. This is favoured by the fact that in some cases whoever takes the debt is not necessarily who pays it back \cite{allman_tdm_2012}.
+
+Finally, Rooney argues that modern development approaches have an intrinsic short-term repayment activity, thus the TD accumulated is little and is going to be repaid in the near future \cite{rooney2010technical}.
+% add a conclusion sentence to this subsubsection
+
+\subsubsection{Management}
+Technical debt management (TDM) includes several different activities that prevent TD from being incurred, make it visible and controllable. Such activities have been identified by Li et al. in a mapping study of 94 articles selected from the literature between 1992 and the end of 2013 \cite{li_systematic_2015}:
+\begin{description} % check this list for completeness/correctness
+    \item[Identification] is one of the most important activities in TDM and focuses on detecting the debt incurred either intentionally or unintentionally in a software system.
+    Several approaches, from static code analyzers to high-level solution comparison, have been developed and proposed by the research community.
+
+    \item[Measurement] quantifies the benefits and costs of the identified TD using estimation techniques. Common approaches for this activity include the use of calculation models, code metrics or human estimation.
+
+    \item[Prioritization] ranks the identified TD according to certain predefined rules to support decision-making processes for paying off TD. Investigated approaches exploit financial-based techniques, such as Portfolio Management or Cost/Benefit Analysis.
+
+    \item[Prevention] aims at developing conventions and protocols to prevent incurring in TD. Proposed approaches from the literature include improving the development process, supporting the architecture decision-making or analyzing human factors.
+
+    \item[Monitoring] monitors the changes in the cost and benefit of unresolved TD over time. Some studies have investigated this activity using threshold-based approaches and TD propagation tracking as well as plotting approaches.
+
+    \item[Repayment] resolves or mitigates TD items by employing techniques such as reengineering and refactoring. Refactoring is one of the most important repayment approaches related to design, architecture and code. But it is not the only one, there also exist approaches based on rewriting, re-engineering, automation and bug fixing.
+
+    \item[Representation/Documentation] presents TD in a uniform manner addressing concerns of particular stakeholders. A common representation is as an item with different fields such as \textit{ID}, \textit{Location}, \textit{Type}, etc.
+
+    \item[Communication] makes identified TD visible to stakeholders so that it can be discussed and managed. A commonly studied approach of representing TD is the dashboard, but there also exist approaches that use the backlog of the software project, simple lists, and code metrics visualization.
+\end{description}
+
+\subsection{Architectural technical debt}
+As described in the previous section, the type of technical debt referring to architectural maintenance issues is the Architectural TD (ATD), or Architecture debt (AD).
+
+Architectural TD is caused by bad architecture design decisions that, consciously or unconsciously, compromise system-wide quality attributes, like Maintainability and Evolvability \cite{kruchten_technical_2012}.
+In practice, common manifestations of ATD are caused by violations of best architecture practices and of the consistency and integrity of software architecture.
+A typical example of a decision incurring ATD is the creation of architectural dependencies that violate the strict layered architectural pattern (e.g. bypassing layers to directly access the lower layers) \cite{Li2014}.
+
+Measuring ATD is not a trivial task since ATD does not yield observable behaviours to end users \cite{brown_managing_2010} and does not manifest itself directly in the source code.
+It is hard to measure the impact on maintainability and evolvability caused by sub-optimal architectural design decisions.
+A potential solution to the problem of estimating ATD is the use of ATD indicators that denote the presence of ATD and approximate its quantity.
+Most indicators can be directly calculated from the source code of the systems, which results in a significant advantage in the management of ATD since automated tools can be used to perform an initial estimation of the amount of debt.
+
+\section{Architectural smells}
+
+\section{The project SDK4ED}
+
+\section{Research design}
+\subsection{Problem statement}
+\subsection{Design science and research methodology}
+\subsection{Overview of this dissertation}
+
