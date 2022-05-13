@@ -1,0 +1,228 @@
+\documentclass[10pt]{phdthesis}
+\usepackage{epigraph}
+\usepackage{palatino}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage[resetlabels]{multibib}
+\usepackage{float}
+\usepackage[font={small}]{caption}
+\usepackage{subfig}
+\usepackage{acronym}
+\usepackage[table,dvipsnames,svgnames,x11names]{xcolor}
+\usepackage{lscape}
+\usepackage[geometry]{ifsym}
+\usepackage[latin9]{inputenc}
+\usepackage{setspace}
+\usepackage{wrapfig}
+\usepackage{paralist}
+\usepackage{afterpage}
+\usepackage{bm}
+\usepackage[english, dutch]{babel}
+\usepackage{booktabs}
+\usepackage{mathpazo}
+\usepackage{multicol}
+\usepackage{bigstrut}
+\usepackage{hhline}
+\usepackage{textcomp} %tilde
+\usepackage{chngpage} %change margin to fit table
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{listings}
+\usepackage[markup=underlined]{changes}
+\usepackage{graphicx}
+\usepackage{textcomp}
+%\usepackage{subfigure}
+\usepackage{subfloat}
+\usepackage{color}
+\usepackage{framed}
+\usepackage{array}
+\usepackage{marvosym}
+\usepackage{enumitem}
+\usepackage{appendix}
+\usepackage{longtable}
+\usepackage{url}
+\usepackage[figuresright]{rotating}
+
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+
+%   Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\setcounter{dbltopnumber}{2}    % for 2-column pages
+\renewcommand{\dbltopfraction}{0.9}	% fit big float above 2-col. text
+\renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
+%   Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
+% N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\DeclareSymbolFont{extraup}{U}{zavm}{m}{n}
+\DeclareMathSymbol{\varheart}{\mathalpha}{extraup}{86}
+\DeclareMathSymbol{\vardiamond}{\mathalpha}{extraup}{87}
+
+\makeatletter
+\def\zaptype#1{%
+\listsubcaptions % Finish the last set of sub-floats before
+\def\@captype{#1}}% switching to another float type.
+\makeatother
+
+\graphicspath{{./figures/}}
+
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+\newcommand{\abstract}{%
+   \chapter*{Abstract}%
+   \addcontentsline{toc}{chapter}{Abstract}%
+   \markboth{Abstract}{Abstract}%
+}
+
+
+\newenvironment{Abstract}
+{\begin{center}\textbf{Abstract}
+ \end{center} \small \begin{quote}}
+{\end{quote}}
+
+\pdfcompresslevel=0
+
+\begin{document}
+%\thispagestyle{empty}
+
+%\include{coverpage}
+%\cleardoublepage
+
+\sloppy
+\include{thesis_front}
+\include{isbn}
+%\include{0.assessment-committee}
+\pagenumbering{gobble}% Remove page numbers (and reset to 1)
+
+\null
+\thispagestyle{empty}%
+\addtocounter{page}{-1}%
+\newpage
+
+\clearpage
+\include{dedication}
+%\newpage
+
+\pagenumbering{gobble}% Remove page numbers (and reset to 1)
+
+\null
+\thispagestyle{empty}%
+\addtocounter{page}{-1}%
+\newpage
+
+\abstract{
+Technical Debt (TD) is a metaphor used to describe a ...}
+
+\selectlanguage{dutch}
+
+\samenvatting{Technical Debt (Technische schuld-TD) is een metafoor ...}
+
+\cleardoublepage
+
+\selectlanguage{english}
+
+\clearpage
+\lhead[]{\fancyplain{}{\rightmark}}
+\chead[\fancyplain{}{}]{\fancyplain{}{}}
+\rhead[\fancyplain{}{\leftmark}]{\fancyplain{}{}}
+
+\begingroup
+	\pagestyle{fancyplain}
+	\pagenumbering{roman}
+	\let\cleardoublepage\relax
+	\let\clearpage\relax
+	\tableofcontents
+%	\setlength{\cftparskip}{-0.0775\baselineskip}
+	\newpage
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{List of Figures}
+	\listoffigures
+	\newpage
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{List of Tables}
+	\listoftables
+\endgroup
+
+\pagestyle{plain}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\include{acknowledgements}
+\clearpage
+
+\pagestyle{headings}
+\newcommand{\publ}{}
+
+\pagestyle{fancyplain}
+\renewcommand{\sectionmark}[1]{\markright{\it \thesection.\ #1}}
+\renewcommand{\chaptermark}[1]{\markboth{
+       \it \thechapter.\ #1}{}}
+\lhead[\thepage]{\fancyplain{}{\rightmark}}%\publ
+\chead[\fancyplain{}{}]{\fancyplain{}{}}
+\rhead[\fancyplain{}{\leftmark}]{\fancyplain{}{\thepage}}
+\lfoot[]{}
+\cfoot[]{}
+\rfoot[]{}
+%------------------------------
+
+\pagenumbering{arabic}
+\setcounter{page}{0}
+
+
+%Intro
+\include{c1-intro}
+
+% % Paper 1 - 
+% \include{c2-paper1}
+
+% % Paper 2 - 
+% \include{c3-paper2}
+
+% % Paper 3 - 
+% \include{c4-paper3}
+
+% % Paper 4 - 
+% \include{c5-paper4}
+
+% % Paper 5 - 
+% \include{c6-paper5}
+
+% % Summary
+% \include{c7-conclusions}
+
+% \appendix
+% \fancyhead[RE]{Appendix A}
+% \include{ca1-paper1}
+
+% \appendix
+% \fancyhead[RE]{Appendix B}
+% \include{ca5-paper4}
+
+% Restore headers
+\lhead[\thepage]{\fancyplain{}{\rightmark}}%\publ
+\chead[\fancyplain{}{}]{\fancyplain{}{}}
+\rhead[\fancyplain{}{\leftmark}]{\fancyplain{}{\thepage}}
+
+\small
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{mykluwer}
+\bibliography{bibliography}
+
+
+
+\end{document}
