@@ -14,15 +14,23 @@ However, decisions and implementation choices made early on in the project's lif
 Over time, as the system grows old, our capability of adapting the software to new requirements and changes in the enviroment grows narrower, and making changes becomes more expensive.
 Eventually, the system becomes unsustainable and the second part of Lehman's first law of software evolution comes into play.
 
-In 1992, Cunningham first introduced the concept of \emph{technical debt} \cite{Cunningham1992}. 
-Technical debt (TD) is a powerful metaphor that allows us to better think and communicate about sustainability and Lehman's law.
-The term was first coined to indicate the necessity of releasing software that while it works perfectly, it does not meet the criteria of long-term sustainable software. 
-Cunningham himself calls this an ``unmasterable program'' that is ``dangerous'' unless the debt is repaid.
-Since the metaphor is easily digestable for people with non-technical backgrounds, it is a powerful tool
+In 1992, Cunningham first introduced the concept of \emph{technical debt} (TD) \cite{Cunningham1992}. 
+The term was first coined to indicate the necessity of releasing software that, while it works perfectly, it does not meet the criteria of long-term sustainable software. 
+Cunningham himself calls this an ``unmasterable program'' that is ``dangerous'' unless the \emph{debt} is repaid.
+Unfortunately, TD repayment is not always feasible, as software practitioners have to work with limited time and budget, resulting in most of TD not being repaid \cite{Digkas2018}.
+The time spent on not-quite-right code counts as \emph{interest} on that debt \cite{Cunningham1992}, making software projects more expensive to maintain.
 
-% TD is the cause of unsustainable software projects.
+Technical debt is a powerful metaphor that, essentially, conveys the importance of sustainable software -- and Lehman's first law of software evolution -- in terms that are easy to understand and communicate. 
+Technical debt is also the \emph{leitmotif} of this dissertation.
 
-A modern definition of TD is the following: TD reflects the technical compromises that software practitioners make in order to achieve a short-term advantage at the expense of creating a technical context that increases complexity and cost in the long-term \cite{Avgeriou2016}. 
+
+Over time, researchers have identified several types of TD, based on the 
+
+
+This dissertation deals with AS: how they are introduced, how they evolve, and how they impact software maintenance.
+TD instead, is the \emph{leitmotif} of this dissertation.
+
+
 
 Over time, several types of debt were identified... 
 AD are one of the main source of TD, which renders ATD one of the most infamous types of TD...
@@ -31,7 +39,10 @@ AS also
 AS seem to be an interesting way of approaching AD 
 
 
+
 \section{Technical Debt}
+A modern definition of TD is the following: TD reflects the technical compromises that software practitioners make in order to achieve a short-term advantage at the expense of creating a technical context that increases complexity and cost in the long-term \cite{Avgeriou2016}. 
+
 The concept of \textit{debt} in Software Engineering was initially introduced by Cunningham in 1992 \cite{Cunningham1992}.
 Technical debt (TD) reflects the technical compromises that software practitioners make in order to achieve a short-term advantage at the expense of creating a technical context that increases complexity and cost in the long-term \cite{Avgeriou2016}.  
 
@@ -51,6 +62,14 @@ A common way of categorising TD is by the type of artefacts it affects. Using th
 
 \section{Research design}
 \subsection{Problem statement}
+Architectural decisions are the most significant source of TD
+Making decisions without being properly informed makes it easier to introduce TD.
+AS are decisions [Garcia]
+Over the past decade, literature has several works studying AS. Make list of studies and what they achieved, briefly.
+Several questions remain unanswered however, such as "How are AS perceived?" "How do they evolve?", "How do they correlate with changes in the system?".
+These questions are of paramount importance in order to be able to provide practitioners a data-driven approach to manage AS.
+The following statement summarises the 
+
 \subsection{Design science and research methodology}
 \subsection{Overview of this dissertation}
 
