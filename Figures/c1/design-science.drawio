@@ -1,0 +1,338 @@
+<mxfile host="65bd71144e">
+    <diagram id="c249df69-120d-1313-5944-5ea2aa86c177" name="Page-1">
+        <mxGraphModel dx="1374" dy="830" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-147" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="2" target="yWQP1PpKwyclP1BlxjBz-127" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="423" y="147" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2" value="&lt;div&gt;&amp;lt;&amp;lt;Problem Statement&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;Architectural smells are known to hinder software maintenance, but their perception by&lt;span&gt;&amp;nbsp;the practitioners and the way they evolve over time are greatly understudied topics in existing literature.&amp;nbsp;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="1" vertex="1">
+                    <mxGeometry x="210.99999999999991" y="15" width="420" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="&lt;div&gt;&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;How  accurate is  the  tracking of the tool&lt;span&gt;?&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="587" y="247" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="13" y="33" width="140" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="" style="group" parent="60" vertex="1" connectable="0">
+                    <mxGeometry width="140" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="Legend" style="whiteSpace=wrap;html=1;fontSize=13;align=left;labelPosition=center;verticalLabelPosition=top;verticalAlign=bottom;dashed=1;" parent="59" vertex="1">
+                    <mxGeometry width="140" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="Sequence" style="shape=flexArrow;endArrow=classic;html=1;fillColor=#ffffff;fontSize=13;" parent="59" edge="1">
+                    <mxGeometry x="-0.2" y="30" width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="10" y="99" as="sourcePoint"/>
+                        <mxPoint x="110" y="99" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="56" value="" style="endArrow=classic;html=1;fontSize=13;" parent="59" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="10" y="40" as="sourcePoint"/>
+                        <mxPoint x="110" y="40" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="58" value="Decomposition" style="text;html=1;resizable=0;points=[];align=center;verticalAlign=middle;labelBackgroundColor=#ffffff;fontSize=13;direction=south;" parent="56" vertex="1" connectable="0">
+                    <mxGeometry x="0.4667" y="-1" relative="1" as="geometry">
+                        <mxPoint x="-23" y="-21" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="69" value="" style="group;flipV=0;" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="588" y="175" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;div&gt;&amp;lt;&amp;lt;Practical problem&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;Design and implement a tool to track AS from one version to the next.&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="69" vertex="1">
+                    <mxGeometry width="249.99999999999994" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="a" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="69" vertex="1">
+                    <mxGeometry x="4.891304347826148" y="1.5" width="19.565217391304344" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitDx=0;exitDy=0;" parent="1" source="36" target="31" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="535.5" y="582.5" as="sourcePoint"/>
+                        <mxPoint x="581.5" y="507.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="96" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="36" target="95" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="535.25" y="582.5" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="99" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="308.4999999999998" y="289" width="225.00000000000006" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="" style="group;flipV=0;" parent="99" vertex="1" connectable="0">
+                    <mxGeometry x="-2.842170943040401e-14" width="225.00000000000006" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;br&gt;How do AS evolve in open source systems?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="72" vertex="1">
+                    <mxGeometry x="5.684341886080802e-14" width="225" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="93" value="RQ2" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="72" vertex="1">
+                    <mxGeometry x="4.0000000000001705" width="18" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="101" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="305.2499999999998" y="657" width="231.5" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="&lt;div&gt;&amp;lt;&amp;lt;Practital Problem&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;Design an approach to estimate the technical debt principal generated by AS.&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;flipV=1;flipH=1;" parent="101" vertex="1">
+                    <mxGeometry x="0.75" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="97" value="RQ5" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="101" vertex="1">
+                    <mxGeometry x="6.75" y="2" width="18" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="125" value="b" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="1" vertex="1">
+                    <mxGeometry x="589" y="247" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-134" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="308.49999999999966" y="412" width="225.00000000000006" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-135" value="" style="group;flipV=0;" parent="EFpC19v5mdNmXsun4BiF-134" vertex="1" connectable="0">
+                    <mxGeometry x="-2.842170943040401e-14" width="225.00000000000006" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-136" value="&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;br&gt;How do AS evolve in industrial embedded systems?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="EFpC19v5mdNmXsun4BiF-135" vertex="1">
+                    <mxGeometry x="5.684341886080802e-14" width="225" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-137" value="RQ3" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="EFpC19v5mdNmXsun4BiF-135" vertex="1">
+                    <mxGeometry x="4.0000000000001705" width="18" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-178" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="EFpC19v5mdNmXsun4BiF-135" source="EFpC19v5mdNmXsun4BiF-136" target="EFpC19v5mdNmXsun4BiF-136" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-140" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="587" y="327" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;br&gt;&lt;div&gt;Are there non-trivial correlations between&lt;/div&gt;&lt;div&gt;the different characteristics of an AS?&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="EFpC19v5mdNmXsun4BiF-140" vertex="1">
+                    <mxGeometry width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="115" value="c" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="EFpC19v5mdNmXsun4BiF-140" vertex="1">
+                    <mxGeometry width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-141" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="13" y="289" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;br&gt;What AS types are more likely to generate other AS?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="EFpC19v5mdNmXsun4BiF-141" vertex="1">
+                    <mxGeometry width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="114" value="a" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="EFpC19v5mdNmXsun4BiF-141" vertex="1">
+                    <mxGeometry width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-142" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="EFpC19v5mdNmXsun4BiF-136" target="45" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="295" y="478" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="285" y="442"/>
+                            <mxPoint x="285" y="319"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-143" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="587" y="405" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-144" value="&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;br&gt;&lt;div&gt;How long, on the average, each smell type persists within the system?&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="EFpC19v5mdNmXsun4BiF-143" vertex="1">
+                    <mxGeometry width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-145" value="d" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="EFpC19v5mdNmXsun4BiF-143" vertex="1">
+                    <mxGeometry width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-153" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="13" y="367" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-154" value="&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;br&gt;What AS types typically co-occurr?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="EFpC19v5mdNmXsun4BiF-153" vertex="1">
+                    <mxGeometry width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-155" value="b" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="EFpC19v5mdNmXsun4BiF-153" vertex="1">
+                    <mxGeometry width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-156" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="EFpC19v5mdNmXsun4BiF-136" target="EFpC19v5mdNmXsun4BiF-154" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-162" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="585.5" y="727.5" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="95" value="&lt;div&gt;&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;How accurate is this approach?&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;flipV=1;flipH=1;" parent="EFpC19v5mdNmXsun4BiF-162" vertex="1">
+                    <mxGeometry width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="118" value="c" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="EFpC19v5mdNmXsun4BiF-162" vertex="1">
+                    <mxGeometry x="0.5" y="0.5" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-165" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="585.5000000000001" y="657.5" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-163" value="&amp;lt;&amp;lt;Practical Problem&amp;gt;&amp;gt;&lt;br&gt;How to quantify the effort to remove the AS?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="EFpC19v5mdNmXsun4BiF-165" vertex="1">
+                    <mxGeometry width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-164" value="b" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="EFpC19v5mdNmXsun4BiF-165" vertex="1">
+                    <mxGeometry x="0.49800796812749004" y="0.5" width="19.9203187250996" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-167" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="585.5" y="586.5" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" value="" style="group;flipV=0;" parent="EFpC19v5mdNmXsun4BiF-167" vertex="1" connectable="0">
+                    <mxGeometry x="-0.5" y="1.935483870967742" width="250" height="58.064516129032256" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="" style="group" parent="70" vertex="1" connectable="0">
+                    <mxGeometry width="250" height="58.064516129032256" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="&amp;lt;&amp;lt;Practical Problem&amp;gt;&amp;gt;&lt;br&gt;&lt;div&gt;&lt;div&gt;&lt;span&gt;How to quantify the severity of a smell?&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;flipV=1;flipH=1;fontColor=#333333;" parent="74" vertex="1">
+                    <mxGeometry y="-1.9354838709677418" width="250" height="58.064516129032256" as="geometry"/>
+                </mxCell>
+                <mxCell id="116" value="a" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="EFpC19v5mdNmXsun4BiF-167" vertex="1">
+                    <mxGeometry x="3" width="20" height="19.35483870967742" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-168" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="36" target="EFpC19v5mdNmXsun4BiF-163" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="547" y="649" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-169" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="308.4999999999997" y="534" width="225.00000000000006" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-170" value="" style="group;flipV=0;" parent="EFpC19v5mdNmXsun4BiF-169" vertex="1" connectable="0">
+                    <mxGeometry x="-2.842170943040401e-14" width="225.00000000000006" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-171" value="&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;br&gt;How do AS correlate to changes in the source code of the system?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="EFpC19v5mdNmXsun4BiF-170" vertex="1">
+                    <mxGeometry x="5.684341886080802e-14" width="225" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-172" value="RQ4" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="EFpC19v5mdNmXsun4BiF-170" vertex="1">
+                    <mxGeometry x="4.0000000000001705" width="18" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-173" style="shape=flexArrow;endArrow=classic;html=1;fillColor=#ffffff;fontFamily=Helvetica;fontSize=11;fontColor=#000000;align=center;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="EFpC19v5mdNmXsun4BiF-136" target="EFpC19v5mdNmXsun4BiF-171" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="396" y="513" as="sourcePoint"/>
+                        <mxPoint x="418.91" y="544" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="EFpC19v5mdNmXsun4BiF-175" style="shape=flexArrow;endArrow=classic;html=1;fillColor=#ffffff;fontFamily=Helvetica;fontSize=11;fontColor=#000000;align=center;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="420.76" y="594" as="sourcePoint"/>
+                        <mxPoint x="420.76" y="657" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-138" value="" style="group;flipV=0;" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="309.9999999999998" y="814.5" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-139" value="" style="group" parent="KsCzeqXH029FPOCztNeQ-138" vertex="1" connectable="0">
+                    <mxGeometry width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-140" value="&lt;div&gt;&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;How are trade-offs between quality attributes currently managed by the ES industry?&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="KsCzeqXH029FPOCztNeQ-139" vertex="1">
+                    <mxGeometry width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-141" value="RQX" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="KsCzeqXH029FPOCztNeQ-139" vertex="1">
+                    <mxGeometry x="4.000000000000114" y="-1" width="18" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-150" style="shape=flexArrow;endArrow=classic;html=1;fillColor=#ffffff;fontFamily=Helvetica;fontSize=11;fontColor=#000000;align=center;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="419.96" y="349" as="sourcePoint"/>
+                        <mxPoint x="420" y="412" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-151" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="40" target="4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-152" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="40" target="17" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-153" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="40" target="47" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="573" y="357" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-154" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="40" target="EFpC19v5mdNmXsun4BiF-144" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-155" value="&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;br&gt;What is their relation to change frequency and size of the affected artefacts?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="13" y="534" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-156" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="EFpC19v5mdNmXsun4BiF-171" target="KsCzeqXH029FPOCztNeQ-155" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-160" value="a" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="1" vertex="1">
+                    <mxGeometry x="13" y="534" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-161" value="&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;br&gt;What is their relation to co-changes in the source code?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="13" y="608" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-162" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.998;entryY=0.576;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="EFpC19v5mdNmXsun4BiF-171" target="KsCzeqXH029FPOCztNeQ-161" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-163" value="b" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="1" vertex="1">
+                    <mxGeometry x="13" y="608" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-167" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="13.500000000000114" y="814.5" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-168" value="&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;br&gt;What type of trade-offs do they do?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" parent="KsCzeqXH029FPOCztNeQ-167" vertex="1">
+                    <mxGeometry width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-169" value="b" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="KsCzeqXH029FPOCztNeQ-167" vertex="1">
+                    <mxGeometry x="0.49800796812749004" y="0.5" width="19.9203187250996" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-170" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="13.5" y="743.5" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-171" value="" style="group;flipV=0;" parent="KsCzeqXH029FPOCztNeQ-170" vertex="1" connectable="0">
+                    <mxGeometry x="-0.5" y="1.935483870967742" width="250" height="58.064516129032256" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-172" value="" style="group" parent="KsCzeqXH029FPOCztNeQ-171" vertex="1" connectable="0">
+                    <mxGeometry width="250" height="58.064516129032256" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-173" value="&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;br&gt;&lt;div&gt;&lt;div&gt;&lt;span&gt;What is the interest of software practitioners in design-time and run-time qualities?&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;flipV=1;flipH=1;" parent="KsCzeqXH029FPOCztNeQ-172" vertex="1">
+                    <mxGeometry y="-1.9354838709677418" width="250" height="58.064516129032256" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-174" value="a" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="KsCzeqXH029FPOCztNeQ-170" vertex="1">
+                    <mxGeometry x="3" width="20" height="19.35483870967742" as="geometry"/>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-175" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="KsCzeqXH029FPOCztNeQ-140" target="KsCzeqXH029FPOCztNeQ-173" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="288" y="845"/>
+                            <mxPoint x="288" y="773"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="KsCzeqXH029FPOCztNeQ-176" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="KsCzeqXH029FPOCztNeQ-140" target="KsCzeqXH029FPOCztNeQ-168" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="yWQP1PpKwyclP1BlxjBz-127" value="&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;br&gt;How are AS perceived by industrial practitioners?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="308.49999999999983" y="167" width="225" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="yWQP1PpKwyclP1BlxjBz-130" value="RQ1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="1" vertex="1">
+                    <mxGeometry x="312.99999999999994" y="167" width="18" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="yWQP1PpKwyclP1BlxjBz-131" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="13" y="445" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="yWQP1PpKwyclP1BlxjBz-132" value="&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;br&gt;How does understanding AS evolution helps software practitioners?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="yWQP1PpKwyclP1BlxjBz-131" vertex="1">
+                    <mxGeometry width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="yWQP1PpKwyclP1BlxjBz-133" value="c" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="yWQP1PpKwyclP1BlxjBz-131" vertex="1">
+                    <mxGeometry width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="yWQP1PpKwyclP1BlxjBz-134" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="EFpC19v5mdNmXsun4BiF-136" target="yWQP1PpKwyclP1BlxjBz-132" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="yWQP1PpKwyclP1BlxjBz-137" style="shape=flexArrow;endArrow=classic;html=1;fillColor=#ffffff;fontFamily=Helvetica;fontSize=11;fontColor=#000000;align=center;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="420.76000000000005" y="227" as="sourcePoint"/>
+                        <mxPoint x="420.8" y="290" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="yWQP1PpKwyclP1BlxjBz-139" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="16.000000000000114" y="895" width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="yWQP1PpKwyclP1BlxjBz-140" value="&amp;lt;&amp;lt;Knowledge Question&amp;gt;&amp;gt;&lt;br&gt;What are the ideal features of a tool to support trade-offs between QA and TD repayment?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" parent="yWQP1PpKwyclP1BlxjBz-139" vertex="1">
+                    <mxGeometry width="250" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="yWQP1PpKwyclP1BlxjBz-141" value="c" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=3" parent="yWQP1PpKwyclP1BlxjBz-139" vertex="1">
+                    <mxGeometry x="0.49800796812749004" y="0.5" width="19.9203187250996" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="yWQP1PpKwyclP1BlxjBz-142" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="KsCzeqXH029FPOCztNeQ-140" target="yWQP1PpKwyclP1BlxjBz-140" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
