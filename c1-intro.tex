@@ -17,53 +17,25 @@ In other words, a system that is unsustainable is a system that is \emph{poorly 
 
 This concept was cleverly described by Ward Cunningham in 1992 as \emph{technical debt} \cite{Cunningham1992}.
 Since then, technical debt has gained a lot of traction among both practitioners and researchers alike.
-Indeed, the presence of technical debt within a system is a problem that every non-trivial software system suffers from \cite{Brown2010,Kruchten2012,Lehman1979}.
-Several studies have made great progress in identifying the causes and effects of technical debt.
-These materialised into the various forms, ranging from low-level violations at the source code level \cite{Letouzey2012,Curtis2012}, to high-level decisions made while architecting the system \cite{Ernst2015}, or during the development of the project \cite{Yli-Huumo2014}. 
-A form of TD that has gained a lot of attention from researchers in the past decade are AS (cite verdecchia)
-% Properly understanding AS will allow software practitioners to better manage TD.
-% In the upcoming sections, I further elaborate on the why and how this is true
-% AS are the main topic of this dissertation, while TD is the leitmotifs
-%
+Indeed, the presence of technical debt within a system is a problem that every non-trivial software system suffers from, and over the years, several studies have made great progress in identifying the causes and effects of technical debt \cite{Brown2010,Kruchten2012,Lehman1979}.
+These materialised into the various forms, ranging from source code violations \cite{Letouzey2012,Curtis2012} and design level flaws \cite{Marinescu2012} to high-level decisions made at the architectural level \cite{Ernst2015,Yli-Huumo2014}.
+In this regard, architectural smells (AS), defined as a \emph{``commonly (although not always intentionally) used architectural decision that negatively impact system quality} \cite{Garcia2009} have gained a lot of attention from researchers over the past years \cite{Verdecchia2018}.
+Architectural smells were found to be problematic, but our understanding of AS is still incomplete.
 
-Although technical debt is the \emph{leitmotif} of this dissertation, it is not the main topic. 
-The main topic are \emph{architectural smells}, a form of technical debt that has gained a lot of attention from researchers in the past years \cite{Verdecchia2018}.
- 
+This dissertation aims improving the current state of the art concerning our understanding of AS by answering questions such as: \emph{how they are introduced?; how do they evolve?; and, what is their impact on software maintenance (i.e. technical debt)?}
 
-Software maintainability and  \emph{leitmotif} of this dissertation is 
+The fundamental proposition of this thesis is that a better understanding of AS will allow software practitioners to better manage technical debt.
 
+In the upcoming sections, I will properly introduce the concepts of technical debt and architectural smells, as these are the \emph{leitmotif} of this dissertation. I will also decompose the research problem faced by this thesis and describe the research questions anwered.
+
+\section{Technical Debt}
 In 1992, Cunningham first introduced the concept of \emph{technical debt} (TD) \cite{Cunningham1992}. 
 The term was first coined to indicate the necessity of releasing software that, while it works perfectly, it does not meet the criteria of long-term sustainable software. 
 Cunningham himself calls this an \emph{``unmasterable program''} that is \emph{``dangerous''} unless the \emph{debt} is repaid.
 Unfortunately, TD repayment is not always feasible, as software practitioners have to work with limited time and budget, resulting in most of TD not being repaid \cite{Digkas2018}.
 The time spent on not-quite-right code counts as \emph{interest} on that debt \cite{Cunningham1992}, making software projects more expensive to maintain.
 Technical debt is a powerful metaphor that, essentially, conveys the importance of sustainable software -- and of Lehman's first law of software evolution -- in terms that are easy to understand and communicate to others. 
-This dissertation's \emph{leitmotif} is technical debt, but it is not the main topic.
 
-
-
-
-While technical debt is the \emph{leitmotif} of this dissertation, it is not the main topic.
-The main topic are \emph{architectural smells} (AS).  I will describe AS later on, but for now, it's sufficient to know that AS are a 
-
-
-Over time, researchers have identified several types of TD, based on the 
-
-
-This dissertation deals with AS: how they are introduced, how they evolve, and how they impact software maintenance.
-TD instead, is the \emph{leitmotif} of this dissertation.
-
-
-
-Over time, several types of debt were identified... 
-AD are one of the main source of TD, which renders ATD one of the most infamous types of TD...
-AS are defined as AD that negatively impact the quality... (garcia definition)
-AS also 
-AS seem to be an interesting way of approaching AD 
-
-
-
-\section{Technical Debt}
 A modern definition of TD is the following: TD reflects the technical compromises that software practitioners make in order to achieve a short-term advantage at the expense of creating a technical context that increases complexity and cost in the long-term \cite{Avgeriou2016}. 
 
 The concept of \textit{debt} in Software Engineering was initially introduced by Cunningham in 1992 \cite{Cunningham1992}.
