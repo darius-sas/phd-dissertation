@@ -1,19 +1,19 @@
 \chapter{Introduction}\label{chap:introduction}
 
-\epigraph{\emph{A program that is used and that, as an implementation of its specification, reflects some other reality, undergoes continuos change or becomes progressively less useful.
+\epigraph{\emph{A program that is used and that, as an implementation of its specification, reflects some other reality, undergoes continuous change or becomes progressively less useful.
 The change or decay process continues until it is judged more cost effective to replace the program with a recreated version.}}{--- Meir Lehman}
 
 %\section{The relentless endeavor of software craftmanship}
 \lettrine{T}{he} opening quote of this chapter is the first of the five laws of software evolution formulated by Lehman in the late 1970's \cite{Lehman1979}.
-The law refers to the fact that all software is designed to operate in a specific enviroment and to satisfy a specific set of requirements. 
-However, every enviroment, and every requirement, is bound to change eventually, rendering the software obsolete. %, unless it changes accordingly.
+The law refers to the fact that all software is designed to operate in a specific environment and to satisfy a specific set of requirements. 
+However, every environment, and every requirement, is bound to change eventually, rendering the software obsolete. %, unless it changes accordingly.
 Therefore, the need of constantly adapting a software to new requirements, and shifts in the environment, is a \emph{relentless endeavor} that, over time, destabilises the sustainability of a software project.
 
 A software project is \emph{sustainable} if the project owner is capable of applying whatever valuable change they ought to make, timely \cite{Winters2020}.
 However, decisions and implementation choices made early on in the project's lifetime inevitably affect the decisions we have to make in the present, often making them harder.
-Over time, as the system grows old, our capability of adapting the software to new requirements and changes in the enviroment grows narrower, and making changes becomes more expensive.
+Over time, as the system grows old, our capability of adapting the software to new requirements and changes in the environment grows narrower, and making changes becomes more expensive.
 Eventually, the system becomes \emph{unsustainable} and the second part of Lehman's first law of software evolution comes into play.
-In other words, a system that is unsustainable is a system that is \emph{poorly maintenainable} and with \emph{limited capabilities} to evolve. 
+In other words, a system that is unsustainable is a system that is \emph{poorly maintainable} and with \emph{limited capabilities} to evolve. 
 
 This concept was cleverly described by Ward Cunningham in 1992 as \emph{technical debt} \cite{Cunningham1992}.
 Since then, technical debt has gained a lot of traction among both practitioners and researchers alike.
@@ -26,7 +26,7 @@ This dissertation aims improving the current state of the art concerning our und
 
 The fundamental proposition of this thesis is that a better understanding of AS will allow software practitioners to better manage technical debt.
 
-In the upcoming sections, I will properly introduce the concepts of technical debt and architectural smells, as these are the \emph{leitmotif} of this dissertation. I will also decompose the research problem faced by this thesis and describe the research questions anwered.
+In the upcoming sections, I will properly introduce the concepts of technical debt and architectural smells, as these are the \emph{leitmotif} of this dissertation. I will also decompose the research problem faced by this thesis and describe the research questions answered.
 
 \section{Technical Debt}
 In 1992, Cunningham first introduced the concept of \emph{technical debt} (TD) \cite{Cunningham1992}. 
@@ -44,9 +44,9 @@ Technical debt (TD) reflects the technical compromises that software practitione
 Hence, a company can get into debt and, as long as it is aware of the debt and is planning to repay it in the medium-term period, leverage on it to temporarily increase productivity.
 However, if the company is not aware that it is accruing TD, or does not repay it on time, the amount of interest may become too high, causing the failure of the project due to the huge cost of implementing changes.
 
-Essentially, saying that a system has incurred a lot of technical debt, or that it is unsustainable, is saying that the system is \emph{poorly maintenainable} and with \emph{limited capabilities} to evolve. 
+Essentially, saying that a system has incurred a lot of technical debt, or that it is unsustainable, is saying that the system is \emph{poorly maintainable} and with \emph{limited capabilities} to evolve. 
 
-During the course of the years, the metaphor has been extended by the research community and has assumed a wider meaning, englobing several aspects of the software development process like architecture, design, requirements, testing and documentation \cite{brown_managing_2010}.
+During the course of the years, the metaphor has been extended by the research community and has assumed a wider meaning, engulfing several aspects of the software development process like architecture, design, requirements, testing and documentation \cite{brown_managing_2010}.
 It is very hard to state a single definition that incorporates all the facets of such a big metaphor. 
 But the current literature has explored the concept in all of its vastness and has proposed and analyzed multiple taxonomies and types of TD.
 A common way of categorising TD is by the type of artefacts it affects. Using this approach, Li et al. identified several different types of TD \cite{li_systematic_2015}, namely \emph{Requirements TD}, \emph{Architectural TD}, \emph{Design TD}, \emph{Code TD}, \emph{Test TD}, \emph{Build TD}, \emph{Documentation TD}, \emph{Infrastructure TD}, and \emph{Versioning TD}.
