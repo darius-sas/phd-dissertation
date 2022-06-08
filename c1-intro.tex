@@ -58,8 +58,8 @@ This particular type of ATD is going to be, as mentioned earlier, the focus on t
 \section{The project SDK4ED and Arcan}
 % Explain how the SDK4ED and Arcan are an important part of the PhD
 
-\section{Research design}
-\subsection{Problem statement}
+\section{Research design}\label{sec:intro:research-design}
+\subsection{Problem statement}\label{sec:intro:problem-statement}
 In the early years of the research on architectural smells, researchers focused on identifying new types of smells, theoretically define them, propose a detection rule, and finally describe their impact on software maintenance from a theoretical point of view \cite{Lippert2006,Garcia2009,Mo2015,Le2016,Arcelli2016}.
 From there, researchers moved on to study how smells impact software maintenance in open source systems \cite{Choudhary2016,Xiao2016,Le2018}, study their interaction with other types of smells \cite{Sharma2017,Arcelli2019}, and even predict their introduction in future releases \cite{Arcelli2019b}.
 All of these studies offer a great insight into the theoretical nature of architectural smells, and some of them even provide limited evidence to support whether the hypothesized negative effects on software maintenance are detectable in real world systems.
@@ -111,12 +111,17 @@ These characteristics make the design science framework suitable for describing 
 Indeed, a PhD project starts with an initial problem statement, that leads to new design problems to which the researcher tries to identify a solution by posing new knowledge questions, which in turn might uncover new design problems, and the cycle repeats until a design solution is found for the original problem.
 
 \subsection{Problem decomposition}
-The design science framework is adopted in this dissertation to describe the design problems and knowledge questions emerged in this PhD project.
+This section elaborates on how the research project presented in this thesis is framed into the design science framework. 
+Figure \ref{fig:intro:problem-decomposition} decomposes the problem statement introduced in Section \ref{sec:intro:problem-statement} into design problems and knowledge questions.
+The different colors and arrows are to be read as follows: light grey boxes refer to design problems; yellow boxes refer to knowledge questions; solid arrows represent decomposition; whereas hollow arrows represent sequence.
+In the remainder of this section, I will use the term \emph{research question} (RQ) to refer to both design problems and knowledge questions, indistinctly.
+Research questions are numbered to easily refer to them, and, with the exception of RQ1, decomposed into multiple sub-RQs that are labelled with letters.
+% Need Paris' feedback on Figure 1.2 before proceeding.
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{c1/problem-decomposition.pdf}
-    \caption{A caption}\label{fig:problem-decomposition}
+    \caption{A caption}\label{fig:intro:problem-decomposition}
 \end{figure}
 
 \subsection{Overview of this dissertation}

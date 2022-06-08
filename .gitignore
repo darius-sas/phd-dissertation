@@ -3,6 +3,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=latex
 
 *.drawio.bkp
+*.drawio.dtmp
 
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
