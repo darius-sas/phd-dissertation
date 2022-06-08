@@ -51,9 +51,30 @@ In this thesis, I will mostly focus on \emph{Architectural TD} (ATD), the type o
 Examples of ATD are architectural violations (e.g. the implemented architecture is not compliant with a set of predefined architectural rules), poor application of well-known architectural patterns, early architectural decisions that had unexpected trade-offs, or architectural smells.
 This particular type of ATD is going to be, as mentioned earlier, the focus on this dissertation.
 
-\section{Architectural smells}
+\subsubsection{Metaphor's weaknesses and limitations}
+The use of the TD metaphor to describe software issues has received some criticism from the research community too.
+One of the major shortcomings of the metaphor, according to Schmid \cite{Schmid2013}, is the lack of a standard unit of measurement and the difficulty to measure it because of the fuzzy boundaries of the different TD components.
+Moreover, still according to Schmid \cite{Schmid2013}, not all TD is \textit{effective} TD, but it can also be \textit{potential} TD, since it is not sure if there will be any interest to be paid on that debt.
+This may be the case when some specific code will never require to be modified again, hence no interest will be ever paid on such code: as if it had no debt.
+Schmid also argues that the more detailed is the effect of TD taken into account, the higher its estimation gets: adding up individual contributions to TD will result in counting the same underlying cost multiple times, leading to an exaggerated value of TD \cite{Schmid2013}.
 
-% \subsection{Why smells over existing metric?}
+Other studies point out that the metaphor may encourage the detrimental behaviour in people of incurring into debt thinking that they will deliver faster, without any drawbacks. This is favoured by the fact that in some cases whoever takes the debt is not necessarily who pays it back \cite{Allman2012}.
+
+Finally, Rooney argues that modern development approaches have an intrinsic short-term repayment activity, thus the TD accumulated is little and is going to be repaid in the near future \cite{Rooney2010}.
+
+\section{Architectural smells}
+\subsection{Definitions}
+The term \emph{architectural smell} (AS) was initially introduced by Lippert and Roock in 2006 \cite{Lippert2006} to refer to violations of recognised design principles (such as the ones de-
+fined by Martin \cite{Martin2018}) that result in undesired dependencies, overblown size, and excessive coupling \cite{Garcia2009}.
+Alternatively, architectural smells can be seen as error-prone or change-prone design spots that hinder software maintainability at an architectural level \cite{Mo2015}.
+It is important to note, however, that architectural smells are an \emph{indication} that something may be problematic, but they do not necessarily imply so.
+
+This definition of architectural smells may sound very similar to the definition of \emph{code smells} provided by Kent Beck\footnote{Read \url{https://wiki.c2.com/?CodeSmell} for more info.}. However, there is a clear distinction between the two: architectural smells involve multiple classes, packages, architectural layers, or even sub-systems \cite{Lippert2006}, whereas code smells (CS) arise at line of code, method, or class level \cite{Fowler2002}. 
+This means that architectural smells, contrary to code smells, require \emph{large refactorings} in order to be removed from the system \cite{Lippert2006}.
+In this reqgard, there exists empirical evidence supporting the difference between the two categories of smells \cite{Arcelli2019}.
+
+\subsection{Why smells over existing metric?}
+% TODO
 
 \section{The project SDK4ED and Arcan}
 % Explain how the SDK4ED and Arcan are an important part of the PhD
