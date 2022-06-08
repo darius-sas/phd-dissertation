@@ -31,6 +31,7 @@ I will also decompose the research problem addressed in this thesis into multipl
 
 
 \section{Technical Debt}
+\subsection{History, definitions, and types}
 In 1992, Cunningham first introduced the concept of \emph{technical debt} (TD) \cite{Cunningham1992}. 
 The term was first coined to indicate the necessity of releasing software that, while it works perfectly, it does not meet the criteria of long-term sustainable software. 
 Cunningham himself calls this an \emph{``unmasterable program''} that is \emph{``dangerous''} unless the \emph{debt} is repaid.
@@ -51,7 +52,7 @@ In this thesis, I will mostly focus on \emph{Architectural TD} (ATD), the type o
 Examples of ATD are architectural violations (e.g. the implemented architecture is not compliant with a set of predefined architectural rules), poor application of well-known architectural patterns, early architectural decisions that had unexpected trade-offs, or architectural smells.
 This particular type of ATD is going to be, as mentioned earlier, the focus on this dissertation.
 
-\subsubsection{Metaphor's weaknesses and limitations}
+\subsection{Metaphor's weaknesses and limitations}
 The use of the TD metaphor to describe software issues has received some criticism from the research community too.
 One of the major shortcomings of the metaphor, according to Schmid \cite{Schmid2013}, is the lack of a standard unit of measurement and the difficulty to measure it because of the fuzzy boundaries of the different TD components.
 Moreover, still according to Schmid \cite{Schmid2013}, not all TD is \textit{effective} TD, but it can also be \textit{potential} TD, since it is not sure if there will be any interest to be paid on that debt.
