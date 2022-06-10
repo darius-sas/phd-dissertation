@@ -65,20 +65,34 @@ Finally, Rooney argues that modern development approaches have an intrinsic shor
 
 \section{Architectural smells}
 \subsection{Definitions}
-The term \emph{architectural smell} (AS) was initially introduced by Lippert and Roock in 2006 \cite{Lippert2006} to refer to violations of recognised design principles (such as the ones de-
-fined by Martin \cite{Martin2018}) that result in undesired dependencies, overblown size, and excessive coupling \cite{Garcia2009}.
+The term \emph{architectural smell} (AS) was initially introduced by Lippert and Roock in 2006 \cite{Lippert2006} to refer to violations of recognised design principles (such as the ones defined by Martin \cite{Martin2018}) that result in undesired dependencies, overblown size, and excessive coupling \cite{Garcia2009}.
 Alternatively, architectural smells can be seen as error-prone or change-prone design spots that hinder software maintainability at an architectural level \cite{Mo2015}.
 It is important to note, however, that architectural smells are an \emph{indication} that something may be problematic, but they do not necessarily imply so.
 
-This definition of architectural smells may sound very similar to the definition of \emph{code smells} provided by Kent Beck\footnote{Read \url{https://wiki.c2.com/?CodeSmell} for more info.}. However, there is a clear distinction between the two: architectural smells involve multiple classes, packages, architectural layers, or even sub-systems \cite{Lippert2006}, whereas code smells (CS) arise at line of code, method, or class level \cite{Fowler2002}. 
+This definition of architectural smells may sound very similar to the definition of \emph{code smells} provided by Kent Beck\footnote{Read \url{https://wiki.c2.com/?CodeSmell} for more info.}. However, there is a clear distinction between the two: architectural smells involve multiple classes, packages, architectural layers, or even sub-systems\footnote{From hereon collectively referred to as \emph{elements}.} \cite{Lippert2006}, whereas code smells (CS) arise at line of code, method, or class level \cite{Fowler2002}. 
 This means that architectural smells, contrary to code smells, require \emph{large refactorings} in order to be removed from the system \cite{Lippert2006}.
 In this reqgard, there exists empirical evidence supporting the difference between the two categories of smells \cite{Arcelli2019}.
 
-\subsection{Why smells over existing metric?}
-% TODO
+Architectural smells can be of different type, with each type having its own definition and implications to the maintainability of the affected elements \cite{Azadi2019}.
+An AS type can have multiple instances affecting a system, with each instance having a different severity (more on this in Chapter \ref{...}).
+An example of an architectural smell type is \emph{Cyclic Dependency}, which arises when a set of elements (e.g. classes, or packages) depend on each other in a cycle.
+
+The architectural smell types that are of interest to this PhD project are \emph{Cyclic Dependency (CD), Hublike Dependency (HL), God Component (GC), and Unstable Dependency (UD)}.
+I opted to focus on these four types of AS because, while they are some of the most prominent AS in the literature, there are several important aspects that were not yet investigated. These are properly elaborated in Section \ref{sec:intro:problem-statement}.
+The definitions of each AS type will be given in Chapter \ref{...}.
+
+%\subsection{Why smells over existing metric?}
+% TODO?
 
 \section{The project SDK4ED and Arcan}
-% Explain how the SDK4ED and Arcan are an important part of the PhD
+This PhD project was born in the context of the SDK4ED project, a project sponsored by the European Union under the Horizon 2020 programme.
+
+The vision of SDK4ED is to minimize the cost, the development time and the complexity of low-energy software development processes, by providing tools for automatic optimisation of multiple quality requirements, such as Technical debt, Energy efficiency, Dependability (i.e. Reliability, Availability, and Security) and Performance. 
+One of topics on which the project is innovating most upon is researching and developing tools to identify the trade-offs between runtime and design-time software quality attributes at multiple levels of abstractions (code, design, and architecture).
+In this regard, our study investigates specifically the interaction between Technical debt (i.e. Maintainability) and Reliability, a design-time and a runtime quality attribute, respectively. Further details on the project is available on its website\footnote{Browse \url{https://sdk4ed.eu/}.}.
+
+As part of the SDK4ED project, I also contributed to the open source version of \textsc{Arcan}, a tool to automatically detect AS in a system, by adding support for Java source code, support for Git to do evolution analyses, and the detection of the God Component smell.
+\textsc{Arcan} will be fully introduced in Section \ref{...}.
 
 \section{Research design}\label{sec:intro:research-design}
 \subsection{Problem statement}\label{sec:intro:problem-statement}
@@ -138,13 +152,14 @@ Figure \ref{fig:intro:problem-decomposition} decomposes the problem statement in
 The different colors and arrows are to be read as follows: light grey boxes refer to design problems; yellow boxes refer to knowledge questions; solid arrows represent decomposition; whereas hollow arrows represent sequence.
 In the remainder of this section, I will use the term \emph{research question} (RQ) to refer to both design problems and knowledge questions, indifferently.
 Research questions are numbered to easily refer to them, and, with the exception of RQ1, decomposed into multiple sub-RQs that are labelled with letters.
-% Need Paris' feedback on Figure 1.2 before proceeding.
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{c1/problem-decomposition.pdf}
     \caption{A caption}\label{fig:intro:problem-decomposition}
 \end{figure}
+
+\subsection{Mapping empirical methods to the RQs}
 
 \subsection{Overview of this dissertation}
 
