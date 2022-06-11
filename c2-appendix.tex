@@ -1,0 +1,69 @@
+\chapter{Supplementary material for Chapter \ref{chap:2}}\label{c2:appendix}
+\section{Interview Guide}
+\begin{itemize}
+    \item Start of the interview [3 min]
+    \begin{itemize}
+        \item Introduce yourself, your job, and your goal
+        \item Briefly mention what this interview is for and disclaimer on how their responses are used and that the interview is confidential
+        \item Mention that he is free to expand on any topic or anecdote
+        \item Ask permission to record 
+        \item Start recording
+    \end{itemize}
+
+    \item Background information [3 min]
+    \begin{itemize}
+        \item What is your current official position? 
+        \item What is your role in your team? (day-to-day tasks example) 
+        \item How many years of experience do you have in the current position and in total? 
+    \end{itemize}
+
+    \item Explanation [3-5 min]
+    \begin{itemize}
+        \item Explanation of Architectural Smells and negative effects on maintenance activities (concise and stick to literature) 
+    \end{itemize}
+
+    \item RQ1 questions [5 min]
+    \begin{itemize}
+        \item Which of these smells are you already familiar with, from your work? 
+        \item How many of them are there in the system you currently work on?
+        \item What types of smells do you think are the most important in your case? Why? 
+    \end{itemize}
+
+    \item RQ2 questions [5 minutes]
+    \begin{itemize}
+        \item What types of smells do you deem to be more detrimental for the Maintainability of the system? How are they detrimental?
+        \item Can you remember experiencing any issue while maintaining a class/package that could be related to an architectural smell?
+        \item In your project are there  obstacles to the implementation of new features that you think are related to architectural smells? If yes, can you tell us about these obstacles?
+    \end{itemize}
+
+    \item RQ3 questions [5 minutes]
+    \begin{itemize}
+        \item Did you try to refactor the part involved in the smell? If yes, how did you do it? If not, why?
+        \item Are there any practices in your team to manage the smells and their consequences?
+        \item Are you using any tools to monitor architectural issues (or at least dependency analysis)? 
+        \item If yes, why did you choose that tool in particular? If not, are you aware of such tools that you would consider using? 
+        \item What do you think is the ideal (imaginary) tool that could handle architectural smells issues?
+    \end{itemize}
+\end{itemize}
+
+\section{Tables}
+
+\begin{table}[h]
+    \centering
+    \footnotesize
+    \caption{Desired features of an ideal tool to manage AS with the reported frequency in parentheses.}
+    \label{c2:tab:ideal-features}
+    \begin{tabular}{@{}ll@{}}\toprule
+    \textbf{Classification} & \textbf{Description} \\ \midrule
+    Detection & Highlight the problem while I am writing the code (to save time) (2) \\
+     & Automatically detect HL and CD (1) \\
+     & Dive deep down the layers and show the actual causes of the smell (2) \\
+     & Show the files that create the dependencies of a certain package (1) \\
+    Refactoring support & Refactoring suggestions (4) \\
+     & What-if analysis to remove cycles (1) \\
+     & Show the data or call dependencies between artefacts (1) \\
+     & Support to split GC by features (1) \\
+    Prioritization & Filter the components to show (2) \\
+     & Heatmap of smells in the system (1) \\ \bottomrule
+    \end{tabular}
+\end{table}
