@@ -54,7 +54,55 @@ We collected data by interviewing 21 practitioners from 3 companies in Europe op
 To select the subjects that took part in the interviews we used \emph{convenience sampling}. After approaching the companies that showed interest in our study, we asked the architects, managers, or team leaders, to recommend to us a number of their colleagues that would agree to being interviewed. After receiving the list of candidates, we proceeded to send them emails explaining the goal of the study along with a pager about AS and a consent letter informing them about the confidentiality of the interview.
 The interview guide is available in Appendix \ref{c2:appendix}.
 
-The practitioners' background varies from a few years of activity (junior developers) up to 25 years of practice (architects). The average size of their projects is about 50 Million Lines of Code (LOC) for the first company, from 500.000 to 1.000.000 LOC for the second and from 250.000 to 750.000 LOC for the third. Interviews were semi-structured and each lasted approximately 30 minutes. We chose to use interviews because they allow for follow-up questions and clarifications, ensuring that participants have understood the questions. 
+The practitioners' background, as it can be seen from Table \ref{c2:tab:participants}, varies from a few years of activity (junior developers) up to 25 years of practice (architects).
+The average size of their projects is about 50 Million Lines of Code (LOC) for the first company, from 500.000 to 1.000.000 LOC for the second and from 250.000 to 750.000 LOC for the third (more details are reported in Table \ref{c2:tab:companies}). 
+Interviews were semi-structured and each lasted approximately 30 minutes. We chose to use interviews because they allow for follow-up questions and clarifications, ensuring that participants have understood the questions. 
+
+\begin{table}[h!]
+    \centering
+    \footnotesize
+    \caption{Demographics of the participants to the interviews.}
+    \label{c2:tab:participants}
+    \begin{tabular}{lclc}
+    \toprule
+    ID & Company & Position & Experience (Years)\\ \midrule
+    P1 & A & Product Architect & 8 \\
+    P2 & A & Design Engineer & 4 \\
+    P3 & A & Software Architect & 14 \\
+    P4 & A & Design Engineer & 15 \\
+    P5 & A & Design Engineer & 8 \\
+    P6 & A & Design Engineer & 10 \\
+    P7 & A & Software Architect & 15 \\
+    P8 & A & Software Architect & 25 \\
+    P9 & A & Software Architect & 22 \\
+    P10 & A & Software Architect & 23 \\
+    P11 & A & Design Engineer & 3 \\
+    P12 & A & Lead Design Engineer & 20 \\
+    P13 & B & Software Developer & 6 \\
+    P14 & B & Senior Software Developer & 10 \\
+    P15 & B & Software Developer & 3 \\
+    P16 & B & Software Developer & 1 \\
+    P17 & B & Software Architect & 10 \\
+    P18 & B & Software Developer & 2 \\
+    P19 & C & Software Architect & 5 \\
+    P20 & C & Senior Software Developer & 16 \\
+    P21 & C & Software developer & 5 \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\footnotesize
+	\caption{Demographics of the companies (k: thousands; M: millions)}
+	\label{c2:tab:companies}
+	\begin{tabular}{p{.08\linewidth}p{0.24\linewidth}p{0.24\linewidth}p{0.29\linewidth}}
+	\toprule
+	\textbf{Company} & \textbf{Domain} & \textbf{Size} & \textbf{Projects characteristics} \\ \midrule
+	A & Production of Industrial machines and development of software to govern those machines & Global multinational with 28k employees and based in the Netherlands. & \textit{Size}: 50M LOC; \textit{Architecture:} Layered; \textit{Main language}: proprietary C/C++ \\
+	B & Development of enterprise applications with focus on the banking and insurance domains. & Global multinational with 33k employees and based in France. & \textit{Size}: from 0.5M to 1M LOC; \textit{Architecture:} client-server app., microservices; \textit{Main language}: Java \\
+	C & Development of mobile and web applications  specialized in open banking and educational platforms. & Small-sized enterprise operating in Italy with 18 employees. & \textit{Size}: from 250K to 750K LOC; \textit{Architecture:} client-server app., mobile apps; \textit{Main language}: Java \\ \bottomrule
+	\end{tabular}
+\end{table}
 
 \section{Results}
 \subsection{RQ1: perception of AS}
