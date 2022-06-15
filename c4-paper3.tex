@@ -1,9 +1,9 @@
 \setlength{\headheight}{1.2cm}
 \renewcommand{\publ}{\flushleft\footnotesize{Based on:\\[0.1cm]
-		\textit{``On the evolution and impact of Architectural Smells - An industrial case study''} \\[0.1cm]
+		\textit{``On the evolution and impact of Architectural Smells -- An industrial case study''} \\[0.1cm]
 }}
 
-\chapter{On the evolution and impact of Architectural Smells - An industrial case study}
+\chapter{On the evolution and impact of Architectural Smells -- An industrial case study}
 \label{chap:4}
 
 
@@ -20,7 +20,7 @@
 \section{Introduction}
 Architectural decisions have been established as one of the most important factors affecting long-term maintenance and evolution of software systems \cite{Ernst2015}.
 Architectural smells (AS) are a specific type of such decisions; they are defined by Garcia et al. as \emph{``commonly-used (although not always intentional) architectural decisions that negatively impact system quality''}  \cite{Garcia2009}.
-There are several research works that define the different \emph{types} of architectural smells (e.g. god components or cycles between components) and discuss their impact on maintainability and other qualities \cite{Lippert2006, Fontana2016, Mo2015, Le2016, Garcia2009}.
+There are several research works that define the different \emph{types} of architectural smells (e.g. god components or cycles between components) and discuss their impact on maintainability and other qualities \cite{Lippert2006,Arcelli2016,Mo2015,Le2016,Garcia2009}.
 This impact usually depends on the type of smell, but generally, an architectural smell can impact maintenance activities of all kinds (corrective, perfective, etc.) by violating software design principles \cite{Azadi2019}.
 For example, AS can hinder the adaptation of a system to new requirements by increasing the coupling and breaking the modularity of certain parts of the system \cite{Azadi2019}.
 
@@ -39,34 +39,34 @@ The major findings of this study show that smells tend to grow \emph{larger over
 Moreover, the results show that some artefacts are affected by more than one smell at a time, \emph{increasing} the effort required to maintain them.
 Practitioners, on the other hand, recognise that the presence of smells correlates with frequently changed components, increased change propagation, the presence of severe bugs, the decay of the architecture, and general maintenance issues.
 
-The architectural smells considered in this study are Cyclic Dependency (CD), Hub-Like Dependency (HL), Unstable Dependency (UD), and God Component (GC) \cite{Fontana2016,Lippert2006,Sas2019}. We opted to study these smells as they are some of the most prominent architecture smells, and there already exists tools that support their automatic detection \cite{Fontana2016, Fontana2017}.
+The architectural smells considered in this study are Cyclic Dependency (CD), Hub-Like Dependency (HL), Unstable Dependency (UD), and God Component (GC) \cite{Arcelli2016,Lippert2006,Sas2019}. We opted to study these smells as they are some of the most prominent architecture smells, and there already exists tools that support their automatic detection \cite{Arcelli2016, Arcelli2017}.
 
 The rest of the paper is organised as follows: Section \ref{c4:sec:background} provides a brief overview on the architectural smells subject of this study as well as their characteristics and the tool used to detect them; Section \ref{c4:sec:related-work} discusses related work and compares it with this study; Section \ref{c4:sec:case-design} provides a detailed description of the study design; Sections \ref{c4:sec:rq-1}, \ref{c4:sec:rq2}, \ref{c4:sec:rq-3}, and \ref{c4:sec:rq-4-and-5} describe the data analysis methodology and results for each research question; Section \ref{c4:sec:discussion} provides a discussion on the findings presented in the previous sections; Section \ref{c4:sec:implications} summarises the implications of our findings for practitioners; Section \ref{c4:sec:threats-to-validity} summarises the identified threats to the validity and our mitigation strategy; finally, Section \ref{c4:sec:conclusion-fw} concludes the paper and lists some possibilities of future work.
 Appendix \ref{c4:appendix:interview-guide} reports the interview guide we used during the interviews.
 
 \section{Background}\label{c4:sec:background}
 \subsection{Architectural smells: Definitions and implications}\label{c4:sec:arch-smells}
-This section lists the architectural smells (AS) considered by this study. The definition of these smells is provided by Arcelli et al. \cite{Fontana2016} and briefly reported here.
+This section lists the architectural smells (AS) considered by this study. The definition of these smells is provided by Arcelli et al. \cite{Arcelli2016} and briefly reported here.
 
 \paragraph{Unstable dependency (UD)}\label{c4:sec:arch-smells-ud}
 This smell represents a component that depends upon a significant number of components that are less stable than itself.
-The stability of a component is measured using Martin's instability metric \cite{martin1994}, which measures the degree to which a component (e.g. a package) is susceptible to change based on the classes it depends upon and on the classes depending on it.
-The smell thus arises when a component has a significant number of components -- the tool \textsc{Arcan} uses a 30\% threshold \cite{Fontana2017} -- it depends upon with an instability value higher than its own.
+The stability of a component is measured using Martin's instability metric \cite{Martin2018}, which measures the degree to which a component (e.g. a package) is susceptible to change based on the classes it depends upon and on the classes depending on it.
+The smell thus arises when a component has a significant number of components -- the tool \textsc{Arcan} uses a 30\% threshold \cite{Arcelli2017} -- it depends upon with an instability value higher than its own.
 A UD smell is detectable on Java package-like elements only (i.e. containers of classes, files, etc.). A simplified example of UD is shown in Figure \ref{c4:fig:ud}. 
 
 The main problem caused by UD is that the probability to change the main component grows higher as the number of unstable components it depends upon grows accordingly. This increases the likelihood that the components that depend upon it (not shown in Figure \ref{c4:fig:ud} for simplicity) change as well when it is changed (ripple effect), thus inflating future maintenance efforts.
 
 \paragraph{Hublike dependency (HL)}\label{c4:sec:arch-smells-hl}
-This smell represents a component where the number of ingoing and outgoing dependencies is higher than the median in the system and the absolute difference between these ingoing and outgoing dependencies is less than a quarter of the total number of dependencies of the component \cite{Fontana2016}. A hublike dependency can be detected both at the package and at the class level.
+This smell represents a component where the number of ingoing and outgoing dependencies is higher than the median in the system and the absolute difference between these ingoing and outgoing dependencies is less than a quarter of the total number of dependencies of the component \cite{Arcelli2016}. A hublike dependency can be detected both at the package and at the class level.
 
 The implications of this smell for development activities are once again concerning the probability of change and the ease of maintenance. Consider, for example, the case represented in Figure \ref{c4:fig:hl}.
-Making a change to any of the components that A depends upon may be very hard \cite{martin1994}, even though there is only one component depending on them.
+Making a change to any of the components that A depends upon may be very hard \cite{Martin2018}, even though there is only one component depending on them.
 Additionally, the central component is also overloaded with responsibility and has a high coupling.
 This structure is thus not desirable, as it increases the potential effort necessary to make changes to all of the elements involved in the smell.
 
 \paragraph{Cyclic dependency (CD)}\label{c4:sec:arch-smells-cd}
-This smell represents a cycle among a number of components; there are several software design principles that suggest avoiding creating such cycles \cite{Lippert2006,Parnas1979,Stevens1974,Martin2000}.
-Cycles may have different topological shapes. Al-Mutawa et al. \cite{AlMutawa2014} have identified 7 of them; the ones detected by \textsc{Arcan} are shown in Figure \ref{c4:fig:cycle-shapes} \cite{Fontana2017}.
+This smell represents a cycle among a number of components; there are several software design principles that suggest avoiding creating such cycles \cite{Lippert2006,Parnas1979,Stevens1974,Martin2018}.
+Cycles may have different topological shapes. Al-Mutawa et al. \cite{AlMutawa2014} have identified 7 of them; the ones detected by \textsc{Arcan} are shown in Figure \ref{c4:fig:cycle-shapes} \cite{Arcelli2017}.
 Usually, the circle shape is intuitively perceived as the typical CD (i.e. see Figure \ref{c4:fig:cd}), but it is certainly not the only possible type of CD. In fact, there is empirical evidence \cite{AlMutawa2014} that tiny and multi-hub shapes (two stars attached together that are missing some edges) are more common than one expects.
 More complex shapes mean that the cycle has lower levels of coupling and higher levels of cohesion among the elements creating the cycle.
 For example, a clique-shaped cycle has the maximum amount of coupling possible with the components taking part in the cycle, drastically reducing the maintainability of the affected part of the system.
@@ -75,7 +75,7 @@ Besides affecting complexity, their presence also has an impact on compiling (ca
 
 \paragraph{God component (GC)}\label{c4:sec:arch-smells-gc}
 This smell represents a component (or package, in Java) that is considerably larger in size (i.e. lines of code) than other components in the system \cite{Lippert2006} (see Figure \ref{c4:fig:gc}).
-Originally, GC was defined using a fixed threshold on the lines of code, \textsc{Arcan} however uses a variable threshold-detection approach based on the frequencies of the number of lines of code of the other packages in the system \cite{Fontana2015}.
+Originally, GC was defined using a fixed threshold on the lines of code, \textsc{Arcan} however uses a variable threshold-detection approach based on the frequencies of the number of lines of code of the other packages in the system \cite{Arcelli2015}.
 
 God components aggregate too many concerns together in a single artefact and they are generally a sign that there is a missing opportunity for splitting up the component into multiple sub-components.
 God components tend to become such over time, as a result of several little incremental changes that contribute to the massive scale of the component, which ends up effectively implementing a lot of the overall functionality of the system.
@@ -85,25 +85,25 @@ Over time, the understandability of the component deteriorates along with the re
     \centering
     \begin{subfigure}[t]{0.45\linewidth}
         \centering
-        \includegraphics[width=0.5\linewidth]{Fig1a}
+        \includegraphics[width=0.5\linewidth]{c4/Fig1a}
         \caption{An example of Cyclic Dependency among artefacts A, B, C.}\label{c4:fig:cd}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.45\linewidth}
         \centering
-        \includegraphics[width=0.7\linewidth]{Fig1b}
+        \includegraphics[width=0.7\linewidth]{c4/Fig1b}
         \caption{An example of HL affecting component A, with the afferent (incoming) dependencies on the right and (outgoing) efferent dependencies on the left.}\label{c4:fig:hl}
     \end{subfigure}
     \\
     \begin{subfigure}[t]{0.45\linewidth}
         \centering
-        \includegraphics[width=0.7\linewidth]{Fig1c}
+        \includegraphics[width=0.7\linewidth]{c4/Fig1c}
         \caption{An example of UD affecting component A. The components that A depends on (Bs and Cs) are shown in the figure too. Components B1 to B3 are less stable than A and represent the majority of A's outgoing dependencies.}\label{c4:fig:ud}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.45\linewidth}
         \centering
-        \includegraphics[width=0.5\linewidth]{Fig1d}
+        \includegraphics[width=0.5\linewidth]{c4/Fig1d}
         \caption{An example of GC affecting component A. The diameter of A represents its larger size in terms of lines of code w.r.t. other components in the system (B and C).}\label{c4:fig:gc}
     \end{subfigure}
     \caption{Illustration of the four architectural smell types considered in this work.}
@@ -125,7 +125,7 @@ Additionally, some of the selected characteristics were developed, studied or di
 The smell-generic characteristics \emph{Centrality}, \emph{Size}, and \emph{Number of edges} are of interest because they are all conceptually related to the complexity caused by an instance of a smell in the system. 
 Intuitively, smells that affect parts of the system that are more central (centrality) in the dependency network of the system are likely to also affect parts that are critical and complex, and therefore harder to refactor and maintain. 
 Centrality is measured using PageRank \cite{Page1999}, an algorithm that measures the relative importance of a node in a given network based on the connections among the nodes themselves. The more nodes point to a node, and the more important those nodes are, the more importance is assigned to that node.
-PageRank was used on software dependency networks in a previous study \cite{Roveda2018b}.
+PageRank was used on software dependency networks in a previous study \cite{Roveda2018}.
 
 Smells that affect more elements (i.e. larger \emph{Size}) have a greater impact on the system's maintainability and are more complex to comprehend.
 Likewise, smells that affect elements that are highly connected among them (number of edges), are more complex (because they correspond to higher coupling) and therefore have higher impact on maintainability.
@@ -137,7 +137,7 @@ The CD smell-specific characteristics \emph{Shape} and \emph{Affected design lev
 The more complex the shape, and the more edges there are between the affected components, the harder the smell is to refactor because more effort is required.
 Similarly, the affected design level is important because the cycles present at both component/package and file/class level have an impact on two different abstraction levels at once.
 
-The UD smell-specific characteristics \emph{Instability gap} and \emph{Strength} are of interest because they are used for the detection of the smell and thus can effectively measure its criticality. The higher the \emph{Instability gap}, the higher the chance the component affected by the smell is changed due to ripple effects \cite{martin1994}. Likewise, the higher the strength, the higher the chance (because there are more possible components that are prone to a change) that a change will occur and propagate to the affected component.
+The UD smell-specific characteristics \emph{Instability gap} and \emph{Strength} are of interest because they are used for the detection of the smell and thus can effectively measure its criticality. The higher the \emph{Instability gap}, the higher the chance the component affected by the smell is changed due to ripple effects \cite{Martin2018}. Likewise, the higher the strength, the higher the chance (because there are more possible components that are prone to a change) that a change will occur and propagate to the affected component.
 
 The HL smell-specific characteristic \emph{Affected ratio} is of interest because it quantifies the involvement of the files that belong to the affected component.
 %More specifically, it measures how many files create the incoming and outgoing dependencies that make the component a hub.
@@ -159,14 +159,14 @@ The denser the GC, the more code the files in the component have, meaning that t
         \multicolumn{2}{c}{\itshape smell-generic} \\ \midrule
         Age & The number of versions the smell is present in. \\
         Size & The number of artefacts affected by the smell. \\
-        Centrality & The importance of the artefacts affected by the smell within the dependency network of the system.  Measured using PageRank (from on \cite{Roveda2018b}). \\
+        Centrality & The importance of the artefacts affected by the smell within the dependency network of the system.  Measured using PageRank (from on \cite{Roveda2018}). \\
         Number of edges & The number of dependency edges among the affected artefacts. \\ \midrule
         \multicolumn{2}{c}{\itshape CD smell-specific}\\\midrule
         Shape & The shape of the cycle: tiny, circle, chain, star, clique (from \cite{AlMutawa2014}). \\
         Affected design level & Whether the cycle is present only among files or components or at both levels (from \cite{AlMutawa2014}). \\ \midrule
         \multicolumn{2}{c}{\itshape UD smell-specific}\\\midrule
-        Strength & The ratio between the number of dependencies that point to less stable components and the total number of dependencies of the class (from \cite{Fontana2016}). \\
-        Instability gap & Is the difference between the instability of the main component and the average instability of the dependencies less stable than the component itself  (from \cite{Fontana2016}). \\\midrule
+        Strength & The ratio between the number of dependencies that point to less stable components and the total number of dependencies of the class (from \cite{Arcelli2016}). \\
+        Instability gap & Is the difference between the instability of the main component and the average instability of the dependencies less stable than the component itself  (from \cite{Arcelli2016}). \\\midrule
         \multicolumn{2}{c}{\itshape HL smell-specific}\\\midrule
         Affected ratio & The ratio between the number of files creating the central component's incoming and outgoing dependencies and the total number of files in the central component (based on \cite{Abdeen2011}). \\  
         Afferent ratio & The ratio between the number of files within the central component with incoming dependencies from external components and the total number of files within the central component (based on \cite{Abdeen2011}). \\ 
@@ -178,10 +178,10 @@ The denser the GC, the more code the files in the component have, meaning that t
 
 \subsection{The \textsc{Arcan} tool}
 To detect AS, we extended \textsc{Arcan} to support the proprietary C/C++ used by the company participating in this study. 
-\textsc{Arcan}'s results were validated by previous studies and obtained a precision ranging from 70\% to 100\% \cite{Fontana2020, Fontana2017}.
+\textsc{Arcan}'s results were validated by previous studies and obtained a precision ranging from 70\% to 100\% \cite{Arcelli2020,Arcelli2017}.
 
 \textsc{Arcan} parses Java, C, and C++ source code files to create a dependency graph where files, components, classes and packages are all represented using different nodes with different labels. Dependencies, and other relationships between nodes, are represented using edges that connect the dependant to its dependencies with an outgoing, labelled edge (e.g. if artefact \texttt{A} depends on artefact \texttt{B}, then the dependency graph contains a directed edge connecting \texttt{A} to \texttt{B}.). 
-The project's structural information contained in the dependency graph is then used to calculate several software metrics (e.g. fan-in, fan-out, instability \cite{martin1994}, etc.) and then detect architectural smells by recognising their structure in the dependency graph.
+The project's structural information contained in the dependency graph is then used to calculate several software metrics (e.g. fan-in, fan-out, instability \cite{Martin2018}, etc.) and then detect architectural smells by recognising their structure in the dependency graph.
 
 Compared to other tools, \textsc{Arcan} uses only software metrics and structural dependencies in order to detect architectural smells. 
 This makes \textsc{Arcan} different from tools such as DV8 \cite{Mo2015} (a tool used by related work) which also requires the use of change metrics.
@@ -206,8 +206,7 @@ To be more specific, Lippert mentions that architectural smells, contrary to cod
 Both AS and CS manifest themselves in different forms that are commonly referred to as different \emph{types}.
 Some examples of CS types are \emph{Duplicated Code}, \emph{Long Method}, and \emph{Large Class} \cite{Fowler2002}.
 
-
-Finally, it is important to mention that previous work provides empirical evidence that the AS  considered in this study and the most well-known code smells are \emph{independent} entities and that there is no correlation between the presence of AS and CS \cite{Fontana2019}.
+Finally, it is important to mention that previous work provides empirical evidence that the AS  considered in this study and the most well-known code smells are \emph{independent} entities and that there is no correlation between the presence of AS and CS \cite{Arcelli2019}.
 
 \section{Related Work}\label{c4:sec:related-work}
 This section summarises similar studies from the literature regarding architecture smells and (to a lesser extent) code smells.
@@ -223,7 +222,7 @@ Our study differs from Martini et al.'s study because we analyse C/C++ projects 
 Additionally, we focus on analysing the evolution of architectural smell instances, collect the experiences of architects and developers dealing with those smells, and their opinion on the results.
 Martini et al., instead, perform a qualitative analysis aimed at prioritising the refactoring of the smells detected and try to understand architectural smells' impact on ATD.
 
-Arcelli et al. \cite{Fontana2020} performed a similar study to Martini et al. but in a different industrial setting and extended the study to 8 different types of smells (instead of only 3).
+Arcelli et al. \cite{Arcelli2020} performed a similar study to Martini et al. but in a different industrial setting and extended the study to 8 different types of smells (instead of only 3).
 Their findings highlight that practitioners recognise the impact of AS on Maintainability, but were not aware of the definition of many of the 8 types of smells investigated.
 Similarly to Martini et al., practitioners recognised Hublike Dependency as a primary candidate for refactoring, and mentioned that some smell types (Feature Concentration, Scattered Functionality and Insufficient Package Cohesion) are only useful to consider in a layered architecture.
 This work differs from our study because we analyse C/C++ projects and used individual interviews rather than a survey to collect the developers' opinion. Moreover, we also combine quantitative and qualitative data instead of focusing only on the latter. 
@@ -233,7 +232,7 @@ Finally, our study puts a strong emphasis on the maintenance and evolution issue
 Mo et al. \cite{Mo2018} performed an industrial study to measure the maintainability of the architecture using two metrics and the architectural ``hotspots'' that incur high maintenance costs within 8 C/C++ and C\# projects from a large software company.
 The authors also complemented their analyses with interviews with 6 subjects working for the company they collaborated with.
 Their findings confirm that the tool suite they used is instrumental for architects to pinpoint, visualise, and quantify ``hotspots'' in the architecture of the system.
-Similar to results in other studies \cite{Fontana2020}, the development teams mentioned that they were mostly aware of the key problems affecting their system, but it was usually hard for them to specify or quantify those problems.
+Similar to results in other studies \cite{Arcelli2020}, the development teams mentioned that they were mostly aware of the key problems affecting their system, but it was usually hard for them to specify or quantify those problems.
 In terms of the research method, the study of Mo et al. is similar to ours, as both studies feature a collaboration with a large software company where a tool was used to create a report and present it to practitioners in order to collect their feedback.
 Our work differs from the one of Mo et al. in two key aspects: (1) our study is more specific and focuses on a different set of architectural smells while Mo et al. combine three different types of analyses, two of which do not concern architectural smells; and (2) we focus specifically in studying the evolution of architectural smells in industrial systems, while Mo et al. focus on the overall experience of applying an automated tool suite in an industrial context.
 
@@ -261,7 +260,7 @@ Our study differs from their work in terms of focus and scope.
 The focus of our study is understanding how architectural smell instances evolve in the scope of industrial C/C++ projects, whereas Xiao et al. focused on the relation between architectural smells and historical changes to the files affected; they also modelled this relation and summarised it as an index.
 Moreover, they also focus on a different set of architectural smells and work with open source projects.
 
-Other similar studies from the literature focus on CS, rather than on AS. However, CS are different entities than AS, as empirically verified in a previous study on the matter \cite{Fontana2019}. Thus, we only briefly summarise two of them here because of the similarity in the data analysis methodologies.
+Other similar studies from the literature focus on CS, rather than on AS. However, CS are different entities than AS, as empirically verified in a previous study on the matter \cite{Arcelli2019}. Thus, we only briefly summarise two of them here because of the similarity in the data analysis methodologies.
 
 Palomba et al. \cite{Palomba2018} investigated the co-occurrence and introduction order of code smells in open source Java systems, finding that more than 50\% of smelly classes are affected by more than one smell and that method-level smells may not be the root cause of the introduction of class-level smells.
 We used similar techniques to Palomba et al. to analyse the introduction order and co-occurrence of architectural smells.
@@ -344,9 +343,9 @@ More precisely, the company showed interest in analysing one massive software pr
 The projects are primarily written in C/C++ and compiled using a proprietary compiler and auxiliary tools.
 The main business of the company is manufacturing industrial machinery for the mass production of microchips. Therefore, all the projects considered in this study belong to this domain. In terms of our case study, the projects are designated as the cases, and the units of analysis are the architectural smells detected in each project. Figure \ref{c4:fig:case-design} illustrates the case study design.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=.7\textwidth]{Fig2.pdf}
+    \includegraphics[width=.7\textwidth]{c4/Fig2.pdf}
     \caption{The case study design using Runeson et al.'s representation \cite{Runeson2012}.}
     \label{c4:fig:case-design}
 \end{figure}
@@ -422,7 +421,7 @@ At the end of the analysis, we ran \textsc{ASTracker} to synthesise the informat
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{Fig3.pdf}
+    \includegraphics[width=1\linewidth]{c4/Fig3.pdf}
     \caption{Quantitative data collection process.}\label{c4:fig:data-collection-process}
 \end{figure}
 
@@ -445,13 +444,13 @@ The full interview guide is available in Appendix \ref{c4:appendix:interview-gui
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{Fig4.pdf}
+    \includegraphics[width=1\linewidth]{c4/Fig4.pdf}
     \caption{The phases and structure of the interviews.}\label{c4:fig:interview-phases}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{Fig5.pdf}
+    \includegraphics[width=1\linewidth]{c4/Fig5.pdf}
     \caption{The structure of the first step of phase two, focusing on RQ4 and RQ5.}\label{c4:fig:interview-questions-sub-phases}
 \end{figure}
 
@@ -483,7 +482,7 @@ The full interview guide is available in Appendix \ref{c4:appendix:interview-gui
 \section{RQ1 -- Architectural smells evolution}\label{c4:sec:rq-1}
 \subsection{RQ1.1 -- Evolution of smell characteristics}\label{c4:sec:rq1.1}
 \subsubsection{Data analysis methodology: Dynamic Time Warping}\label{c4:sec:methodology-rq1.1}
-To understand how smell characteristics evolve over time, we adopt the same technique we used in our previous work \cite{Sas2019, Vaucher2009}: signal classification with Dynamic Time Warping\footnote{The implementation used for this analysis was provided by the R package \texttt{dtw}.} (DTW) \cite{Kruskal1983}.
+To understand how smell characteristics evolve over time, we adopt the same technique we used in our previous work \cite{Sas2019,Vaucher2009}: signal classification with Dynamic Time Warping\footnote{The implementation used for this analysis was provided by the R package \texttt{dtw}.} (DTW) \cite{Kruskal1983}.
 This approach considers every series of values of every characteristic of every smell instance as a signal (or time series) and then compares each signal to a series of predefined signals (templates), each one with a corresponding label. 
 Depending on the template that is the mathematically closest to the signal, a label is assigned to it.
 
@@ -492,9 +491,9 @@ These three values are then used to build the seven templates, named from $a$ to
 The values $l$, $m$, $h$ are re-calculated for each signal classified.
 Finally, the signal is classified by comparing the distance of the signal from each template, and selecting as a label the name of the closest template. 
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth,trim={0.2cm 0 0 0},clip]{Fig6.pdf}
+    \includegraphics[width=0.9\textwidth,trim={0.2cm 0 0 0},clip]{c4/Fig6.pdf}
     \caption{Trend evolution classification templates. Figure adapted from the work of Vaucher et al. \cite{Vaucher2009}.}\label{c4:fig:classification-templates}
 \end{figure}
 
@@ -527,7 +526,7 @@ Finally, we use the following terminology: \emph{version} and \emph{release} are
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Fig7}
+    \includegraphics[width=\textwidth]{c4/Fig7}
     \caption{The classification of AS's instances trend for various characteristics grouped by smell type. The classification is in percentage of the total number of instances with at least an age of 3. The classification (represented by the colour) for each characteristic is grouped by the overall trend (constant, represented as a black block; increasing, represented as an up-pointing triangle; and decreasing, represented by a down-pointing triangle).}\label{c4:fig:dtw-classification}
 \end{figure}
 
@@ -544,7 +543,7 @@ This could probably be because of the specific architecture of the system, which
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{Fig8}
+    \includegraphics[width=0.5\textwidth]{c4/Fig8}
     \caption{Example of two cycles among components: one among $C1$ and $C2$ that is also present among the files contained in them; and one among $C1$, $C2$ and $C3$ that is only present among the components. Figure adapted from \cite{AlMutawa2014}.}
     \label{c4:fig:package-cycles}
 \end{figure}
@@ -558,13 +557,13 @@ The circle is a special case: despite only 5\% of circle instances being involve
 \begin{figure}
     \begin{subfigure}[t]{0.65\textwidth}
         \centering
-        \includegraphics[clip, trim=0cm 3.2cm 0cm 3.8cm,width=0.7\textwidth]{Fig9a}
+        \includegraphics[clip, trim=0cm 3.2cm 0cm 3.8cm,width=0.7\textwidth]{c4/Fig9a}
         \caption{Chord diagram of how cycle shapes change, controlled for the distribution of shapes in the cycles population. The numbers represent the percentage of the total population of the corresponding shape.}\label{c4:fig:chord-shapes}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{Fig9b.png}
+        \includegraphics[width=\textwidth]{c4/Fig9b.png}
         \caption{Symmetric cycle shapes detected by \textsc{Arcan} and defined by Al Mutawa et al. \cite{AlMutawa2014}.}\label{c4:fig:cycle-shapes}
     \end{subfigure}
     \caption{The cycle shapes considered in this study and how they change over time. The total  population of cycles is as follows: Circle 86\%, Clique 7\%, Tiny 4\%, Chain 1.5\%, Star 0.5\%). Only instances that persists for at least 3 releases are considered.}
@@ -575,7 +574,7 @@ The circle is a special case: despite only 5\% of circle instances being involve
 The PageRank of UD differs quite a lot from the other smell types, as we observe that 11\% of instances stay constant, 42\% have an increase of some sort, and 46\% experience a mostly gradual decrease. 
 For other smell types, PageRank is mainly decreasing, whereas for unstable dependencies, a significant amount of instances exhibit an increase, meaning that they move towards more central parts of the system.
 This means that components that are prone to change move towards more inner parts of the system.
-This is not an ideal scenario, as Martin \cite{Martin2017} states that it is preferred to have dependencies that point toward more stable components in order to reduce change propagation.
+This is not an ideal scenario, as Martin \cite{Martin2018} states that it is preferred to have dependencies that point toward more stable components in order to reduce change propagation.
 
 Moreover, the gap in instability between the affected component and its dependencies is showing an increase in 38\% of instances, a decrease in 39\% of instances, while the remaining 22\% exhibit a constant trend. 
 This means that there is no clear trend of instances that exhibit a clear increase, or decrease, in the instability measured in the central component and in its less stable dependencies (see Figure \ref{c4:fig:ud} for more context).
@@ -585,12 +584,12 @@ The ratio of dependencies of an UD-affected component that are less stable than 
 \paragraph{Hublike Dependency (HL)} Hubs tend to either stay constant in size (49\% of instances) or increase (40\% of instances), with the remaining 11\% decreases.
 Therefore, over time, hubs involve more and more artefacts.
 
-By looking at the number of files within the central component that provide functionality to external components (incoming dependencies, i.e \emph{afferent ratio}\footnote{This is a ratio characteristic, however, for this analysis, it was weighted with the number of elements in the central artefact in the respective version to ensure we detected the absolute variations inside the internal artefact.\label{fn:ratio-characteristic}}) and at the ratio of files within the central component that use external components (outgoing dependencies, i.e. \emph{efferent ratio}\footref{fn:ratio-characteristic}) we note the following: the afferent ratio is increasing in 46\% of instances and decreasing in 11\% of instances only (remaining 43\% are constant); the efferent ratio on the other hand, exhibits an increase in 32\% of instances and a decrease in 36\% of instances (remaining 32\% are constant).
+By looking at the number of files within the central component that provide functionality to external components (incoming dependencies, i.e \emph{afferent ratio}\footnote{This is a ratio characteristic, however, for this analysis, it was weighted with the number of elements in the central artefact in the respective version to ensure we detected the absolute variations inside the internal artefact.}) and at the ratio of files within the central component that use external components (outgoing dependencies, i.e. \emph{efferent ratio}) we note the following: the afferent ratio is increasing in 46\% of instances and decreasing in 11\% of instances only (remaining 43\% are constant); the efferent ratio on the other hand, exhibits an increase in 32\% of instances and a decrease in 36\% of instances (remaining 32\% are constant).
 This means that at least \emph{some} HL instances tend to provide more functionality over time themselves rather than depending on their outgoing dependencies to provide such functionality.
 This phenomenon is not optimal for the overall architecture of the system as it means that hubs, over time, \emph{replace} the functionality of their dependants: instead of having other dedicated components to provide that functionality, hubs take their place (i.e. they accumulate features).
 The final result of this process is that hubs drift away from their initial purpose and become aggregators of functionality, weakening the separation of concerns originally intended by the architects. %This point should probably be moved to the discussion with a forward reference here.
 
-Finally, we observe the trend of the \emph{affected ratio}\footref{fn:ratio-characteristic}, i.e. the number of files within a hublike component that create the incoming and outgoing dependencies, thus creating the smell. This is increasing in 46\% of the cases, decreasing in 29\% of cases, and the remaining 25\% are constant.
+Finally, we observe the trend of the \emph{affected ratio}, i.e. the number of files within a hublike component that create the incoming and outgoing dependencies, thus creating the smell. This is increasing in 46\% of the cases, decreasing in 29\% of cases, and the remaining 25\% are constant.
 Thus, as aforementioned, hubs grow to become more complex over time and more connected to their incoming and outgoing dependants.
 
 \paragraph{God Component (GC)} The number of elements in the components affected by GC (i.e. size) increases in 53\% of the cases, stays constant in 40\% of the cases and decreases in 6\% of the cases.
@@ -649,13 +648,13 @@ This is probably because: a) these shapes are very similar; b) cycles between fe
 \begin{figure}
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{Fig10a}
+        \includegraphics[width=\textwidth]{c4/Fig10a}
         \caption{Survival rate of smell types.}\label{c4:fig:survival-smells}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{Fig10b}
+        \includegraphics[width=\textwidth]{c4/Fig10b}
         \caption{Survival rate of cycle shapes.}\label{c4:fig:survival-shapes}
     \end{subfigure}
     \caption{A visualisation of the Kaplan-Meier estimators. The plot reads as follows: after a certain time $t$ (on the $x$ axis), smell type $s$ has a probability $p$ (on the $y$ axis) to survive. Dashed vertical lines represent the value $t$ when $p = .5$.}
@@ -696,7 +695,7 @@ Nonetheless, it is interesting to note a discrepancy between how many CD instanc
 Concerning HL instances, it is interesting to note that 74\% of hubs (centres) are also unstable, meaning that the risk of changes propagating to their dependants is increased. 
 We also note that hubs can be intentional design choices that expose low-level functionality to components with a high level of abstraction under a single interface (as mentioned by some interviewees).
 Nonetheless, this could be a double-edged sword: while hubs might serve the purpose of abstracting low-level functionality, they might also increase the likelihood of changes propagating from low-level components to unrelated high-level components.
-In addition, as Martin mentions (see the Stable Dependencies Principle \cite{Martin2017}) this could also mean that they \textbf{become harder to change, because there is a lot of high-level functionality that \emph{might} depend} on it but it is hidden to developers by the central hub.
+In addition, as Martin mentions (see the Stable Dependencies Principle \cite{Martin2018}) this could also mean that they \textbf{become harder to change, because there is a lot of high-level functionality that \emph{might} depend} on it but it is hidden to developers by the central hub.
 
 God Component, compared to the other smell types, exhibits fewer overlaps.
 This low interaction rate is particularly notable with hubs, as only 10\% of GCs are also hubs (centres of HL).
@@ -793,7 +792,7 @@ We note that HL are usually more likely to appear after other smell types, in fa
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.95\textwidth]{Fig11}
+    \includegraphics[width=0.95\textwidth]{c4/Fig11}
     \caption{The percentage of instances for each smell type that precede the other smell types, measured for different values of $k$. Each quadrant represent the predecessor smell type. Percentages are weighted by number of occurrences in each project for a given value of $k$.}\label{c4:fig:precedence}
 \end{figure}
 
@@ -814,7 +813,7 @@ To automate the data analysis as much as possible, we relied on Atlas.ti \footno
 
 \begin{figure}
     \centering
-    \includegraphics[width=.8\linewidth]{Fig12}
+    \includegraphics[width=.8\linewidth]{c4/Fig12}
     \caption{The phases of the qualitative data analysis process.}\label{c4:fig:qualitative-analysis}
 \end{figure}
 
@@ -978,7 +977,7 @@ Specifically, the size of the analysed systems (both C/C++ and Java) grows over 
 This is an expected result because software systems are expected to: (1) continue to grow over time (more lines of code are added every day); and (2) increase in complexity over time (more smells are added every day and existing smells may increase in size) \cite{Lehman1980}.
 
 One difference we observed was that for OSS projects, UD had a dominant decreasing trend for its PageRank characteristic \cite{Sas2019}; this was not the case for C/C++ systems.
-It is hard to objectively interpret this disparity given the different programming languages. However, we conjecture that the open source community is more successful in driving the more unstable components away from the centre of the system, where the maximally stable, core abstract components should reside \cite{Martin2017} and away from the implementation provided by the external ones.
+It is hard to objectively interpret this disparity given the different programming languages. However, we conjecture that the open source community is more successful in driving the more unstable components away from the centre of the system, where the maximally stable, core abstract components should reside \cite{Martin2018} and away from the implementation provided by the external ones.
 It is important to note that the majority of Java OSS projects present in our previous study \cite{Sas2019} were Apache projects, which are known to follow high software quality standards.
 
 \paragraph{Survivability of smells}
@@ -997,7 +996,7 @@ Finally, cycle shapes also exhibit the same patterns identified for Java OSS sys
 We especially observed that tiny cycles are outliving all other shapes in both types of systems, showing how this shape is very likely to be intentional and/or less harmful than the other types of cycle shape.
 
 \subsection{Overlaps}
-The results obtained from RQ2 show that, except for a few outliers, all smell types are \emph{likely} to overlap, \textbf{amplifying their impact on maintainability and evolvability} and \textbf{giving components more than one reason to change}, thus breaking the Single Responsibility Principle (SRP) \cite{Martin2017}. 
+The results obtained from RQ2 show that, except for a few outliers, all smell types are \emph{likely} to overlap, \textbf{amplifying their impact on maintainability and evolvability} and \textbf{giving components more than one reason to change}, thus breaking the Single Responsibility Principle (SRP) \cite{Martin2018}. 
 
 Our conversations with practitioners from RQ5 provide evidence to support this very claim, as they mentioned multiple examples where they associated two or more smells with the maintenance issues they were experiencing.
 These results emphasise the importance of handling overlaps between architectural smells and, more importantly, preventing their introduction in the first place.
@@ -1011,7 +1010,7 @@ Cycles act as \emph{catalysts for more complex structures}, such as HL, to arise
 There were plenty of occasions where we observed star-shaped (see Figure \ref{c4:fig:cycle-shapes}) cycle instances of which central element was also affected by a HL instance.
 Indeed, in our RQ3 results, one of the drawbacks of a Hublike Dependency smell is that it aggregates responsibilities that it either delegates or implements itself.
 Which just by itself breaks the SRP principle and impacts negatively maintainability.
-For UD instances, on the other hand, tightly coupled structures such as cycles have an inherently high instability \cite{martin1994}, which in turn reflects to the component depending on them, thus creating an UD instance.
+For UD instances, on the other hand, tightly coupled structures such as cycles have an inherently high instability \cite{Martin2018}, which in turn reflects to the component depending on them, thus creating an UD instance.
 Understanding how and why CD instances are precursors to other smell instances is an interesting opportunity for future work.
 
 \subsection{Feedback from practitioners}
@@ -1019,7 +1018,7 @@ From the results of RQ4, we found that AS analysis is quite useful to practition
 Interestingly, these findings match what Mo et al. \cite{Mo2018} encountered but partially contrast the findings of Martini et al. \cite{Martini2018}, as in their case, practitioners were mostly unaware of the architectural smells in their system but found the information provided by smells still useful.
 
 A possible explanation for this discrepancy is the fact that most of our participants have a long experience working for the company: they worked as developers for a long time in a project before becoming architects (or senior developers) of the same project. This means that they have a much more in-depth understanding of the problems in their system, so the information provided by a tool can mostly confirm this understanding.
-We can only conclude that the level of awareness of developers of the smells in their system varies from subject to subject. In fact, a recent study on the topic \cite{Fontana2020} showed that developers' awareness of smells ranges from 26\% of all the smells detected in the system up to 78\%, depending on the participant.
+We can only conclude that the level of awareness of developers of the smells in their system varies from subject to subject. In fact, a recent study on the topic \cite{Arcelli2020} showed that developers' awareness of smells ranges from 26\% of all the smells detected in the system up to 78\%, depending on the participant.
 This has a clear implication for researchers: if they are able to show the same information that a senior developer (or architect) is already familiar with, to all members of the team, regardless of their experience, then architectural smell analysis does \textbf{provide an added value to the team}.
 
 Another common finding with Mo et al.'s work \cite{Mo2018} is the feedback of practitioners concerning the created reports.
@@ -1049,7 +1048,7 @@ Particularly, a few key points that practitioners should consider are the follow
     \item the importance of \textbf{continuously monitoring} the presence of cycles among components/packages, as stated by the Acyclic Dependencies Principle \cite{Lippert2006}. Practitioners should especially oversee the components (or packages) that exhibit an excessive amount of internal cycles, as these may \emph{severely degrade} the overall maintainability of the component. On top of that, we also found that cycles are catalysts for other smells to arise;
     \item the \textbf{appearance of a Hublike Dependency} may be a clear signal that the affected part requires some refactorings, given that, as we found, this type of smell is likely to appear after other smells already affect a component.
     Cedrim et al. \cite{Cedrim2017} found that the most effective refactorings are the ones that target aggregator-like smells (such as Hublike Dependency and God Component), therefore this is a clear actionable point for practitioners;
-    \item the \textbf{experiences shared by ASML} engineers can provide insightful details to other practitioners to avoid incurring similar issues such as change ripple effects, architecture erosion, and communication bottlenecks. To this end, practitioners should stick to architectural principles \cite{Martin2017} and guidelines and avoid the presence of severe architectural smell instances;
+    \item the \textbf{experiences shared by ASML} engineers can provide insightful details to other practitioners to avoid incurring similar issues such as change ripple effects, architecture erosion, and communication bottlenecks. To this end, practitioners should stick to architectural principles \cite{Martin2018} and guidelines and avoid the presence of severe architectural smell instances;
     \item the \textbf{integration of historical change-related information} of the components into decision-making processes through dashboards and reports. Our findings show that recurring changes are often associated with the presence of an architectural smell.
     Repairing artefacts that are commonly subject to maintenance work may ease the extra burden required to implement new features or fix bugs on the long-term.
 \end{itemize}
@@ -1073,9 +1072,9 @@ This is due to the fact that different tools make different assumptions, use dif
 Therefore, we can only state that our quantitative results obtained through \textsc{Arcan} may not be fully comparable with the results obtained by other tools.
 However, this would be the case \emph{even if we used any other tool}, as shown by Lefever et al. \cite{Lefever2021}. 
 Having said that, this threat can be considered \emph{partially mitigated}, as the definitions of each architectural smell used by \textsc{Arcan} are based on independent, previous work.
-In particular, CD is based on the Acyclic Dependencies Principles \cite{Martin2017,Lippert2006}, HL and UD on the definitions provided by \cite{Samarthyam2016,martin1994}, and GC on Lippert's definition \cite{Lippert2006} (further improved upon by the authors of \textsc{Arcan}).
+In particular, CD is based on the Acyclic Dependencies Principles \cite{Martin2018,Lippert2006}, HL and UD on the definitions provided by \cite{Samarthyam2016,Martin2018}, and GC on Lippert's definition \cite{Lippert2006} (further improved upon by the authors of \textsc{Arcan}).
 This cannot be said for other tools available, as many of them are based on previous work of the very authors of the tools, and therefore may potentially be biased.
-Moreover, to guarantee that the results obtained by the \textsc{Arcan} tool are indeed in line with the definitions provided by previous work, the tool was used and evaluated in a number of studies \cite{Fontana2016, Biaggi2018, Sas2019}.
+Moreover, to guarantee that the results obtained by the \textsc{Arcan} tool are indeed in line with the definitions provided by previous work, the tool was used and evaluated in a number of studies \cite{Arcelli2016,Biaggi2018,Sas2019}.
 
 Yet another threat concerns the methodology we used to select the subjects for the interviews. Instead of using a probabilistic approach (i.e. random sampling) to sample our subjects, we sampled them based on convenience and circumstance. 
 This was mainly due to two factors. First, it was up to the architects of each team to approve the interviews with their engineers.
@@ -1094,7 +1093,6 @@ This poses the risk of limiting the applicability of our results to the specific
 The risk arises because architects and engineers must take into account the reuse of their code in different products with different hardware configurations, which may not be the case for many other companies.
 To mitigate this risk, we focused our attention on issues that can occur independently of the practices adopted to develop and manage the software assets of the company.
 For instance, during our interviews, we obtained a few data points mentioning reusability-specific issues encountered by engineers, however, we opted to only include in our results those that are potentially applicable to other contexts in order to not limit external validity.
-
 
 \paragraph{Reliability}
 Reliability is the aspect of validity focusing on the degree to which the data collection and analysis depend on the researchers performing them.
