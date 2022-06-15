@@ -1,0 +1,82 @@
+\chapter{Supplementary material for Chapter \ref{chap:4}}
+\section{Interview guide}\label{c4:appendix:interview-guide}
+\subsection{Questions}
+This section lists the questions for the steps listed in the outline.
+Total duration of the interview: \textbf{35 minutes} max.
+
+\paragraph{Introduction (3 min.)}
+\begin{enumerate}
+    \item Introduce yourself, your job, and your goal.
+    \item Briefly mention what this interview is for and disclaimer on how their responses are used.
+    \item Feel free to expand on any topic or anecdote.
+\end{enumerate}
+
+\paragraph{Background information (2 min.)}
+\begin{enumerate}[resume]
+    \item What is your current official position?
+    \item What is your role in this project? (day-to-day tasks example)
+    \item How many years of experience do you have in the current position and in total?
+\end{enumerate}
+
+\paragraph{Results presentation (8 min.)}
+\begin{enumerate}[resume]
+    \item Share screen.
+    \item Explanation of Architectural Smells and negative effects on maintenance activities (concise and stick to literature)
+    \item Explanation in detail of each section of the report by going through each table and plot.
+\end{enumerate}
+
+\paragraph{General (2 min.)}
+\begin{enumerate}[resume]
+    \item General insights emerging from the analysis
+    \begin{enumerate}
+        \item What are one negative and one positive aspects about the FC that emerged after inspecting the architecture analysis results?
+%        \item Did you notice any particular pattern emerging from the results? If so, what information did you use?
+    \end{enumerate}
+\end{enumerate}
+
+\paragraph{RQ4 (10 min.)}
+\begin{enumerate}[resume]
+    \item Importance of smell types and characteristics
+    \begin{enumerate}
+        \item What type of smell do you think is the most important in your case? Why?
+        \item For each smell type we calculate specific metrics (called smell characteristics),
+        which one, for each smell type, is of most interest for you? Why?
+    \end{enumerate}
+    \item Perceived and actual quality of the system
+    \begin{enumerate}
+        \item Did your perception of the quality of the components change after inspecting the results? How/Why not? If yes, can you make an example?
+        \item Does the presence of smells confirm what you already knew?
+        \item Do the smells affect parts of the system that you were expecting to have issues with? Why/How come?
+        \item Are there any missing parts in our analysis?
+    \end{enumerate}
+\end{enumerate}
+
+\paragraph{RQ5 (10 min.)}
+\begin{enumerate}[resume]
+    \item Impact of smells on Maintainability
+    \begin{enumerate}
+        \item What types of smell do you deem to be more detrimental for the Maintainability of the system?
+        \item Can you give an example of an issue you experienced while maintaining a component affected by a smell?
+        \item Do you think it was related with the presence of a smell?
+        \item Would it be hard to fix these issues? What aspects of the smell make it hard to do so (size, affected elements, overlaps)?
+    \end{enumerate}
+    \item Impact of smells on Evolvability (e.g. how easy it is to implement new features)
+    \begin{enumerate}
+        \item How have these issues affected the Evolvability (implementation of new functionality) of the affected parts?
+        \item (If not answered before) Do you remember any issue hindering the addition of new features to any of the components affected by smells?
+        \item Have you been discussing specific obstacles for the implementation of new features?
+    \end{enumerate}
+    \item Possible remediation strategies
+    \begin{enumerate}
+        \item What would be a possible quality-improvement plan that you could implement based on the information acquired from this report? And what would help you implement it?
+        \item Do the results help you prioritising the issues to fix? If yes, how/why? If no, what could help?
+    \end{enumerate}
+\end{enumerate}
+\paragraph{Feedback (2 min.)}
+\begin{enumerate}
+    \item General Feedback on the results
+    \begin{enumerate}
+        \item What view provided you with the most valuable insights (Smell characteristics, Dependency graph, DSM)? Why?
+    \end{enumerate}
+\end{enumerate}
+    
