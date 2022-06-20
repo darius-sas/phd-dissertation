@@ -100,24 +100,21 @@ As part of the SDK4ED project, I also contributed to the open source version of 
 \textsc{Arcan} will be fully introduced in Section \ref{...}.
 
 \section{Research design}\label{sec:intro:research-design}
-\subsection{Problem statement}\label{sec:intro:problem-statement}
-Architectural smells management can bring a lot of long-term advantages to practitioners.
-However, this begs the following question: what does AS management mean exactly? 
+\subsection{Problem statement}\label{sec:intro:problem-statement} 
+Architectural smells management entails several benefits for the long-term maintainability and evolution of a system.
 An oversimplified definition would summarise AS management as: (1) \emph{identify} what elements in the system are affected by AS; (2) \emph{quantify} the impact of each smell on the development activities (both maintenance and evolution) in order to determine the urgency to refactor; (3) \emph{make a decision} on whether to keep the smell (i.e. let it accrue interest) or refactor it (i.e. pay back the debt); and finally (4) \emph{repeat} the whole process regularly.
-If done manually, this is a rather resource-consuming process, and, in many cases, practitioners have a limited amount of resources they can invest on TD management, in general.
+%This is a rather resource-consuming process, and despite the many benefits it entails, practitioners can hardly apply it in practice due to the limited resources available.
+%; a strong need for automating as much as possible the whole process is felt in this regard.
 
 The current research landscape contains plenty of studies that focus on the first phase of AS management: \emph{identification}.
 Indeed, the early research work on architectural smells focused on identifying new types of smells, theoretically defining them, proposing detection rules, and finally describing their impact on software maintenance from a theoretical point of view \cite{Lippert2006,Garcia2009,Mo2015,Le2016,Arcelli2016}.
 Eventually, tools for automatic detection of AS were proposed, by both academia and industry \cite{Avgeriou2021,Khomyakov2020}, and AS management became a more feasible option for many practitioners that could not afford to do a manual assessment.
 
 Unfortunately, the remaining phases of AS management -- i.e. \emph{quantification} and \emph{decision-making} -- are not as mature as the \emph{identification} phase.
-This means that practitioners have the means to identify the AS affecting a system, but there is a limited understanding and tool support for the remaining phases of AS management.
-The lack of research in these three areas severely limits the options at the disposal of practitioners, who have to rely on intuition and experience in order make refactoring decisions.
+Practitioners have the means to identify the AS affecting a system, but there is a limited understanding, and tool support, of the remaining phases of AS management.
+Ultimately, the lack of research in these two phases severely limits the options available for practitioners, who have to rely on intuition and experience in order make refactoring decisions.
 
-%TODO add what is exactly msising from phases 2 and 3.
-%TODO check Jies thesis
-
-The problem is summarised by the following statement:
+This problem is summarised by the following statement:
 \begin{quote}\itshape
     ``The detection of the architectural smells alone is not sufficient for practitioners to take informed TD management decisions.
     Practitioners need to understand what lead to the introduction of a smell, the impact of the smell on the system, the available prioritisation strategies, and the amount of TD each instance amounts to.''
