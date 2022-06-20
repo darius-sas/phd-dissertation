@@ -18,6 +18,17 @@
 \usepackage{enumitem}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{makecell}
+\usepackage[nomessages]{fp}
+\newcommand{\maxnum}{100.00} % bar inside table cell
+\newlength{\maxlen}
+\newcommand{\databar}[2][green!25]{%
+  \settowidth{\maxlen}{\maxnum}%
+  \addtolength{\maxlen}{\tabcolsep}%
+  \FPeval\result{round(#2/\maxnum:4)}%
+  \rlap{\color{green!25}\hspace*{-.5\tabcolsep}\rule[-.05\ht\strutbox]{\result\maxlen}{.95\ht\strutbox}}%
+  \makebox[\dimexpr\maxlen-\tabcolsep][r]{#2}%
+}
 
 % Epigraph config
 \setlength{\epigraphwidth}{25em}
@@ -173,7 +184,7 @@ Technical Debt (TD) is a metaphor used to describe a ...}
 \include{c4-paper3}
 
 % % Paper 4 - 
-% \include{c5-paper4}
+\include{c5-paper4}
 
 % % Paper 5 - 
 % \include{c6-paper5}
