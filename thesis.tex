@@ -15,8 +15,13 @@
 \usepackage{url}
 \usepackage{rotating}
 \usepackage{pxfonts}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
 \usepackage{lettrine}
 \usepackage{enumitem}
+\newlist{inlinelist}{enumerate*}{1}
+\setlist[inlinelist]{label=(\alph*)}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{makecell}
@@ -189,6 +194,9 @@ Technical Debt (TD) is a metaphor used to describe a ...}
 
 % Paper 5 - 
 \include{c6-paper5}
+
+% Paper 6 - 
+\include{c7-paper6}
 
 % % Summary
 % \include{c7-conclusions}
