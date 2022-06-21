@@ -1,6 +1,6 @@
 \setlength{\headheight}{1.2cm}
 \renewcommand{\publ}{\flushleft\footnotesize{Based on:\\[0.1cm]
-		\textit{``On the relation between architectural smells and source code changes''} \\[0.1cm]
+		\textit{D. Sas, P. Avgeriou, I. Pigazzini, and F. Arcelli F. (2022). On the relation between architectural smells and source code changes. Journal of Software: Evolution and Process, 34(1), e2398.} \\[0.1cm]
 }}
 
 \chapter{On the relation between architectural smells and source code changes}
@@ -12,7 +12,7 @@
 	Studying this impact would help to understand how much technical debt interest is being paid due to the existence of architecture smells and how this interest can be calculated.
 	
 	This work is a first attempt to address this issue by investigating the relation between architecture smells and source code changes. Specifically we study whether the \emph{frequency} and \emph{size} of changes are correlated with the presence of a selected set of architectural smells.
-	We detect architectural smells using the Arcan tool, which detects architectural smells by building a dependency graph of the system analysed and then looking for the typical structures of the architectural smells.
+	We detect architectural smells using the \textsc{Arcan} tool, which detects architectural smells by building a dependency graph of the system analysed and then looking for the typical structures of the architectural smells.
 	
 	The findings, based on a case study of thirty-one open source Java systems, show that $87$\% of the analysed commits present more changes in artefacts with at least one smell and the likelihood of changing increases with the number of smells.
 	Moreover, there is also evidence to confirm that change frequency increases after the introduction of a smell and that the size of changes is also larger in smelly artefacts.
@@ -165,62 +165,63 @@ To this end, our dataset contains thirty one projects, with an average period of
 Figure \ref{c5:fig:projects-versions-loc} reports the distribution of the total number of lines of code of the commits analysed for each project.
 
 \begin{table}[]
+    \scriptsize
     \centering
     \caption{Demographics of the projects analysed in this study. Note that dates refer to the period of analysis taken into consideration, not age of the system. Additionally, the categories are only indicative.}\label{c5:tab:projects}
-      \begin{tabular}{m{2.5cm}|l|l|l|l|l|l}
+      \begin{tabular}{m{1.75cm}|l|l|l|l|l}
       \toprule
-      \textbf{Category} & \textbf{Project} & \multicolumn{1}{l|}{\makecell{\textbf{\# Commits} \\ \textbf{analysed}}} & \textbf{First commit} & \textbf{Last commit} & \multicolumn{1}{l|}{\makecell{\textbf{KLOC 1st-} \\ \textbf{last commit}}} & \textbf{Description}\\
+      \textbf{Category} & \textbf{Project} & \multicolumn{1}{l|}{\makecell{\textbf{\# Commits} \\ \textbf{analysed}}} & \textbf{1st/last commit} & \multicolumn{1}{l|}{\makecell{\textbf{KLOC 1st-} \\ \textbf{last commit}}} & \textbf{Description}\\
       \midrule
 
       % Data Storage & Management
-      \multirow{6}{2.5cm}{Data storage and Management} & accumulo & 99 & 23-12-2011 & 1-11-2019 & 193 - 237 & Data Storage System \\
-       & calcite & 81 & 23-11-2014 & 21-5-2021 & 109 - 187 & Dynamic Data Management \\
-       & cassandra & 136 & 10-4-2009 & 4-11-2019 & 36 - 178 & Distrib. NoSQL database \\
-       & chukwa & 73 & 31-10-2008 & 1-4-2019 & 8 - 31 & Data Collection \\
-       & jackrabbit & 155 & 24-12-2006 & 4-11-2019 & 94 - 241 & Content Repository \\
-       & jackson & 93 & 6-2-2012 & 5-11-2019 & 31 - 59 & Data Binding Library \\ \midrule
+      \multirow{6}{1.75cm}{Data storage and Management} & accumulo & 99 & 12-2011/ 11-2019 & 193 - 237 & Data Storage System \\
+       & calcite & 81 & 11-2014 / 5-2021 & 109 - 187 & Dynamic Data Management \\
+       & cassandra & 136 & 4-2009 / 11-2019 & 36 - 178 & Distrib. NoSQL database \\
+       & chukwa & 73 & 10-2008 / 4-2019 & 8 - 31 & Data Collection \\
+       & jackrabbit & 155 & 12-2006 / 11-2019 & 94 - 241 & Content Repository \\
+       & jackson & 93 & 2-2012 / 11-2019 & 31 - 59 & Data Binding Library \\ \midrule
 
       % Web  engine and tools
-      \multirow{5}{2.5cm}{Web engines and Web Tools} & httpcomp. & 126 & 9-2-2006 & 3-10-2019 & 0 - 33 & HTTP Toolset \\
-       & jspwiki & 186 & 25-8-2001 & 1-11-2019 & 1 - 32 & Wiki Engine \\
-       & retrofit & 51 & 1-6-2015 & 18-6-2020 & 3 - 10 & Android HTTP client\\
-       & spring-boot & 47 & 31-10-2017 & 31-5-2021 & 91 - 143 & Spring-based project manager\\
-       & struts & 158 & 24-4-2006 & 4-11-2019 & 24 - 41 & Web Apps Framework \\\midrule
+      \multirow{5}{1.75cm}{Web engines and Web Tools} & httpcomp. & 126 & 2-2006 / 10-2019 & 0 - 33 & HTTP Toolset \\
+       & jspwiki & 186 & 8-2001 / 11-2019 & 1 - 32 & Wiki Engine \\
+       & retrofit & 51 & 6-2015 / 6-2020 & 3 - 10 & Android HTTP client\\
+       & spring-boot & 47 & 10-2017 / 5-2021 & 91 - 143 & Spring-based project manager\\
+       & struts & 158 & 4-2006 / 11-2019 & 24 - 41 & Web Apps Framework \\\midrule
 
       % Search engine  
-      \multirow{4}{2.5cm}{Search Engines} & elasticsearch & 49 & 16-7-2015 & 26-3-2019 & 295 - 614 & Search engine \\
-       & jena & 95 & 1-6-2012 & 17-11-2019 & 209 - 348 & Semantic Web \\
-       & lucene & 173 & 20-10-2001 & 3-8-2015 & 5 - 453 & Search Engine \\
-       & tika & 144 & 17-8-2007 & 2-11-2019 & 2 - 63 & Content Analysis Toolkit \\\midrule
+      \multirow{4}{1.75cm}{Search Engines} & elasticsearch & 49 & 7-2015 / 3-2019 & 295 - 614 & Search engine \\
+       & jena & 95 & 6-2012 / 11-2019 & 209 - 348 & Semantic Web \\
+       & lucene & 173 & 10-2001 / 8-2015 & 5 - 453 & Search Engine \\
+       & tika & 144 & 8-2007 / 11-2019 & 2 - 63 & Content Analysis Toolkit \\\midrule
 
       % CI/CD Tools
-      \multirow{5}{2.5cm}{Development Tools} & ant-ivy & 130 & 15-7-2005 & 2-11-2019 & 10 - 42 & Dependency Manager \\
-       & jenkins & 186 & 17-12-2006 & 29-5-2021 & 14 - 125 & Automation server \\
-       & jgit & 123 & 17-11-2009 & 17-11-2019 & 18 - 113 & Java implementation of Git\\
-       & selenium & 132 & 16-2-2011 & 30-5-2021 & 2 - 53 & Automation web libraries\\
-       & testng & 147 & 21-9-2006 & 21-10-2019 & 13 - 59 & Testing Framework \\\midrule
+      \multirow{5}{1.75cm}{Development Tools} & ant-ivy & 130 & 7-2005 / 11-2019 & 10 - 42 & Dependency Manager \\
+       & jenkins & 186 & 12-2006 / 5-2021 & 14 - 125 & Automation server \\
+       & jgit & 123 & 11-2009 / 11-2019 & 18 - 113 & Java implementation of Git\\
+       & selenium & 132 & 2-2011 / 5-2021 & 2 - 53 & Automation web libraries\\
+       & testng & 147 & 9-2006 / 10-2019 & 13 - 59 & Testing Framework \\\midrule
 
       % Document APIs
-      \multirow{3}{2.5cm}{Document Manipulation} & pdfbox & 137 & 17-8-2008 & 3-11-2019 & 26 - 82 & PDF Library \\
-       & poi & 206 & 24-3-2002 & 1-11-2019 & 19 - 99 & MS Office API \\
-       & xerces2 & 189 & 3-1-2000 & 15-7-2019 & 36 - 116 & XML Library \\\midrule
+      \multirow{3}{1.75cm}{Document Manipulation} & pdfbox & 137 & 8-2008 / 11-2019 & 26 - 82 & PDF Library \\
+       & poi & 206 & 3-2002 / 11-2019 & 19 - 99 & MS Office API \\
+       & xerces2 & 189 & 1-2000 / 7-2019 & 36 - 116 & XML Library \\\midrule
 
       % Database APIs
-      \multirow{2}{2.5cm}{JDBC Drivers} & druid & 99 & 23-6-2011 & 3-11-2019 & 42 - 85 & Alibaba JDBC Library \\
-       & pgjdbc & 211 & 29-9-1997 & 4-11-2019 & 2 - 30 & PostgreSQL JDBC driver \\\midrule
+      \multirow{2}{1.75cm}{JDBC Drivers} & druid & 99 & 6-2011 / 11-2019 & 42 - 85 & Alibaba JDBC Library \\
+       & pgjdbc & 211 & 9-1997 / 11-2019 & 2 - 30 & PostgreSQL JDBC driver \\\midrule
 
       % Networking & Messaging
-      \multirow{2}{2.5cm}{Networking and Messaging} & activemq & 161 & 25-1-2006 & 6-11-2019 & 61 - 177 & Message Server \\
-       & mina & 120 & 22-3-2005 & 18-6-2019 & 6 - 28 & Network Framework \\ \midrule
+      \multirow{2}{1.75cm}{Networking and Messaging} & activemq & 161 & 1-2006 / 11-2019 & 61 - 177 & Message Server \\
+       & mina & 120 & 3-2005 / 6-2019 & 6 - 28 & Network Framework \\ \midrule
 
       % Game engine
-      Game Engine & libgdx & 139 & 22-4-2010 & 30-5-2021 & 23 - 222 & Game engine\\ \midrule
+      Game Engine & libgdx & 139 & 4-2010 / 5-2021 & 23 - 222 & Game engine\\ \midrule
 
       % Data binding
-      \multirow{2}{2.5cm}{Data Binding} & fastjson & 104 & 14-9-2011 & 5-4-2021 & 12 - 41 & Alibaba JSON data mapper \\
-       & gson & 99 & 27-9-2008 & 14-5-2021 & 6 - 10 & Google JSON data mapper\\ \midrule
+      \multirow{2}{1.75cm}{Data Binding} & fastjson & 104 & 9-2011 /5-4-2021 & 12 - 41 & Alibaba JSON data mapper \\
+       & gson & 99 & 9-2008 / 5-2021 & 6 - 10 & Google JSON data mapper\\ \midrule
 
-      Utility & guava & 83 & 11-1-2010 & 25-7-2019 & 33 - 117 & Google Core Library \\
+      Utility & guava & 83 & 1-2010 / 7-2019 & 33 - 117 & Google Core Library \\
       
       \bottomrule
       \end{tabular}%
@@ -228,7 +229,7 @@ Figure \ref{c5:fig:projects-versions-loc} reports the distribution of the total 
 
 \begin{figure}
     \centering
-    \includegraphics[width=.9\linewidth]{c5/project-version-loc.pdf}
+    \includegraphics[width=.9\linewidth,clip,trim={0 0.7cm 0 0}]{c5/project-version-loc.pdf}
     \caption{The distribution of the total number of lines of code of each version for each project.} \label{c5:fig:projects-versions-loc}
 \end{figure}
 
@@ -269,17 +270,17 @@ We also measure, for every artefact $x$ the changes in the system using a well-e
 \end{enumerate}
 
 
-To collect the data, we used a combination of two tools: Arcan \cite{Arcelli2016} and ASTracker \cite{Sas2019}. Arcan collected the artefacts affected by architectural smells in each selected commit in the history of the systems directly from the source code files.
-The output of Arcan is a graph file containing the dependency network of the commit analysed, including the smells detected.
+To collect the data, we used a combination of two tools: \textsc{Arcan} \cite{Arcelli2016} and ASTracker \cite{Sas2019}. \textsc{Arcan} collected the artefacts affected by architectural smells in each selected commit in the history of the systems directly from the source code files.
+The output of \textsc{Arcan} is a graph file containing the dependency network of the commit analysed, including the smells detected.
 The algorithms used to detect architectural smells are explained in detail by Arcelli et al. in their paper\cite{Arcelli2016}. The detection is based on the software design principles reported by Martin \cite{Martin2018} and Lippert \cite{Lippert2006}.
 In short, Cyclic Dependency is detected using a Depth-First Search algorithm that visits all the nodes in the dependency graph while checking which were already visited. 
 Unstable Dependency is detected using Martin's Instability metric \cite{Martin2018}: if the \emph{majority} of a package's  dependencies are less stable than itself, then it is marked as an unstable dependency smell.
 Hublike Dependency is detected by simply looking at the number of incoming and outgoing dependencies a certain artefact has: if the sum of these dependencies surpasses a certain system-based threshold, then the artefact is marked as a hub.
 Finally, God Component is detected using an automatically-calculated variable threshold \cite{Arcelli2015} using the distribution of the total amount of lines of code of the packages in a benchmark of over 100 systems; the packages in the analysed system are then compared with this threshold and the artefacts surpassing it are marked as God Components \footnote{See \url{https://fse.studenttheses.ub.rug.nl/19603/} for more details.}.
 
-Arcan's results were validated in different studies. A first validation of the results of Arcan was performed on two open source projects with a precision of 100\% \cite{Arcelli2016}. 
-Next, the results of Arcan were also validated in an industrial setting by two different studies: first on industrial C/C++ projects obtaining 50\% precision \cite{Martini2018} and then on industrial Java projects obtaining 70\% precision \cite{Arcelli2020}.
-The precision metric was chosen as the main indicator of Arcan's performance because the true positive rate was found to be the main concern for developers during the mentioned studies.
+\textsc{Arcan}'s results were validated in different studies. A first validation of the results of \textsc{Arcan} was performed on two open source projects with a precision of 100\% \cite{Arcelli2016}. 
+Next, the results of \textsc{Arcan} were also validated in an industrial setting by two different studies: first on industrial C/C++ projects obtaining 50\% precision \cite{Martini2018} and then on industrial Java projects obtaining 70\% precision \cite{Arcelli2020}.
+The precision metric was chosen as the main indicator of \textsc{Arcan}'s performance because the true positive rate was found to be the main concern for developers during the mentioned studies.
 
 The second tool we used, ASTracker, computed the above-mentioned change metrics and identified the elements affected by each smell.
 ASTracker's main feature is to track architectural smells from one version to the next (i.e. link the same instances detected in two adjacent versions), but for this study it was only used to calculate the change metrics as stated above. To guarantee the correctness of the implementation of the change metrics, we used thorough unit testing.
@@ -324,7 +325,7 @@ To ensure the test is \emph{supported}, we need to make sure that the proportion
 In other words, given that there are more non-changing files than changing files, a period of 1 month is likely to be insufficient for enough files to change.
 Thus we aggregated our data to a 4-month granularity (rather than 1-month); this is approximately the average release rate we mined from the Git tags of our projects. We call these ``versions'' \emph{pseudo-releases}.
 Thus, for each pseudo-release $v$, we test for the null-hypothesis, namely, whether there is no statistical difference in the proportions of changes for artefacts affected and not affected by architectural smells. 
-This analysis will include all types of smells, both at class and package level, detected by Arcan.
+This analysis will include all types of smells, both at class and package level, detected by \textsc{Arcan}.
 
 The next step is to compare the percentages of pseudo-releases that do show a significant difference (accepting $H^{RQ1}_1$) and the pseudo-releases that do not show any significant difference (accepting $H^{RQ1}_0$), which will allow us to answer RQ1.
 Note that we opted to perform one test per commit per project, rather than one test per project, to ensure that the imbalance in changes detected is not the result of a few change hotspots throughout the history of the system, but rather a more constant phenomenon.
@@ -485,6 +486,7 @@ The results imply that, in most cases, HL is the smell that contributes the most
 Thus, we conclude that we accept $H^{RQ1a}_0$ and affirm that \textbf{there is \emph{no significant difference} in the prediction power of different smell types on source code changes}.
 
 \begin{table}
+    \footnotesize
     \centering
     \caption{Results of the multinomial logistic regression in percentage of commits a variable was statistically significant in predicting a change (Rejecting $H^{RQ1a}_0$).}\label{c5:tab:rq1a-results}
     \begin{tabular}{l|r|r|r|r|r}
@@ -518,7 +520,7 @@ In summary, \textbf{the more smells affecting an artefact, the higher the change
 
 \begin{figure}
     \centering
-    \includegraphics[width=.8\linewidth]{c5/rq1b-test.pdf}
+    \includegraphics[width=.9\linewidth]{c5/rq1b-test.pdf}
     \caption{Mann-Whitney tests testing $H^{RQ1b}_0$ by size groups.} \label{c5:fig:rq1b-test}
 \end{figure}
 
@@ -618,13 +620,13 @@ More precisely, smelly artefacts have an average change size (TACH) across all t
 
 \begin{figure}
     \centering
-    \includegraphics[width=.8\linewidth]{c5/rq3-test.pdf}
+    \includegraphics[width=.9\linewidth]{c5/rq3-test.pdf}
     \caption{Brown-Forsythe tests results by size groups for $H_0^3$.}\label{c5:fig:rq3-test}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=.8\linewidth]{c5/rq3.pdf}
+    \includegraphics[width=.9\linewidth]{c5/rq3.pdf}
     \caption{Violin plots of the distribution of the average change size (TACH metric) in the analysed commits grouped by  smelly and non-smelly artefacts (log scale).}\label{c5:fig:rq3-violinplots}
 \end{figure}
 

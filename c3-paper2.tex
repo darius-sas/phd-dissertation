@@ -1,6 +1,6 @@
 \setlength{\headheight}{1.2cm}
 \renewcommand{\publ}{\flushleft\footnotesize{Based on:\\[0.1cm]
-		\textit{``Investigating instability architectural smells evolution: an exploratory case study''} \\[0.1cm]
+		\textit{D. Sas, P. Avgeriou and F. Arcelli Fontana, "Investigating Instability Architectural Smells Evolution: An Exploratory Case Study," 2019 IEEE International Conference on Software Maintenance and Evolution (ICSME), 2019, pp. 557-567, doi: 10.1109/ICSME.2019.00090.} \\[0.1cm]
 }}
 
 \chapter{Investigating instability architectural smells evolution: an exploratory case study}\label{chap:3}
@@ -20,7 +20,7 @@ However, while the evolution of \emph{code} smell instances has been extensively
 
 We need to study the evolution of AS in detail because AS are a different type of ``affliction" than code smells: they usually involve more elements than code smells, they affect the system at a different scale, and they require more effort to be refactored \cite{Lippert2006}. At the same time,  the long-term advantages of this refactoring in terms of maintainability and changeability of the system are higher. Thus, the current theoretical knowledge on code smells cannot be applied to AS.
 
-In this study, we propose an approach to study the evolution of AS detected by an open source tool named Arcan \cite{Arcelli2017}, by tracking individual smell instances and measuring the evolution of the properties of each detected instance. We have detected almost 150.000 unique smell instances in over 500 versions across 14 open source Java projects.
+In this study, we propose an approach to study the evolution of AS detected by an open source tool named \textsc{Arcan} \cite{Arcelli2017}, by tracking individual smell instances and measuring the evolution of the properties of each detected instance. We have detected almost 150.000 unique smell instances in over 500 versions across 14 open source Java projects.
 We have performed four types of analyses: a generic data mining analysis to have a better understanding of the data, a trend analysis to understand the evolution of the smells over time, a correlation analysis to identify possible correlations among the smell characteristics\footnote{See Section \ref{c3:sec:smell-characteristics} for the definition of characteristics and the full list.} considered, and a survival analysis to document their probability to persist within the system.
 The focus of this study is on the architectural smells known as instability AS \cite{Arcelli2016}; these are introduced in more depth in Section \ref{c3:sec:arch-smells}.
 
@@ -39,7 +39,7 @@ Their findings, based on a case study performed on the Qualitas Corpus \cite{Qua
 
 Another study that considers the history of architectural smells was published by Roveda et al. \cite{Roveda2018}.
 In their work, the authors try to estimate the architectural debt index using architectural smells and track the evolution of the index throughout a system's history.
-The calculation uses partial historical information of the AS identified by the Arcan tool in multiple versions.
+The calculation uses partial historical information of the AS identified by the \textsc{Arcan} tool in multiple versions.
 The major shortcomings of Roveda et al.'s index are:
 \begin{enumerate}[label=(\roman*)]
     \item the historical information used is limited to the size of the smell and only considers the previous version,
@@ -64,7 +64,7 @@ This section lists the architectural smells (AS) considered by this study. The d
 \subsubsection{Unstable dependency (UD)}\label{c3:sec:arch-smells-ud}
 This smell represents a component\footnote{Generally, by \emph{components} we refer to both classes and packages. Only in the case of UD, we only mean packages.} that depends upon a significant number of components that are less stable than itself.
 The stability of a component is measured using Martin's instability metric \cite{Martin2018}, which measures the degree to which a component (e.g. a package) is susceptible to change based on the classes it depends upon and on the classes depending on it.
-The smell thus arises when a component has a significant number of components -- the tool Arcan uses a 30\% threshold \cite{Arcelli2017} -- it depends upon with an instability value higher than its own.
+The smell thus arises when a component has a significant number of components -- the tool \textsc{Arcan} uses a 30\% threshold \cite{Arcelli2017} -- it depends upon with an instability value higher than its own.
 A UD smell is detectable on Java package-like elements only (i.e. containers of classes). A simplified example of UD is shown in Figure \ref{c3:fig:unstable-dep}. 
 
 The main problem caused by UD is that the probability to change the main component grows higher as the number of unstable components it depends upon grows accordingly. This increases the likelihood that the components that depend upon it (not shown in Figure \ref{c3:fig:unstable-dep} for simplicity) change as well when it is changed (ripple effect), thus inflating future maintenance efforts.
@@ -94,7 +94,7 @@ This structure is thus not desirable, as it increases the potential effort neces
 
 \subsubsection{Cyclic dependency (CD)}\label{c3:sec:arch-smells-cd}
 This smell represents a cycle among a number of components; there are several software design principles that suggest avoiding creating such cycles \cite{Lippert2006,Parnas1979,Stevens1974,Martin2018}.
-Cycles may have different topological shapes. Al-Mutawa et al. \cite{AlMutawa2014} have identified 7 of them; the ones detected by Arcan are shown in Figure \ref{c3:fig:cycle-dep} \cite{Arcelli2017}.
+Cycles may have different topological shapes. Al-Mutawa et al. \cite{AlMutawa2014} have identified 7 of them; the ones detected by \textsc{Arcan} are shown in Figure \ref{c3:fig:cycle-dep} \cite{Arcelli2017}.
 Usually, the circle shape is intuitively perceived as the typical CD, but it is certainly not the only possible type of CD. In fact, there is empirical evidence \cite{AlMutawa2014} that tiny and multi-hub shapes (two stars attached together that are missing some edges) are more common than circle.
 
 Besides affecting complexity, their presence also has an impact on compiling (causing the recompilation of big parts of the system), testing (forcing to execute unrelated parts of the system, increasing testing complexity), or deploying (forcing developers to re-deploy unchanged components) \cite{Lippert2006}.
@@ -240,12 +240,12 @@ The toolchain is composed of two parts: AS \emph{detection} and AS \emph{trackin
     \caption{Data collection process and tooling. The data of each individual project was then merged in a single data set.}\label{c3:fig:data-collection}
 \end{figure}
 \subsubsection{Architectural smell detection}
-To identify architectural smells we use Arcan\footnote{\label{fn:arcan}See \url{https://gitlab.com/essere.lab.public/arcan}.}, a free Java tool for detecting architectural smells in a system.
-Arcan receives as input one, or multiple, JAR files of a single version of a system and outputs a series of CSV files and a GraphML file. The graph file is the dependency graph of the given system extended with nodes denoting architectural smells. The same information as the graph file is contained within multiple CSV files.
+To identify architectural smells we use \textsc{Arcan}\footnote{\label{fn:Arcan}See \url{https://gitlab.com/essere.lab.public/Arcan}.}, a free Java tool for detecting architectural smells in a system.
+\textsc{Arcan} receives as input one, or multiple, JAR files of a single version of a system and outputs a series of CSV files and a GraphML file. The graph file is the dependency graph of the given system extended with nodes denoting architectural smells. The same information as the graph file is contained within multiple CSV files.
 
 \subsubsection{Architectural smell tracking}
 In order to perform the study, we needed to track the architectural smells for each pair of consecutive versions of the system, i.e. from $v_1$ to $v_2$, from $v_2$ to $v_3$, and so on.
-To this end, we developed a tool, ASTracker\footnote{\label{fn:astracker}See \url{https://github.com/darius-sas/astracker} to access the tool and the data used in this study.}, that performs the following steps: it takes as input multiple versions of a system (the GraphML files produced by Arcan) and maps every smell in each version to its closest successor in the next version, calculates the smell characteristics, and returns the results as CSV and GraphML files.
+To this end, we developed a tool, ASTracker\footnote{\label{fn:astracker}See \url{https://github.com/darius-sas/astracker} to access the tool and the data used in this study.}, that performs the following steps: it takes as input multiple versions of a system (the GraphML files produced by \textsc{Arcan}) and maps every smell in each version to its closest successor in the next version, calculates the smell characteristics, and returns the results as CSV and GraphML files.
 
 To perform the mapping of each smell to its successor we use a function $J$ known as \emph{Jaccard similarity index} \cite{Jaccard1912}, defined as
 $$J(A, B) = \frac{|A \cap B|}{|A \cup B|}$$
@@ -485,7 +485,7 @@ Additionally, tiny cycles are easier to understand and may also be intentionally
 
 On the other hand, the other, more complex, shapes are less \emph{resilient} (i.e. they disappear faster than tincy cycles) and there is very little difference between different shape types, making it hard to formulate any solid proposition on their survivability. In order for these complex shapes to persist, they must affect parts of the system that have a solid conceptual connection; otherwise they do not persist long within the system.
 
-Regarding instead the cycles Arcan could not classify into definite shapes, they have a more consistent trend and disappear quicker than all other shapes.
+Regarding instead the cycles \textsc{Arcan} could not classify into definite shapes, they have a more consistent trend and disappear quicker than all other shapes.
 A possible explanation could be related to their nature: we conjecture that this type of cycle is mostly random and caused by casual relationships among components that tend to connect multiple uncomplete cycles into a single one, possibly overlapping with other cycles as well.
 Thus these very volatile edges that interconnect multiple parts of a system have a high chance of getting changed because they are individual edges, and if one of these edges is removed, the whole cycle breaks.
 This is also evident from the clear difference in survival probability between the unclassified shapes and the complex shapes (circle, chain, clique, star).
@@ -527,7 +527,7 @@ We developed a case study using a well-known protocol template \cite{Brereton200
 A possible threat to construct validity  is the correctness of the tracking algorithm that might be incorrect or not cover some special cases, such as the renaming of the affected components.
 To mitigate this threat, we manually validated the tracking results for one of the projects considered in this study (Antlr) and fixed any issues we found during our inspections.
 
-Another threat concerns the detection of the smells considered in this project which depends on the implementation offered by Arcan. This is partially mitigated, as the Arcan tool has already been used and evaluated in a number of studies \cite{Arcelli2016, Biaggi2018}.
+Another threat concerns the detection of the smells considered in this project which depends on the implementation offered by \textsc{Arcan}. This is partially mitigated, as the \textsc{Arcan} tool has already been used and evaluated in a number of studies \cite{Arcelli2016, Biaggi2018}.
 
 Finally, the last threat we identified is the relatively \emph{long}, and \emph{variable} periods of time in between the versions analysed for each project. This problem may have caused the prevalence of `sharp' classification in the trend analysis over the `gradual' ones.
 We mitigated this threat by limiting the importance we attribute to the specific type of the trend and focusing mostly on its nature (i.e. increase/decrease) and by also including projects with a strict release schedule (e.g. Hibernate).
