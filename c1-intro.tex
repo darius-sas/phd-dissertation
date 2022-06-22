@@ -8,26 +8,25 @@ The change or decay process continues until it is judged more cost effective to 
 The law refers to the fact that all software is designed to operate in a specific environment and to satisfy a specific set of requirements. 
 However, every environment, and every requirement, is bound to change eventually, rendering the software obsolete. %, unless it changes accordingly.
 Therefore, a constant need of adapting the software and keeping it \emph{relevant} for its stakeholders arises.
-This continuous adaptation is a \emph{relentless endeavor} that requires an ever-increasing amount of resources and, over time, destabilises the sustainability of a software project.
+This continuous adaptation is a \emph{relentless endeavor} that requires an ever-increasing amount of resources and, over time, destabilises the \emph{sustainability} of a software project.
 
 A software project is \emph{sustainable} if the project owner is capable of applying whatever valuable change they ought to make, in a timely fashion \cite{Winters2020}.
-However, decisions and implementation choices made early on in the project's lifetime inevitably affect the decisions we have to make in the present, often making them harder.
+However, design decisions and implementation choices made early on in the project's lifetime inevitably affect the decisions we have to make in the present, often making them harder.
 Over time, as the system grows old, our capability of adapting the software to new requirements and changes in the environment grows narrower, and making changes becomes more expensive.
-Eventually, the system becomes \emph{unsustainable} and the second part of Lehman's first law of software evolution comes into play.
-In other words, a system that is unsustainable is a system that is \emph{poorly maintainable} -- e.g. it is hard to fix bugs -- and with \emph{limited capabilities} to evolve -- e.g. it is difficult to implement new functionality. 
+Eventually, the system becomes \emph{unsustainable}: it is \emph{poorly maintainable} -- e.g. it is hard to fix bugs -- and with \emph{limited capabilities} to evolve -- e.g. it is difficult to implement new functionality. In other words, the second sentence of Lehman's first law of software evolution comes into play.
 
-In 1992, Ward Cunningham cleverly adapted and reframed these concepts under the term \emph{technical debt} \cite{Cunningham1992}. 
-Since then, technical debt has gained a lot of traction among both practitioners and researchers alike, as it concerns a problem that every non-trivial software system suffers from. 
+In 1992, Ward Cunningham cleverly adapted and reframed both of these concepts (sustainability and Lehman's law) under the term \emph{technical debt} \cite{Cunningham1992}. 
+Since then, technical debt has gained a lot of traction among both practitioners and researchers alike, as it concerns a problem that (almost) every non-trivial software system suffers from. 
 Over the years, several studies have made great progress in identifying the causes and effects of technical debt \cite{Brown2010,Kruchten2012}.
 A comparable amount of effort was also spent in designing and developing strategies and techniques to \emph{manage} TD \cite{Li2015} in order to aid decision-makers. 
 Similarly, several tools were developed to automatically \emph{measure} TD using source code as input \cite{Avgeriou2021}, or \emph{track} it manually \cite{Martini2016}.
 
-Technical debt can materialise into various forms, ranging from source code violations \cite{Letouzey2012,Curtis2012} and design level flaws \cite{Marinescu2012} to high-level decisions made at the architectural level \cite{Ernst2015,Yli-Huumo2014}. One form of such architectural decisions are architectural smells (AS); they are defined as a \emph{``commonly (although not always intentionally) used architectural decisions that negatively impact system quality} \cite{Garcia2009} and have gained a lot of attention from researchers over the past years \cite{Verdecchia2018}.
-AS contribute to the degradation of a software project's maintainability, and since they involve high-level artefacts, their impact is mostly perceived on the long term. 
+Technical debt can materialise into various forms, ranging from source code violations \cite{Letouzey2012,Curtis2012} and design-level flaws \cite{Marinescu2012} to sub-optimal decisions made at the architectural level \cite{Ernst2015,Yli-Huumo2014}. One form of such architectural decisions are architectural smells (AS); they are defined as a \emph{``commonly (although not always intentionally) used architectural decisions that negatively impact system quality} \cite{Garcia2009} and have gained a lot of attention from researchers over the past years \cite{Verdecchia2018}.
+AS are a particularly risky type of technical debt: they involve architecture-level artefacts, so their impact is much higher and affects software development in the long run. 
 %Although existing literature has devoted a considerable amount of effort to study AS \cite{Mo2015,Le2016,Arcelli2016}, our understanding of AS is still incomplete.
 %This dissertation aims at improving the current state of the art concerning our understanding of AS by answering questions such as: \emph{how are AS introduced?; how do AS evolve?; and, what is their impact on software maintenance (i.e. technical debt)?}
 
-The fundamental proposition of this thesis is that a better understanding of AS will allow software practitioners to better manage technical debt, thus making software maintainability more cost effective, which slows down the decaying process mentioned by Lehman's first law of software evolution and defers the replacement of the software.
+The fundamental proposition of this thesis is that a better understanding of AS will allow software practitioners to better manage technical debt, thus making software maintainability and evolvability more cost effective; this can, in turn, slow down the decaying process mentioned by Lehman's first law of software evolution and defer the replacement of the software.
 
 In the upcoming sections, I will introduce the concepts of technical debt and architectural smells in further detail, as these are the \emph{leitmotif} of this dissertation.
 I will also decompose the research problem addressed in this thesis into multiple research questions and explain the methodology used to answer them.
@@ -36,7 +35,7 @@ I will also decompose the research problem addressed in this thesis into multipl
 \section{Technical Debt}
 \subsection{History, definitions, and types}
 In 1992, Cunningham first introduced the concept of \emph{technical debt} (TD) \cite{Cunningham1992}. 
-The term was coined to indicate the necessity of releasing software that, may work perfectly, but does not meet the criteria of long-term sustainable software. 
+The term was coined to indicate the necessity of releasing software that, may work perfectly, but does not meet the criteria of software that is sustainable in the long-term. 
 Cunningham himself calls this an \emph{``unmasterable program''} that is \emph{``dangerous''} unless the \emph{debt} is repaid.
 Unfortunately, TD repayment is not always feasible, as software practitioners have to work with limited time and budget, resulting in most of TD not being repaid \cite{Digkas2018}.
 The time spent on not-quite-right code counts as \emph{interest} on that debt \cite{Cunningham1992}, making software projects more expensive to maintain.
@@ -46,11 +45,11 @@ Technical debt is a powerful metaphor that, essentially, conveys the importance 
 A modern definition of TD is the following: 
 %\emph{TD reflects the technical compromises that software practitioners make in order to achieve a short-term advantage at the expense of creating a technical context that increases complexity and cost in the long-term} 
 \emph{``in software-intensive systems, technical debt is a collection of design or implementation constructs that are expedient in the short term, but set up a technical context that can make future changes more costly or impossible. Technical debt presents an actual or contingent liability whose impact is limited to internal system qualities, primarily maintainability and evolvability''}\cite{Avgeriou2016}. 
-Hence, an organization can get into debt and, as long as it is aware of the debt and is planning to repay it in the medium-term period, use it as leverage to temporarily increase productivity.
+Hence, an organization can get into debt and use it as leverage to temporarily increase productivity, as long as it is aware of the debt and is planning to repay it in the due time.
 However, if the organization is not aware that it is accruing TD, or does not repay it on time, the amount of interest may become too high, causing the failure of the project due to the huge cost of implementing changes.
 
-During the course of the years, the metaphor has been extended by the research community and has assumed a wider meaning, engulfing several aspects of the software development process like architecture, design, requirements, testing and documentation \cite{Brown2010}.
-The current literature has explored the concept in breadth and depth and has proposed and analyzed multiple taxonomies and types of TD.
+Since the concept was originally conceived by Cunningham, the metaphor has been extended, engulfing several aspects of the software development process like architecture, design, requirements, testing and documentation \cite{Brown2010}.
+The current research literature has explored the concept in breadth and depth and has proposed and analyzed multiple taxonomies and types of TD.
 A common way of categorising TD is by the type of artefacts it affects. Using this approach, Li et al. \cite{Li2015} identified several different types of TD, namely \emph{Requirements TD}, \emph{Architectural TD}, \emph{Design TD}, \emph{Code TD}, \emph{Test TD}, \emph{Build TD}, \emph{Documentation TD}, \emph{Infrastructure TD}, and \emph{Versioning TD}.
 
 In this thesis, I will mostly focus on \emph{Architectural TD} (ATD), the type of TD that affects the architecture of a software.
@@ -73,17 +72,17 @@ Alternatively, architectural smells can be seen as error-prone or change-prone d
 It is important to note, however, that architectural smells are an \emph{indication} that something may be problematic, but they do not necessarily result in problems.
 
 This definition of architectural smells may sound very similar to the definition of \emph{code smells} provided by Kent Beck\footnote{Read \url{https://wiki.c2.com/?CodeSmell} for more info.}. 
-However, there is a clear distinction between the two: architectural smells involve multiple classes, packages, architectural layers, or even sub-systems\footnote{From hereon collectively referred to as \emph{elements}.} \cite{Lippert2006}, whereas code smells (CS) arise at line of code, method, or class level \cite{Fowler2002}. 
+However, there is a clear distinction between the two: architectural smells involve multiple classes, packages, architectural layers, or even sub-systems\footnote{From hereafter collectively referred to as \emph{elements}.} \cite{Lippert2006}, whereas code smells (CS) arise at line of code, method, or class level \cite{Fowler2002}. 
 This means that architectural smells, contrary to code smells, require \emph{large refactorings} in order to be removed from a system \cite{Lippert2006}.
 Therefore, given the different scope and granularity, architectural smells and code smells are considered two different categories \cite{Sharma2020}.
-In this regard, there exists empirical evidence supporting the difference between the two categories of smells \cite{Arcelli2019}.
+This difference between the two categories of smells is also supported by empirical evidence \cite{Arcelli2019}.
 
 Architectural smells can be of different types, with each type having its own definition and implications for the maintainability and evolvability of the affected elements \cite{Azadi2019}.
 An architectural smell type can have multiple instances affecting a system, with each instance having a different severity (more on this in Chapter \ref{...}).
 An example of an architectural smell type is \emph{Cyclic Dependency}, which arises when a set of elements (e.g. classes, or packages) depend on each other in a cycle.
 
 The architectural smell types that are of interest to this PhD project are \emph{Cyclic Dependency (CD), Hublike Dependency (HL), God Component (GC), and Unstable Dependency (UD)}.
-I opted to focus on these four types of AS because, while they are some of the most prominent AS in the literature, there are several important aspects that were not yet investigated. These are extensively elaborated in Section \ref{sec:intro:problem-statement}.
+In Section \ref{sec:intro:problem-statement} I extensively elaborate on the reasons why I opted to focus on these four types of AS.
 The definitions of each AS type will be given in Chapter \ref{...}.
 
 %\subsection{Why smells over existing metric?}
@@ -94,37 +93,35 @@ This PhD project was conducted in the context of the SDK4ED project, a project f
 
 The vision of SDK4ED is to minimize the cost, the development time and the complexity of low-energy software development projects, by providing tools for automatic optimisation of multiple quality requirements, such as Technical debt, Energy efficiency, Dependability (i.e. Reliability, Availability, and Security) and Performance. 
 One of the topics on which the project has innovated, is researching and developing tools to identify the \textit{trade-offs} between runtime and design-time software quality attributes at multiple levels of abstractions (code, design, and architecture).
-In this regard, our study investigates specifically the interaction between Technical debt (i.e. Maintainability) and Reliability, a design-time and a runtime quality attribute, respectively. Further details on the project is available on its website\footnote{Browse \url{https://sdk4ed.eu/}.}.
+In this regard, our study investigates specifically the interaction between Technical debt (i.e. Maintainability and Evolvability) and Reliability, which map to design-time and a runtime quality attributes, respectively. Further details on the project is available on its website\footnote{Browse \url{https://sdk4ed.eu/}.}.
 
 As part of the SDK4ED project, I also contributed to the open source version of \textsc{Arcan}, a tool to automatically detect AS in a system, by adding support for Java source code, support for Git to do evolution analyses, and the detection of the God Component smell.
 \textsc{Arcan} will be fully introduced in Section \ref{...}.
 
 \section{Research design}\label{sec:intro:research-design}
-\subsection{Problem statement}\label{sec:intro:problem-statement} 
-Architectural smells management entails several benefits for the long-term maintainability and evolution of a system.
-An oversimplified definition would summarise AS management as: (1) \emph{identify} what elements in the system are affected by AS; (2) \emph{quantify} the impact of each smell on the development activities (both maintenance and evolution) in order to determine the urgency to refactor; (3) \emph{make a decision} on whether to keep the smell (i.e. let it accrue interest) or refactor it (i.e. pay back the debt); and finally (4) \emph{repeat} the whole process regularly.
-%This is a rather resource-consuming process, and despite the many benefits it entails, practitioners can hardly apply it in practice due to the limited resources available.
-%; a strong need for automating as much as possible the whole process is felt in this regard.
+\subsection{Problem statement}\label{sec:intro:problem-statement}
+In this dissertation, we tackle the problem that practitioners face when including architectural smells as part of their TD management activities.
+To better explain the problem, let us quickly look at the key phases of TD management \cite{Li2015} when the type of TD managed are architectural smells: (1) \emph{identify} what elements in the system are affected by AS and the type of the smells; (2) \emph{quantify} the impact of each smell on the development activities (both maintenance and evolution); (3) \emph{prioritise} the smells in order to determine the urgency to refactor %-- i.e. decide on whether to keep the smell (i.e. let it accrue interest) or refactor it (i.e. pay back the debt); 
+(4) \emph{repay} the debt by refactoring smells according to the prioritisation strategy adopted; and finally (5) regularly \emph{monitor} the evolution of AS over time.
 
-The current research landscape contains plenty of studies that focus on the first phase of AS management: \emph{identification}.
-Indeed, the early research work on architectural smells focused on identifying new types of smells, theoretically defining them, proposing detection rules, and finally describing their impact on software maintenance from a theoretical point of view \cite{Lippert2006,Garcia2009,Mo2015,Le2016,Arcelli2016}.
+The TD management problem stemming from the presence of architectural smells is that the current research landscape contains plenty of studies that focus on the first phase of TD management for architectural smells -- i.e.  \emph{identification} -- whereas the work done on the other phases is not as mature.
+In other words, practitioners have the means to identify the AS affecting a system, but there is a limited understanding, and tool support, for the remaining phases.
+
+This situation stems from the fact that early research work on architectural smells (rightfully) focused on identifying new types of smells, theoretically defining them, proposing detection rules, and finally describing their impact on software maintenance from a theoretical, and then empirical, point of view \cite{Lippert2006,Garcia2009,Mo2015,Le2016,Arcelli2016}.
 Eventually, tools for automatic detection of AS were proposed, by both academia and industry \cite{Avgeriou2021,Khomyakov2020}, and AS management became a more feasible option for many practitioners that could not afford to do a manual assessment.
-
-Unfortunately, the remaining phases of AS management -- i.e. \emph{quantification} and \emph{decision-making} -- are not as mature as the \emph{identification} phase.
-Practitioners have the means to identify the AS affecting a system, but there is a limited understanding, and tool support, of the remaining phases of AS management.
-Ultimately, the lack of research in these two phases severely limits the options available for practitioners, who have to rely on intuition and experience in order make refactoring decisions.
+However, the scarcity of research in the phases from quantification through monitoring never allowed proper AS management to materialise in the real world, leaving practitioners to rely on intuition, assumptions and experience, instead of \emph{data} and \emph{well-established practices}, in order to make refactoring decisions.
+In the long run, this is likely to result in a less sustainable software \cite{Winters2020} and an increased amount of technical debt accrued. 
+%Ultimately, the scarcity of research in the phases from quantification through monitoring severely limits the options available for practitioners, who have to rely on intuition, instead of data, and on experience, instead of well-established practices, in order to make refactoring decisions.
 
 This problem is summarised by the following statement:
 \begin{quote}\itshape
     ``The detection of the architectural smells alone is not sufficient for practitioners to take informed TD management decisions.
     Practitioners need to understand what lead to the introduction of a smell, the impact of the smell on the system, the available prioritisation strategies, and the amount of TD each instance amounts to.''
-    %``Existing literature on architectural smells does not document how AS are introduced, how long they persist, and how software practitioners are impacted by AS. 
-    %This limits existing implementations of a fully-automated, data-driven approach to manage the technical debt generated by architectural smells.''
 \end{quote}
 
 \subsection{Design science as research methodology}
-The research project that this dissertation is based on adopts the design science framework, as developed by Wieringa \cite{Wieringa2014} and depicted in Figure \ref{fig:design-science}.
-Design science is the \emph{design} and \emph{investigation} of artefacts (e.g. a software component, a method, a service, an organisation, etc.) in context \cite{Wieringa2014}.
+The research project that this dissertation is based on, adopts the design science framework, as developed by Wieringa \cite{Wieringa2014} and depicted in Figure \ref{fig:design-science}.
+Design science concerns the \emph{design} and \emph{investigation} of artefacts (e.g. a software component, a method, a service, an organisation, etc.) in context \cite{Wieringa2014}.
 \emph{Design} refers to allowing the design of an artefact that improves a problem context, namely, that solves a \emph{design problem}. 
 \emph{Investigation} refers to allowing to answer \emph{knowledge questions} about the artefact in context.
 
@@ -135,7 +132,7 @@ Figure \ref{fig:design-science} can help us distinguish these: if the question a
 A concrete example of design science is Software Engineering itself \cite{Wieringa2014}.
 Software Engineering is a design science that seeks to understand and solve the problems of creating and maintaining software to achieve the stakeholders' goals.
 
-A concrete example of a design problem is: \emph{design an approach to measure technical debt principal generated by architectural smells.}
+A concrete example of a design problem is: \emph{design an approach to measure technical debt principal based on architectural smells.}
 A concrete example of a knowledge question is: \emph{how accurate is such an approach?}
 
 \begin{figure}
@@ -150,12 +147,12 @@ Iterations through the design cycle may uncover aspects of the original design p
 The evaluation process also allows for additional design problems or knowledge questions to emerge.
 
 These characteristics make the design science framework suitable for describing long-term research such as PhD projects.
-Indeed, a PhD project starts with an initial design problem that can be expressed as a problem statement, which can be decomposed into new, smaller design problems and knowledge questions.
+Indeed, a PhD project starts with an initial design problem, which can be decomposed into new, smaller design problems and knowledge questions.
 By answering the knowledge questions, the researcher can identify, with the new knowledge acquired, a solution to the design problems previously identified, which in turn might uncover new design problems and knowledge questions.
 The cycle repeats until a design solution is found for the original problem.
 
 \subsection{Problem decomposition}
-This section elaborates on how the research project presented in this thesis is framed into the design science framework. 
+This section elaborates on how the research project presented in this thesis is framed according to the design science framework. 
 Figure \ref{fig:intro:problem-decomposition} decomposes the problem statement introduced in Section \ref{sec:intro:problem-statement} into design problems and knowledge questions.
 The different colors and arrows are to be read as follows: light grey boxes refer to design problems; yellow boxes refer to knowledge questions; thin arrows represent decomposition; whereas thick arrows represent sequence.
 In the remainder of this section, I will use the term \emph{research question} (RQ) to refer to both design problems and knowledge questions.
