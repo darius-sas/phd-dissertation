@@ -100,23 +100,22 @@ As part of the SDK4ED project, I also contributed to the open source version of 
 
 \section{Research design}\label{sec:intro:research-design}
 \subsection{Problem statement}\label{sec:intro:problem-statement}
-In this dissertation, we tackle the problem that practitioners face when including architectural smells as part of their TD management activities.
-To better explain the problem, let us quickly look at the key phases of TD management \cite{Li2015} when the type of TD managed are architectural smells: (1) \emph{identify} what elements in the system are affected by AS and the type of the smells; (2) \emph{quantify} the impact of each smell on the development activities (both maintenance and evolution); (3) \emph{prioritise} the smells in order to determine the urgency to refactor %-- i.e. decide on whether to keep the smell (i.e. let it accrue interest) or refactor it (i.e. pay back the debt); 
-(4) \emph{repay} the debt by refactoring smells according to the prioritisation strategy adopted; and finally (5) regularly \emph{monitor} the evolution of AS over time.
+In this dissertation, I tackle the problem faced by practitioners who struggle to make changes to their systems due to the presence of AS, and argue that by providing better support to include AS within existing TD management activities we can help practitioners make changes more easily. %practitioners face when including architectural smells as part of their TD management activities.
+To better explain the problem, let us quickly look at the key phases\footnote{Note that I do not mention all phases in this summary.} of TD management \cite{Li2015} as if we apply them specifically to AS: (1) \emph{identify} what elements in the system are affected by AS and the type of the smells; (2) \emph{quantify} the impact of each smell on the development activities (both maintenance and evolution); (3) \emph{prioritise} the smells in order to determine the urgency to refactor; (4) \emph{repay} the debt by refactoring smells according to the prioritisation strategy adopted; and finally (5) regularly \emph{monitor} the evolution of TD and smells over time.
 
-The TD management problem stemming from the presence of architectural smells is that the current research landscape contains plenty of studies that focus on the first phase of TD management for architectural smells -- i.e.  \emph{identification} -- whereas the work done on the other phases is not as mature.
+The current research landscape contains plenty of studies that focus on the first phase of TD management for architectural smells -- i.e.  \emph{identification} -- whereas the work done on the other phases is not as mature.
 In other words, practitioners have the means to identify the AS affecting a system, but there is a limited understanding, and tool support, for the remaining phases.
 
 This situation stems from the fact that early research work on architectural smells (rightfully) focused on identifying new types of smells, theoretically defining them, proposing detection rules, and finally describing their impact on software maintenance from a theoretical, and then empirical, point of view \cite{Lippert2006,Garcia2009,Mo2015,Le2016,Arcelli2016}.
 Eventually, tools for automatic detection of AS were proposed, by both academia and industry \cite{Avgeriou2021,Khomyakov2020}, and AS management became a more feasible option for many practitioners that could not afford to do a manual assessment.
-However, the scarcity of research in the phases from quantification through monitoring never allowed proper AS management to materialise in the real world, leaving practitioners to rely on intuition, assumptions and experience, instead of \emph{data} and \emph{well-established practices}, in order to make refactoring decisions.
-In the long run, this is likely to result in a less sustainable software \cite{Winters2020} and an increased amount of technical debt accrued. 
-%Ultimately, the scarcity of research in the phases from quantification through monitoring severely limits the options available for practitioners, who have to rely on intuition, instead of data, and on experience, instead of well-established practices, in order to make refactoring decisions.
+However, several factors made it hard for AS management to materialise in the real world, such as: the scarcity of research on the phases from quantification, through monitoring; the limited availability of the few research tools that focus on those specific phases; and the difficulty to use such tools.
+This leaves practitioners to either rely on intuition, assumptions and experience, instead of \emph{data} and \emph{well-established practices}, or not consider AS management at all.
+In the long run, both are likely to result in a less sustainable software \cite{Winters2020} causing exceedingly high costs in order to apply any changes and ultimately making it more convenient to rewrite the whole project \cite{Lehman1979}, or use a third party solution (which, in some cases, may not be an option).
 
 This problem is summarised by the following statement:
 \begin{quote}\itshape
     ``The detection of the architectural smells alone is not sufficient for practitioners to take informed TD management decisions.
-    Practitioners need to understand what lead to the introduction of a smell, the impact of the smell on the system, the available prioritisation strategies, and the amount of TD each instance amounts to.''
+    Practitioners need to know what are the available prioritisation strategies, the amount of TD each instance amounts to, and the trend of the TD incurred over time. This information can help them better plan TD repayment.''
 \end{quote}
 
 \subsection{Design science as research methodology}
