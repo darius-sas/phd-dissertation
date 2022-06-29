@@ -138,13 +138,33 @@ Moving on to the management of AS, we asked the participants about their experie
 
 Concerning practices which support the refactoring of AS, some participants mentioned the usage of SonarQube to keep the code readable and maintainable; this can ease the refactoring of AS since often the poor quality of the code makes refactoring even more difficult and time-consuming. Another indicated pair programming and the help of senior developers as valid support. However, not all the interviewees reported the adoption of refactoring practices. Some even pointed out that they avoid refactoring because their clients do not pay for refactoring time and as long as the system has no visible problems in production, they do not intervene.
 
-Finally, we also asked whether practitioners use tools to manage architectural smells. SonarQube was mentioned by quite a few participants, but only once in regard to an AS (i.e. to detect cycles). Besides that, practitioners do not rely on any specific tool to manage AS. Nonetheless, participants did mention ideal features that they would like to have in an ideal tool that manages AS. Due to space limitations, the features are reported in Appendix \ref{c2:appendix}, and we created a mind map to summarise the results of all three RQs in Figure \ref{fig:c2:mind-map}.
+Finally, we also asked whether practitioners use tools to manage architectural smells. SonarQube was mentioned by quite a few participants, but only once in regard to an AS (i.e. to detect cycles). Besides that, practitioners do not rely on any specific tool to manage AS. Nonetheless, participants did mention ideal features that they would like to have in an ideal tool that manages AS. Due to space limitations, the features are reported in Table \ref{c2:tab:ideal-features}, and we created a mind map to summarise the results of all three RQs in Figure \ref{fig:c2:mind-map}.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=.8\textwidth,trim={1cm 2.5cm 1cm 2cm},clip]{c2/mind-map.png}
 	\caption{Mind map summarising the perception, experiences, prevention, introduction, and presence of architectural smells as described by the participants. In parentheses we report the number of data points, and, if appropriate, the type of associated AS.}\label{fig:c2:mind-map}
 \end{figure}
+
+\begin{table}[h]
+    \centering
+    \footnotesize
+    \caption{Desired features of an ideal tool to manage AS with the reported frequency in parentheses.}
+    \label{c2:tab:ideal-features}
+    \begin{tabular}{@{}ll@{}}\toprule
+    \textbf{Classification} & \textbf{Description} \\ \midrule
+    Detection & Highlight the problem while I am writing the code (to save time) (2) \\
+     & Automatically detect HL and CD (1) \\
+     & Dive deep down the layers and show the actual causes of the smell (2) \\
+     & Show the files that create the dependencies of a certain package (1) \\
+    Refactoring support & Refactoring suggestions (4) \\
+     & What-if analysis to remove cycles (1) \\
+     & Show the data or call dependencies between artefacts (1) \\
+     & Support to split GC by features (1) \\
+    Prioritization & Filter the components to show (2) \\
+     & Heatmap of smells in the system (1) \\ \bottomrule
+    \end{tabular}
+\end{table}
 
 \section{Discussion and implications}
 The presented results indicate that AS clearly help incurring ATD: they have a direct, architecture-level impact on the maintainability and evolvability of the affected parts. AS make changes harder to implement by increasing the effort required to understand the implications of a change, making it easy to underestimate the effort necessary for the change, and hard to plan ahead. Practitioners are aware and well-informed about good design practices, but they struggle following them diligently, often prioritizing delivering a feature over good design. Fowler calls this reckless and deliberate TD [Fowler], because practitioners understand the long-term implications of their decisions but still decide to incur technical debt. By doing so, practitioners are forced, sooner rather than later, to apply refactorings before proceeding with the implementation of new features (as mentioned by the participants) and pay a considerable amount of TD interest every time they need to extend the system. 

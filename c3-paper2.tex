@@ -123,20 +123,21 @@ The characteristics considered in our work are reported in Table \ref{tab:smell-
     \multicolumn{4}{c}{\itshape smell-generic}\\\midrule
     \multirow{5}{*}{All} & Age & The number of versions affected by the smell. & * \\
      & Overlap Ratio & The ratio of the total number of components of a given smell that also take part in another smell. & * \\
-     & Centrality & The importance of the components affected by the smell within the system. Measured using the PageRank of the components in the dependency graph. & \cite{Roveda2018} \\
+     & Centrality & The importance of the components affected by the smell within the system. Measured using the PageRank of the components in the dependency graph. & (1) \\
      & Size & The number of elements of the system affected by the smell. & * \\
      & Number of edges & The number of dependency edges among the components affected by the smell. & * \\ \midrule
     \multicolumn{4}{c}{\itshape smell-specific}\\\midrule
-    \multirow{4}{0.1\linewidth}{CD} & Shape & The cycle shapes as shown in Figure \ref{c3:fig:cycle-dep}. & \cite{Arcelli2016,AlMutawa2014}\\
-    & Average edge weight &  The number of dependencies (weight) between the components affected by the smell. It can be indicative of the difficulty of refactoring the cycle. & \cite{Arcelli2017}\\
-     & Number of inheritance edges & The number of edges in the smell that represent an inheritance between components. & \cite{Laval2012} \\
-     & Affected design level & Whether the cycle is present only at architectural level (among packages) or also at design level (among classes) too. & \cite{AlMutawa2014} \\
-     & Parent centrality$^\dagger$ & The degree to which a package is at the centre of a cycle with its children sub-packages. & \cite{AlMutawa2014}\\ \midrule
-     \multirow{2}{0.1\linewidth}{UD} & Instability gap & The difference between the instability of the main component and the average instability of the dependencies less stable than the component itself. & \cite{Arcelli2017} \\
-     & Strength (or DoUD \cite{Arcelli2017}) & The ratio between the number of dependencies that point to less stable components and the total number of dependencies of the class. & \cite{Arcelli2017} \\ \midrule
+    \multirow{4}{0.1\linewidth}{CD} & Shape & The cycle shapes as shown in Figure \ref{c3:fig:cycle-dep}. & (2), (3)\\
+    & Average edge weight &  The number of dependencies (weight) between the components affected by the smell. It can be indicative of the difficulty of refactoring the cycle. & (4)\\
+     & Number of inheritance edges & The number of edges in the smell that represent an inheritance between components. & (5) \\
+     & Affected design level & Whether the cycle is present only at architectural level (among packages) or also at design level (among classes) too. & (3) \\
+     & Parent centrality$^\dagger$ & The degree to which a package is at the centre of a cycle with its children sub-packages. & (3)\\ \midrule
+     \multirow{2}{0.1\linewidth}{UD} & Instability gap & The difference between the instability of the main component and the average instability of the dependencies less stable than the component itself. & (4) \\
+     & Strength (or DoUD (4)) & The ratio between the number of dependencies that point to less stable components and the total number of dependencies of the class. & (4) \\ \midrule
      \multirow{3}{0.1\linewidth}{HL} & Average internal path length$^\dagger$ & Only computed on package HL. The average length of the paths between internal nodes with afferent dependencies and internal nodes with efferent dependencies within the central package. The shorter the length, the more the packages that depend upon the main component and packages that are depended upon by it are connected. & * \\
-     & Affected classes ratio$^\dagger$ & Only computed on package HL. The ratio between the number of classes taking part in a dependency relationship with afferent and efferent packages of the main component and the total number of classes in the main component. & *, \cite{Abdeen2011} \\\bottomrule
+     & Affected classes ratio$^\dagger$ & Only computed on package HL. The ratio between the number of classes taking part in a dependency relationship with afferent and efferent packages of the main component and the total number of classes in the main component. & *, (6) \\\bottomrule
     \end{tabular}
+    (1)\cite{Roveda2018}; (2)\cite{Arcelli2016}; (3)\cite{AlMutawa2014}; (4)\cite{Arcelli2017}; (5)\cite{Laval2012}; (6)\cite{Abdeen2011}
 \end{table}
 
 % Why these characteristics?
