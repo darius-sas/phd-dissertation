@@ -107,14 +107,15 @@ The current research landscape contains plenty of studies that focus on the firs
 In other words, practitioners have the means to identify the AS affecting a system, but there is a limited understanding, and tool support, for the remaining phases.
 
 This situation stems from the fact that early research work on architectural smells (rightfully) focused on identifying new types of smells, theoretically defining them, proposing detection rules, and finally describing their impact on software maintenance from a theoretical, and then empirical, point of view \cite{Lippert2006,Garcia2009,Mo2015,Le2016,Arcelli2016}.
-Eventually, tools for automatic detection of AS were proposed, by both academia and industry \cite{Avgeriou2021,Khomyakov2020}, and AS management became a more feasible option for many practitioners that could not afford to do a manual assessment.
-However, several factors made it hard for AS management to materialise in the real world, such as: the scarcity of research on the phases from quantification, through monitoring; the limited availability of the few research tools that focus on those specific phases; and the difficulty to use such tools.
-This leaves practitioners to either rely on intuition, assumptions and experience, instead of \emph{data} and \emph{well-established practices}, or not consider AS management at all.
-In the long run, both are likely to result in a less sustainable software \cite{Winters2020} causing exceedingly high costs in order to apply any changes and ultimately making it more convenient to rewrite the whole project \cite{Lehman1979}, or use a third party solution (which, in some cases, may not be an option).
+Eventually, tools for automatic detection of AS were proposed, by both academia and industry \cite{Avgeriou2021,Khomyakov2020}, and AS detection became a more feasible option for many practitioners that could not afford to do a manual assessment.
+However, several factors made it hard for AS management to become a consolidated reality, such as: the scarcity of research on the phases from quantification through monitoring; the limited availability of the few research tools that focus on those specific phases; and the difficulty to use such tools \cite{Khomyakov2020}.
+In best case scenarios, this leaves practitioners to rely on intuition and assumptions instead of \emph{data} and \emph{well-established practices}, and in the worst case scenario to not consider AS management at all.
+In the long run, both are likely to cause exceedingly high costs in order to apply any changes and thus diminishing the long-term sustainability of the system \cite{Winters2020}. 
+Eventually, it becomes more convenient to rewrite the whole project \cite{Lehman1979}, or rely on a third party solution (which, in some cases, may not even be an option).
 
 This problem is summarised by the following statement:
 \begin{quote}\itshape
-    ``The detection of the architectural smells alone is not sufficient for practitioners to take informed TD management decisions.
+    ``The detection of the architectural smells alone is not sufficient for practitioners to take informed TD repayment decisions.
     Practitioners need to know what are the available prioritisation strategies, the amount of TD each instance amounts to, and the trend of the TD incurred over time. This information can help them better plan TD repayment.''
 \end{quote}
 
@@ -160,10 +161,10 @@ Research questions are numbered to easily refer to them, and, with the exception
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{c1/problem-decomposition.pdf}
-    \caption{A caption}\label{fig:intro:problem-decomposition}
+    \caption{The decomposition of the design problem tackled in this dissertation.}\label{fig:intro:problem-decomposition}
 \end{figure}
 
-\subsection{Decomposition option one}
+\subsection{Sequence rationale One}
 The first step to design a solution for the problem statement requires us to understand how AS are perceived by industrial practitioners.
 RQ1 tries to understand how practitioners perceive architectural smells and what practices they use, if any, to manage them in an industrial setting.
 
@@ -181,16 +182,24 @@ The results of RQ5 showed that practitioners, while finding the information prov
 This means that TD management decisions are affected by other qualities as well, and to better understand to extent of these trade-offs we studied them in RQX (RQ6).
 
 
-\subsection{Decomposition two}
-Same as the first option, but we switch RQ1 and RQ2. This is closer to the cronological order.
-
+\subsection{Sequence Rationale Two}
 The first step to design a solution for the problem statement requires us to understand how AS actually evolve and persist in real world systems.
-This has implications on how practitioners should prioritise smells.
+Therefore, RQ2 studies how different types of smells evolve and how long they persist within the system. This has implications on how practitioners should prioritise smells.
 
-Next, we need to understand how Architectural Smells are perceived by practitioners and what 
+RQ2 focused only on quantitative data collected from open source system. To get a more generic look, RQ1 aims at understanding what is the perception of AS in industrial practice, which allows us to learn existing practices that introduce, manage, and remove AS.
 
-After this, we combine the perception of AS and their evolution by studying these two aspects in a large multinational company.
+The next step is to combine the perception of AS and their evolution by studying these two aspects in a large multinational company.
+This is done by RQ3, which investigates the co-occurrence of AS, what AS type precedes another, and finally, how practitioners are impacted by the AS detected in their system.
+This information allows us to understand the introduction and monitoring of AS in practice, and identify prioritisation needs.
+ 
+One aspect that is not investigated by RQ2 and RQ3 is the correlation of smells with changes in the source code, which can help practitioners better understand how smell types affect maintainability. Indeed, the goal of RQ4 is to shed light on this aspect in particular in order to understand how the components (e.g. classes and packages) affected by architectural smells change over time.
 
+The output obtained from the previous RQs is used in RQ5 to design a solution to quantify the amount of technical debt principal generated by architectural smells.
+
+The quality of the solution designed for RQ5 was validated with a number of practitioners.
+The results of RQ5 showed that practitioners, while finding the information provided by TD principal very useful, they often have to sacrifice maintainability in favor of other qualities, depending on the project.
+This means that TD management decisions are affected by other qualities as well, and to better understand to extent of these trade-offs we studied them in RQX (RQ6).
+ 
 % However, there are still three important research threads that are either incomplete or not investigated at all:
 % \begin{enumerate}
 %     \item There are no specific details on how individual architectural smell instances evolve over time. This means that it is not clear how architectural smells are \emph{introduced}, how long they \emph{persist} within the system, and whether any TD interest is \emph{paid} on the components affected by architectural smells; 
