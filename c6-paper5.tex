@@ -1,4 +1,4 @@
-\setlength{\headheight}{1.2cm}[h]
+\setlength{\headheight}{1.2cm}
 \renewcommand{\publ}{\flushleft\footnotesize{This chapter has been submitted to a journal.\\[0.1cm]}}
 
 \chapter{An architectural technical debt index based on machine learning and architectural smells}
@@ -109,7 +109,7 @@ God components aggregate too many concerns together in a single package and they
 God components are often the result of several small incremental changes over a long period of time, sometimes effectively implementing a lot of the overall functionality of the system.
 Over time, the understandability of the component deteriorates along with the reusability of the individual parts of the component, as developers are not keen to use a piece of software that is difficult to understand \cite{Lippert2006}.
 
-\subsection{Arcan}
+\subsection{\textsc{Arcan}}
 To detect AS, we used a tool called \textsc{Arcan}.
 \textsc{Arcan}'s detection capabilities were validated by previous studies and obtained a precision ranging from 70\% to 100\% \cite{Arcelli2020, Arcelli2017}, depending on the project and type of smell considered.
 
@@ -118,7 +118,7 @@ The project's structural information contained in the dependency graph is then u
 
 Compared to other tools, \textsc{Arcan} uses only software metrics and structural dependencies in order to detect architectural smells. 
 This makes \textsc{Arcan} different from tools such as DV8 \cite{Xiao2016} (a tool used by related work) which also requires the use of change metrics.
-The command line version of \textsc{Arcan} used for this study is available in the replication package \cite{ReplicationPackageC6}.
+The command line version of \textsc{Arcan} used for this study is available in the replication package \footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.}.
 
 \subsection{Smell characteristics}
 An architectural smell \emph{characteristic} is a property or attribute of an architectural smell instance \cite{Sas2019}. 
@@ -366,7 +366,7 @@ Finally, RQ2.3 aims at understanding the \emph{general opinion} of software deve
 The two research questions (RQ1 and RQ2) correspond, respectively, to two different phases of this study: \textbf{model engineering \& verification} and \textbf{model validation}.
 Figure \ref{c6:fig:study-overview} depicts a detailed overview of these two phases, while Section \ref{c6:sec:rq1-methodology} and Section \ref{c6:sec:rq2-methodology} respectively describe the two phases in detail.
 
-A replication package of this study is available online\cite{ReplicationPackageC6} and contains all the material used to design this case study.
+A replication package of this study is available online\footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.} and contains all the material used to design this case study.
 
 \begin{figure*}
     \centering
@@ -460,7 +460,7 @@ Comparisons required around 5 minutes each, and the whole process took 22 hours 
 The annotation team was comprised of two Ph.D. students (including the first author) and a research assistant.
 Inter-annotator agreement was measured using Fleiss's Kappa \cite{Fleiss1971}, obtaining a $.88$ score (considered `almost perfect agreement' \cite{Fleiss1971}).
 Three test run rounds were necessary to achieve a score greater than $.8$ (i.e. greater than `moderate agreement' \cite{Fleiss1971}). 
-We ensured all three annotators used the same decision-making process to annotate the data by devising a set of rules, available in the replication package \cite{ReplicationPackageC6} along with the resulting annotations.
+We ensured all three annotators used the same decision-making process to annotate the data by devising a set of rules, available in the replication package \footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.} along with the resulting annotations.
 Those rules were based on the available literature \cite{Laval2012,AlMutawa2014}, our own experience on the subject, and the feedback during the three test rounds.
 
 The distribution of the labels obtained through this process is depicted in Figure \ref{c6:fig:dataset-label-distr}.
@@ -577,7 +577,7 @@ Of course, no sample is perfect, and we elaborate on the threats to external val
 
 \subsubsection{Data collection}
 Interviews were held following the guidelines mentioned by Runeson et al. \cite{Runeson2012}.
-The interviews lasted 30-35 minutes and were semi-structured in their format, meaning that the interviewer could deviate from the original list of questions if a certain answer given by the participant was interesting to explore in more depth. The replication package contains the interview invitation and the questionnaire with the list of questions \cite{ReplicationPackageC6}.
+The interviews lasted 30-35 minutes and were semi-structured in their format, meaning that the interviewer could deviate from the original list of questions if a certain answer given by the participant was interesting to explore in more depth. The replication package contains the interview invitation and the questionnaire with the list of questions \footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.}.
 Each interview invitation contained (1) a one-pager with the definitions of the smell types discussed in the interviews; and (2) a letter informing the participant of the confidentiality of the interview as well as their right to not answer any question they do not wish to answer \cite{Runeson2012}.
 Before the interview started, both aforementioned points were reiterated to the participants to ensure that they were familiar with the technical concepts discussed during the interview and that they agreed with the terms of the interview.
  
@@ -611,7 +611,7 @@ To automate the data analysis as much as possible, we relied on Atlas.ti\footnot
 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{c6/qualitative-analysis.pdf}
+    \includegraphics[width=.8\linewidth]{c6/qualitative-analysis.pdf}
     \caption{The qualitative data analysis process.}
     \label{c6:fig:qualitative-analysis}
 \end{figure}
@@ -1013,7 +1013,7 @@ This is instrumental during the prioritisation phase, as practitioners can adopt
 For example, some may decide to refactor the smells with high ATDI to tackle the biggest problems first, whereas others may decide to focus on the small smells only and integrate AS refactoring in their process, resulting in an incremental repayment.
 Yet another example was suggested by one of the interview participants: to avoid the introduction of commits that increase the debt over a certain amount, thus resulting in less ATD density over time.
 
-To facilitate the adoption of our approach by industry practitioners, an implementation was integrated into \textsc{Arcan} and is publicly available in the replication package of this study \cite{ReplicationPackageC6}.
+To facilitate the adoption of our approach by industry practitioners, an implementation was integrated into \textsc{Arcan} and is publicly available in the replication package of this study \footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.}.
 
 \paragraph{RQ1 implications}
 For researchers, the main implication stemming from RQ1, is that techniques such as \emph{pairwise comparison}, \emph{ranking systems} (e.g. TrueSkill), and \emph{machine-learned ranking} (or LTR), that are widely adopted in other disciplines such as Information Retrieval (IR), can be flexible enough to be applied to practical problems encountered in Software Engineering (SE).
@@ -1120,7 +1120,7 @@ Therefore, we believe that this threat is \emph{partially mitigated} and that we
 \paragraph*{Reliability}
 Reliability is the aspect of validity focusing on the degree to which the data collection and analysis depend on the researchers performing them \cite{Runeson2012}.
 
-While we cannot share the transcription of the interviews for confidentiality reasons, we do, however, provide a replication package \cite{ReplicationPackageC6} containing the design of this study, the complete list of questions asked to our interview participants, the data set used to train the machine learning model, and the tool \textsc{Arcan} implementing the ATDI calculation.
+While we cannot share the transcription of the interviews for confidentiality reasons, we do, however, provide a replication package \footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.} containing the design of this study, the complete list of questions asked to our interview participants, the data set used to train the machine learning model, and the tool \textsc{Arcan} implementing the ATDI calculation.
 This should allow researchers to assess the rigour of the study or replicate the results using a different set of projects.
 
 A common threat to reliability when qualitative data is analysed, is the potential bias introduced by the researcher performing the coding.
@@ -1176,7 +1176,7 @@ Our work improves over related work on two main points.
 First, we are the first to propose a machine learning-based approach to tackle this problem rather than relying on manually-set thresholds \cite{Wu2018,Martini2018b} or arbitrary proxies of severity \cite{Roveda2018}.
 Second, we validated our approach by interviewing software developers from both industrial and open source projects; most other approaches were only \emph{evaluated}, in the sense of performing measurements and comparisons, while only two were \emph{validated}, in the sense of confirming they actually provide benefits to developers, but in a limited way.
 Specifically, evaluation was mostly performed on open source systems \cite{Xiao2016,Roveda2018,Verdecchia2020}, whereas the only two studies that performed a validation were in both cases within a single company\footnote{Note that several of the open source engineers that we interviewed were also working in industry.} \cite{Martini2018b,Wu2018}, thus critically reducing the generalisation of the results obtained. 
-Additionally, our approach is the only one that provides a publicly-available tool that implements the approach \cite{ReplicationPackageC6}.
+Additionally, our approach is the only one that provides a publicly-available tool that implements the approach \footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.}.
 
 The use of the smell characteristics of an architectural (or code) smell to predict its severity is certainly not a new concept in software engineering \cite{Laval2012,Tsantalis2011,Arcelli2015b,Vidal2016,Roveda2018}.
 Some work has focused on the use of metrics by selecting arbitrary, hand-picked thresholds, or weights, and combining such metrics into a single value representing the severity of a smell \cite{Laval2012,Vidal2016}.
@@ -1190,7 +1190,7 @@ In the latter case, benchmark-based approaches assume that the systems included 
 
 To conclude, the approach presented in this paper does not suffer from some of the well-known shortcomings that other studies do \cite{Khomyakov2020}.
 In particular, we developed a fully-automated approach that does not rely on hand-picked thresholds, or benchmarks, but instead uses machine learning to overcome these shortcomings; then, we validated the approach by involving practitioners from multiple companies and from both open source and industry.
-In addition, an implementation of our approach is also freely available in the replication package of this paper \cite{ReplicationPackageC6}.
+In addition, an implementation of our approach is also freely available in the replication package of this paper \footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.}.
 
 \begin{sidewaystable}[]
     \scriptsize
@@ -1289,6 +1289,6 @@ This was also requested by some of our interviewees who understood that in order
 
 
 \section*{Acknowledgements}
-This work was supported by the ITEA3 research project under grant agreement No. 17038 VISDOM.
+This work was supported by the ITEA3 and RVO research project under grant agreement No. 17038 VISDOM.
 
 A special thanks to Cezar Sas for helping us better implement and use the machine learning techniques adopted in this paper.
