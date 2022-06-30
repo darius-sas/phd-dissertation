@@ -165,23 +165,33 @@ Research questions are numbered to easily refer to them, and, with the exception
     \caption{The decomposition of the design problem tackled in this dissertation.}\label{fig:intro:problem-decomposition}
 \end{figure}
 
-The problem statement (see Figure \ref{fig:intro:problem-decomposition}) states that practitioners, in order for practitioners to effectively pay back the TD incurred by the presence of AS they need assistance to manage AS across all of the typical activities of TD management, not only in the first one -- i.e. identification.
+The problem statement (see Figure \ref{fig:intro:problem-decomposition}) states in order for practitioners to effectively pay back the TD incurred by the presence of AS they need assistance to manage AS across all of the typical activities of TD management, not only in the first one -- i.e. identification.
+This hinders the ability of practitioners to take informed decisions.
 
 As a first step towards addressing this issue, I decided to investigate how AS instances evolve and persist in real world systems.
-These two aspects are instrumental to solve the problem posed by the problem statement because the evolution of a smell in a system can affect practitioners' prioritisation decisions, and the impact of the smell on system's maintenance.
-To this end, I formulated RQ1: \textit{``How do AS evolve in open source systems?''} 
+These two aspects are instrumental to solve the problem abovementioned because the evolution of a smell in a system can affect practitioners' prioritisation decisions, the impact of the smell on system's maintenance, and therefore the quantification of the debt represented by a smell.
+To investigate how smells evolve I formulated RQ1: \textit{``How do AS evolve in open source systems?''} 
 % What does RQ1 help us to answer specifically? What implications does it have?
 % This entailed that I first had to design and implement a tool that would link the same instance of a smell in two adjacent commits (or versions) of a system.
 % Specifically, I looked at how the characteristics of a smell change over time (e.g. the size increases or decreases over time) by asking RQ1b
 
-The investigation of RQ1 is a purely quantitative approach and provides insights that are applicable mostly to open source projects only.
+The investigation of RQ1 is a purely quantitative approach and provides insights that are applicable to open source projects for the most part.
 Therefore, to provide a qualitative view of how practitioners perceive the problems stemming from the presence of architectural smells, I formulated RQ2: \textit{``How are AS perceived by industrial practitioners?''}
 This RQ aims at understanding the perception of AS in industrial practice, which allows us to learn existing practices that introduce, manage, and remove AS.
 % What does RQ2 help us to answer specifically? What implications does it have?
 
-The findings from RQ2 showed that in most cases smells are introduced inadvertently due to bad design decisions, and in some cases, slowly over time. 
-This arises the questions of whether the bad design could imply that more than one smell is introduced to the same component and, if that is the case, whether there is any specific pattern of introduction.
+While investigating RQ2, practitioners admitted that, in most cases, smells are introduced inadvertently due to bad design decisions.
+However, they could not pinpoint whether what types of smells exactly are introduced\footnote{They just know something is not quite right}, whether there is more than one smell affecting the same components, and in what order these smells were introduced.
 To investigate this aspect, I formulated RQ3 \textit{``How do AS evolve in industrial embedded systems?''}
+which allows us to understand if there exists any pattern that can predict the introduction of a smell given the presence of another.
+This kind of information can be used to improve prioritisation decisions. (e.g. address the component that is most likely to be affected next).
+The peculiarity and difference of RQ3 from RQ1 is that RQ3 seeks to understand the point of practitioners on smells detected on their system.
+
+A common theme arised from RQ3 is that most of the practitioners we talked to were concerned of the frequency of change and its propagation due to the presence of smells. Indeed, they reported that several components that were affected by smells were also requiring to be changed frequently.
+To further study this aspect, and ensure that their feedback was not just the result of confirmation bias, I formulated RQ3: \textit{``How do AS correlate to changes in the source code of the system?''}
+The goal of this question is to understand if elements affected by architectural smells have a higher chance of changing than elements that are not affected by smells.
+Understanding this aspect makes it easier to decide on whether to refactor or not a smell.
+
 
 
 
