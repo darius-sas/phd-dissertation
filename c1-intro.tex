@@ -100,22 +100,23 @@ As part of the SDK4ED project, I also contributed to the open source version of 
 
 \section{Research design}\label{sec:intro:research-design}
 \subsection{Problem statement}\label{sec:intro:problem-statement}
-In this dissertation, I tackle the problem faced by practitioners who struggle to make changes to their systems due to the presence of AS, and argue that by providing better support to include AS within existing TD management activities we can help practitioners make changes more easily. %practitioners face when including architectural smells as part of their TD management activities.
-To better explain the problem, let us quickly look at the key phases\footnote{Note that I do not mention all phases in this summary.} of TD management \cite{Li2015} as if we apply them specifically to AS: (1) \emph{identify} what elements in the system are affected by AS and the type of the smells; (2) \emph{quantify} the impact of each smell on the development activities (both maintenance and evolution); (3) \emph{prioritise} the smells in order to determine the urgency to refactor; (4) \emph{repay} the debt by refactoring smells according to the prioritisation strategy adopted; and finally (5) regularly \emph{monitor} the evolution of TD and smells over time.
+In this dissertation, I address the problems that practitioners face when attempting to make changes to their systems in the presence of AS; I also argue that by providing better support to target AS as part of existing TD management activities we can help practitioners to make changes more effectively and efficiently. 
+To better explain the problem, let us quickly look at the key activities of TD management \cite{Li2015}; note that I only mention only the first five most important and well studied activities \cite{Li2015}, and focus specifically on AS (out of all TD types).
+The activities are the following: (1) \emph{identify} what elements in the system are affected by AS and the type of the smells; (2) \emph{quantify} the impact of each smell on the development activities (both maintenance and evolution); (3) \emph{prioritise} the smells in order to determine the urgency to refactor; (4) \emph{repay} the debt by refactoring smells according to the prioritisation strategy adopted; and finally (5) regularly \emph{monitor} the evolution of TD and smells over time.
 
-The current research landscape contains plenty of studies that focus on the first phase of TD management for architectural smells -- i.e.  \emph{identification} -- whereas the work done on the other phases is not as mature.
-In other words, practitioners have the means to identify the AS affecting a system, but there is a limited understanding, and tool support, for the remaining phases.
+The current research landscape contains plenty of studies that focus on the first activity of TD management for architectural smells -- i.e.  \emph{identification} -- whereas the work done on the other activities is not as mature.
+Consequently, practitioners have the means to identify the AS affecting a system, but there is limited understanding, and most importantly very little tool support, for the remaining activities.
 
 This situation stems from the fact that early research work on architectural smells (rightfully) focused on identifying new types of smells, theoretically defining them, proposing detection rules, and finally describing their impact on software maintenance from a theoretical, and then empirical, point of view \cite{Lippert2006,Garcia2009,Mo2015,Le2016,Arcelli2016}.
 Eventually, tools for automatic detection of AS were proposed, by both academia and industry \cite{Avgeriou2021,Khomyakov2020}, and AS detection became a more feasible option for many practitioners that could not afford to do a manual assessment.
-However, several factors made it hard for AS management to become a consolidated reality, such as: the scarcity of research on the phases from quantification through monitoring; the limited availability of the few research tools that focus on those specific phases; and the difficulty to use such tools \cite{Khomyakov2020}.
-In best case scenarios, this leaves practitioners to rely on intuition and assumptions instead of \emph{data} and \emph{well-established practices}, and in the worst case scenario to not consider AS management at all.
-In the long run, both are likely to cause exceedingly high costs in order to apply any changes and thus diminishing the long-term sustainability of the system \cite{Winters2020}. 
-Eventually, it becomes more convenient to rewrite the whole project \cite{Lehman1979}, or rely on a third party solution (which, in some cases, may not even be an option).
+However, the rest of the activities, from quantification through monitoring, are not really supported in practice due to: a) the scarcity of research on these activities; b) the limited availability of the few research tools that focus on those specific activities; and c) the difficulty to use such tools \cite{Khomyakov2020}.
+In the best case scenario, this leaves practitioners to rely on intuition and assumptions instead of \emph{data} and \emph{well-established practices}; in the worst case scenario, they do not consider AS management at all.
+In the long run, both are likely to cause exceedingly high costs in order to apply any changes, thus diminishing the long-term sustainability of the system \cite{Winters2020}. 
+Eventually, it becomes more convenient to rewrite the whole project \cite{Lehman1979}, or rely on a third party solution; but in some cases, neither of these options may be feasible, leading to software `bankruptcy' \cite{Ampatzoglou2015}.
 
 This problem is summarised by the following statement:
 \begin{quote}\itshape
-    ``The detection of the architectural smells alone is not sufficient for practitioners to take informed TD repayment decisions.
+    ``The detection of the architectural smells alone is not sufficient for practitioners to take informed TD management decisions.
     Practitioners need to know what are the available prioritisation strategies, the amount of TD each instance amounts to, and the trend of the TD incurred over time. This information can help them better plan TD repayment.''
 \end{quote}
 
