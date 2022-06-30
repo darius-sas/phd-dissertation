@@ -88,7 +88,7 @@ The definitions of each AS type will be given in Chapter \ref{...}.
 %\subsection{Why smells over existing metric?}
 % TODO?
 
-\section{The project SDK4ED and Arcan}
+\section{The project SDK4ED and \textsc{Arcan}}
 This PhD project was conducted in the context of the SDK4ED project, a project funded by the European Union under the Horizon 2020 programme.
 
 The vision of SDK4ED is to minimize the cost, the development time and the complexity of low-energy software development projects, by providing tools for automatic optimisation of multiple quality requirements, such as Technical debt, Energy efficiency, Dependability (i.e. Reliability, Availability, and Security) and Performance. 
@@ -164,6 +164,26 @@ Research questions are numbered to easily refer to them, and, with the exception
     \includegraphics[width=\textwidth]{c1/problem-decomposition.pdf}
     \caption{The decomposition of the design problem tackled in this dissertation.}\label{fig:intro:problem-decomposition}
 \end{figure}
+
+The problem statement (see Figure \ref{fig:intro:problem-decomposition}) states that practitioners, in order for practitioners to effectively pay back the TD incurred by the presence of AS they need assistance to manage AS across all of the typical activities of TD management, not only in the first one -- i.e. identification.
+
+As a first step towards addressing this issue, I decided to investigate how AS instances evolve and persist in real world systems.
+These two aspects are instrumental to solve the problem posed by the problem statement because the evolution of a smell in a system can affect practitioners' prioritisation decisions, and the impact of the smell on system's maintenance.
+To this end, I formulated RQ1: \textit{``How do AS evolve in open source systems?''} 
+% What does RQ1 help us to answer specifically? What implications does it have?
+% This entailed that I first had to design and implement a tool that would link the same instance of a smell in two adjacent commits (or versions) of a system.
+% Specifically, I looked at how the characteristics of a smell change over time (e.g. the size increases or decreases over time) by asking RQ1b
+
+The investigation of RQ1 is a purely quantitative approach and provides insights that are applicable mostly to open source projects only.
+Therefore, to provide a qualitative view of how practitioners perceive the problems stemming from the presence of architectural smells, I formulated RQ2: \textit{``How are AS perceived by industrial practitioners?''}
+This RQ aims at understanding the perception of AS in industrial practice, which allows us to learn existing practices that introduce, manage, and remove AS.
+% What does RQ2 help us to answer specifically? What implications does it have?
+
+The findings from RQ2 showed that in most cases smells are introduced inadvertently due to bad design decisions, and in some cases, slowly over time. 
+This arises the questions of whether the bad design could imply that more than one smell is introduced to the same component and, if that is the case, whether there is any specific pattern of introduction.
+To investigate this aspect, I formulated RQ3 \textit{``How do AS evolve in industrial embedded systems?''}
+
+
 
 \subsection{Sequence rationale One}
 The first step to design a solution for the problem statement requires us to understand how AS are perceived by industrial practitioners.
