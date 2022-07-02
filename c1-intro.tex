@@ -165,74 +165,47 @@ Research questions are numbered to easily refer to them, and, with the exception
     \caption{The decomposition of the design problem tackled in this dissertation.}\label{fig:intro:problem-decomposition}
 \end{figure}
 
-The problem statement (see Figure \ref{fig:intro:problem-decomposition}) states that in practitioners cannot take informed decisions by relying on the detection of AS instances alone.
-The smells detected need to be quantified, prioritised, monitored and repayed in order for AS management to be effective.
-This hinders their ability to manage architectural TD, ultimately affecting the sustainability of the system.
+The problem statement (see Figure \ref{fig:intro:problem-decomposition}) states that practitioners cannot take informed decisions by relying on the detection of AS instances alone.
+The smells detected need to be quantified in terms of TD, prioritised, monitored and repayed in order for AS management to be effective.
+This hinders practitioners' ability to manage architectural TD, ultimately affecting the sustainability of the system.
 
 As a first step towards addressing this issue, I decided to investigate how AS evolve in real world systems and formulated RQ1: \textit{``How do AS evolve in open source systems?''} 
 Studying the evolution of AS entails studying two aspects: the evolution of the individual instances and the persistence of AS instances within the system.
 Obtaining an understanding of these two aspects can help researchers formulate general rules for prioritising AS based on their historical evolution.
 Additionally, a better understanding of the evolution of a smell can help design a better approach to quantify the amount of TD incurred.
-The study required analysing the history of 15 open source pojects for a total of 524 releases.
+Answering RQ1 required analysing 524 releases belonging to 15 open source pojects.
 The tool \textsc{Arcan} was used to detect the architectural smells and a custom tool was designed and developed to track them from one release to the next.
 
 The investigation of RQ1 is a purely \emph{quantitative} approach and provides insights that are applicable only to open source projects for the most part.
-Therefore, to provide a \emph{qualitative} view of how practitioners perceive the problems stemming from the presence of architectural smells, I formulated RQ2: \textit{``How are AS perceived by industrial practitioners?''}
-The goal of RQ2 is two-fold: (1) understand the issues experienced with maintainability that relate to the presence of AS; and (2) study the opinion of practitioners on AS in terms of introduction and how AS are dealt with.
+Therefore, to provide a \emph{qualitative} view of architectural smells, I formulated RQ2: \textit{``How are AS perceived by industrial practitioners?''}
+The goal of RQ2 is two-fold: (1) understand the issues stemming from the presence of AS and that affect maintainability; and (2) study the opinion of practitioners on AS in terms of introduction and how AS are dealt with.
 To answer RQ2, I designed a case study and interviewed 21 practitioners from 3 companies in Europe that work with both Java and C/C++.
 RQ2 findings are particularly interesting for researchers as they can better understand the problems faced by practitioners and design solutions accordingly.
 
 While investigating RQ2, practitioners admitted that, in most cases, smells are introduced inadvertently due to bad design decisions.
-However, they could not pinpoint whether what types of smells exactly are introduced, whether there is more than one smell affecting the same components, and in what order these smells were introduced.
+However, they could not pinpoint what types of smells are exactly introduced, whether there is more than one smell affecting the same components, and in what order these smells were introduced to begin with.
 To investigate this aspect, I formulated RQ3 \textit{``How do AS evolve in industrial embedded systems?''}
-This RQ is similar to RQ1, but focuses on the co-occurrence and introduction order of smells and takes into account also the experiences of practitioners.
+This RQ is similar to RQ1, but focuses specifically on the co-occurrence and introduction order of smells and takes into account also the experiences of practitioners.
 The context of the study also changes, as RQ3 focuses on industrial systems written in C/C++ (rather than open source Java systems) belonging to a large multinational company.
-Answering RQ3 allows us to understand if there exists any pattern that can predict the introduction of a smell given the presence of another and what do practitioners think about specific AS instances (and their evolution) in their systems.
+Answering RQ3 allows us to understand if there exists any pattern that can predict the introduction of a smell given the presence of another and what do practitioners think about specific AS instances (and their evolution).
 This kind of information can be used to improve prioritisation decisions (e.g. address the component that is most likely to be affected next).
 
-A common theme arised from RQ3 is that most of the practitioners we talked to were concerned of the frequency of change and its propagation due to the presence of smells. Indeed, they reported that several components that were affected by smells were also requiring to be changed frequently.
-To further study this aspect, and ensure that their feedback was not just the result of confirmation bias, I formulated RQ3: \textit{``How do AS correlate to changes in the source code of the system?''}
+A common theme arised from RQ3 is that most of the practitioners we talked to were concerned of the frequency of change of components and its propagation to other components due to the presence of smells. 
+Practitioners reported that several components that were affected by smells necessitated frequent maintenance.
+To further study this aspect, and ensure that their feedback was not just the result of confirmation bias, I formulated RQ4: \textit{``How do AS correlate to changes in the source code of the system?''}
 The goal of this question is to understand if elements affected by architectural smells have a higher chance of changing than elements that are not affected by smells.
-Understanding this aspect makes it easier to decide on whether to refactor or not a smell.
+This helps understanding the relation that AS have with the amount of interest paid by practitioners that decide to not repay the debt represented by smells.
+Answering this RQ required investigating 27 projects, 360 years of total development and analyse over 305 millions of lines of code.
 
-
-
-
-\subsection{Sequence rationale One}
-The first step to design a solution for the problem statement requires us to understand how AS are perceived by industrial practitioners.
-RQ1 tries to understand how practitioners perceive architectural smells and what practices they use, if any, to manage them in an industrial setting.
-
-RQ1, however, it does not tell us anything about the smells themselves. Understanding how smells evolve is an instrumental step to solve the problem posed by the problem statement because the evolution of a smell in a system can affect practitioners' prioritisation decisions, and the impact of the smell on system's maintenance.
-
-RQ2's results are hardly applicable to industrial systems as well, therefore, a study on how they evolve in that specific context is necessary.
-On top of studying their evolution, RQ3 also investigates their co-occurrence, what AS type precedes another, and finally, how practitioners are impacted by the AS detected in their system.
-
-One aspect that is not investigated by RQ2 and RQ3 is the correlation of smells with changes in the source code, which can help practitioners better understand how smell types affect maintainability. Indeed, the goal of RQ4 is to shed light on this aspect in particular in order to understand how the components (e.g. classes and packages) affected by architectural smells change over time.
-
+Research questions from 1 through 4 all focus on studying the problem; indeed, they are \emph{knowledge questions} and their answers tell us exactly how smells evolve, how they are perceived by practitioners, how they relate with changes in the source code of the system, and ultimately allow us to understand how to prioritise, quantify, and monitor smells.
+In contrast, RQ5 is a \emph{design problem} to \textit{``Design an approach to estimate the technical debt principal generated by AS''}
 The output obtained from the previous RQs is used in RQ5 to design a solution to quantify the amount of technical debt principal generated by architectural smells.
+Answering this RQ provides the means to practitioners for not only quantifying the amount of principal, but also prioritise AS instances based on their severity.
 
 The quality of the solution designed for RQ5 was validated with a number of practitioners.
 The results of RQ5 showed that practitioners, while finding the information provided by TD principal very useful, they often have to sacrifice maintainability in favor of other qualities, depending on the project.
 This means that TD management decisions are affected by other qualities as well, and to better understand to extent of these trade-offs we studied them in RQX (RQ6).
 
-
-\subsection{Sequence Rationale Two}
-The first step to design a solution for the problem statement requires us to understand how AS actually evolve and persist in real world systems.
-Therefore, RQ2 studies how different types of smells evolve and how long they persist within the system. This has implications on how practitioners should prioritise smells.
-
-RQ2 focused only on quantitative data collected from open source system. To get a more generic look, RQ1 aims at understanding what is the perception of AS in industrial practice, which allows us to learn existing practices that introduce, manage, and remove AS.
-
-The next step is to combine the perception of AS and their evolution by studying these two aspects in a large multinational company.
-This is done by RQ3, which investigates the co-occurrence of AS, what AS type precedes another, and finally, how practitioners are impacted by the AS detected in their system.
-This information allows us to understand the introduction and monitoring of AS in practice, and identify prioritisation needs.
- 
-One aspect that is not investigated by RQ2 and RQ3 is the correlation of smells with changes in the source code, which can help practitioners better understand how smell types affect maintainability. Indeed, the goal of RQ4 is to shed light on this aspect in particular in order to understand how the components (e.g. classes and packages) affected by architectural smells change over time.
-
-The output obtained from the previous RQs is used in RQ5 to design a solution to quantify the amount of technical debt principal generated by architectural smells.
-
-The quality of the solution designed for RQ5 was validated with a number of practitioners.
-The results of RQ5 showed that practitioners, while finding the information provided by TD principal very useful, they often have to sacrifice maintainability in favor of other qualities, depending on the project.
-This means that TD management decisions are affected by other qualities as well, and to better understand to extent of these trade-offs we studied them in RQX (RQ6).
  
 % However, there are still three important research threads that are either incomplete or not investigated at all:
 % \begin{enumerate}
