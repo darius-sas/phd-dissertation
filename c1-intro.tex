@@ -78,12 +78,12 @@ Therefore, given the different scope and granularity, architectural smells and c
 This difference between the two categories of smells is also supported by empirical evidence \cite{Arcelli2019}.
 
 Architectural smells can be of different types, with each type having its own definition and implications for the maintainability and evolvability of the affected elements \cite{Azadi2019}.
-An architectural smell type can have multiple instances affecting a system, with each instance having a different severity (more on this in Chapter \ref{...}).
+An architectural smell type can have multiple instances affecting a system, with each instance having a different severity (more on this in Chapter \ref{c2:sec:arch-smells}).
 An example of an architectural smell type is \emph{Cyclic Dependency}, which arises when a set of elements (e.g. classes, or packages) depend on each other in a cycle.
 
 The architectural smell types that are of interest to this PhD project are \emph{Cyclic Dependency (CD), Hublike Dependency (HL), God Component (GC), and Unstable Dependency (UD)}.
 In Section \ref{sec:intro:problem-statement} I elaborate on the reasons why I opted to focus on these four types of AS.
-The definitions of each AS type will be given in Chapter \ref{...}.
+The definitions of each AS type will be given in Chapter \ref{c2:sec:arch-smells}.
 
 %\subsection{Why smells over existing metric?}
 % TODO?
@@ -96,7 +96,7 @@ One of the topics on which the project has innovated, is researching and develop
 In this regard, our study investigates specifically the interaction between Technical debt (i.e. Maintainability and Evolvability) and Reliability, which map to design-time and a runtime quality attributes, respectively. Further details on the project is available on its website\footnote{Browse \url{https://sdk4ed.eu/}.}.
 
 As part of the SDK4ED project, I also contributed to the open source version of \textsc{Arcan}, a tool to automatically detect AS in a system, by adding support for Java source code, support for Git to do evolution analyses, and the detection of the God Component smell.
-\textsc{Arcan} will be fully introduced in Section \ref{...}.
+\textsc{Arcan} will be fully introduced in Chapter \ref{c2:sec:arcan}.
 
 \section{Research design}\label{sec:intro:research-design}
 \subsection{Problem statement}\label{sec:intro:problem-statement}
@@ -204,7 +204,7 @@ Answering this RQ provides the means to practitioners for not only quantifying t
 
 The quality of the solution designed for RQ5 was validated with a number of practitioners.
 The results of RQ5 showed that practitioners, while finding the information provided by TD principal very useful, they often have to sacrifice maintainability in favor of other qualities, depending on the project.
-This means that TD management decisions are affected by other qualities as well, and to better understand to extent of these trade-offs we studied them in RQX (RQ6).
+This means that TD management decisions are affected by other qualities as well, and to better understand to extent of these trade-offs we studied them in RQ6.
 
  
 % However, there are still three important research threads that are either incomplete or not investigated at all:

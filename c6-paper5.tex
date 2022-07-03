@@ -61,64 +61,8 @@ Section \ref{c6:sec:AS} summarises the theory of architectural smells and the to
 
 \section{Architectural smells}\label{c6:sec:AS}
 The AS considered in this study are the following 4 types: Cyclic Dependency (CD), Unstable Dependency (UD), Hublike Dependency (HD), and God Component (GC).
-The first sub-section provides a brief definition for each type with few details on how they are detected by the used tool; for further details, we refer the reader to Arcelli et al. \cite{Arcelli2016}. 
-The second and third sub-sections provide respectively a brief description of the tool used to detect architectural smells, called \textsc{Arcan}, and the smell characteristics used to calculate ATDI. 
-
-\subsection{Definition and implications}
-Lippert and Roock \cite{Lippert2006} define architectural smells as violations of recognised design principles (such as the ones defined by Martin \cite{Martin2018}) that result in undesired dependencies, overblown size, and excessive coupling \cite{Garcia2009}.
-Architectural smells are an indication that something may be problematic, but they do not necessarily imply so.
-
-This definition of architectural smells may sound very similar to the definition of \emph{code smells} provided by Kent Beck\footnote{Read \url{https://wiki.c2.com/?CodeSmell} for more info.}.
-However, there is a clear distinction between the two: Architectural smells involve multiple classes, packages, architectural layers, or even sub-systems \cite{Lippert2006}, whereas code smells (CS) arise at line of code, method, or class level \cite{Fowler2002}.
-This means that architectural smells, contrary to code smells, require \emph{large refactorings} in order to be removed from the system \cite{Lippert2006}.
-
-It is important to mention that previous work provides empirical evidence that the AS  considered in this study and the most well-known CS are \emph{independent} entities and that there is no correlation between the presence of AS and CS \cite{Arcelli2019}.
-
-Both AS and CS manifest themselves in different forms that are commonly referred to as different \emph{types}.
-Some examples of CS types are \emph{Duplicated Code}, \emph{Long Method}, and \emph{Large Class} \cite{Fowler2002}.
-
-In this study, we chose to focus on four types of AS: Cyclic Dependency (CD), Hub-Like Dependency (HL), Unstable Dependency (UD), and God Component (GC) \cite{Arcelli2016,Lippert2006,Sas2019}. We opted to study these AS because they are some of the most prominent architecture smells, and there already exists tools that support their automatic detection \cite{Arcelli2016, Arcelli2017}.
-
-\paragraph{Unstable dependency (UD)}\label{c6:sec:arch-smells-ud}
-This smell represents a package that depends upon a significant number of packages that are less stable than itself.
-The stability of a package is measured using Martin's instability metric \cite{Martin2018}, which measures the degree to which a package is susceptible to change because of its dependencies.
-The tool \textsc{Arcan} uses a 30\% threshold \cite{Arcelli2017} on the number of packages that are less stable to detect this smell.
-
-The main problem caused by UD is that the probability to change the main package grows higher as the number of unstable packages it depends upon grows accordingly. This increases the likelihood that the packages that depend upon it change as well when it is changed (ripple effect), thus inflating future maintenance efforts.
-
-\paragraph{Hublike dependency (HL)}\label{c6:sec:arch-smells-hl}
-This smell represents an artefact (called hub) where the number of ingoing and outgoing dependencies is higher than the median in the system \cite{Arcelli2016}. A hublike dependency can be detected both at the package and at the class level.
-
-The implications of this smell for development activities are once again concerning the probability of change and the ease of maintenance.
-Making a change to any of the artefacts that the hub depends upon may be very hard \cite{Martin2018} because many other artefacts may indirectly depend on them even though there is only one artefact \emph{directly} depending on them (the hub).
-Additionally, the hub is also overloaded with responsibility and has a high coupling.
-This structure is thus not desirable, as it increases the potential effort necessary to make changes to all of the elements involved in the smell.
-
-\paragraph{Cyclic dependency (CD)}\label{c6:sec:arch-smells-cd}
-This smell represents a dependency cycle among a number of artefacts; there are several software design principles that suggest avoiding creating such cycles \cite{Lippert2006,Parnas1979,Stevens1974,Martin2018}.
-
-Cycles affect mostly complexity, but their presence also has an impact on compiling (causing the recompilation of big parts of the system), testing (forcing to execute unrelated parts of the system, increasing testing complexity), or deploying (forcing developers to re-deploy unchanged components) \cite{Lippert2006}.
-
-\paragraph{God component (GC)}\label{c6:sec:arch-smells-gc}
-This smell represents a component (or package, in Java) that is considerably larger in size (i.e. lines of code) than other components in the system \cite{Lippert2006}.
-Originally, GC was defined using a fixed threshold on the lines of code \cite{Lippert2006}, \textsc{Arcan} however uses a variable benchmark based on the frequencies of the number of lines of code of the other packages in the system \cite{Arcelli2015}.
-Adopting a benchmark to derive the detection threshold fits particularly well in this case because what is considered a ``large component'' depends on the size of other components in the system under analysis and in many other systems.
-A benchmark allows to make precisely this kind of comparisons.
-
-God components aggregate too many concerns together in a single package and they are generally a sign that there is a missing opportunity for splitting up the package into multiple sub-packages.
-God components are often the result of several small incremental changes over a long period of time, sometimes effectively implementing a lot of the overall functionality of the system.
-Over time, the understandability of the component deteriorates along with the reusability of the individual parts of the component, as developers are not keen to use a piece of software that is difficult to understand \cite{Lippert2006}.
-
-\subsection{\textsc{Arcan}}
-To detect AS, we used a tool called \textsc{Arcan}.
-\textsc{Arcan}'s detection capabilities were validated by previous studies and obtained a precision ranging from 70\% to 100\% \cite{Arcelli2020, Arcelli2017}, depending on the project and type of smell considered.
-
-\textsc{Arcan} parses Java (by relying on Spoon \cite{Pawlak2015}), C, and C++ source code files to create a dependency graph where files, components, classes and packages are all represented using different nodes with different labels. Dependencies, and other relationships between nodes, are represented using edges that connect the dependant to its dependencies with an outgoing, labelled edge (e.g. if artefact \texttt{A} depends on artefact \texttt{B}, then the dependency graph contains a directed edge connecting \texttt{A} to \texttt{B}.). 
-The project's structural information contained in the dependency graph is then used to calculate several software metrics (e.g. fan-in, fan-out, instability \cite{Martin2018}, etc.) and then detect architectural smells by recognising their structure in the dependency graph.
-
-Compared to other tools, \textsc{Arcan} uses only software metrics and structural dependencies in order to detect architectural smells. 
-This makes \textsc{Arcan} different from tools such as DV8 \cite{Xiao2016} (a tool used by related work) which also requires the use of change metrics.
-The command line version of \textsc{Arcan} used for this study is available in the replication package \footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.}.
+A complete description of architectural smells is available in Chapter \ref{c2:sec:arch-smells}.
+The description of the tool used to detect them, \textsc{Arcan}, is available in Chapter \ref{c2:sec:arcan}.
 
 \subsection{Smell characteristics}
 An architectural smell \emph{characteristic} is a property or attribute of an architectural smell instance \cite{Sas2019}. 
