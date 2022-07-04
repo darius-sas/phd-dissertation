@@ -28,7 +28,7 @@ Our findings can enable practitioners and researchers to develop strategies for 
 For example, a Hublike dependency smell is a much better option for refactoring than a Cyclic dependency, especially in terms of complexity, and future and present maintenance effort.
 Additionally, Cyclic dependencies have a much shorter lifetime on the average, making them less critical in general.
 
-The remainder of this paper is organised as follows: Section \ref{c2:sec:related-work} discusses similar work in the literature, Section \ref{c2:sec:arch-smells} introduces the smells hereby considered, Section \ref{c2:sec:case-study} explains the methodology of this case study, Sections \ref{c2:sec:general-results}, \ref{c2:sec:rq1a-results}, \ref{c2:sec:rq1b-results}, and \ref{c2:sec:rq2-results} report and discuss the results of the different analyses, Section \ref{c2:sec:threats} lists the threats to the validity of this study and finally Section \ref{c2:sec:conclusions} concludes the paper.
+The remainder of this chapter is organised as follows: Section \ref{c2:sec:related-work} discusses similar work in the literature, Section \ref{c2:sec:arch-smells} introduces the smells hereby considered, Section \ref{c2:sec:case-study} explains the methodology of this case study, Sections \ref{c2:sec:general-results}, \ref{c2:sec:rq1a-results}, \ref{c2:sec:rq1b-results}, and \ref{c2:sec:rq2-results} report and discuss the results of the different analyses, Section \ref{c2:sec:threats} lists the threats to the validity of this study and finally Section \ref{c2:sec:conclusions} concludes the chapter.
 
 \section{Related work}\label{c2:sec:related-work}
 We present related work concerning both architectural smells and code smells.
@@ -257,7 +257,7 @@ We decided to focus on survivability because it is a time-based measurable dimen
 
 \subsection{Case selection}
 In this study, we used a set of open source systems known as the Qualitas Corpus (QC) \cite{QualitasCorpus2010}.
-We decided to work with open source systems (OSS) for the following reasons: OSS are easy to retrieve and manipulate, the QC has a big variety of different projects ready to be used, and it is easier to develop static analysis tools when there is the possibility to inspect the source code analysed. We consider the extension of our analysis on industrial systems as future work.
+We decided to work with open source systems (OSS) for the following reasons: OSS are easy to retrieve and manipulate, the QC has a big variety of different projects ready to be used, and it is easier to develop static analysis tools when there is the possibility to inspect the source code analysed. An extension ot our analysis on industrial systems is described in Chapter \ref{chap:4}.
 
 The QC has more than 100 projects that can be potentially analysed. We required that projects have more than 15 versions available so to ensure smells have enough time to grow, evolve, and fade, thus limiting  the number of candidate projects to 15.
 We also removed EclipseSDK from our selection due to its size causing difficulties during tracking.
@@ -396,7 +396,7 @@ Specific implementation details can be inspected in the source code.
 \end{figure}
 
 Despite the selected templates offering a good variety of possible signal shapes, there may be some cases that are not described well enough by the current selection. For example, signals that vary between two integer values (e.g. 6-7) multiple times, would be classified by the model as a constant signal (i.e. template (a)).
-Nonetheless, we deem that the approximation offered by the model when unusual signal curves have to be classified is sufficient for the purpose of this paper for the following reasons:
+Nonetheless, we deem that the approximation offered by the model when unusual signal curves have to be classified is sufficient for the purpose of this chapter for the following reasons:
 \begin{itemize}
     \item the templates selected represent simple and general cases, thus they simplify interpretation and analysis;
     \item a signal is classified based on the distance between points from the template and points from the signal itself after being warped, thus the classified signal has at least an internal component that resembles the classification tag (i.e. template) assigned.
@@ -404,7 +404,7 @@ Nonetheless, we deem that the approximation offered by the model when unusual si
 
 \subsection{Results}
 We performed the aforementioned analysis for all of the numeric characteristics we have recorded.
-Hereby we report only the most interesting ones, as there is a large number of data and results that could not realistically fit into this paper.
+Hereby we report only the most interesting ones, as there is a large number of data and results that could not realistically fit into this chapter.
 \paragraph{Size}
 Overall, the size of the smells stays constant throughout their evolution, especially in the case of CD and UD. This is shown in Figure \ref{c2:fig:signal-all} where approx. 50\% of the total CD and UD across all systems have a constant trend.
 Instead of growing in size, CD smells tend to grow in number, spreading across the system as new elements are added to the system's dependency network (i.e. new classes, packages, etc.).
@@ -602,16 +602,9 @@ The data and the tools used in this study are freely available online to allow o
 The reliability of the findings is guaranteed by the fact that all the intermediary results were inspected by a second researcher during all the data analysis process.
 The analysis was also performed using well-established techniques already used in previous work for analysing similar artefacts (code smells) as well as also in different fields (e.g. survival analysis, in the biomedical sciences field).
 
-
-% TODO
-\section{Conclusions and future work}\label{c2:sec:conclusions}
+\section{Conclusions}\label{c2:sec:conclusions}
 This study has investigated the evolution of instability architectural smells in the context of open source systems with respect to their characteristics and persistence.
 We presented multiple findings and practical implications useful both for practitioners and researchers that can help them improving the strategies for reducing long term maintenance efforts by managing architectural smells.
-% In particular, we found that cyclic dependencies tend to persist within the system for quite a short number of releases mostly due to the vast amount of links among nodes that may randomly appear or disappear, creating or destroying cycles. Nonetheless, cycles with more structured shapes seem to persist longer.
 
-% We also provided evidence on how smells `move' to the centre of the system as they age and how their complexity increases mostly on the number of edges rather than on the number of elements affected, despite these two characteristics being correlated.
+The tooling used in this chapter to mine architectural smells has been extended to integrate with Git repositories, thus allowing us to link the current information to code churn and investigate the effects of smells on change rates, as reported in Chapter \ref{chap:5}.
 
-As future work, we plan to extend our tooling to mine architectural smells directly from Git repositories, thus allowing us to link the current information to code churn and investigate the effects of smells on change rates.
-
-\section*{Acknowledgements}
-This work was supported by the European Union's Horizon 2020 research and innovation programme under grant agreement No. 780572 SDK4ED (\url{https://sdk4ed.eu/}).

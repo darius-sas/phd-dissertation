@@ -38,11 +38,11 @@ And finally, we interviewed six more participants in order to check, confirm, an
 
 Our findings shed light on which qualities are prioritised in the studied domain, what kind of trade-offs occur, how these trade-offs take place in practice, and how they should ideally take place. We note that, while our scope encompasses run-time and design-time qualities in general, we pay special attention to  \textit{Maintainability}, \textit{Dependability}, and \textit{Energy Efficiency}. We selected these qualities due to their importance for the embedded systems software development lifecycle \cite{Knight2002,Koopman2004} (further motivation for these 3 qualities is given in Section \ref{c7:sec:objectives-rq}). 
 
-This paper is organised using the Linear-Analytic Structure version of the case study reporting template proposed by Runeson et al. \cite{Runeson2012}. This template was chosen because it is commonly used to report case studies in Software Engineering.
+This chapter is organised using the Linear-Analytic Structure version of the case study reporting template proposed by Runeson et al. \cite{Runeson2012}. This template was chosen because it is commonly used to report case studies in Software Engineering.
 Section \ref{c7:sec:background} introduces some theoretical background and reports on similar work from literature.
 Section \ref{c7:sec:case-study} elaborates on the case study design, while Section \ref{c7:sec:results} reports the results obtained by this work. Section \ref{c7:sec:discussion} presents a discussion on our findings with key take-away messages.
 Section \ref{c7:sec:threats} describes some threats to the validity of this study and how they were mitigated.
-Section \ref{c7:sec:conclusion} concludes this work and explores possible future work.
+Section \ref{c7:sec:conclusion} concludes the work presented in this chapter.
 
 \section{Background and Related work}\label{c7:sec:background}
 This section summarises the background knowledge necessary to better understand the work presented, and reports on related work.
@@ -58,7 +58,7 @@ In contrast, design-time quality attributes determine the ease of managing the s
 As mentioned in Section 1, we pay special attention to  \textit{Maintainability} as a design-time quality and \textit{Dependability} and \textit{Energy-efficiency} as run-time qualities. Maintainability is strongly connected to the concept of \textbf{technical debt} \cite{Kruchten2012}, which plagues all non-trivial embedded systems. Technical debt entails a trade-off (often an implicit one) between the maintainability of a system and  short-term benefits \cite{Kruchten2012}. %\cite{Cunningham1993,Brown2010}
 \textit{Dependability} is composed of four sub-qualities, namely \textit{Availability}, \textit{Reliability}, \textit{Safety}, and \textit{Security} \cite{JCLaprie1992}. \textit{Energy efficiency} has become a very prominent run-time quality in the era of the Internet of Things and Cyber-Physical Systems as it affects the battery life of embedded devices \cite{Sherman2008}.
 
-In this paper, we adopt the definitions of Maintainability, Performance, Interoperability, and Security from ISO/IEC 25010:2011 \cite{ISO25010}. For Reliability we adopt the definition of Fault-tolerance from the standard. Availability is also defined as in the standard, however, we treat it separately from Reliability, while the standard considers it part of Reliability.
+In this chapter, we adopt the definitions of Maintainability, Performance, Interoperability, and Security from ISO/IEC 25010:2011 \cite{ISO25010}. For Reliability we adopt the definition of Fault-tolerance from the standard. Availability is also defined as in the standard, however, we treat it separately from Reliability, while the standard considers it part of Reliability.
 For Safety, we adopt the definition provided by IEC 61508-1:2010 \cite{IEC61508}. 
 
 A \textit{trade-off} between two quality attributes is a conscious, or unconscious, decision that positively affects one quality attribute and negatively affects the other.
@@ -716,7 +716,7 @@ To this end, a replication package, containing the protocol and the questionnair
 To guarantee the reliability of the findings, all the intermediary results were reviewed by a second researcher during all the process of analysis and the analysis was performed following a well-known qualitative data analysis method, namely Constant Comparative Method \cite{Boeije2002}. 
 Additionally, the results were presented in front of at least one practitioner of each company that took part in the study in order to ensure that the sources of the data agree with the findings of the study and ensure their credibility.
 
-\section{Conclusions and future work}\label{c7:sec:conclusion}
+\section{Conclusions}\label{c7:sec:conclusion}
 Managing quality attribute trade-offs is a complicated activity that has a considerable impact on the system's behaviour and future sustainability.
 The embedded systems domain is generally more sensitive to trade-offs among quality attributes than other domains since they have strict requirements on performance, energy and dependability.
 For example, small changes to the design or code of the system might have an undesired impact on its run-time qualities.
@@ -734,5 +734,3 @@ Another interesting work would be to investigate an empirically-calculated ratio
 \section*{Acknowledgements}
 Special thanks to Apostolos Ampatzoglou for providing suggestions and comments on the design of this study.
 We would also like to thank all the companies that took part in this study and provided us with valuable information.
-
-This work was supported by the European Union's Horizon 2020 research and innovation programme under grant agreement No. 780572 SDK4ED (\url{https://sdk4ed.eu/}).

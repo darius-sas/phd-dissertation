@@ -41,8 +41,8 @@ We selected to study these smells as they are some of the most prominent archite
 
 The novel contributions of this study are: (1) the vast majority of related work examines code smells, while we focus on architectural smells, which were found to be independent from code smells \cite{Arcelli2019}; (2) we study 4 different types of AS, and only CD were previously investigated by other studies, whereas the other three were overlooked; (3) we provide a new, interesting view of how AS affect artefacts before and after the introduction (RQ2).
 
-The rest of the paper is structured as follows:
-Section \ref{c5:sec:related-work} summarises similar work from the literature; Section \ref{c5:sec:design} describes in detail the goals, research questions and the selected projects of this study; Section \ref{c5:sec:data-collection} reports the data collected as well as the collection process; Section \ref{c5:sec:data-analysis} presents the data analysis procedures; Section \ref{c5:sec:results} reports and examines the obtained results; Section \ref{c5:sec:discussion} discusses our interpretation of the results and compares them with similar findings from the literature; Section \ref{c5:sec:limitations} enunciates the threats to the validity of this study; and finally, Section \ref{c5:sec:conclusion} concludes the paper and considers possible future work.
+The rest of the chapter is structured as follows:
+Section \ref{c5:sec:related-work} summarises similar work from the literature; Section \ref{c5:sec:design} describes in detail the goals, research questions and the selected projects of this study; Section \ref{c5:sec:data-collection} reports the data collected as well as the collection process; Section \ref{c5:sec:data-analysis} presents the data analysis procedures; Section \ref{c5:sec:results} reports and examines the obtained results; Section \ref{c5:sec:discussion} discusses our interpretation of the results and compares them with similar findings from the literature; Section \ref{c5:sec:limitations} enunciates the threats to the validity of this study; and finally, Section \ref{c5:sec:conclusion} concludes the chapter.
 
 \section{Related work}\label{c5:sec:related-work}
 \subsection{Impact of Architectural Smells}
@@ -270,7 +270,7 @@ We also measure, for every artefact $x$ the changes in the system using a well-e
 \end{enumerate}
 
 
-To collect the data, we used a combination of two tools: \textsc{Arcan} \cite{Arcelli2016} and ASTracker \cite{Sas2019}. \textsc{Arcan} collected the artefacts affected by architectural smells in each selected commit in the history of the systems directly from the source code files.
+To collect the data, we used a combination of two tools: \textsc{Arcan} \cite{Arcelli2016} and ASTracker , see Chapter \ref{chap:2}. \textsc{Arcan} collected the artefacts affected by architectural smells in each selected commit in the history of the systems directly from the source code files.
 The output of \textsc{Arcan} is a graph file containing the dependency network of the commit analysed, including the smells detected.
 The algorithms used to detect architectural smells are explained in detail by Arcelli et al. in their paper\cite{Arcelli2016}. The detection is based on the software design principles reported by Martin \cite{Martin2018} and Lippert \cite{Lippert2006}.
 In short, Cyclic Dependency is detected using a Depth-First Search algorithm that visits all the nodes in the dependency graph while checking which were already visited. 
@@ -643,7 +643,7 @@ The results from RQ1 show that artefacts affected by at least one smell exhibit 
 Interestingly, we found evidence suggesting that the four different types of smells that we studied affect change frequency in a similar way. 
 Theoretically speaking, the main drawback associated with the UD smell type \cite{Arcelli2016} is an increased likelihood to change caused by a low stability of the artefacts it depends upon \cite{Martin2018}.
 Indeed, while we observed that UD-affected artefacts have an increased change frequency, we also expected them to have a higher change frequency than artefacts affected by the other smell types. However, this is not what we observed, as all four smell types seem to have a similar effect on change, with HL surpassing UD in fact.
-The HL smell was hypothesised to be quite prone to propagate changes due to its numerous dependencies which increase the likelihood that a change propagates to the central component before rippling to the components depending on it (see related work \cite{Sas2019} for further information).
+The HL smell was hypothesised to be quite prone to propagate changes due to its numerous dependencies which increase the likelihood that a change propagates to the central component before rippling to the components depending on it (see Chapter \ref{chap:2} for further information).
 Given this theoretical description, we would predict that changes may propagate within the structure of HL smells, but we did not expect it to deviate from the other smell types and surpass UD.
 
 %Overall, the implications of these findings are that architectural smells (regardless of their type) are quite likely to increase the maintenance effort required to maintain a software artefact. 
@@ -681,7 +681,7 @@ This difference between smaller and larger files has a clear implication for res
 
 Finally, some of the findings that emerged from this study match what Oyetoyan et al. \cite{Oyetoyan2015} and Le et al. \cite{Le2018} have found in their own works.
 Specifically, our results from RQ1 match what Le et al. \cite{Le2018} found, namely the average number of changes in smelly files is higher than in non-smelly files (see Figure \ref{c5:fig:rq1b-numsmells-size-freq}). On top of that, we have also shown how the number of changes positively correlates with the number of smells (RQ1b).
-Answering RQ1a instead, we have noted among others, that potentially \emph{not all types of cycles} are impactful on changes. This corroborates what Oyetoyan et al. \cite{Oyetoyan2015} found about Cyclic Dependencies, i.e. certain types of cycles do not have an impact on changes. However, we did not investigate precisely which category of cycles does so and neither if they affect neighbour artefacts; we consider this future work.
+Answering RQ1a instead, we have noted among others, that potentially \emph{not all types of cycles} are impactful on changes. This corroborates what Oyetoyan et al. \cite{Oyetoyan2015} found about Cyclic Dependencies, i.e. certain types of cycles do not have an impact on changes. However, we did not investigate precisely which category of cycles does so and neither if they affect neighbour artefacts.
 
 \section{Study Limitations}\label{c5:sec:limitations}
 The identified limitations of this study are described in terms of \emph{reliability}, \emph{external validity} and \emph{construct validity} as described by Runeson et al. \cite{Runeson2012}. Internal validity was not considered as we did not examine causal relations \cite{Runeson2012}. % We might need to address it anyway
@@ -731,10 +731,10 @@ Reliability is the aspect of validity focusing on the degree to which the data a
 
 All the tools and the data used in this study are freely available online (see related studies and Footnote \ref{ftn:repl-package}) to allow researchers to study or replicate our results using the same data or even a different set of projects.
 
-The intermediary findings and data analysis steps were all inspected and discussed by all the authors of this paper to ensure their reliability.
+The intermediary findings and data analysis steps were all inspected and discussed by all the authors of the chapter this chapter is based on to ensure their reliability.
 Moreover, similar data collection and analysis techniques have been also used in previous studies on code smells (e.g. \cite{Khomh2009}) and architectural smells (e.g. \cite{Le2018}), assuring that it is indeed possible to do this type of analysis for these types of artefacts.
 
-\section{Conclusions and future work}\label{c5:sec:conclusion}
+\section{Conclusions}\label{c5:sec:conclusion}
 The present study has thoroughly investigated the relationship between a set of four architectural smells and the changes in the affected components.
 In total, thirty-one projects, adding up to a total of 360 years of development and  over 305 million lines of code, were statically analysed and then statistically tested against our hypotheses.
 
@@ -742,13 +742,5 @@ The main findings of this case study show that: (1) artefacts affected by archit
 These findings are especially valid for artefacts belonging to the \emph{Medium-Large} and \emph{Large} size groups.
 We thus concluded that architectural smells are very likely to be associated with an increase in the technical debt interest developers pay each time they work on artefacts affected by smells.
 
-Given the results obtained from our RQs, it would be interesting to explore how the presence of architectural smells is perceived by the very developers and architects of a software system.
-More specifically, a natural continuation of RQ1 is to investigate if practitioners do perceive that affected components are more prone to changes than non-affected components and whether there is any difference, in this regard, between different types of smells.
-Concerning RQ2, it would be interesting to explore how the introduction of a smell is perceived, what lead to the introduction of the smell, and whether developers were aware of it.
-Finally, for RQ3, a possible research direction is to understand whether the difference measured in our study has a perceivable impact by developers and architects; in other words, to study how big changes must be in order to make a difference in the effort perceived.
-
-
 \section*{Acknowledgments}
 We would like to thank the Center for Information Technology of the University of Groningen for their support and for providing access to the Peregrine High Performance Computing cluster.
-
-This work was supported by the European Union's Horizon 2020 research and innovation programme under grant agreement No. 780572 SDK4ED, as well as ITEA3 and RVO under grant agreement No. 17038 VISDOM.
