@@ -2,8 +2,52 @@
 \renewcommand{\publ}{\flushleft\footnotesize{}}
 
 \chapter{Conclusions and Future Work}\label{chap:8}
+This chapter summarises the contributions of this PhD project and concludes the dissertation.
+Section \ref{c8:sec:rq-contributions} revisits each research question and answers them according to the findings of the respective empirical studies.
 
-\section{Research Questions and Contributions}
+\section{Research Questions and Contributions}\label{c8:sec:rq-contributions}
+The problem statement addressed by this dissertation is stated in Chapter \ref{chap:introduction} and hereby reported for convenience: \textit{The detection of the architectural smells alone is not sufficient for practitioners to take informed TD management decisions. Practitioners need to know what are the available prioritisation strategies, the amount of TD each instance amounts to, and the trend of the TD incurred over time. This information can help them better plan TD repayment.}
+To tackle this problem, I decomposed it into six research questions (five knowledge questions and one design problem) and answered them in Chapters \ref{chap:2} to \ref{chap:7}.
+
+The upcoming paragraphs summarise the answer to each research question based on the empirical evidence collected.
+
+\subsubsection*{RQ1: How do AS evolve in open source systems?}
+To answer this research question, I carried out an empirical study that investigated how individual instances of AS evolve over time.
+To do so, we detected the architectural smells in 524 releases of 14 different Java projects. 
+We also developed an approach to track each instance of an architectural smell with the from one version to the next.
+This allowed us to create a time series data set about architectural smell instances.
+
+The findings showed that different smell types evolve in different ways; for example, most cycles tend to stay constant in number of elements affected (size) but tend to increase in total number of instances.
+This is the opposite case for the Hublike Dependency (HL) smell, which tends to increase in size instead of in number of instances detected.
+Cycle instances were also found to be less persistent within the system, and after a few releases most of them might disappear as a consequence of the changes done in the system.
+
+Given these findings, we deduced the general prioritisation rule that \emph{HL smells should be addressed before cycles}, because individual cycle instances are less likely to affect maintenance effort (i.e. TD interest) on the long term.
+If practitioners must focus on refactoring cyclic dependencies (CD), they should \emph{address complex shapes first}.
+
+\subsubsection*{RQ2: How are AS perceived by industrial practitioners?}
+This research question was investigated by an empirical study.
+In this case, however, instead of analysing software system, we interviewed 21 among software engineers and architects on their experience with AS.
+The data collected through the interviews gave us an insight on how practitioners perceive AS, how they introduce them as well as the maintenance and evolution issues related to smells. 
+
+The results showed that practitioners perceive the God Component (GC) smell as a common cause of maintenance issues, mainly as a result of the high level of complexity that characterizes its instances. 
+Cyclic dependencies were perceived less detrimental than GC, especially among practitioners working with Java systems. A similar opinion was given about the HL smell.
+Practitioners expressed their concern about change ripple effects, but they also reported that UD smell (which theoretically is responsible for an increase in change rate in the system) is rather hard to understand and not very intuitive. 
+
+Another interesting finding is that practitioners perceived the presence of AS, in most cases, as a ``necessary evil'' in order to be able to meet deadlines and budget limitations.
+This shows that practitioners are aware and well-informed about good design practices, but they struggle following them diligently.
+It also confirmed that the problem stated in the problem statement is relevant and that practitioners require further support to manage AS.
+
+\subsubsection*{RQ3: How do AS evolve in industrial embedded systems?}
+To answer this research question, I designed an empirical case study in an industrial setting.
+This study differs from the one performed to answer RQ1 because it includes both quantitative and qualitative data. Moreover, it focuses on C/C++ industrial embedded systems rather than Java systems.
+In the study we analysed over 20 millions lines of code, 30 releases, 9 projects, and interviewed 12 among software engineers and architects.
+
+The findings showed that most CD instances follow a similar growth pattern observed in open source system -- i.e. they grow more in number rather than in size -- although in this study we observed a large percentage of CD instances that grow in size over time, thus becoming more severe.
+Cycles were also found to overlap with other smell instances (especially GC), meaning that some artefacts are maintenance hotspots.
+HL smells were found to be the \emph{most common} type of smell appearing after another smell type.
+
+
+
 
 \section{Future Work}
 
