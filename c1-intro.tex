@@ -13,20 +13,20 @@ This continuous adaptation is a \emph{relentless endeavor} that requires an ever
 A software project is \emph{sustainable} if the project owner is capable of applying whatever valuable change they ought to make, in a timely fashion \cite{Winters2020}.
 However, design decisions and implementation choices made early on in the project's lifetime inevitably affect the decisions we have to make in the present, often making them harder.
 Over time, as the system grows old, our capability of adapting the software to new requirements and changes in the environment grows narrower, and making changes becomes more expensive.
-Eventually, the system becomes \emph{unsustainable}: it is \emph{poorly maintainable} -- e.g. it is hard to fix bugs -- and with \emph{limited capabilities} to evolve -- e.g. it is difficult to implement new functionality. In other words, the second sentence of Lehman's first law of software evolution comes into play.
+Eventually, the system becomes \emph{unsustainable}: it is \emph{poorly maintainable} -- i.e. it is hard to fix bugs -- and with \emph{limited capabilities} to evolve -- i.e. it is difficult to implement new functionality. In other words, the second sentence of Lehman's first law of software evolution comes into play.
 
-In 1992, Ward Cunningham cleverly adapted and reframed both of these concepts (sustainability and Lehman's law) under the term \emph{technical debt} \cite{Cunningham1992}. 
+In 1992, Ward Cunningham cleverly adapted and reframed both of these concepts (sustainability and Lehman's first law) under the term \emph{technical debt} \cite{Cunningham1992}. 
 Since then, technical debt has gained a lot of traction among both practitioners and researchers alike, as it concerns a problem that (almost) every non-trivial software system suffers from. 
 Over the years, several studies have made great progress in identifying the causes and effects of technical debt \cite{Brown2010,Kruchten2012}.
 A comparable amount of effort was also spent in designing and developing strategies and techniques to \emph{manage} TD \cite{Li2015} in order to aid decision-makers. 
 Similarly, several tools were developed to automatically \emph{measure} TD using source code as input \cite{Avgeriou2021}, or \emph{track} it manually \cite{Martini2016}.
 
-Technical debt can materialise into various forms, ranging from source code violations \cite{Letouzey2012,Curtis2012} and design-level flaws \cite{Marinescu2012} to sub-optimal decisions made at the architectural level \cite{Ernst2015,Yli-Huumo2014}. One form of such architectural decisions are architectural smells (AS); they are defined as a \emph{``commonly (although not always intentionally) used architectural decisions that negatively impact system quality} \cite{Garcia2009} and have gained a lot of attention from researchers over the past years \cite{Verdecchia2018}.
-AS are a particularly risky type of technical debt: they involve architecture-level artefacts, so their impact is much higher and affects software development in the long run. 
+Technical debt can materialise into various forms, ranging from source code violations \cite{Letouzey2012,Curtis2012} and design-level flaws \cite{Marinescu2012} to sub-optimal decisions made at the architectural level \cite{Ernst2015,Yli-Huumo2014}. One form of such architectural decisions are architectural smells (AS); they are defined as \emph{``commonly (although not always intentionally) used architectural decisions that negatively impact system quality} \cite{Garcia2009} and have gained a lot of attention from researchers over the past years \cite{Verdecchia2018}.
+AS are a particularly risky type of technical debt: they involve architecture-level artefacts, so their impact is much larger and affects software development in the long run. 
 %Although existing literature has devoted a considerable amount of effort to study AS \cite{Mo2015,Le2016,Arcelli2016}, our understanding of AS is still incomplete.
 %This dissertation aims at improving the current state of the art concerning our understanding of AS by answering questions such as: \emph{how are AS introduced?; how do AS evolve?; and, what is their impact on software maintenance (i.e. technical debt)?}
 
-The fundamental proposition of this thesis is that a better understanding of AS will allow software practitioners to better manage technical debt, thus making software maintainability and evolvability more cost effective; this can, in turn, slow down the decaying process mentioned by Lehman's first law of software evolution and defer the replacement of the software.
+The fundamental proposition of this thesis is that a better understanding of AS will allow software practitioners to better manage technical debt, thus making software maintainability and evolvability more cost-effective; this can, in turn, slow down the decaying process mentioned by Lehman's first law of software evolution and defer the replacement of the software.
 
 In the upcoming sections, I will introduce the concepts of technical debt and architectural smells in further detail, as these are the \emph{leitmotif} of this dissertation.
 I will also decompose the research problem addressed in this thesis into multiple research questions and explain the methodology used to answer them.
@@ -45,10 +45,10 @@ Technical debt is a powerful metaphor that, essentially, conveys the importance 
 A well-accepted definition of TD is the following: 
 %\emph{TD reflects the technical compromises that software practitioners make in order to achieve a short-term advantage at the expense of creating a technical context that increases complexity and cost in the long-term} 
 \emph{``in software-intensive systems, technical debt is a collection of design or implementation constructs that are expedient in the short term, but set up a technical context that can make future changes more costly or impossible. Technical debt presents an actual or contingent liability whose impact is limited to internal system qualities, primarily maintainability and evolvability''}\cite{Avgeriou2016}. 
-Hence, an organization can get into debt and use it as leverage to temporarily increase productivity, as long as it is aware of the debt and is planning to repay it in the due time.
+Hence, an organization can get into debt and use it as leverage to temporarily increase productivity, as long as it is aware of the debt and is planning to repay it in due time.
 However, if the organization is not aware that it is accruing TD, or does not repay it on time, the amount of interest may become too high, causing the failure of the project due to the huge cost of implementing changes.
 
-Since the concept was originally conceived by Cunningham, the metaphor has been extended, engulfing several aspects of the software development process like architecture, design, requirements, testing and documentation \cite{Brown2010}.
+Since the original conception of the metaphor by Cunningham, it has been extended, engulfing several aspects of the software development process like architecture, design, requirements, testing and documentation \cite{Brown2010}.
 The current research literature has explored the concept in breadth and depth and has proposed and analyzed multiple taxonomies and types of TD.
 A common way of categorising TD is by the type of artefacts it affects. Using this approach, Li et al. \cite{Li2015} identified several different types of TD, namely \emph{Requirements TD}, \emph{Architectural TD}, \emph{Design TD}, \emph{Code TD}, \emph{Test TD}, \emph{Build TD}, \emph{Documentation TD}, \emph{Infrastructure TD}, and \emph{Versioning TD}.
 
@@ -91,7 +91,7 @@ The definitions of each AS type will be given in Chapter \ref{c2:sec:arch-smells
 \section{The project SDK4ED and \textsc{Arcan}}
 This PhD project was conducted in the context of the SDK4ED project, a project funded by the European Union under the Horizon 2020 programme.
 
-The vision of SDK4ED is to minimize the cost, the development time and the complexity of low-energy software development projects, by providing tools for automatic optimisation of multiple quality requirements, such as Technical debt, Energy efficiency, Dependability (i.e. Reliability, Availability, and Security) and Performance. 
+The vision of SDK4ED was to minimize the cost, the development time and the complexity of low-energy software development projects, by providing tools for automatic optimisation of multiple quality requirements, such as Technical debt, Energy efficiency, Dependability (i.e. Reliability, Availability, and Security) and Performance. 
 One of the topics on which the project has innovated, is researching and developing tools to identify the \textit{trade-offs} between runtime and design-time software quality attributes at multiple levels of abstractions (code, design, and architecture).
 In this regard, our study investigates specifically the interaction between Technical debt (i.e. Maintainability and Evolvability) and Reliability, which map to design-time and a runtime quality attributes, respectively. Further details on the project is available on its website\footnote{Browse \url{https://sdk4ed.eu/}.}.
 
@@ -100,15 +100,15 @@ As part of the SDK4ED project, I also contributed to the open source version of 
 
 \section{Research design}\label{sec:intro:research-design}
 \subsection{Problem statement}\label{sec:intro:problem-statement}
-In this dissertation, I address the problems that practitioners face when attempting to make changes to their systems in the presence of AS; I also argue that by providing better support to target AS as part of existing TD management activities we can help practitioners to make changes more effectively and efficiently. 
-To better explain the problem, let us quickly look at the key activities of TD management \cite{Li2015}; note that I only mention only the first five most important and well studied activities \cite{Li2015}, and focus specifically on AS (out of all TD types).
-The activities are the following: (1) \emph{identify} what elements in the system are affected by AS and the type of the smells; (2) \emph{quantify} the impact of each smell on the development activities (both maintenance and evolution); (3) \emph{prioritise} the smells in order to determine the urgency to refactor; (4) \emph{repay} the debt by refactoring smells according to the prioritisation strategy adopted; and finally (5) regularly \emph{monitor} the evolution of TD and smells over time.
+In this dissertation, I address the problems that practitioners face when attempting to make changes to their systems in the presence of AS; I also argue that by providing better support to target AS as part of TD management, we can help practitioners to make changes more effectively and efficiently. 
+To better explain the problem, let us quickly look at the key activities of TD management \cite{Li2015}; note that I only mention the five most important and most studied activities \cite{Li2015}, and focus specifically on AS (out of all TD types).
+These five activities are: (1) \emph{identify} what elements in the system are affected by AS and the type of the smells; (2) \emph{quantify} the impact of each smell on the development activities (both maintenance and evolution); (3) \emph{prioritise} the smells in order to determine the urgency to refactor; (4) \emph{repay} the debt by refactoring smells according to the prioritisation strategy adopted; and finally (5) regularly \emph{monitor} the evolution of TD and smells over time.
 
 The current research landscape contains plenty of studies that focus on the first activity of TD management for architectural smells -- i.e.  \emph{identification} -- whereas the work done on the other activities is not as mature.
 Consequently, practitioners have the means to identify the AS affecting a system, but there is limited understanding, and most importantly very little tool support, for the remaining activities.
 
 This situation stems from the fact that early research work on architectural smells (rightfully) focused on identifying new types of smells, theoretically defining them, proposing detection rules, and finally describing their impact on software maintenance from a theoretical, and then empirical, point of view \cite{Lippert2006,Garcia2009,Mo2015,Le2016,Arcelli2016}.
-Eventually, tools for automatic detection of AS were proposed, by both academia and industry \cite{Avgeriou2021,Khomyakov2020}, and AS detection became a more feasible option for many practitioners that could not afford to do a manual assessment.
+Subsequently, tools for automatic detection of AS were proposed, by both academia and industry \cite{Avgeriou2021,Khomyakov2020}, and AS detection became a more feasible option for many practitioners that could not afford to do a manual assessment.
 However, the rest of the activities, from quantification through monitoring, are not really supported in practice due to: a) the scarcity of research on these activities; b) the limited availability of the few research tools that focus on those specific activities; and c) the difficulty to use such tools \cite{Khomyakov2020}.
 In the best case scenario, this leaves practitioners to rely on intuition and assumptions instead of \emph{data} and \emph{well-established practices}; in the worst case scenario, they do not consider AS management at all.
 In the long run, both are likely to cause exceedingly high costs in order to apply any changes, thus diminishing the long-term sustainability of the system \cite{Winters2020}. 
@@ -117,7 +117,7 @@ Eventually, it becomes more convenient to rewrite the whole project \cite{Lehman
 This problem is summarised by the following statement:
 \begin{quote}\itshape
     ``The detection of the architectural smells alone is not sufficient for practitioners to take informed TD management decisions.
-    Practitioners need to know what are the available prioritisation strategies, the amount of TD each instance amounts to, and the trend of the TD incurred over time. This information can help them better plan TD repayment.''
+    Practitioners need to know what the available prioritisation strategies are, the amount of TD each instance amounts to, and the trend of the TD incurred over time. This information can help them better plan TD repayment.''
 \end{quote}
 
 \subsection{Design science as research methodology}
@@ -157,7 +157,7 @@ This section elaborates on how the research project presented in this thesis is 
 Figure \ref{fig:intro:problem-decomposition} decomposes the problem statement introduced in Section \ref{sec:intro:problem-statement} into design problems and knowledge questions.
 The different colors and arrows are to be read as follows: light grey boxes refer to design problems; yellow boxes refer to knowledge questions; thin arrows represent decomposition; whereas thick arrows represent sequence.
 In the remainder of this section, I will use the term \emph{research question} (RQ) to refer to both design problems and knowledge questions.
-Research questions are numbered to easily refer to them, and, with the exception of RQ1, decomposed into multiple sub-RQs that are labelled with letters.
+Research questions are numbered to easily refer to them, and, with the exception of RQ1, are decomposed into multiple sub-RQs that are labelled with letters.
 
 \begin{figure}
     \centering
@@ -166,45 +166,44 @@ Research questions are numbered to easily refer to them, and, with the exception
 \end{figure}
 
 The problem statement (see Figure \ref{fig:intro:problem-decomposition}) states that practitioners cannot take informed decisions by relying on the detection of AS instances alone.
-The smells detected need to be quantified in terms of TD, prioritised, monitored and paid back in order for AS management to be effective.
-This hinders practitioners' ability to manage architectural TD, ultimately affecting the sustainability of the system.
+The smells detected also need to be quantified in terms of TD, prioritised, monitored and paid back in order for AS management to be effective.
+Without support for these activities, practitioners' ability to manage architectural TD is significantly limited, ultimately affecting the sustainability of the system.
 
-As a first step towards addressing this issue, I decided to investigate how AS evolve in real world systems and formulated RQ1: \textit{``How do AS evolve in open source systems?''} 
-Studying the evolution of AS entails studying two aspects: the evolution of the individual instances and the persistence of AS instances within the system.
-Obtaining an understanding of these two aspects can help researchers formulate general rules for prioritising AS based on their historical evolution.
-Additionally, a better understanding of the evolution of a smell can help design a better approach to quantify the amount of TD incurred.
-Answering RQ1 required analysing 524 releases belonging to 15 open source pojects.
+As a first step towards addressing the stated problem, I decided to investigate how AS evolve in real world systems and formulated RQ1: \textit{``How do AS evolve in open source systems?''} 
+Studying the evolution of AS entails studying two aspects: the evolution of the individual AS instances and the persistence of AS instances within the system.
+Answering RQ1 would allow to address the stated problem in two ways. First, obtaining an understanding of these two aspects can help researchers formulate general rules for prioritising AS based on their historical evolution.
+Second, a better understanding of the evolution of a smell can help design a better approach to quantify the amount of TD incurred.
+This study required analysing 524 releases belonging to 15 open source pojects.
 The tool \textsc{Arcan} was used to detect the architectural smells and a custom tool was designed and developed to track them from one release to the next.
 
 The investigation of RQ1 is a purely \emph{quantitative} approach and provides insights that are applicable only to open source projects for the most part.
 Therefore, to provide a \emph{qualitative} view of architectural smells, I formulated RQ2: \textit{``How are AS perceived by industrial practitioners?''}
-The goal of RQ2 is two-fold: (1) understand the issues stemming from the presence of AS and that affect maintainability; and (2) study the opinion of practitioners on AS in terms of introduction and how AS are dealt with.
+The goal of RQ2 is two-fold: (1) understand the issues stemming from the presence of AS and that affect maintenance and evolution; and (2) explore how and why practitioners introduce and deal with AS.
 To answer RQ2, I designed a case study and interviewed 21 practitioners from 3 companies in Europe that work with both Java and C/C++.
-RQ2 findings are particularly interesting for researchers as they can better understand the problems faced by practitioners and design solutions accordingly.
+The findings of RQ2 are particularly interesting for researchers as they can better understand the problems faced by practitioners and design solutions accordingly.
 
 While investigating RQ2, practitioners admitted that, in most cases, smells are introduced inadvertently due to bad design decisions.
 However, they could not pinpoint what types of smells are exactly introduced, whether there is more than one smell affecting the same components, and in what order these smells were introduced to begin with.
 To investigate this aspect, I formulated RQ3 \textit{``How do AS evolve in industrial embedded systems?''}
-This RQ is similar to RQ1, but focuses specifically on the co-occurrence and introduction order of smells and takes into account also the experiences of practitioners.
+This RQ focuses on the evolution of AS, similarly with RQ1, but has a completely different focus: the co-occurrence and introduction order of smells, taking into account also the experiences of practitioners.
 The context of the study also changes, as RQ3 focuses on industrial systems written in C/C++ (rather than open source Java systems) belonging to a large multinational company.
 Answering RQ3 allows us to understand if there exists any pattern that can predict the introduction of a smell given the presence of another and what do practitioners think about specific AS instances (and their evolution).
 This kind of information can be used to improve prioritisation decisions (e.g. address the component that is most likely to be affected next).
 
-A common theme arised from RQ3 is that most of the practitioners we talked to were concerned of the frequency of change of components and its propagation to other components due to the presence of smells. 
+One of the main findings of RQ3 was that most of the interviewed practitioners were concerned about the frequency of change in affected components and the propagation of changes to other components due to the presence of smells. 
 Practitioners reported that several components that were affected by smells necessitated frequent maintenance.
 To further study this aspect, and ensure that their feedback was not just the result of confirmation bias, I formulated RQ4: \textit{``How do AS correlate to changes in the source code of the system?''}
 The goal of this question is to understand if elements affected by architectural smells have a higher chance of changing than elements that are not affected by smells.
-This helps understanding the relation that AS have with the amount of interest paid by practitioners that decide to not repay the debt represented by smells.
-Answering this RQ required investigating 27 projects, 360 years of total development and analyse over 305 millions of lines of code.
+This helps understanding the relation between AS and the amount of interest paid by practitioners that decide to not repay the debt represented by smells.
+Answering this RQ required investigating 27 Open Source projects, involving 360 years of total development and over 305 millions of lines of code.
 
-Research questions from 1 through 4 all focus on studying the problem; indeed, they are \emph{knowledge questions} and their answers tell us exactly how smells evolve, how they are perceived by practitioners, how they relate with changes in the source code of the system, and ultimately allow us to understand how to prioritise, quantify, and monitor smells.
-In contrast, RQ5 is a \emph{design problem} to \textit{``Design an approach to estimate the technical debt principal generated by AS''}
+Research questions from 1 through 4 focus on investigating the problem: they are \emph{knowledge questions} and answering them can support researchers in understanding how smells evolve, how they are perceived by practitioners, how they relate with changes in the source code of the system; ultimately, they allow us to understand how to prioritise, quantify, and monitor smells.
+In contrast, RQ5 is a \emph{design problem} focusing on the solution: \textit{``Design an approach to estimate the technical debt principal generated by AS''}.
 The output obtained from the previous RQs is used in RQ5 to design a solution to quantify the amount of technical debt principal generated by architectural smells.
 Answering this RQ provides the means to practitioners for not only quantifying the amount of principal, but also prioritise AS instances based on their severity.
 
-The quality of the solution designed for RQ5 was validated with a number of practitioners.
-The results of RQ5 showed that practitioners, while finding the information provided by TD principal very useful, they often have to sacrifice maintainability in favor of other qualities, depending on the project.
-This means that TD management decisions are affected by other qualities as well, and to better understand to implications of these trade-offs I formulated RQ6: \textit{``How are trade-offs between quality attributes currently managed by the industry?''}
+During the validation of the solution in RQ5, we discovered an interesting phenomenon: while practitioners are very positive about the information conveyed by the TD principal, they often have to sacrifice maintainability in favor of other qualities, depending on the project.
+This means that TD management decisions are affected by other qualities as well, and to better understand the implications of these trade-offs I formulated RQ6: \textit{``How are trade-offs between quality attributes currently managed by the industry?''}
 The output of this research question can help practitioners make better trade-off decisions involving technical debt.
 
 \subsection{Mapping empirical methods to the RQs}
