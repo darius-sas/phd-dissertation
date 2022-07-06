@@ -7,12 +7,12 @@ Section \ref{c8:sec:rq-contributions} revisits each research question and answer
 
 \section{Research Questions and Contributions}\label{c8:sec:rq-contributions}
 The problem statement addressed by this dissertation is stated in Chapter \ref{chap:introduction} and hereby reported for convenience: \textit{The detection of the architectural smells alone is not sufficient for practitioners to take informed TD management decisions. Practitioners need to know what are the available prioritisation strategies, the amount of TD each instance amounts to, and the trend of the TD incurred over time. This information can help them better plan TD repayment.}
-To tackle this problem, I decomposed it into six research questions (five knowledge questions and one design problem) and answered them in Chapters \ref{chap:2} to \ref{chap:7}.
+To tackle this problem, we decomposed it into six research questions (five knowledge questions and one design problem) and answered them in Chapters \ref{chap:2} to \ref{chap:7}.
 
 The upcoming paragraphs summarise the answer to each research question based on the empirical evidence collected.
 
 \subsubsection*{RQ1: How do AS evolve in open source systems?}
-To answer this research question, I carried out an empirical study that investigated how individual instances of AS evolve over time.
+To answer this research question, we carried out an empirical study that investigated how individual instances of AS evolve over time.
 To do so, we detected the architectural smells in 524 releases of 14 different Java projects. 
 We also developed an approach to track each instance of an architectural smell with the from one version to the next.
 This allowed us to create a time series data set about architectural smell instances.
@@ -38,18 +38,53 @@ This shows that practitioners are aware and well-informed about good design prac
 It also confirmed that the problem stated in the problem statement is relevant and that practitioners require further support to manage AS.
 
 \subsubsection*{RQ3: How do AS evolve in industrial embedded systems?}
-To answer this research question, I designed an empirical case study in an industrial setting.
+To answer this research question, we designed an empirical case study in an industrial setting.
 This study differs from the one performed to answer RQ1 because it includes both quantitative and qualitative data. Moreover, it focuses on C/C++ industrial embedded systems rather than Java systems.
 In the study we analysed over 20 millions lines of code, 30 releases, 9 projects, and interviewed 12 among software engineers and architects.
 
-The findings showed that most CD instances follow a similar growth pattern observed in open source system -- i.e. they grow more in number rather than in size -- although in this study we observed a large percentage of CD instances that grow in size over time, thus becoming more severe.
-Cycles were also found to overlap with other smell instances (especially GC), meaning that some artefacts are maintenance hotspots.
-HL smells were found to be the \emph{most common} type of smell appearing after another smell type.
+The findings derived from the quantitative analysis showed that most CD instances follow a similar growth pattern observed in open source system -- i.e. they grow more in number rather than in size -- although in this study we observed a large percentage of CD instances that grow in size over time, thus becoming more severe.
+Cycles were found to be precursors of other smells, whereas HL smells were found to be the \emph{most common} successor type of smell.
+
+The findings of the qualitative analysis highlighted that practitioners are aware of the presence of smells and can use intuition to pinpoint the problem but they need assistance in \emph{tracking} and \emph{quantifying} their presence \emph{deterministically}.
+Moreover, practitioners also mentioned that change propagation to unknown parts of the codebase is main struggle during typical maintenance activities.
+These issues were especially associated with the components affected by smells. 
+
+\subsubsection*{RQ4: How do AS correlate to changes in the source code of the system?}
+To investigate this research question, we set up an empirical study to analyse 31 Java projects for a total of over 3900 commits.
+The analysis compared the frequency and size of changes in affected and non-affected classes and packages.
+To do so, we used several different statistical tests while also controlling for the confounding factor of the size of the project, classes, and packages.
+
+The results show that in 82\% of the commits analysed the proportion of smelly artefacts that change is consistently higher than non-smelly artefacts that change.
+Medium and large artefacts that are affected by smells are naturally more likely to exhibit this difference in change frequency than their small counterpart.
+Similarly, artefacts that exhibit changes are also more likely to have more smells than artefacts that have fewer regardless of the size of the artefact.
+Another finding that emerged is when a smell is introduced to an artefact, the change frequency of the artefact increases afterwards.
+
+While these findings do not provide evidence that architectural smells are directly responsible for an increase in the frequency of change of the artefacts affected, they do confirm that the presence of architectural smells indicates the presence of \emph{hotspots} in the design and code of the system.
+
+\subsubsection*{RQ5: Design an approach to estimate the technical debt principal generated by AS}
+This research question represents a rather complicated problem to solve, that required solving first two design sub-problems: (1) how to calculate the severity of an architectural smells, and (2) how to quantify the effort to remove a smell.
+
+To solve the first design problem, we designed a machine learning model that ranks architectural smells based on their severity. 
+Doing this, required first creating a data set that comprised examples of smells instances with different severity. The dataset was manually annotated using the findings from the previous studies (and the state of the art) as guidelines. 
+Next, the several ML model were evaluated through experimentation we selected the best one.
+
+To solve the second design problem, we used the number of lines of code that are responsible for the presence of the smell, and therefore must be understood and changed by the developer.
+This solution ultimately resulted in a static analysis tool that precisely calculates these values.
+
+Finally, we combined the two solutions to calculate the ATD index and designed a case study to validate our approach.
+In total, we interviewed 16 practitioners, 9 that worked on open source projects (either full-time or as a hobby) and 7 from two companies.
+From the interviews emerged that practitioners agreed with the estimations provided in 71\% of the cases and that these were \emph{representative of the effort} necessary to refactor a smell.
+Moreover, they also mentioned that TD repayment was not always an option for them as it would forced them to make a trade-off that they were not willing to.
+
+
+\subsubsection*{RQ6: How are trade-offs between quality attributes currently managed by the industry?}
+We answered this research question by conducting an empirical case study set up in an industrial setting.
 
 
 
 
 \section{Future Work}
+
 
 
 % From ATD paper
