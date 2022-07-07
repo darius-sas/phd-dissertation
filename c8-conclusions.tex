@@ -4,6 +4,7 @@
 \chapter{Conclusions and Future Work}\label{chap:8}
 This chapter summarises the contributions of this PhD project and concludes the dissertation.
 Section \ref{c8:sec:rq-contributions} revisits each research question and answers them according to the findings of the respective empirical studies.
+Section \ref{c8:sec:future-work} concludes the chapter by exploring future research directions that stem from the work presented in this dissertation.
 
 \section{Research Questions and Contributions}\label{c8:sec:rq-contributions}
 The problem statement addressed by this dissertation is stated in Chapter \ref{chap:introduction} and hereby reported for convenience: \textit{The detection of the architectural smells alone is not sufficient for practitioners to take informed TD management decisions. Practitioners need to know what are the available prioritisation strategies, the amount of TD each instance amounts to, and the trend of the TD incurred over time. This information can help them better plan TD repayment.}
@@ -12,16 +13,16 @@ To tackle this problem, we decomposed it into six research questions (five knowl
 The upcoming paragraphs summarise the answer to each research question based on the empirical evidence collected.
 
 \subsubsection*{RQ1: How do AS evolve in open source systems?}
-To answer this research question, we carried out an empirical study that investigated how individual instances of AS evolve over time.
+To answer this research question, we carried out an empirical study that investigated how individual instances of architectural smells evolve over time.
 To do so, we detected the architectural smells in 524 releases of 14 different Java projects. 
-We also developed an approach to track each instance of an architectural smell with the from one version to the next.
+We also developed an approach to track each instance of an architectural smell its counterpart from the next version.
 This allowed us to create a time series data set about architectural smell instances.
 
 The findings showed that different smell types evolve in different ways; for example, most cycles tend to stay constant in number of elements affected (size) but tend to increase in total number of instances.
 This is the opposite case for the Hublike Dependency (HL) smell, which tends to increase in size instead of in number of instances detected.
-Cycle instances were also found to be less persistent within the system, and after a few releases most of them might disappear as a consequence of the changes done in the system.
+Cycle instances were also found to be less persistent within the system, and after a few releases most of them might disappear\footnote{Note that cycles are replaced by different instances involving the new classes and packages added to the system.} as a consequence of the changes done in the system.
 
-Given these findings, we deduced the general prioritisation rule that \emph{HL smells should be addressed before cycles}, because individual cycle instances are less likely to affect maintenance effort (i.e. TD interest) on the long term.
+Given these findings, we deduced general prioritisation rules, such as \emph{HL smells should be addressed before cycles} because individual cycle instances are less likely to affect maintenance effort (i.e. TD interest) on the long term.
 If practitioners must focus on refactoring cyclic dependencies (CD), they should \emph{address complex shapes first}.
 
 \subsubsection*{RQ2: How are AS perceived by industrial practitioners?}
@@ -89,7 +90,7 @@ The results showed that practitioners prefer prioritising run-time qualities (e.
 Practitioners also mentioned how these trade-offs backfired eventually, hampering their ability to meet existing performance requirements or deliver new functionality on time. 
 
 
-\section{Future Work}
+\section{Future Work}\label{c8:sec:future-work}
 
 
 
@@ -101,3 +102,14 @@ Practitioners also mentioned how these trade-offs backfired eventually, hamperin
 
 %From AS evolution paper
 % $^\dagger$ marks characteristics not studied in this study as they are intended as future work.
+
+
+% Research on architectural smells
+% Tradeoffs with energy efficiency and performance
+% Real time Impact analysis of changes in source code 
+% Automatic refactoring
+
+% Research on tool support for software processes
+% - How to make the correct information available at the right time, and the right person: integrate data from multiple sources and link it together.
+% - IR/ML in software engineering to support decisions
+% - 
