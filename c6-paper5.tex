@@ -1,5 +1,5 @@
 \setlength{\headheight}{1.2cm}
-\renewcommand{\publ}{\flushleft\footnotesize{This chapter has been submitted to a journal.\\[0.1cm]}}
+\renewcommand{\publ}{\flushleft\footnotesize{This chapter has been submitted to a peer-reviewed journal.\\[0.1cm]}}
 
 \chapter{An architectural technical debt index based on machine learning and architectural smells}
 \label{chap:6}
@@ -1141,7 +1141,7 @@ In addition, an implementation of our approach is also freely available in the r
     \centering
     \caption{Comparison of related work with the approach proposed in this chapter (*Absolute: measurement is dependant only on the input; Relative: measurement depends on both a benchmark (or ML model) and on the input).}
     \label{c6:tab:rw-comparison}
-    \begin{tabular}{r|m{2.5cm}m{2.5cm}m{2.5cm}m{2.5cm}m{2.5cm}m{2.5cm}}
+    \begin{tabular}{r|m{2.5cm}m{2.5cm}m{2cm}m{2cm}m{2cm}m{2cm}}
     \hline
     \textbf{Related Work} & This work & \cite{Xiao2016} & \cite{Roveda2018} & \cite{Martini2018b} & \cite{Wu2018} & \cite{Verdecchia2020} \\
     \textbf{Input} & Source code and architectural smells & Historical change data, Source code, bug trackers, and architectural smells & Java Bytecode, change data, and architectural smells & UML model. Source code and custom thresholds & Historical change data, source code, and questionnaires & Results of 3rd party tools \\
@@ -1149,7 +1149,7 @@ In addition, an implementation of our approach is also freely available in the r
     \textbf{Measurement*} & Relative & Absolute & Relative & Absolute & Relative & Relative \\
     \textbf{Output} & ATD principal as an index & ATD interest paid so far & ATD principal as an index & ATD principal as an index & Urgency to refactor a component and modularisation index & ATD principal as an index \\
     \textbf{Automation} & Full & Full & Full & Full & Partial & Full \\
-    \textbf{Validation or Evaluation} & Validated through interviews with both open source and professional engineers & Evaluated on open source systems & Evaluated on open source systems & Validation within a company & Validation within a company & None \\ \hline
+    \textbf{Valid. or Eval.} & Validated through interviews with both open source and professional engineers & Evaluated on open source systems & Evaluated on open source systems & Validation within a company & Validation within a company & None \\ \hline
     \end{tabular}
 \end{sidewaystable}
 
