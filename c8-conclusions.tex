@@ -48,7 +48,11 @@ The data collected through the interviews gave us an insight on how practitioner
 
 The results showed that practitioners perceive the God Component (GC) smell as a common cause of maintenance issues, mainly as a result of the high level of complexity that characterizes its instances. 
 Cyclic dependencies were perceived less detrimental than GC, especially among practitioners working with Java systems. A similar opinion was given about the HL smell.
-Practitioners expressed their concern about change ripple effects, but they also reported that the UD smell (which theoretically is responsible for an increase in change rate in the system) is rather hard to understand and not very intuitive. 
+Practitioners expressed their concern about change ripple effects associated with UD smell, but they also reported that the smell type (which theoretically is responsible for an increase in change rate in the system) is rather hard to understand and not very intuitive. 
+
+HL and GC smells seemed to be the most commonly labelled as intentionally introduced, although practitioners also mentioned that the grew larger in size than what it was intended.
+This resulted in practitioners being reluctant to refactor them.
+CD instances were instead attributed to bad initial design decisions that resulted in the introduction of cycles, which made them easier candidates for refactorings.
 
 Another interesting finding is that practitioners perceived the presence of AS, in most cases, as a ``necessary evil'' in order to be able to meet deadlines and budget limitations.
 This shows that practitioners are aware and well-informed about good design practices, but they struggle following them diligently.
@@ -61,15 +65,17 @@ To answer this research question, we designed an empirical case study in an indu
 This study differs from the one performed to answer RQ1 because it includes both quantitative and qualitative data. Moreover, it focuses on C/C++ industrial embedded systems rather than Java systems.
 In the study we analysed over 20 millions lines of code, 30 releases, 9 projects, and interviewed 12 software engineers and architects.
 
-The findings derived from the quantitative analysis showed that most CD instances follow a similar growth pattern observed in open source systems -- i.e. they grow more in number rather than in size -- although in this study we observed a large percentage of CD instances that grow in size over time, thus becoming more severe.
+The findings derived from the quantitative analysis showed that most CD instances follow rather different growth pattern observed in open source systems, with a large percentage of CD instances that grow in size over time rather than in number, thus becoming more severe.
 Cycles were found to be precursors of other smells, whereas HL smells were found to be the \emph{most common} successor type of smell.
+Moreover, CD were found to be very common in GC smells, as more than 85\% of CD instances co-occur with GC instances.
+GC instances instead seemed to be least co-occurring with HL smells , with the only 10\% of GCs co-occurring with HL instances.
 
 The findings of the qualitative analysis highlighted that practitioners are aware of the presence of smells and can use intuition to pinpoint the problem but they need assistance in \emph{tracking} and \emph{quantifying} their presence \emph{deterministically}.
 Moreover, practitioners also mentioned that change propagation to unknown parts of the codebase is one of their main struggles during typical maintenance activities.
 These issues were especially associated with the components affected by smells. 
 
 The novel contributions of this study to the state of the art are that it is the first to present the evolution of individual AS instances in industrial systems. Additionally, this is study also focuses C/C++ programming languages, which is quite rare to see in the literature as most studies use Java instead.
-It is also the first study that combines provides a double perspective on the evolution of the smells in a single paper: the perspective from mining software repositories, and the opinion of the practitioners that worked on the code analysed.
+It is also the first study that provides a double perspective on the evolution of the smells in a single paper: the perspective from mining software repositories, and the opinion of the practitioners that worked on the code analysed.
 
 \subsubsection*{RQ4: How do AS correlate to changes in the source code of the system?}
 To investigate this research question, we set up an empirical study to analyse 31 Java projects for a total of over 3900 commits.
@@ -78,7 +84,8 @@ To do so, we used several different statistical tests while also controlling for
 
 The results show that in 82\% of the commits analysed the proportion of smelly artefacts that change is consistently higher than non-smelly artefacts that change.
 Medium and large artefacts that are affected by smells are naturally more likely to exhibit this difference in change frequency than small artefacts.
-Similarly, artefacts that exhibit changes are also more likely to have more smells than artefacts that have fewer regardless of the size of the artefact.
+Similarly, artefacts that exhibit changes are also more likely to have more smells than artefacts that have fewer smells, regardless of the size of the artefact.
+Artefacts with smells were also found to have larger change size (code churn) than non smelly artefacts, with the effect being more noticeable in larger artefacts.
 Another finding that emerged is that, when a smell is introduced to an artefact, the change frequency of the artefact increases afterwards.
 
 While these findings do not provide evidence that architectural smells are directly responsible for an increase in the frequency of change of the artefacts affected, they do confirm that the presence of architectural smells indicates the presence of \emph{hotspots} in the design and code of the system.
@@ -90,8 +97,7 @@ Moreover, it also includes 31 systems in the analysis, whereas most other studie
 This research question represents a rather complicated problem to solve, that required solving first two design sub-problems: (1) how to calculate the severity of an architectural smell, and (2) how to quantify the effort to remove a smell.
 
 To solve the first design problem, we designed a machine learning model that ranks architectural smells based on their severity. 
-This required first to create a data set that comprised examples of smells instances with different severity. The data set was manually annotated using the findings from the previous studies (and the state of the art) as guidelines. 
-Next, several ML models were evaluated through experimentation and we selected the best one.
+This required first to create a data set that comprised examples of smells instances with different severity. The data set was manually annotated using the findings from RQ1 to RQ4 (and the state of the art) as guidelines. 
 
 To solve the second design problem, we used the number of lines of code that are responsible for the presence of the smell, and therefore must be understood and changed by the developer.
 This solution ultimately resulted in a static analysis tool that precisely calculates these values.
