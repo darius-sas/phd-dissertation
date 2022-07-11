@@ -7,7 +7,7 @@ Section \ref{c8:sec:rq-contributions} revisits each research question and answer
 Section \ref{c8:sec:future-work} concludes the chapter by exploring future research directions that stem from the work presented in this dissertation.
 
 \section{Research Questions and Contributions}\label{c8:sec:rq-contributions}
-The problem statement addressed by this dissertation is stated in Chapter \ref{chap:introduction} and hereby reported for convenience: \textit{The detection of the architectural smells alone is not sufficient for practitioners to take informed TD management decisions. Practitioners need to know what are the available prioritisation strategies, the amount of TD each instance amounts to, and the trend of the TD incurred over time. This information can help them better plan TD repayment.}
+The problem statement addressed by this dissertation is stated in Chapter \ref{chap:introduction} and repeated here for convenience: \textit{The detection of the architectural smells alone is not sufficient for practitioners to take informed TD management decisions. Practitioners need to know what are the available prioritisation strategies, the amount of TD each instance amounts to, and the trend of the TD incurred over time. This information can help them better plan TD repayment.}
 To tackle this problem, we decomposed it into six research questions (five knowledge questions and one design problem) and answered them in Chapters \ref{chap:2} to \ref{chap:7}.
 Each chapter corresponds to an empirical study that aims at solving one aspect of the problem stated above.
 
@@ -27,8 +27,8 @@ To do so, we detected the architectural smells in 524 releases of 14 different J
 We also developed an approach to track each instance of an architectural smell with its counterpart from the next version.
 This allowed us to create a time series data set about architectural smell instances.
 
-The findings showed that different smell types evolve in different ways; for example, most cycles tend to stay constant in number of elements affected (size) but tend to increase in total number of instances.
-This is the opposite case for the Hublike Dependency (HL) smell, which tends to increase in size instead of in number of instances detected.
+The findings showed that different smell types evolve in different ways; for example, most cycles tend to stay constant regarding the number of elements affected (size) but tend to increase in total number of instances.
+The opposite holds for the Hublike Dependency (HL) smell, which tends to increase in size instead of in number of instances detected.
 Cycle instances were also found to be less persistent within the system, and after a few releases most of them might disappear\footnote{Note that cycles are replaced by different instances involving the new classes and packages added to the system.} as a consequence of the changes done in the system.
 
 Given these findings, we deduced general prioritisation rules:
@@ -38,7 +38,7 @@ Given these findings, we deduced general prioritisation rules:
 \item not all CD instances have the same severity, some instances may be intentional. Refactoring activities should prioritise \emph{complex shapes} that affect central parts of the system as they are more likely to incur extra maintenance effort.
 \end{enumerate}
 
-The contributions compared to the state of the art are that this study is the first study that looks at the evolution of \emph{individual} architectural smell instances and at their survival probability within the system.
+The contributions compared to the state of the art are that this study is the first study to look at the evolution of \emph{individual} architectural smell instances and at their survival probability within the system.
 Additionally, it is also the first to deduce general prioritisation rules among the smell types considered in the study.
 
 \subsubsection*{RQ2: How are AS perceived by industrial practitioners?}
@@ -48,9 +48,9 @@ The data collected through the interviews gave us an insight on how practitioner
 
 The results showed that practitioners perceive the God Component (GC) smell as a common cause of maintenance issues, mainly as a result of the high level of complexity that characterizes its instances. 
 Cyclic dependencies were perceived less detrimental than GC, especially among practitioners working with Java systems. A similar opinion was given about the HL smell.
-Practitioners expressed their concern about change ripple effects associated with UD smell, but they also reported that the smell type (which theoretically is responsible for an increase in change rate in the system) is rather hard to understand and not very intuitive. 
+Practitioners expressed their concern about change ripple effects associated with the UD smell, but they also reported that the smell type (which theoretically is responsible for an increase in change rate in the system) is rather hard to understand and not very intuitive. 
 
-HL and GC smells seemed to be the most commonly labelled as intentionally introduced, although practitioners also mentioned that the grew larger in size than what it was intended.
+HL and GC smells seemed to be the most commonly labelled as intentionally introduced, although practitioners also mentioned that they grew larger in size than what was intended.
 This resulted in practitioners being reluctant to refactor them.
 CD instances were instead attributed to bad initial design decisions that resulted in the introduction of cycles, which made them easier candidates for refactorings.
 
@@ -65,7 +65,7 @@ To answer this research question, we designed an empirical case study in an indu
 This study differs from the one performed to answer RQ1 because it includes both quantitative and qualitative data. Moreover, it focuses on C/C++ industrial embedded systems rather than Java systems.
 In the study we analysed over 20 millions lines of code, 30 releases, 9 projects, and interviewed 12 software engineers and architects.
 
-The findings derived from the quantitative analysis showed that most CD instances follow rather different growth pattern observed in open source systems, with a large percentage of CD instances that grow in size over time rather than in number, thus becoming more severe.
+The findings derived from the quantitative analysis showed that most CD instances follow rather different growth patterns that those observed in open source systems, with a large percentage of CD instances that grow in size over time rather than in number, thus becoming more severe.
 Cycles were found to be precursors of other smells, whereas HL smells were found to be the \emph{most common} successor type of smell.
 Moreover, CD were found to be very common in GC smells, as more than 85\% of CD instances co-occur with GC instances.
 GC instances instead seemed to be least co-occurring with HL smells , with the only 10\% of GCs co-occurring with HL instances.
@@ -74,7 +74,7 @@ The findings of the qualitative analysis highlighted that practitioners are awar
 Moreover, practitioners also mentioned that change propagation to unknown parts of the codebase is one of their main struggles during typical maintenance activities.
 These issues were especially associated with the components affected by smells. 
 
-The novel contributions of this study to the state of the art are that it is the first to present the evolution of individual AS instances in industrial systems. Additionally, this is study also focuses C/C++ programming languages, which is quite rare to see in the literature as most studies use Java instead.
+The novel contributions of this study to the state of the art are that it is the first to present the evolution of individual AS instances in industrial systems. Additionally, this study also focuses on C/C++ programming languages, which is quite rare to see in the literature as most studies use Java instead.
 It is also the first study that provides a double perspective on the evolution of the smells in a single paper: the perspective from mining software repositories, and the opinion of the practitioners that worked on the code analysed.
 
 \subsubsection*{RQ4: How do AS correlate to changes in the source code of the system?}
@@ -82,16 +82,16 @@ To investigate this research question, we set up an empirical study to analyse 3
 The analysis compared the frequency and size of changes in affected and non-affected classes and packages.
 To do so, we used several different statistical tests while also controlling for the confounding factor of the size of the project, classes, and packages.
 
-The results show that in 82\% of the commits analysed the proportion of smelly artefacts that change is consistently higher than non-smelly artefacts that change.
+The results show that in 82\% of the analysed commits the proportion of smelly artefacts that change is consistently higher than non-smelly artefacts that change.
 Medium and large artefacts that are affected by smells are naturally more likely to exhibit this difference in change frequency than small artefacts.
 Similarly, artefacts that exhibit changes are also more likely to have more smells than artefacts that have fewer smells, regardless of the size of the artefact.
 Artefacts with smells were also found to have larger change size (code churn) than non smelly artefacts, with the effect being more noticeable in larger artefacts.
-Another finding that emerged is that, when a smell is introduced to an artefact, the change frequency of the artefact increases afterwards.
+Finally, when a smell is introduced to an artefact, the change frequency of the artefact increases afterwards.
 
 While these findings do not provide evidence that architectural smells are directly responsible for an increase in the frequency of change of the artefacts affected, they do confirm that the presence of architectural smells indicates the presence of \emph{hotspots} in the design and code of the system.
 
 Compared to the state of the art, this is not the first study that analyses the correlation between AS and source code changes. However, it is the first that provides a comprehensive analysis of the relation between changes and smells by looking not only at frequency of change, but also at the size of the changes and how the introduction of a smell instance affects the changes of a specific class/package.
-Moreover, it also includes 31 systems in the analysis, whereas most other studies analysed 20 at maximum, making the findings more generalisable.
+Moreover, it also includes 31 systems in the analysis, making the findings more generalisable, as most other studies had analysed 20 at maximum.
 
 \subsubsection*{RQ5: Design an approach to estimate the technical debt principal generated by AS}
 This research question represents a rather complicated problem to solve, that required solving first two design sub-problems: (1) how to calculate the severity of an architectural smell, and (2) how to quantify the effort to remove a smell.
@@ -107,17 +107,17 @@ In total, we interviewed 16 practitioners, 9 that worked on open source projects
 From the interviews, it emerged that practitioners agreed with the estimations provided in 71\% of the cases and that these were \emph{representative of the effort} necessary to refactor a smell.
 Moreover, they also mentioned that TD repayment was not always an option for them as it would force them to make a trade-off that they were not willing to.
 
-The main contribution of this study to the state of the art is that it is the first study that uses machine learning to solve this problem.
+The main contribution of this study to the state of the art, is that it is the first study that uses machine learning to solve this problem.
 The advantage provided is that our approach does not require manually-set thresholds nor a benchmark of systems to perform the estimations of TD principal.
 Additionally, our approach is the only one validated through an empirical study that involves practitioners from both industry and open source.
 
 \subsubsection*{RQ6: How are trade-offs between quality attributes currently managed in industry?}
-We answered this research question by conducting an empirical case study, set up in an industrial setting.
+We answered this research question by conducting a case study, set up in an industrial setting.
 To collect the necessary data, we performed two rounds of interviews and a focus group.
 In particular, during the first round we interviewed 8 practitioners from 3 different companies operating in the embedded systems domain.
 Then we performed a focus group with 8 more practitioners from 4 companies, 3 of which were the same from the interviews.
 We concluded the data collection with the second round of interviews, where we performed 6 more interviews.
-In total, we consulted 21 practitioners software engineers and architects.
+In total, we consulted 21 software engineers and architects.
 
 The results showed that practitioners prefer prioritising run-time qualities (e.g. performance, availability, etc.) over design-time qualities (e.g. maintainability, testability, etc.) citing as the main reason, domain aspects (e.g. extreme optimisation) and business aspects (e.g. demos, deadlines), which take priority over code and architecture quality.
 Practitioners also mentioned how some of these trade-offs backfired eventually, hampering their ability to meet existing performance requirements or deliver new functionality on time. 
