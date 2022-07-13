@@ -7,7 +7,7 @@ Section \ref{c8:sec:rq-contributions} revisits all research question and answers
 Section \ref{c8:sec:future-work} concludes the chapter by exploring future research directions that stem from the work presented in this dissertation.
 
 \section{Research Questions and Contributions}\label{c8:sec:rq-contributions}
-The problem statement addressed by this dissertation is stated in Chapter \ref{chap:introduction} and repeated here for convenience: \textit{The detection of the architectural smells alone is not sufficient for practitioners to take informed TD management decisions. Practitioners need to know what the available prioritisation strategies are, the amount of TD each instance amounts to, and the trend of the TD incurred over time. This information can help them better plan TD repayment.}
+The problem statement addressed by this dissertation is stated in Chapter \ref{chap:introduction} and repeated here for convenience: \textit{The detection of architectural smells alone is not sufficient for practitioners to take informed TD management decisions. Practitioners need to know the amount of TD each instance amounts to, what the available prioritisation strategies are, and the trend of the TD incurred over time. This information can help them better implement TD repayment.}
 To tackle this problem, we decomposed it into six research questions (five knowledge questions and one design problem) and answered them in Chapters \ref{chap:2} to \ref{chap:7}.
 Each RQ addresses a particular aspect of the problem statement.
 
@@ -127,10 +127,10 @@ Then we performed a focus group with 8 more practitioners from 4 companies, 3 of
 We concluded the data collection with the second round of interviews, where we performed 6 more interviews.
 In total, we consulted 21 software engineers and architects.
 
-The results showed that practitioners prefer prioritising run-time qualities (e.g. performance, availability, etc.) over design-time qualities (e.g. maintainability, testability, etc.) citing as the main reason, domain aspects (e.g. extreme optimisation) and business aspects (e.g. demos, deadlines), which take priority over code and architecture quality.
+The results showed that practitioners prefer prioritising run-time qualities (e.g. performance, availability, etc.) over design-time qualities (e.g. maintainability, testability, etc.) citing as the main reason, domain aspects (e.g. extreme performance optimisation) and business aspects (e.g. demos, deadlines), which take priority over code and architecture quality.
 Practitioners also mentioned how some of these trade-offs backfired eventually, hampering their ability to meet existing performance requirements or deliver new functionality on time. 
 
-The main novelty of this study compared to the state of the art is that it is the only one that reports examples of actual trade-offs among quality attributes from an industrial setting.
+The main novelty of this study compared to the state of the art is that it is the only one that reports examples of actual trade-offs among quality attributes from an industrial setting.3
 
 \section{Future Work}\label{c8:sec:future-work}
 The work presented in this thesis provides several opportunities for future work.
