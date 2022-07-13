@@ -185,14 +185,14 @@ The goal of RQ2 is two-fold: (1) understand the issues stemming from the presenc
 To answer RQ2, we designed a case study and interviewed 21 practitioners from 3 companies in Europe that work with both Java and C/C++.
 The findings of RQ2 are particularly interesting for researchers as they can better understand the problems faced by practitioners and design solutions accordingly.
 
-While investigating RQ2, practitioners admitted that, in most cases, 
-smells are introduced inadvertently due to bad design decisions, and that their long-term effects would only manifest a long time (many months, or years) after the introduction.
-This means, however, that other smells could be introduced in a component before severe maintenance issues arise, thus casting doubt on whether the issues reported by practitioners can be associated to a single smell or more.
+% While investigating RQ2, practitioners admitted that, in most cases, 
+% smells are introduced inadvertently due to bad design decisions, and that their long-term effects would only manifest a long time (many months, or years) after the introduction.
+% This means, however, that other smells could be introduced in a component before severe maintenance issues arise, thus casting doubt on whether the issues reported by practitioners can be associated to a single smell or more.
 
-%However, they could not pinpoint what types of smells are exactly introduced, whether there is more than one smell affecting the same components, and in what order these smells were introduced to begin with.
-To investigate this aspect, we had to study the introduction and evolution of AS while also collecting feedback from the architects and engineers that developed the components affected by the smells.
+The investigation of RQ2 has shown that practitioners are aware of the problems stemming from the presence of architectural smells but struggle to observe the design principles that prevent their introduction.
+To better understand this aspect, we had to study the introduction and evolution of AS while also collecting feedback from the architects and engineers that developed the components affected by the smells.
 Thus, we formulated RQ3 \textit{``How do AS evolve in industrial embedded systems?''}
-This RQ focuses on the evolution of AS, similarly with RQ1, but has a completely different focus: the co-occurrence and introduction order of smells, taking into account also the experiences of practitioners.
+This RQ focuses on the evolution of AS, similarly with RQ1, but has a completely different focus: the co-occurrence (RQ3b) and introduction order (RQ3a) of smells, taking into account also the experiences of practitioners (RQ3c).
 The context of the study also changes, as RQ3 focuses on industrial systems written in C/C++ (rather than open source Java systems) belonging to a large multinational company.
 Answering RQ3 allows us to understand if there exists any pattern that can predict the introduction of a smell given the presence of another and what practitioners think about specific AS instances (and their evolution).
 This kind of information can be used to improve prioritisation decisions (e.g. address the component that is most likely to be affected next).
@@ -200,19 +200,21 @@ This kind of information can be used to improve prioritisation decisions (e.g. a
 One of the main findings of RQ2 (that was also confirmed in RQ3) was that most of the interviewed practitioners were concerned about the frequency of change in affected components and the propagation of changes to other components due to the presence of smells. 
 Practitioners reported that several components that were affected by smells necessitated frequent maintenance.
 To further study this aspect, and ensure that their feedback was not just the result of confirmation bias\footnote{Confirmation bias is the tendency to interpret, favor, or recall information in a way that supports one's prior beliefs or values.}, we formulated RQ4: \textit{``How do AS correlate to changes in the source code of the system?''}
-Answering this question can help in understanding if elements affected by architectural smells have a higher chance of changing than elements that are not affected by smells.
-This in turns can shed some light into the relation between AS and the amount of interest paid by practitioners that decide to not repay the debt represented by smells.
+Answering this question can help in understanding if elements affected by architectural smells have a higher chance of changing than elements that are not affected by smells (RQ4a) as well as before and after the introduction of the smell (RQ4b).
+Moreover, this question investigates if code churn in affected components is bigger than in non-affected ones (RQ4c).
+These three aspects can shed some light into the relation between AS and the amount of interest paid by practitioners that decide to not repay the debt represented by smells.
 Answering this RQ required investigating 27 Open Source projects, involving 360 years of total development and over 305 millions of lines of code.
 
 Research questions from 1 through 4 focus on investigating the problem: they are \emph{knowledge questions} and answering them can support researchers in understanding how smells evolve, how they are perceived by practitioners, how they relate with changes in the source code of the system; ultimately, they allow us to understand how to prioritise, quantify, and monitor smells.
 In contrast, RQ5 is a \emph{design problem} focusing on the solution: \textit{``Design an approach to estimate the technical debt principal generated by AS''}.
 The output obtained from the previous RQs is used in RQ5 to design a solution to quantify the amount of technical debt principal generated by architectural smells.
-In particular, we ranked a set of architectural smells instances based on the knowledge acquired from the previous RQs (and from the literature) and then trained a machine learning model that is able to rank (from most to least severe) individual architectural smell instances based on their severity.
-Next, we designed an approach based on the machine learning model that estimates the amount of technical debt principal of each instance.
-Finally, we set up a case study to validate our approach by interviewing 16 practitioners (from both the open source and industrial worlds) and gauge how far the output provided is a relevant and meaningful estimate of the TD principal incurred by a smell.
+In particular, we ranked a set of architectural smells instances based on the findings on the prioritisation and severity of architectural smells from previous RQs (and from the literature) and then trained a machine learning model that is able to rank (from most to least severe) individual architectural smell instances based on their severity (RQ5a,b).
+Next, we designed an approach based on the machine learning model that estimates the amount of technical debt principal of each instance (RQ5c).
+Finally, we set up a case study to validate our approach by interviewing 16 practitioners (from both the open source and industrial worlds) and gauge how far the output provided is a relevant and meaningful estimate of the TD principal incurred by a smell (RQ5d).
 
-During the validation of the solution in RQ5, we discovered an interesting phenomenon: while practitioners understand and relate to the amount of TD principal, they often have to tolerate the existence ofTD, hence sacrificing maintainability, in favor of other qualities.
+During the validation of the solution in RQ5, we discovered an interesting phenomenon: while practitioners understand and relate to the amount of TD principal, they often have to tolerate the existence of TD, hence sacrificing maintainability, in favor of other qualities.
 This means that TD management decisions are affected by other qualities as well, and to better understand the implications of these trade-offs we formulated RQ6: \textit{``How are trade-offs between quality attributes currently managed in industry?''}
+The focus of this question was to understand the view of practitioners concerning software quality attributes (RQ6a), collect example of trade-offs between quality attributes (RQ6b), and understand how practitioners envision a tool to help them manage these trade-offs (RQ6c). 
 The output of this research question can help practitioners make better trade-off decisions regarding the repayment of technical debt.
 We investigated this RQ by setting up a case study where we performed both interviews and a focus group.
 In particular, we interviewed 14 different practitioners and held a focus group with 7 participants.
