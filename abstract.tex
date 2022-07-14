@@ -1,11 +1,11 @@
 \begin{abstract}
-    Technical debt (TD) is a term that refers to a collection of design or implementation constructs that are not sustainable in the long-term but meet the needs of the stakeholders in the short term.
+    Technical debt (TD) is a term that refers to a collection of design and implementation constructs that are not sustainable in the long term but meet the needs of the stakeholders in the short term.
     The presence of TD reduces the ability of software developers and architects to easily comprehend, evolve and maintain a software systems.
-    Eventually, an excessive amount of TD may result in the software project's failure due to the excessive costs to keep maintaining it and making changes to it.
+    Eventually, an excessive amount of TD may result in the software project's failure due to the excessive costs to keep maintaining it.
     %being more convenient of being rebuilt from scratch than maintained.  
 
     Over the years, researchers have refined the definition of TD and identified the different forms that TD can manifest in.
-    The main distinction between these forms is based on the type of artefact and level of abstraction level it affects.
+    The main distinction between these forms is based on the type of artefact and level of abstraction level TD affects.
     Architectural TD (ATD) is a type of TD that, as the name suggests, represents the TD that concerns the architecture of a system.
    
     Architectural smells are a notoriously detrimental form of ATD that refer to violations of well known design principles that result in undesired dependencies, overblown size, and excessive coupling.
@@ -35,24 +35,24 @@
     From talking to practitioners, we also learned that they struggle to keep track of architectural smells, how they are introduced, and whether multiple instances overlap. 
     This motivated us to further investigate how architectural smells are introduced, and to broaden the scope, also how they co-occur, and evolve over time in an industrial context.
     We set up an industrial case study to investigate these aspects in the context of large multinational company that works in C/C++, and verify whether the findings of the previous studies (that were all based on Java systems) apply to this context as well.
-    The findings showed that CD smells, although they are not very persistent within the system, are precursors to other smell types.
+    The results show that CD smells, although they are not very persistent within the system, are precursors to other smell types.
     Therefore, CD instances can be used as a red flag that notifies practitioners that a component might present a more severe architectural smell soon. Indeed, 94\% of HL smells, were also part of a cycle.
     
     As part of the same investigation, we also elicited the opinion of software engineers and architects, who mentioned that the most problematic aspect of architectural smells are change ripple effects, that are unpredictable.
     This motivated us to investigate the relation between architectural smells and source code changes.
     After analysing over 30 open source Java systems, we ran a series of statistical tests to determine whether source code changes were more frequent, and larger in size, in components that were affected by smells than in non-smelly components.
     The findings show that this is indeed the case, and that all four architectural smells correlate with higher frequency of change of the affected part. 
-    Interestingly, after talking to practitioners in the previous study we expected UD to be the smell with the highest correlation with changes. This turned out, however, not to be the case as we observed over 10\% higher change rate in the HL smell than in the UD smell.
+    Interestingly, after talking to practitioners in the previous study we expected UD to be the smell with the highest correlation with changes. This turned out, however, not to be the case as we observed over 10\% higher change rate for the HL smell than for the UD smell.
     This means that prioritising the refactoring of HL instances over the other smell types is a more advantageous approach for practitioners.
 
     The answers collected up until this point provided valuable insights on how architectural smells are perceived by practitioners, how they get introduced, how they co-occur, and how they correlate with the changes done in the system.
-    These findings allowed us to extrapolate valuable information on what the best strategies are to prioritise smell instances and what makes one instance more severe than the other.
+    These results allowed us to extrapolate valuable information on what the best strategies are to prioritise smell instances and what makes one instance more severe than the other.
     Therefore, using the acquired knowledge, we created a machine learning model that ranks architectural smells based on their severity that performs rather well (97\% of instances are ranked above a less severe smell).
     This model makes it easier for practitioners to prioritise architectural smells, especially in very large systems where hundreds of instances can be detected.
     Additionally, using this model, we designed an approach to quantify the amount of technical debt generated by the architectural smells detected in a system.
-    The validation of the model showed that in 71\% of the cases, practitioners agreed that the estimations provided were representative of the effort necessary to refactor the smell.
+    The validation of the model shows that in 71\% of the cases, practitioners agreed that the estimations provided were representative of the effort necessary to refactor the smell.
 
-    Finally, we also learned from practitioners that TD prioritisation (and consequently its repayment) is influenced, not only by other TD items, but also by other quality attributes (e.g. availability), thus forcing practitioners to sacrifice maintainability.
+    Finally, we also learned from practitioners that TD prioritisation (and consequently its repayment) is influenced, not only by other TD items, but also by other quality attributes (e.g. availability), thus forcing practitioners to sacrifice maintainability constantly.
     We proceeded to investigate this aspect and talked to 21 practitioners and learned that practitioners often prioritise run-time qualities over design-time qualities, and do so mostly implicitly, due to lack of monitoring tools. 
     
 \end{abstract}
