@@ -1,15 +1,15 @@
-\documentclass[a4paper]{article}
-\usepackage{a4wide}
+\documentclass[b5paper]{article}
+\usepackage[margin=0.9in,top=0in]{geometry}
 \usepackage{palatino}
 \usepackage{enumerate}
 \usepackage{xcolor}
 
 \author{\Large{Darius Sas}} % TODO Update Title
-\title{Stellingen\\{\large{behorende bij het proefschrift}}\\[.2cm]Technical Debt Repayment in Practice \\[.2cm]{\large{van}}}
+\title{Stellingen\\{\large{behorende bij het proefschrift}}\\[.2cm]
+Managing Technical Debt: Prioritising and Quantifying Achitectural Smells \\[.2cm]{\large{van}}}
 \date{}
 
 \begin{document}
-
 \maketitle
 \thispagestyle{empty}
 
@@ -17,7 +17,29 @@
 \setlength{\itemsep}{3mm}
 \begin{large}
 
-\item Proposition 1 {\color{teal}{Chapter 2}}
+\item The architectural smells detected in open source systems evolve rapidly: 50\% of Cyclic Dependencies are replaced by a new instance within the next 3 releases. {\color{teal}{Chapter 2}}
+
+\item The number of artefacts affected by a Cyclic Dependency tends to stay constant over time. The opposite holds for Hublike Dependency smell, which grows in 65\% of the cases. {\color{teal}{Chapter 2}}
+
+\item Software practitioners rank change propagation as the most disruptive effect on maintainability associated to architectural smells. Difficulty to understand and properly orient in the code follow next. {\color{teal}{Chapter 3}}
+
+\item The God Component and Hublike Dependency smells were considered the most severe smells. {\color{teal}{Chapter 3}}
+
+\item As opposed to open source systems, architectural smells in industrial systems of all types exhibit longer lifespans. {\color{teal}{Chapter 4}}
+
+\item In industrial software systems, Cyclic dependencies are precursors to other, more severe architectural smells. Conversely, Hublike dependencies are the most common successor. {\color{teal}{Chapter 4}}
+
+\item Source code artefacts affected by architectural smells are subject to  more frequent and larger changes than non-affected artefacts.  {\color{teal}{Chapter 5}}
+
+\item The introduction of an architectural smell follows with an increase in the change frequency in the affected artefact. {\color{teal}{Chapter 5}}
+% Different phrasing
+% \item Architectural smells' introduction leads to an increase in the change frequency of the affected artefacts. {\color{teal}{Chapter 5}}
+
+\item Under certain conditions, applying large refactorings in long-lived systems is almost impossible for practitioners, as they would risk to compromise vital run-time quality attributes. 
+This limits the use of all TD management tools.  {\color{teal}{Chapter 6}}
+
+\item Trade-offs between design-time and run-time quality attributes
+are very common, but they are often implicit, due to the lack of adequate monitoring tools and practices. {\color{teal}{Chapter 7}}
 
 
 \end{large}
