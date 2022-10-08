@@ -16,14 +16,14 @@
     Then, for each instance, we statically analyse the source code to calculate the exact number of lines of code creating the smell.
     Finally, we combine these two values to calculate the technical debt principal.
     
-    To validate the approach, we conducted a case study and interviewed 16 practitioners, from both open source and industry, and asked them about their opinions on the TD principal estimations for several smells detected in their projects.
+    To validate the approach, we conducted a case study and interviewed 16 practitioners, from both open-source and industry, and asked them about their opinions on the TD principal estimations for several smells detected in their projects.
     The results show that for 71\% of instances, practitioners agreed that the estimations provided were \emph{representative} of the effort necessary to refactor the smell.
 \end{Abstract}
 
 \section{Introduction}\label{c6:sec:Intro}
 The technical debt (TD) metaphor borrows the concepts of \emph{principal} and \emph{interest} from the financial domain and uses them to convey key software maintenance concepts.
 In particular, debt principal indicates the effort required to \emph{fix} a current, non-optimal solution, whereas debt interest indicates the recurrent effort necessary to \emph{keep maintaining} it \cite{Avgeriou2016}.
-As an example, consider a portfolio management system that requires massive revisions in order to accommodate for the changes required by the customer\cite{Cunningham1992}. The interest represents the recurrent costs of making the revisions, whereas the principal is the cost of completely replacing the solution with a new one that would allow these changes to be seamless.
+As an example, consider a portfolio management system that requires massive revisions in order to accommodate for the changes required by the customer \cite{Cunningham1992}. The interest represents the recurrent costs of making the revisions, whereas the principal is the cost of completely replacing the solution with a new one that would allow these changes to be seamless.
 
 The importance of managing TD is ever increasing, especially for architectural TD (ATD), as architectural decisions were found to be the greatest source of TD faced by practitioners \cite{Ernst2015}.
 A key part of managing TD is to be able to \emph{measure} the amount of TD principal incurred by an application, but this has not yet been effectively addressed in the state of the art.
@@ -51,7 +51,7 @@ The results show how exactly the considered variables contribute to the predicti
 
 After ensuring the ML model is predicting severity correctly, we \textbf{validate} the output of the whole approach. 
 We inspect whether the estimations provided by our approach are actually relevant to developers by checking whether they are \emph{representative} of the repayment effort perceived and \emph{meaningful} with respect to each other (e.g. this smell requires twice the effort to refactor than this other smell, and has a double ATDI value).
-To this end, we interview \textbf{16 practitioners} from both the open source and industrial world.
+To this end, we interview \textbf{16 practitioners} from both the open-source and industrial world.
 Each interviewee is shown a number of AS instances in their own systems, as well as the respective ATD principal estimation provided by our approach.
 In 71\% of the cases, interviewees totally agree with the estimations provided by our approach and deem them representative of the effort necessary to repay the debt.
 
@@ -65,14 +65,14 @@ A complete description of architectural smells is available in Chapter \ref{c2:s
 The description of the tool used to detect them, \textsc{Arcan}, is available in Chapter \ref{c2:sec:arcan}.
 
 \subsection{Smell characteristics}
-An architectural smell \emph{characteristic} is a property or attribute of an architectural smell instance , see Chapter \ref{chap:2}. 
+An architectural smell \emph{characteristic} is a property or attribute of an architectural smell instance, see Chapter \ref{chap:2}. 
 An architectural smell \emph{instance} is a concrete occurrence of a type of architectural smell.
 For each architectural smell type, one can measure different characteristics.
 In this work, we are going to use architectural smell characteristics as features (i.e. inputs) for a machine learning model (more details in Section \ref{c6:sec:calculating-severity}).
 The characteristics considered in this work are described in Table \ref{c6:tab:characteristics}.
 
 \begin{table}[tbp]
-    \footnotesize
+   \footnotesize
     \centering
     \caption{Architectural smell characteristics relevant in this study.}\label{c6:tab:characteristics}
     \begin{tabular}{p{0.25\linewidth}|p{0.69\linewidth}}\toprule
@@ -96,7 +96,7 @@ As discussed in Section \ref{c6:sec:Intro}, our approach is based exclusively on
 \subsection{Indexes and cost estimates}
 Theoretically, technical debt (TD) principal is defined as the \emph{cost} necessary to develop a better solution than the currently implemented one \cite{Avgeriou2016}, easing future maintenance and evolution efforts.
 Similarly, architectural technical debt (ATD) principal refers to the same concept, but focuses on architectural solutions only.
-Several tools, both commercial and open source \cite{Avgeriou2021,Khomyakov2020}, claim to estimate the cost to repay the TD principal of a software system using just source code artefacts.
+Several tools, both commercial and open-source \cite{Avgeriou2021,Khomyakov2020}, claim to estimate the cost to repay the TD principal of a software system using just source code artefacts.
 In practice, however, calculating the exact cost of remediation is a rather ambitious task, as several factors -- both internal and external to the codebase and the company -- may influence it and vary depending on context, organisation and country \cite{Murillo2021,Rios2020,Rios2018}.
 If these are not taken into account, the estimate could be imprecise and not reflect the actual cost. 
 An index, on the other hand, is not associated with an exact cost, but rather it correlates with the \textbf{\emph{effort}} necessary to remediate the technical debt incurred by the current solution.
@@ -112,7 +112,7 @@ Using an index over a monetary estimation allows for a more concise and unbiased
 Related work from Section \ref{c6:sec:related-work-atd} and Table \ref{c6:tab:rw-comparison} show that this is also a common choice in the literature when estimating ATD principal.
 
 \subsection{Definition}\label{c6:sec:approach-definition}
-The simplest and most intuitive way of estimating the ATD index based on AS is by summing up the individual indexes of each smell\cite{Ampatzoglou2018}.
+The simplest and most intuitive way of estimating the ATD index based on AS is by summing up the individual indexes of each smell \cite{Ampatzoglou2018}.
 This is the solution adopted by previous studies as well \cite{Letouzey2010,Curtis2012,Marinescu2012,Roveda2018} and (1) allows users to quickly understand the impact of one instance on the overall value of the index, and (2) it resonates with the financial metaphor, where the total amount of debt is the sum of all the debts.
 
 Formally, we define the ATD principal index as
@@ -120,9 +120,9 @@ Formally, we define the ATD principal index as
     ATDI(P) =  \sum_i^{S_P} ATDI(x_i)
 \end{equation}
 where $x_i$ are the architectural smells $S_P$ detected in the project $P$.
-This value can be normalised by the size of the project $P$ in lines of code to obtain the density of ATDI per 1000 lines of code, to allow us to compare values obtained from different projects
+This value can be normalised by the size of the project $P$ in lines of code to obtain the density of ATDI per 1,000 lines of code, to allow us to compare values obtained from different projects
 \begin{equation}\label{c6:eq:atdi-normalised}
-    ATDI_{density}(P) = \frac{ATDI(P)}{LOC(P)} \cdot 1000
+    ATDI_{density}(P) = \frac{ATDI(P)}{LOC(P)} \cdot 1,000
 \end{equation}
 
 The index of a single smell is calculated as the product of: 
@@ -151,7 +151,7 @@ Our approach is similar as we calculate severity by using architectural smell ch
 Smell characteristics were used in previous studies on architectural smells for calculating the ATD index  \cite{Roveda2018}, and to manually determine the severity label for a code smell to be used by machine learning models as well \cite{Arcelli2017b}.
 
 \subsubsection{Defining extent}\label{c6:sec:approach-extent}
-We define as the \emph{extent} of an an architectural smell the number of lines of code in a source code artefact that break the rules used to detect an architectural smell.
+We define as the \emph{extent} of an architectural smell the number of lines of code in a source code artefact that break the rules used to detect an architectural smell.
 For example, in the case of a cyclic dependency between two files, the lines of code in those two files that are responsible for the dependencies creating the cycle among them.
 In general, the purpose is to calculate how extended a smell is within the system in order to gauge the amount of complexity that a developer needs to understand and tackle while applying meaningful changes to the codebase in order to remove the smell.
 The LOC metric was consistently used by previous studies as a proxy of complexity \cite{Morasca2001, Kitchenham2004, Morozoff2010}.%; in our case, we will use the number of lines of code that create the smell as a proxy of complexity and (lower) understandability.
@@ -205,7 +205,7 @@ However, this does \emph{not imply} that all dependencies are going to be remove
 \end{figure}
 
 As an example to better understand the reasoning behind this approach, let us take into consideration the case of a CD smell instance between two classes A and B (see Figure \ref{c6:fig:cd-removal}). In order to remove it, the traditional way \cite[p. 128]{Lippert2006} is to split B in two (or more) segments $B_1$ and $B_2$ and separate dependencies in such a way that A depends on $B_1$ (or $A \rightarrow B_1$), and $B_2$ depends on A (or $B_2 \rightarrow A$).
-This process implies that the developer must be familiar with all dependencies between A and B. For the sake of the example, let us assume that each line of code contains one dependency only. Then, we calculate, we count all the lines of code in A that use or create the dependency $A \rightarrow B$, and those for $B \rightarrow A$. Then we have $m(x) = m(A \rightarrow B) + m(B \rightarrow A) = 50 + 15 = 65$ LOC, which is the number of lines of code one needs to understand before deciding on how to split B and proceed with the refactoring. In Figure \ref{c6:fig:cd-removal}, only $m(B \rightarrow A) = 15$ LOC were eventually moved to a new class, but the whole 65 lines of code were needed be understood before refactoring the 15 creating the dependency $B \rightarrow A$.
+This process implies that the developer must be familiar with all dependencies between A and B. For the sake of the example, let us assume that each line of code contains one dependency only. Then, we calculate, we count all the lines of code in A that use or create the dependency $A \rightarrow B$, and those for $B \rightarrow A$. Then we have $m(x) = m(A \rightarrow B) + m(B \rightarrow A) = 50 + 15 = 65$ LOC, which is the number of lines of code one needs to understand before deciding on how to split B and proceed with the refactoring. In Figure \ref{c6:fig:cd-removal}, only $m(B \rightarrow A) = 15$ LOC were eventually moved to a new class, but the whole 65 lines of code were needed to be understood before refactoring the 15 creating the dependency $B \rightarrow A$.
 
 An architectural smell is comprised of several artefacts. Each artefact has a series of dependencies towards other artefacts, which we consider as edges (i.e. $A \rightarrow B$). We calculate 
 \begin{equation}\label{c6:eq:smell-extent-dependency}
@@ -264,7 +264,7 @@ where $x$ is an architectural smell instance, and the rest of the variables and 
 \section{Case study design}\label{c6:sec:study-design}
 To evaluate the approach described in Section \ref{c6:sec:approach}, we followed the guidelines proposed by Runeson et al. \cite{Runeson2012} to design an holistic multiple-case study.
 Case studies are commonly used in software engineering research to study a phenomenon in its real-life context \cite{Runeson2012}.
-We opted to perform a case study because it allows us to investigate the practical application of our approach in the context of both industrial and open source projects. 
+We opted to perform a case study because it allows us to investigate the practical application of our approach in the context of both industrial and open-source projects. 
 In the next sections we elaborate on the study design.
 
 %We list the threats to the validity of this case study and the actions undertaken to mitigate them in Section \ref{c6:sec:threats-to-validity}.
@@ -274,7 +274,7 @@ The objective of the case study is to evaluate the \emph{accuracy}, \emph{transp
 Using the Goal-Question-Metric \cite{VanSolingen2002} formulation, the objective is stated as follows:
 \begin{quote}
     \itshape
-    \textbf{Analyse} the approach estimating architectural technical debt principal \textbf{for the purpose of} validating its application \textbf{with respect to} accuracy, transparency, and relevance of the estimation output \textbf{from the point of view of} software developers \textbf{in the context of} open source and industrial software systems.
+    \textbf{Analyse} the approach estimating architectural technical debt principal \textbf{for the purpose of} validating its application \textbf{with respect to} accuracy, transparency, and relevance of the estimation output \textbf{from the point of view of} software developers \textbf{in the context of} open-source and industrial software systems.
 \end{quote}
 The goal can be further refined into the following two research questions, reflecting accuracy and relevance respectively:
 \begin{itemize}
@@ -302,7 +302,7 @@ This research question assesses if the whole approach is relevant, in terms of p
 We answer this research question by answering the three sub-questions.
 RQ2.1 focuses on how far the estimated principal correlates with the effort expected by the engineers to refactor a certain instance. 
 This would allow engineers to \emph{reliably plan} the allocation of their resources (e.g. time) during the repayment phase.
-RQ2.2 focuses on whether the approach allows comparisons between different smell instances (e.g. if this smell's estimated ATDI is $x$ than it makes sense for the other smell's ATDI to be $y$).
+RQ2.2 focuses on whether the approach allows comparisons between different smell instances (e.g. if this smell's estimated ATDI is $x$ then it makes sense for the other smell's ATDI to be $y$).
 If indeed the magnitude and relative size of the estimations with respect to each other are meaningful, then the approach provides the means to make \emph{evidence-based} prioritisation decisions for resolving smells.
 Finally, RQ2.3 aims at understanding the \emph{general opinion} of software developers towards architectural smell analysis and the estimations provided by ATDI.
 
@@ -325,7 +325,7 @@ To answer RQ1 we trained a machine learning model to rank architectural smells b
 The first step necessary to do so, as shown in Figure \ref{c6:fig:study-overview}, step \emph{(a)} was to collect the data necessary to train the machine learning model, i.e. the architectural smells. This entailed choosing a set of projects to mine the smells from using \textsc{Arcan} (see Section \ref{c6:sec:AS}). 
 The selection criteria to choose the projects were the following:
 \begin{enumerate}
-    \item The projects must have more than 10.000 LOC; 
+    \item The projects must have more than 10,000 LOC; 
     \item The projects must have at least one instance of each architectural smell type;
     \item The annotators must be familiar with the architecture of the system they are annotating.
 \end{enumerate}
@@ -335,7 +335,7 @@ Smells were sampled using stratified sampling based on their type and project.
 Namely, we tried to import as many smells as possible of the less frequent types (i.e. GC) while also preventing to bias our data set by sampling too many smells from the larger projects (e.g Spoon and JMeter).
 
 \begin{table}[]
-    \footnotesize
+   \footnotesize
     \centering
     \caption{The projects used for sampling smells and the number of smells compared as well as the number of comparisons.}
     \label{c6:tab:smells-data-set}
@@ -363,7 +363,7 @@ Also, the quantity represented for one individual may change during the question
 These disadvantages make a rating scale, such as a Likert scale, a poor choice for this step.
 
 The main drawback of pairwise comparison is the very large amount of comparisons necessary to achieve an order among the elements compared.
-Pairwise comparisons necessitates $\binom{n}{2}$ comparisons. If we want to create a data set with $n = 500$ elements, then \emph{124.750} comparisons are necessary.
+Pairwise comparisons necessitates $\binom{n}{2}$ comparisons. If we want to create a data set with $n = 500$ elements, then \emph{124,750} comparisons are necessary.
 This number is infeasible for the purposes of our study; therefore, we adopted an array of techniques to reduce this number while at the same time increasing the number of elements in our data set:
 \begin{enumerate}
     
@@ -404,7 +404,7 @@ Comparisons required around 5 minutes each, and the whole process took 22 hours 
 The annotation team was comprised of two Ph.D. students (including the first author) and a research assistant.
 Inter-annotator agreement was measured using Fleiss's Kappa \cite{Fleiss1971}, obtaining a $.88$ score (considered `almost perfect agreement' \cite{Fleiss1971}).
 Three test run rounds were necessary to achieve a score greater than $.8$ (i.e. greater than `moderate agreement' \cite{Fleiss1971}). 
-We ensured all three annotators used the same decision-making process to annotate the data by devising a set of rules, available in the replication package \footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.} along with the resulting annotations.
+We ensured all three annotators used the same decision-making process to annotate the data by devising a set of rules, available in the replication package\footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.} along with the resulting annotations.
 Those rules were based on the available literature \cite{Laval2012,AlMutawa2014}, our own experience on the subject, and the feedback during the three test rounds.
 
 The distribution of the labels obtained through this process is depicted in Figure \ref{c6:fig:dataset-label-distr}.
@@ -446,11 +446,11 @@ In other words, $n$ restricts the focus on the performance obtained by classifyi
 
 \subsection{RQ2: Model validation}\label{c6:sec:rq2-methodology}
 Figure \ref{c6:fig:study-overview} depicts the process used for the validation of the model (red frame).
-In particular, we detect architectural smells in open source and industrial systems, use the machine learning model developed in RQ1, calculate $ATDI$ through calculating extent and severity, and then collect the opinions of software practitioners about the output. 
+In particular, we detect architectural smells in open-source and industrial systems, use the machine learning model developed in RQ1, calculate $ATDI$ through calculating extent and severity, and then collect the opinions of software practitioners about the output. 
 The opinions are solicited through interviews, which, as a direct data collection technique, allows researchers to control exactly what data is collected, how it is collected, and in what form it is collected \cite{Runeson2012,Lethbridge2005}. 
 
 \subsubsection{Cases, subjects and units of analysis}
-The cases of our study are the projects analysed whereas the context is either open source or industry; Figure \ref{c6:fig:case-study-design-rq2} illustrates as an example, two cases from each context, from a total of sixteen cases. 
+The cases of our study are the projects analysed whereas the context is either open-source or industry; Figure \ref{c6:fig:case-study-design-rq2} illustrates as an example, two cases from each context, from a total of sixteen cases. 
 Finally, the units of analysis correspond to the software practitioners interviewed. Since each case contains a single unit of analysis, the design of the case study is multiple and holistic (see Runeson et al. \cite{Runeson2012}).
 
 \begin{figure}
@@ -459,13 +459,13 @@ Finally, the units of analysis correspond to the software practitioners intervie
     \caption{Mapping of cases and units of analysis for RQ2; based on Figure 3.1 by Runeson et al. \cite{Runeson2012}.}\label{c6:fig:case-study-design-rq2}
 \end{figure}
 
-Tables \ref{c6:tab:open-source-participants} and \ref{c6:tab:industrial-participants} list the participants of the interviews, alongside their respective background information; the sample contains 9 engineers from open source projects and 7 from industrial projects.
-We opted to interview one engineer per project (both for Open Source and  industrial projects) in order to maximise the variance of information obtained and avoid overlaps, thus extending external validity.
-Note that most of the participants from open source projects are also employed in industry.
+Tables \ref{c6:tab:open-source-participants} and \ref{c6:tab:industrial-participants} list the participants of the interviews, alongside their respective background information; the sample contains 9 engineers from open-source projects and 7 from industrial projects.
+We opted to interview one engineer per project (both for open-source and  industrial projects) in order to maximise the variance of information obtained and avoid overlaps, thus extending external validity.
+Note that most of the participants from open-source projects are also employed in industry.
 
-The open source participants were selected through the following process:
+The open-source participants were selected through the following process:
 \begin{enumerate}
-    \item We first collected a list of open source projects featured in other recent studies on Technical Debt that involved interviews and/or surveys \cite{Tan2021,Maldonado2017,Zampetti2021}. This ensured that the candidate projects contained technical debt and resulted in selecting 21 open source projects (listed in Figure \ref{c6:fig:atdi-distribution});
+    \item We first collected a list of open-source projects featured in other recent studies on Technical Debt that involved interviews and/or surveys \cite{Tan2021,Maldonado2017,Zampetti2021}. This ensured that the candidate projects contained technical debt and resulted in selecting 21 open-source projects (listed in Figure \ref{c6:fig:atdi-distribution});
     \item We listed the most active contributors from the repositories of such projects (top 10\% of number of commits in the last year). We selected the most active contributors to ensure that they had deep understanding of the system (or of a specific part of it) and that they were up-to-date with the latest code. 
     This resulted in over 260 contacts, and after removing bots and invalid emails we ended up with 230 contacts;
     \item We sent out 230 invitation emails and received 37 responses, of which 11 of them contained a positive response and eventually 9 resulted in an interview.
@@ -473,15 +473,15 @@ The open source participants were selected through the following process:
 
 To select the industrial participants, we used purposeful sampling \cite{Palinkas2015}. Specifically, we got in touch with two companies from our professional network and asked them whether they were willing to participate in the study. 
 The two companies are both small and medium-sized enterprises\footnote{See \url{https://ec.europa.eu/growth/smes/sme-definition_en}.} that operate in the IoT and Enterprise Application domains, respectively.
-Next, we asked them to provide us with (1) a list of Java projects that had at least 10.000 lines of code, and (2) a list of engineers working on these projects that were willing to take part in the interviews.
+Next, we asked them to provide us with (1) a list of Java projects that had at least 10,000 lines of code, and (2) a list of engineers working on these projects that were willing to take part in the interviews.
 
 Overall, the sample is comprised of 16 engineers (and their respective projects), characterised by a wide variety in total number of years of experience and technological background (e.g. distributed systems, testing, security, etc.).
 Of course, no sample is perfect, and we elaborate on the threats to external validity entailed by the composition of our sample in Section \ref{c6:sec:threats-to-validity}.
 
 \begin{table}[]
     \centering
-    \footnotesize
-    \caption{List of participants from the open source projects. Note that the `Role in project' column was \textbf{shuffled} to protect the anonymity of the participants. For example, P1 is not an idependent contractor, but one of the other participants is. Abbreviations: \textbf{Partic.}: participant; \textbf{OS}: open source; \textbf{IN}: industry; \textbf{Exp.}: experience; \textbf{PMC}: Project Management Committee; \textbf{MC}: Main Contributor.}
+   \footnotesize
+    \caption{List of participants from the open-source projects. Note that the `Role in project' column was \textbf{shuffled} to protect the anonymity of the participants. For example, P1 is not an idependent contractor, but one of the other participants is. Abbreviations: \textbf{Partic.}: participant; \textbf{OS}: open-source; \textbf{IN}: industry; \textbf{Exp.}: experience; \textbf{PMC}: Project Management Committee; \textbf{MC}: Main Contributor.}
     \label{c6:tab:open-source-participants}
     \begin{tabular}{@{}clm{2cm}l@{}}
     \toprule
@@ -502,7 +502,7 @@ Of course, no sample is perfect, and we elaborate on the threats to external val
 
 \begin{table}[]
     \centering
-    \footnotesize
+   \footnotesize
     \caption{List of participants from the industrial projects. Abbreviations: \textbf{mgmnt.}: management; \textbf{Partic.}: participant; \textbf{Exp.}: experience.}
     \label{c6:tab:industrial-participants}
     \begin{tabular}{@{}ccm{2cm}m{0.5cm}l@{}}
@@ -521,7 +521,7 @@ Of course, no sample is perfect, and we elaborate on the threats to external val
 
 \subsubsection{Data collection}
 Interviews were held following the guidelines mentioned by Runeson et al. \cite{Runeson2012}.
-The interviews lasted 30-35 minutes and were semi-structured in their format, meaning that the interviewer could deviate from the original list of questions if a certain answer given by the participant was interesting to explore in more depth. The replication package contains the interview invitation and the questionnaire with the list of questions \footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.}.
+The interviews lasted 30-35 minutes and were semi-structured in their format, meaning that the interviewer could deviate from the original list of questions if a certain answer given by the participant was interesting to explore in more depth. The replication package contains the interview invitation and the questionnaire with the list of questions\footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.}.
 Each interview invitation contained (1) a one-pager with the definitions of the smell types discussed in the interviews; and (2) a letter informing the participant of the confidentiality of the interview as well as their right to not answer any question they do not wish to answer \cite{Runeson2012}.
 Before the interview started, both aforementioned points were reiterated to the participants to ensure that they were familiar with the technical concepts discussed during the interview and that they agreed with the terms of the interview.
  
@@ -549,7 +549,7 @@ Transcriptions were done as soon as batches of 2-3 interviews were completed, wh
 Each iteration of the data analysis process is presented in Figure \ref{c6:fig:qualitative-analysis} and is comprised of 3 phases. During the first phase (Phase A), the collected material (i.e. the initial interview transcripts) was studied and a code map was created to organise the codes used to tag the data.
 After completing this phase, the coding process started (Phase B), which also involved updating and re-organising the codes based on the new understanding of the data.
 Gradually, more interviews were recorded, transcribed, and coded and notes were taken with the aid of the coded data (Phase C).
-In total, three iterations of data analysis were done (i.e. three times the whole process from Figure \ref{c6:fig:qualitative-analysis}): the first for the interviews with open source engineers, the second with the industrial engineers, and the third to ensure that the codes added along the way were present in all the data.
+In total, three iterations of data analysis were done (i.e. three times the whole process from Figure \ref{c6:fig:qualitative-analysis}): the first for the interviews with open-source engineers, the second with the industrial engineers, and the third to ensure that the codes added along the way were present in all the data.
 The whole process was performed by the first author of the chapter, while the second author reviewed the codes and coding schemes as they were developed to reduce the risk of biases (e.g. confirmation and information bias).
 To automate the data analysis as much as possible, we relied on Atlas.ti\footnote{See \url{https://atlasti.com/}.}, a dedicated qualitative data analysis tool.
 
@@ -564,25 +564,25 @@ To automate the data analysis as much as possible, we relied on Atlas.ti\footnot
 Before presenting the results of the two research questions, we briefly present some descriptive statistics about ATDI and derive some observations.
 These should provide more context on the results of both RQ1 and RQ2 and allow us to understand the statistical nature of the estimations provided by the approach.
 
-These statistics concern the same 21 projects from which we collected the names of the open source participants for RQ2 as well as the 7 industrial projects; in total, ATDI was calculated for more than 41.000 smell instances of these 28 projects.
+These statistics concern the same 21 projects from which we collected the names of the open-source participants for RQ2 as well as the 7 industrial projects; in total, ATDI was calculated for more than 41,000 smell instances of these 28 projects.
 Figure \ref{c6:fig:atdi-distribution} shows both the values of ATDI for each architectural smell instance and the value of ATDI density for the 28 projects considered.
 The left-hand side plot depicts the total ATDI density for all projects, ordered from the most ATDI-dense project to the least.
 The right-hand side plot depicts the distribution of ATDI for each AS instance in the 28 projects.
 From the statistical analysis of the data depicted in Figure \ref{c6:fig:atdi-distribution}, we note the following:
 \begin{enumerate}
-    \item the highest density project is ElasticSearch with 3345.8 ATDI for each KLOC, despite being the second largest system analysed;
+    \item the highest density project is ElasticSearch with 3,345.8 ATDI for each KLOC, despite being the second largest system analysed;
     \item the lowest density project is JUnit5, with 16.2 ATDI for each KLOC;
     \item an overall lower ATDI density in a project does not always imply smells with lower individual ATDI. In particular, projects with lower ATDI density than \emph{Antlr4} (i.e. below it in Figure \ref{c6:fig:atdi-distribution}), show a large variance in the ATDI of the individual instances;
     \item 50\% of AS instances have $ATDI \le 161$, and 33\% of instances have $ATDI \le 100$;
     \item there are only 37 smells with an $ATDI \ge 750$ (less than 0.001\% of all smells analysed);
-    \item the maximum ATDI is 8505 by a HL smell in Jenkins;
+    \item the maximum ATDI is 8,505 by a HL smell in Jenkins;
     \item the minimum ATDI is 11, by three CDs with low severity in Camel, Cassandra and Dubbo respectively;
 \end{enumerate}
 
 \begin{figure*}
     \centering
     \includegraphics[width=\textwidth]{c6/principal-distribution.pdf}
-    \caption{On the left, the total amount of principal (ATDI) per 1.000 lines of code (KLOC) for each project (calculated using Equation \ref{c6:eq:atdi-normalised}) compared with the number of KLOC. 
+    \caption{On the left, the total amount of principal (ATDI) per 1,000 lines of code (KLOC) for each project (calculated using Equation \ref{c6:eq:atdi-normalised}) compared with the number of KLOC. 
     On the right, boxplots depicting the distribution of the principal (ATDI) calculated for each AS instance (outliers not visualised). }\label{c6:fig:atdi-distribution}
 \end{figure*}
 
@@ -633,7 +633,7 @@ Nevertheless, this is both expected and acceptable, as the goal for RQ1, was to 
 \begin{table}[]
     \centering
     \caption{Performance of different algorithms for different values of $NDCG$@$n$ using 7-fold cross-validation and the standard deviation over the folds. Bold values represent the maximum in the row.}\label{c6:tab:algorithm-performances}
-    \footnotesize
+   \footnotesize
     \begin{tabular}{ccccm{.85cm}m{.85cm}}\toprule
     \multicolumn{1}{c}{\multirow{3}{.5cm}{$NDCG$\\@$n$}} & \multicolumn{5}{c}{\textbf{Algorithms}} \\
     \multicolumn{1}{c}{} & \textbf{mse} & \textbf{multiclass} & \textbf{multiova} & \textbf{rank\_\newline xendcg} & \textbf{lambda-rank} \\ \midrule
@@ -689,9 +689,9 @@ We expect the model to match the assumptions in the literature in order to estab
 The \emph{Size} feature (i.e. number of affected elements) contributes the most to the severity of the smell, with higher values of \emph{Size} increasing the severity and small values being neutral.
 The \emph{PageRank} of the affected elements comes second, with higher values positively contributing to the severity of a smell.
 This means that elements that are more central in the dependency network of the system \textbf{make a smell more severe}.
-The \emph{Number of edges} feature has a similar impact as \emph{Size} (they are indeed correlated , see Chapter \ref{chap:2}), but low values decrease the severity of a smell, instead of being neutral.
+The \emph{Number of edges} feature has a similar impact as \emph{Size} (they are indeed correlated, see Chapter \ref{chap:2}), but low values decrease the severity of a smell, instead of being neutral.
 The metrics based on the \emph{Package Containment Tree (PCT)} \cite{Laval2012,AlMutawa2014} were relatively important too.
-High values of \emph{St.dev. PCT Depth}, namely, when a smell affects both elements at the top and bottom of the PCT, positively contributes to increase the predicted severity.
+High values of \emph{St.dev. PCT Depth}, namely, when a smell affects both elements at the top and bottom of the PCT, positively contribute to increase the predicted severity.
 Similar with the \emph{St.dev. PCT Distance}, namely, when a smell affects elements from distant branches of the PCT.
 In both cases, it is interesting to note that the mean of both \emph{Distance} and \emph{Depth} are less important than their standard deviation.
 
@@ -762,26 +762,26 @@ Finally, we conclude by reporting on a few drawbacks and possible improvements o
 \subsubsection{Overview}
 Overall, the feedback provided by the participants regarding how well the estimated principal represents the refactoring effort (RQ2.1), was rather positive.
 Of the 62 total smell instances that we discussed and their respective ATDI estimations\footnote{Note that for a few participants we did not have time to discuss all 4 instances.}, shown to the participants, 71\% (44/62) of the estimations were described as \emph{\textbf{representative}} of the effort necessary to refactor.
-More specifically, responses on industrial instances showed 81\% agreement rate with the estimations provided by the index, whereas for smell instances detected in open source projects the agreement rate with the index was 65\%.
+More specifically, responses on industrial instances showed 81\% agreement rate with the estimations provided by the index, whereas for smell instances detected in open-source projects the agreement rate with the index was 65\%.
 Of the 29\% (18/62) of total instances that were off the mark, only 10 of them were off by more than 100. 
 The other 8 instances were off by less than 100, but since 6 of these were small instances, with an $ATDI \le 100$, the relative error was higher, so they were perceived by the participants as a big over-, or under-estimation.
 Note that from our descriptive analysis of ATDI (see Figure \ref{c6:fig:atdi-distribution}), we know that only 33\% of instances have an $ATDI \le 100$, so the extent of the imprecision is limited to a small percentage of these 33\% of instances.
 
 Concerning the magnitude and relative size of the estimations (RQ2.2), 62\% (10/17) of the participants \emph{\textbf{totally agreed}} with the relative size and order of the estimations, while 26\% (4/17) of the participants \emph{disagreed} with the ranking of a single instance only, and the remaining 12\% (2/17) with more than one.
-Participants interviewed on industrial projects had a much higher rate of agreement with the ranking and relative size of the estimations than open source participants.
-85\% (6/7) of industrial participants completely agreed with the ranking and relative size, whereas only 44\% (4/9) of the open source participants did so.
-The rest of the open source participants (5/9) made either one or two corrections to the order.
+Participants interviewed on industrial projects had a much higher rate of agreement with the ranking and relative size of the estimations than open-source participants.
+85\% (6/7) of industrial participants completely agreed with the ranking and relative size, whereas only 44\% (4/9) of the open-source participants did so.
+The rest of the open-source participants (5/9) made either one or two corrections to the order.
 Note that these were mostly made on instances with an $ATDI < 100$.
 
 The aforementioned numbers provide a quantitative overview of the perception of the participants regarding the validation of ATDI.
 In the next sub-section, we will give examples of six different cases, in order to provide a richer, qualitative description of both the smells and the participants perception.  
-The examples were chosen to best represent the various aspects of our data set such as: (1) the ratio of agreement/disagreement with estimations; (2) whether the project is open source or industrial; (3) whether it concerned large or small smell instances; and finally, (4) whether the  cases simply presented more insights.
+The examples were chosen to best represent the various aspects of our data set such as: (1) the ratio of agreement/disagreement with estimations; (2) whether the project is open-source or industrial; (3) whether it concerned large or small smell instances; and finally, (4) whether the  cases simply presented more insights.
 
 \subsubsection{Example opinions of the participants}\label{c6:sec:examples}
 \paragraph{Example 1: \emph{RxJava}} This first example describes how two architectural smells of two different types, GC and HL, are estimated and compared by participant P4.
-The GC smell was detected on the package \texttt{io.reactivex.rxjava3.core}, directly containing $52.000$ lines of code spread across 44 classes -- much higher than the average of $10.000$ lines of code circa detected in the other packages of the system.
+The GC smell was detected on the package \texttt{io.reactivex.rxjava3.core}, directly containing $52,000$ lines of code spread across 44 classes -- much higher than the average of $10,000$ lines of code circa detected in the other packages of the system.
 P4 mentioned that the \texttt{core} package provides access to all the functionality of RxJava through 5 core classes, described as ``god classes''.
-For this reason, P4 was exceedingly confident that the estimated value of 1500 for $ATDI$ was \textbf{justified and representative}.
+For this reason, P4 was exceedingly confident that the estimated value of 1,500 for $ATDI$ was \textbf{justified and representative}.
 
 The HL smell was detected on one of the 5 god classes, \texttt{io.reactivex.rxjava3. core.Flowable}, that is part of the GC smell.
 This class has an overwhelming number of ingoing and outgoing dependencies, namely 264; in other words, there are 264 other classes that either depend on, or are depended by \texttt{Flowable}.
@@ -834,10 +834,10 @@ Despite these classes being rather intertwined, our model estimated an $ATDI = 6
 The fourth example features smells detected in the Jenkins project.
 Jenkins is a well-known build automation system that has a rather long and convoluted development history.
 This resulted in many architectural smells forming in the system over time, two of which are discussed in this example, including the smell with the highest value of ATDI we measured in this study.
-The two smells that are of interest are a HL and a GC, which both affect the same package, the \texttt{hudson.model}; this is a huge package that directly contains $43.000$ lines of code distributed across 172 classes with a total of 103 ingoing and outgoing dependencies towards other packages in the system.
+The two smells that are of interest are a HL and a GC, which both affect the same package, the \texttt{hudson.model}; this is a huge package that directly contains $43,000$ lines of code distributed across 172 classes with a total of 103 ingoing and outgoing dependencies towards other packages in the system.
 The package was described as rather \emph{complex to evolve and change} due to its internal logic and the amount of lines of code.
-This example is rather interesting to discuss as the two values of ATDI are quite different from each other despite the two smells affecting the same package.
-The estimated index for the HL smell was 8500, whereas for the GC it was 1500.
+This example is rather interesting to discuss as the two values of ATDI are different from each other despite the two smells affecting the same package.
+The estimated index for the HL smell was 8,500, whereas for the GC it was 1,500.
 
 Nonetheless, P5 \textbf{agreed with great confidence} on both estimations and acknowledged that they were both representative of the effort required to refactor each smell.
 P5 provided two reasons on why the refactoring of the HL smell (i.e. reorganise the dependencies to reduce their number) was so difficult.
@@ -870,7 +870,7 @@ However, we do agree that the estimation should not be that far from the perceiv
 
 \paragraph{Example 6: \emph{JUnit 5}}
 As a final example, we present another case where the participant disagreed with the estimation provided by our model\footnote{Note that 4 examples agreeing with the estimations and 2 disagreeing follows the agreement-disagreement ratio we have in our data (75\%-25\%).}.
-This example concerns a GC detected in JUnit on the \texttt{org.junit.jupiter.api} package, which directly contained 54 files, amounting to a total of $9.800$ lines of code\footnote{The detection threshold used for JUnit was $7.800$ lines of code.}.
+This example concerns a GC detected in JUnit on the \texttt{org.junit.jupiter.api} package, which directly contained 54 files, amounting to a total of $9,800$ lines of code\footnote{The detection threshold used for JUnit was $7,800$ lines of code.}.
 
 The ATDI estimated for this smell was 300. P3 was not convinced that this value would be representative of the effort necessary to actually split the package, but it is rather an \textbf{overestimation}.
 %P3 argued the following:
@@ -929,7 +929,7 @@ Some of the smells were detected on code that did not change in years, and was n
 While these may not be false positives, as the smells were confirmed by engineers to exist, they should be distinguished from other smells, elements of which are constantly changed (and thus TD interest accumulates).
 Therefore, we could combine ATDI values with TD interest information that takes into consideration historical change data, and give lower priority to those smells whose affected elements did not change much over the previous years/months.
 
-One challenging issue, is that certain design choices that are detected as architectural smells, do not pose any concern to developers (e.g. all API-related classes are in a single package, like in Example 6).
+One challenging issue is that certain design choices that are detected as architectural smells, do not pose any concern to developers (e.g. all API-related classes are in a single package, like in Example 6).
 Therefore, they perceive the ATDI for these instances as an overestimation.
 %In our model, this problem is caused by an over-estimation of the severity of the smell. 
 One way to improve that would be to provide more features that allow the model to differentiate between regular classes and abstract classes, interfaces, or annotations. That would allow the developers to tune the model so that their design choices are taken into account in the estimated severity of the smells.
@@ -956,25 +956,25 @@ This is instrumental during the prioritisation phase, as practitioners can adopt
 For example, some may decide to refactor the smells with high ATDI to tackle the biggest problems first, whereas others may decide to focus on the small smells only and integrate AS refactoring in their process, resulting in an incremental repayment.
 Yet another example was suggested by one of the interview participants: to avoid the introduction of commits that increase the debt over a certain amount, thus resulting in less ATD density over time.
 
-To facilitate the adoption of our approach by industry practitioners, an implementation was integrated into \textsc{Arcan} and is publicly available in the replication package of this study \footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.}.
+To facilitate the adoption of our approach by industry practitioners, an implementation was integrated into \textsc{Arcan} and is publicly available in the replication package of this study\footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.}.
 
 \paragraph{RQ1 implications}
-For researchers, the main implication stemming from RQ1, is that techniques such as \emph{pairwise comparison}, \emph{ranking systems} (e.g. TrueSkill), and \emph{machine-learned ranking} (or LTR), that are widely adopted in other disciplines such as Information Retrieval (IR), can be flexible enough to be applied to practical problems encountered in Software Engineering (SE).
+For researchers, the main implication stemming from RQ1 is that techniques such as \emph{pairwise comparison}, \emph{ranking systems} (e.g. TrueSkill), and \emph{machine-learned ranking} (or LTR), that are widely adopted in other disciplines such as Information Retrieval (IR), can be flexible enough to be applied to practical problems encountered in Software Engineering (SE).
 
 Indeed, IR complements SE, and more specifically software maintenance, very well.
 The core problem faced during software maintenance is the complexity generated by software, namely the difficulty to understand, browse, and change software artefacts because of the high density of information contained in them \cite{Robillard2010}.
 IR provides the means to reduce this information overload and only access the information that is needed the most (i.e. the most relevant) based on a given query (e.g. what are the most severe smells in the system?) \cite{Robillard2010}.
 Therefore, it comes naturally to think of applying IR techniques to solve SE problems that may be otherwise too complex.
-One example of possible application is suggesting the issues (from the issue tracker) that an open source contributor can address based on their previous experience in solving issues and urgency of the issue calculated based on the users' comments on that issue (e.g. new contributors can address low-urgency, low-impact issues).
+One example of possible application is suggesting the issues (from the issue tracker) that an open-source contributor can address based on their previous experience in solving issues and urgency of the issue calculated based on the users' comments on that issue (e.g. new contributors can address low-urgency, low-impact issues).
 
 Alas, applying IR into SE in practice poses some technical challenges that may not be easily overcome in all contexts, or worth the extra effort.
 Take for example the problem posed by using pairwise comparison to order a set.
 Theoretically, the number of pairwise comparisons that are necessary to obtain a perfectly ordered set grows factorially with the number of elements in the set.
 This problem, in fact, arises only to solve another, arguably bigger problem that many IR techniques face: the \emph{need of a data set} to train a machine learning model.
-This makes several IR techniques a feasible solution to a ML model, only if a data set already exists, or there is a practical way to create a such data set.
+This makes several IR techniques a feasible solution to a ML model, only if a data set already exists, or there is a practical way to create such a data set.
 In our case, we were able to create a data set by using pairwise comparison, and subsequently managed to circumvent the problem that pairwise comparison creates by employing several different techniques; but these are clearly limited to our application and may not always be feasible in other contexts.
 
-Nevertheless, we believe that IR applications to SE are quite promising and that there are a lot of potential applications of IR to SE \cite{Happel2008,Robillard2010}.
+Nevertheless, we believe that IR applications to SE are promising and that there are a lot of potential applications of IR to SE \cite{Happel2008,Robillard2010}.
 Compared to the traditional SE approach of designing an algorithm to solve a problem, IR shifts the effort from designing the algorithm to designing the data representing the problem to be solved.
 The major drawback is that the lack of means of collecting such data hinders the applicability of such techniques. However, a data-driven solution is more likely to be effective.
 In fact, previous studies from the literature have already proven the potential of Recommendation Systems, for example, to suggest design patterns to apply to a code base \cite{Palma2012}, or suggest the libraries to use for a software project and how to use them \cite{DiRocco2021}.
@@ -985,9 +985,9 @@ One concrete idea stemming from our results, is to apply LTR models to create a 
 An interesting remark stemming from the results of RQ2.1 and RQ2.2, is that ATDI \emph{does not need to be precise in order to be considered representative of the effort needed to refactor}.
 This is especially true for large estimations (i.e. $ATDI > 500$), because developers seemed to value more the relative value of an estimation (w.r.t. to other estimations) over its absolute value.
 Specifically, if in their mind the difference between the largest estimation and the second largest estimation was big enough, then both estimations were deemed representative of the effort. 
-However, for smaller instances, some developers (mostly open source ones) did not fully agree with the estimated value of at least one of the instances they were shown.
+However, for smaller instances, some developers (mostly open-source ones) did not fully agree with the estimated value of at least one of the instances they were shown.
 This shows that the \emph{smaller estimations need to be more precise} in order for them to better resonate with the gut feeling of the engineers and be considered representative.
-One way this could be achieved, is by implementing the improvements mentioned in RQ2.3 (Section \ref{c6:sec:general-feedback}).
+One way this could be achieved is by implementing the improvements mentioned in RQ2.3 (Section \ref{c6:sec:general-feedback}).
 Nonetheless, given that a large percentage of the maintenance effort is generated by the top few AS \cite{Xiao2016}, we claim that, to a certain extent, our approach provides \emph{\textbf{meaningful}} and \emph{\textbf{representative}} estimations that can be used to both provide objective evidence to make \emph{informed prioritisation decisions} and enable developers to \emph{reliably plan} the allocation of resources during repayment. 
 
 An observation stemming from the results of RQ2.3 is that most projects prioritise other quality attributes over Maintainability.
@@ -1002,7 +1002,7 @@ This issue is further aggravated by the fact that many libraries were written be
 Moreover, several senior maintainers of the project are \emph{reluctant to apply any sort of refactoring} for the fear of introducing a bug that would undermine the runtime stability of the project.
 Contributors are forced to pay extra TD interest while performing typical maintenance tasks but cannot make the large refactorings required to reduce the amount of interest paid in fear of breaking the backwards compatibility or a key runtime quality of the system. 
 This is a \textbf{\emph{deadlock}} situation for maintainers and a \emph{lose-lose} situation for the overall project, as any action undertaken is a risk to the stability of the project.
-A possible solution is to embrace API-disruptive changes (e.g. move class to another package) and only include them in major releases of the system.
+A possible solution is to embrace API-disruptive changes (e.g. move a class to another package) and only include them in major releases of the system.
 This strategy comes with the risk of fragmenting the user base and having to maintain two, or more, versions of the same project simultaneously.
  
 To conclude, the main implication for practitioners arising from RQ2 is that they can rely on our approach to manage ATD principal, but they might need careful consideration on how to exactly implement it in certain projects that are sensible to change.
@@ -1045,7 +1045,7 @@ Nonetheless, we consider this threat as \emph{mitigated}, as stratified random s
 This aspect of validity concerns the extent to which it is possible to generalise the results of the study. In other words, are the results of relevance for cases other than the one analysed \cite{Runeson2012}?
 
 A threat to external validity is the sample of projects used to create the training and test sets for our machine learning model (step `a' in Figure \ref{c6:fig:study-overview}).
-More specifically, the pool of projects we sampled smells from, was limited to the projects that our annotators were familiar with. This resulted in the projects (see Table \ref{c6:tab:smells-data-set}) being relatively small (only 2 projects with more than 100.000 lines of code) and the number of application domains covered being relatively limited (3 static analysers, 2 web frameworks, and 3 testing frameworks), on top of all being open source projects.
+More specifically, the pool of projects we sampled smells from was limited to the projects that our annotators were familiar with. This resulted in the projects (see Table \ref{c6:tab:smells-data-set}) being relatively small (only 2 projects with more than 100,000 lines of code) and the number of application domains covered being relatively limited (3 static analysers, 2 web frameworks, and 3 testing frameworks), on top of all being open-source projects.
 Ultimately, this could impact the capability of the machine learning model to properly rank AS instances that may be very different than the instances in our training set, both in terms of size and structure.
 Nonetheless, we believe that the validation results obtained by RQ2 show that this threat only poses a \emph{limited risk}, as the estimations of the whole approach were not severely impacted despite most of the systems used to validated the results (Tables \ref{c6:tab:open-source-participants} and \ref{c6:tab:industrial-participants}) being very different than the ones contained in the training set (Table \ref{c6:tab:smells-data-set}).
 
@@ -1057,13 +1057,13 @@ We can, however, claim the generalisation of our results to developers and senio
 Finally, the last threat to external validity is the fact that our pool of industrial participants is rather limited. 
 We only collaborated with two companies, both are SMEs and both are European.
 Therefore, it is hard to ensure the full generalisation of the RQ2 results outside these bounds.
-However, it is important to notice that almost all of the open source participants were full-time developers in companies from all over the world, and only contributed to the open source project as part of their work, or as a hobby.
-Therefore, we believe that this threat is \emph{partially mitigated} and that we can claim the generalisation of our results to full-time open source contributors, industrial practitioners that contribute to open source projects, and (to some extent) industrial practitioners operating in SMEs.
+However, it is important to notice that almost all of the open-source participants were full-time developers in companies from all over the world, and only contributed to the open-source project as part of their work, or as a hobby.
+Therefore, we believe that this threat is \emph{partially mitigated} and that we can claim the generalisation of our results to full-time open-source contributors, industrial practitioners that contribute to open-source projects, and (to some extent) industrial practitioners operating in SMEs.
 
 \paragraph*{Reliability}
 Reliability is the aspect of validity focusing on the degree to which the data collection and analysis depend on the researchers performing them \cite{Runeson2012}.
 
-While we cannot share the transcription of the interviews for confidentiality reasons, we do, however, provide a replication package \footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.} containing the design of this study, the complete list of questions asked to our interview participants, the data set used to train the machine learning model, and the tool \textsc{Arcan} implementing the ATDI calculation.
+While we cannot share the transcription of the interviews for confidentiality reasons, we do, however, provide a replication package\footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.} containing the design of this study, the complete list of questions asked to our interview participants, the data set used to train the machine learning model, and the tool \textsc{Arcan} implementing the ATDI calculation.
 This should allow researchers to assess the rigour of the study or replicate the results using a different set of projects.
 
 A common threat to reliability when qualitative data is analysed, is the potential bias introduced by the researcher performing the coding.
@@ -1086,7 +1086,7 @@ Xiao et al. \cite{Xiao2016} have proposed a formal model to quantify architectur
 The HCP matrix is calculated using conditional probability of changing files and is then used to identify candidates of debt items.
 Candidates were then modelled using different regression models (linear, logarithmic, etc.) to find which model fits best the interest of the debt items in the system.
 Next, debt items were ranked based on the effort required to fix them.
-Xiao et al. evaluated their approach on 7 open source projects, showing that a significant proportion (51\% to 81\%) of the overall maintenance effort was consumed by paying interest on architectural debt items.
+Xiao et al. evaluated their approach on 7 open-source projects, showing that a significant proportion (51\% to 81\%) of the overall maintenance effort was consumed by paying interest on architectural debt items.
 Their approach is implemented into their tool called DV8.
 
 Roveda et al. \cite{Roveda2018} developed an architectural technical debt index based on the (dependency-based) architectural smells detected in the system.
@@ -1117,13 +1117,13 @@ While this approach does have several advantages (as mentioned above), it also c
 Table \ref{c6:tab:rw-comparison} summarises the differences between related work on ATD principal estimation and this work. 
 Our work improves over related work on two main points.
 First, we are the first to propose a machine learning-based approach to tackle this problem rather than relying on manually-set thresholds \cite{Wu2018,Martini2018b} or arbitrary proxies of severity \cite{Roveda2018}.
-Second, we validated our approach by interviewing software developers from both industrial and open source projects; most other approaches were only \emph{evaluated}, in the sense of performing measurements and comparisons, while only two were \emph{validated}, in the sense of confirming they actually provide benefits to developers, but in a limited way.
-Specifically, evaluation was mostly performed on open source systems \cite{Xiao2016,Roveda2018,Verdecchia2020}, whereas the only two studies that performed a validation were in both cases within a single company\footnote{Note that several of the open source engineers that we interviewed were also working in industry.} \cite{Martini2018b,Wu2018}, thus critically reducing the generalisation of the results obtained. 
-Additionally, our approach is the only one that provides a publicly-available tool that implements the approach \footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.}.
+Second, we validated our approach by interviewing software developers from both industrial and open-source projects; most other approaches were only \emph{evaluated}, in the sense of performing measurements and comparisons, while only two were \emph{validated}, in the sense of confirming they actually provide benefits to developers, but in a limited way.
+Specifically, evaluation was mostly performed on open-source systems \cite{Xiao2016,Roveda2018,Verdecchia2020}, whereas the only two studies that performed a validation were in both cases within a single company\footnote{Note that several of the open-source engineers that we interviewed were also working in industry.} \cite{Martini2018b,Wu2018}, thus critically reducing the generalisation of the results obtained. 
+Additionally, our approach is the only one that provides a publicly-available tool that implements the approach\footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.}.
 
 The use of the smell characteristics of an architectural (or code) smell to predict its severity is certainly not a new concept in software engineering \cite{Laval2012,Tsantalis2011,Arcelli2015b,Vidal2016,Roveda2018}.
 Some work has focused on the use of metrics by selecting arbitrary, hand-picked thresholds, or weights, and combining such metrics into a single value representing the severity of a smell \cite{Laval2012,Vidal2016}.
-Others experimented with using benchmarks of open source systems to automatically define thresholds \cite{Arcelli2015b} with the hope of reducing the bias introduced by hand-picked metrics. 
+Others experimented with using benchmarks of open-source systems to automatically define thresholds \cite{Arcelli2015b} with the hope of reducing the bias introduced by hand-picked metrics. 
 Alas, both of these strategies are inherently flawed. In the former case, hand-picked thresholds, even if based on heuristics and expertise, are severely limited to specific cases dictated by the assumptions (e.g. how much a design principle influences a smell) used to set them in the first place.
 Instead, our ML model deduces these from the training set as part of the training process.
 In the latter case, benchmark-based approaches assume that the systems included in the benchmark cover the whole spectrum of good, medium, and low quality systems and that the metrics computed on them are distributed equally for `good' and `bad' values of the metric itself (e.g. the Complexity metric only has values for $>.50$ in the benchmark, so $.50$ is considered the lowest value of Complexity when in reality it might be a medium value).
@@ -1132,8 +1132,8 @@ In the latter case, benchmark-based approaches assume that the systems included 
 % This is, to the best of our knowledge, a new concept in the field.
 
 To conclude, the approach presented in this chapter does not suffer from some of the well-known shortcomings that other studies do \cite{Khomyakov2020}.
-In particular, we developed a fully-automated approach that does not rely on hand-picked thresholds, or benchmarks, but instead uses machine learning to overcome these shortcomings; then, we validated the approach by involving practitioners from multiple companies and from both open source and industry.
-In addition, an implementation of our approach is also freely available in the replication package of this chapter \footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.}.
+In particular, we developed a fully-automated approach that does not rely on hand-picked thresholds, or benchmarks, but instead uses machine learning to overcome these shortcomings; then, we validated the approach by involving practitioners from multiple companies and from both open-source and industry.
+In addition, an implementation of our approach is also freely available in the replication package of this chapter\footnote{Visit \url{https://dx.doi.org/10.6084/m9.figshare.19823323} to access it.}.
 
 \begin{sidewaystable}[]
     \scriptsize
@@ -1148,7 +1148,7 @@ In addition, an implementation of our approach is also freely available in the r
     \textbf{Measurement*} & Relative & Absolute & Relative & Absolute & Relative & Relative \\
     \textbf{Output} & ATD principal as an index & ATD interest paid so far & ATD principal as an index & ATD principal as an index & Urgency to refactor a component and modularisation index & ATD principal as an index \\
     \textbf{Automation} & Full & Full & Full & Full & Partial & Full \\
-    \textbf{Valid. or Eval.} & Validated through interviews with both open source and professional engineers & Evaluated on open source systems & Evaluated on open source systems & Validation within a company & Validation within a company & None \\ \hline
+    \textbf{Valid. or Eval.} & Validated through interviews with both open-source and professional engineers & Evaluated on open-source systems & Evaluated on open-source systems & Validation within a company & Validation within a company & None \\ \hline
     \end{tabular}
 \end{sidewaystable}
 
@@ -1163,7 +1163,7 @@ Their approach uses a straightforward (linear) mathematical model to map ISO/IEC
 Next, these properties were mapped to a rating system with 5 different levels (i.e. star-based system) to represent the current quality level of the system.
 The approach thus allows to estimate the current principal by calculating the amount of effort required to rework the system to get a higher quality rating (e.g. from 3 stars to 5 stars).
 Similarly, the interest is calculated by using the maintenance effort at a given quality level and then subtracting the maintenance effort at the desired quality level.
-After describing the approach, Nugroho et al. proceeded to evaluate it on an 18-year-old system that is written in multiple programming languages and has over 760.000 lines of code.
+After describing the approach, Nugroho et al. proceeded to evaluate it on an 18-year-old system that is written in multiple programming languages and has over 760,000 lines of code.
 The case study was designed with the goal of illustrating that the proposed approach could be applied to answer practical questions related to software quality improvement over 10 years of development of the said project.
 Using the proposed approach, Nugroho et al. showed that 75\% of the system needs to be reworked in order to meet the ideal quality level (5 stars).
 
@@ -1186,7 +1186,7 @@ Similarly to other approaches, the approach of Mayr et al. uses a set of rules a
 Contrary to other approaches, however, they also rely on a benchmark of systems to create a baseline quality level.
 The baseline is simply the distribution of different rules in the benchmark systems.
 The remediation cost (i.e. the principal) is then calculated as a linear function of the number of violations to be fixed, the effort required for each violation, and the cost rate.
-This approach was evaluated on two open source projects; the results show that the approach was able to provide stakeholders with the expected remediation costs depending on the actual quality of the project and target level.
+This approach was evaluated on two open-source projects; the results show that the approach was able to provide stakeholders with the expected remediation costs depending on the actual quality of the project and target level.
 
 While all the aforementioned approaches estimate TD principal, they mostly focus on code debt, therefore, they are not directly comparable to our work.
 
@@ -1196,7 +1196,7 @@ While all the aforementioned approaches estimate TD principal, they mostly focus
 % Tsantalis et al. \cite{Tsantalis2011} proposed an approach using historical change data to rank refactoring suggestions according to the number, proximity and extent of a change in artefacts affected by code smells.
 % For each code smell type, the authors define a formula to calculate the extent of change caused by an instance of that smell type.
 % By employing forecasting models, the authors are able to forecast the volatility of the code affected and related to smell, and if such code has a high likelihood of changing in the future, then its refactoring should be prioritised over other smells.
-% The evaluation of the approach is done using two open source projects and identify what forecasting models work best in which situations.
+% The evaluation of the approach is done using two open-source projects and identify what forecasting models work best in which situations.
 
 % Laval et al. \cite{Laval2012} focus on ranking Cyclic dependencies among packages.
 % Their approach is based on the assumptions that (1) if packages that are far away in the package containment tree, then the cycle is undesired, and (2) if the number of dependencies between two packages is caused by only few classes, then it is plausible that the dependency has been introduced accidentally and the cycle is undesired.
@@ -1210,14 +1210,14 @@ While all the aforementioned approaches estimate TD principal, they mostly focus
 
 % Vidal et al. \cite{Vidal2016} look at prioritisation opportunities for architecturally-relevant code smells.
 % Their approach uses a set of manually-defined architectural concerns (that depend on the system being analysed), the recent change history of classes, and an `agglomeration' score that counts the number of code smells in a certain part of the system.
-% They validate the approach on 4 open source systems showing that the prioritising criteria identified would have helped developer discarding more than 500 smells that are not architecturally related.
+% They validate the approach on 4 open-source systems showing that the prioritising criteria identified would have helped developer discarding more than 500 smells that are not architecturally related.
 
 \section{Conclusion}\label{c6:sec:conclusion-fw}
 The goal of this work was to estimate the architectural debt principal using architectural smells as a input.
 For this purpose, we designed an approach that relies on machine learning and static analysis of the source of the smell to estimate the effort necessary to refactor a smell.
 Next, we created a data set to rank architectural smells by their severity using well-known techniques typically used in information retrieval (e.g. TrueSkill).
 Then, we trained a type of ML model typically used in information retrieval (called learning-to-rank) and obtained excellent results, thus demonstrating that it is possible to apply these techniques in software engineering.
-Finally, we validated the output of the whole approach (not only of the ML model), through a case study where we interviewed 16 engineers from both open source and industry.
+Finally, we validated the output of the whole approach (not only of the ML model), through a case study where we interviewed 16 engineers from both open-source and industry.
 The results showed that most of the estimations ($\ge 70$\%) provided by our approach are representative of the effort necessary to refactor a smell.
 The results also suggested that for large estimations our approach was very precise; however, for some cases, smaller estimations were not as precise.
 We also identified several points of improvement for our approach, such as taking into consideration the class hierarchy, as it could have a big influence on the estimations provided by the approach (especially the smaller ones).

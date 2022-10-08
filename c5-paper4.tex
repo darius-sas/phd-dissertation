@@ -14,12 +14,12 @@
 	This work is a first attempt to address this issue by investigating the relation between architecture smells and source code changes. Specifically we study whether the \emph{frequency} and \emph{size} of changes are correlated with the presence of a selected set of architectural smells.
 	We detect architectural smells using the \textsc{Arcan} tool, which detects architectural smells by building a dependency graph of the system analysed and then looking for the typical structures of the architectural smells.
 	
-	The findings, based on a case study of thirty-one open source Java systems, show that $87$\% of the analysed commits present more changes in artefacts with at least one smell and the likelihood of changing increases with the number of smells.
+	The findings, based on a case study of thirty-one open-source Java systems, show that $87$\% of the analysed commits present more changes in artefacts with at least one smell and the likelihood of changing increases with the number of smells.
 	Moreover, there is also evidence to confirm that change frequency increases after the introduction of a smell and that the size of changes is also larger in smelly artefacts.
 	These findings hold true especially in medium-large and large artefacts.
 \end{Abstract}
 
-\section{Introduction}
+\section{Introduction}\label{c5:sec:introduction}
 Architectural smells (AS) are defined as \emph{``commonly-used (although not always intentional) architectural decisions that negatively impact system quality''} \cite{Garcia2009}.
 AS manifest themselves in the system as undesired dependencies, unbalanced distribution of responsibilities, excessive coupling between components as well as in many other forms that break one or more software design principles and good practices, ultimately affecting maintainability and evolvability \cite{Lippert2006}.
 We note that the presence of AS does not always inevitably indicate that there is a problem, but it points to places in the system’s architecture that should be further analysed \cite{Lippert2006}.
@@ -48,10 +48,10 @@ Section \ref{c5:sec:related-work} summarises similar work from the literature; S
 \subsection{Impact of Architectural Smells}
 In a recent work, Le et al. \cite{Le2018} defined a set of six architectural smells based on an automated reverse architecture model extraction. Next, they investigated whether files affected by architectural smells (i.e. smelly files) are more likely to have issues (extracted from issue-tracking systems) associated to them than clean files.
 Additionally, they also checked if smelly files are more change-prone than clean files.
-The case study was performed on eight different open source Java systems and the results confirmed that smelly files are more fault- and change-prone in the eight systems analysed. 
+The case study was performed on eight different open-source Java systems and the results confirmed that smelly files are more fault- and change-prone in the eight systems analysed. 
 Contrary to the work of Le et al. \cite{Le2018}, in our work we investigate a different set of architectural smells based on concrete software artefacts, rather than on architectural recovery views; we use thirty-one projects, rather than eight; and we measure several facets of change-proneness (not only the number of commits a file has changed), using a well-established suite of metrics. 
 
-Oyetoyan et al. \cite{Oyetoyan2015} have studied the relation between Cyclic Dependency (CD) and the change frequency of the affected classes near them on twelve Java open source systems.
+Oyetoyan et al. \cite{Oyetoyan2015} have studied the relation between Cyclic Dependency (CD) and the change frequency of the affected classes near them on twelve Java open-source systems.
 They investigated both general CD between classes and special kinds of CD (e.g. cycles that contain both parents and children classes, abbreviated as STK, and cycles across branches of the package containment tree) that have been conjectured to be particularly undesirable.
 Their results show that the presence of cycles does increase the change frequency of the classes affected and of the neighbour classes, but this is not true for classes affected by STK cycles in most of the systems considered.
 Moreover, their findings also suggest that classes belonging to cycles spanning across branches of the package containment tree (the tree of the packages) do not exhibit a higher correlation with change frequency.
@@ -59,7 +59,7 @@ Our work differs from this study in the following aspects: we investigate four t
 
 \subsection{Impact of Anti-patterns, Design Patterns, and Design Smells}
 Khom et al.  \cite{Khomh2012} investigated the effect of antipatterns (classes that embody poor design choices and stem in-between design and implementation \cite{Khomh2012}),  on class and change proneness. More specifically, the authors investigated whether classes participating in antipatterns have a higher likelihood than others to change or be involved in issues documenting faults.
-Their study focused on four open source Java systems and a total of fifty-four releases. Their findings confirmed that classes participating in antipatterns are more change prone than others. Specifically, the \emph{MessageChain} antipattern has been found to consistently have the greatest impact on change proneness across all the four systems analysed. The impact of the other antipatterns largely depends on the studied system.
+Their study focused on four open-source Java systems and a total of fifty-four releases. Their findings confirmed that classes participating in antipatterns are more change prone than others. Specifically, the \emph{MessageChain} antipattern has been found to consistently have the greatest impact on change proneness across all the four systems analysed. The impact of the other antipatterns largely depends on the studied system.
 Concerning fault proneness, the results are very similar to what was observed for change proneness.
 
 Another work on antipatterns and their relation with changes and faults was published by Jaafar et al. \cite{Jaafar2016}.
@@ -79,7 +79,7 @@ The projects were automatically extracted from GitHub, and the authors defined a
 The results concerning change and fault proneness show that classes affected by smells are more prone to change than non-smelly classes; traditional smells seem to have a stronger negative impact, although when controlling for size the difference is less marked on change proneness.
 No impact was observed on fault proneness when controlling for size for both MVC-specific and traditional smells.
 
-Another study on code smells and change-proneness was done by Khomh et al. \cite{Khomh2009}. In their work, the authors study the impact of 29 code smells on change proneness in 2 open source Java projects.
+Another study on code smells and change-proneness was done by Khomh et al. \cite{Khomh2009}. In their work, the authors study the impact of 29 code smells on change proneness in 2 open-source Java projects.
 More precisely, they investigate whether smelly classes are more change-prone, how the number of smells influences this aspect, and differences in this impact between the different smell types.
 Their findings show that smelly classes are in fact more change prone in both projects analysed. Additionally, they also show that a higher number of smells often implies a high change proneness. They also found that \emph{HasChildren}, \emph{MessageChainClass}, \emph{NotAbstract}, and \emph{NotComplex} smell types have the highest change proneness, but this is heavily project-dependant.
 
@@ -116,7 +116,7 @@ The goal of this study is to understand the impact of architectural smells on so
 Using the Goal-Question-Metric approach \cite{VanSolingen2002}, the goal can be formulated as follows: 
 \begin{quote}
     \itshape
-    \textbf{Analyse} changes in source code artefacts \textbf{for the purpose of} understanding the impact of architectural smells \textbf{with respect to} the frequency and size of those changes \textbf{from the point of view of} software developers and architects \textbf{in the context of} open source Java software systems.
+    \textbf{Analyse} changes in source code artefacts \textbf{for the purpose of} understanding the impact of architectural smells \textbf{with respect to} the frequency and size of those changes \textbf{from the point of view of} software developers and architects \textbf{in the context of} open-source Java software systems.
 \end{quote}
 By (Java) source code artefacts we mean both source code files (classes) and source code packages.
 
@@ -146,9 +146,9 @@ Finally, the results of this research question, in case we do find evidence of s
     \item[\textbf{RQ3}] Is the size of the changes in source code artefacts affected by smells, larger than in non-affected artefacts?
 \end{itemize}
 This question focuses on the magnitude, or \emph{size}, of the changes made (in terms of added, deleted, and changed lines of code) to the artefacts that are affected by smells. Theoretically, these artefacts should exhibit bigger changes (thus more complex ones) because working on an sub-optimal design is harder and thus requires changing more lines of code to be maintained.
-Bigger changes, in most scenarios (e.g. fixing bugs, adding features, refactoring, etc.), mean developers have spent more time to implement them, resulting in a higher amount of interest paid\cite{ElEmam2000, Mockus2000}.
+Bigger changes, in most scenarios (e.g. fixing bugs, adding features, refactoring, etc.), mean developers have spent more time to implement them, resulting in a higher amount of interest paid \cite{ElEmam2000, Mockus2000}.
 
-We emphasize that, with these research questions we are \textbf{not seeking} to establish causality between smells and changes by any means, but rather we aim at investigating correlations. This is further explained in the Discussion section.
+We emphasize that, with these research questions we are \textbf{not seeking} to establish causality between smells and changes by any means, but rather we aim at investigating correlations. This is further explained in the Discussion section (Section \ref{c5:sec:discussion}).
 
 Finally, a replication package, containing the protocol, the data, the R scripts, and a collection of 14 plots that visualise the data, is available online\footnote{\label{ftn:repl-package}Visit \url{https://doi.org/10.5281/zenodo.4897281} to download the replication package.}.
 
@@ -156,7 +156,7 @@ Finally, a replication package, containing the protocol, the data, the R scripts
 To conduct our study, we selected the thirty-one projects listed in Table \ref{c5:tab:projects}. 
 The inclusion criteria used during the selection of the projects were:
 \begin{enumerate}
-    \item Non-trivial Java projects with at least $10.000$ lines of code in the last commit; 
+    \item Non-trivial Java projects with at least $10,000$ lines of code in the last commit; 
     \item Actively maintained and used by the community (the Contributors page on GitHub should show a consistently active development\footnote{See for example Accumulo's page \url{https://github.com/apache/accumulo/graphs/contributors} for an example of actively-developed project.});
     \item At least 3 years of active development on GitHub (or similar sites);
 \end{enumerate}
@@ -270,15 +270,15 @@ We also measure, for every artefact $x$ the changes in the system using a well-e
 \end{enumerate}
 
 
-To collect the data, we used a combination of two tools: \textsc{Arcan} \cite{Arcelli2016} and ASTracker , see Chapter \ref{chap:2}. \textsc{Arcan} collected the artefacts affected by architectural smells in each selected commit in the history of the systems directly from the source code files.
+To collect the data, we used a combination of two tools: \textsc{Arcan} \cite{Arcelli2016} and ASTracker, see Chapter \ref{chap:2}. \textsc{Arcan} collected the artefacts affected by architectural smells in each selected commit in the history of the systems directly from the source code files.
 The output of \textsc{Arcan} is a graph file containing the dependency network of the commit analysed, including the smells detected.
-The algorithms used to detect architectural smells are explained in detail by Arcelli et al. in their paper\cite{Arcelli2016}. The detection is based on the software design principles reported by Martin \cite{Martin2018} and Lippert \cite{Lippert2006}.
+The algorithms used to detect architectural smells are explained in detail by Arcelli et al. in their paper \cite{Arcelli2016}. The detection is based on the software design principles reported by Martin \cite{Martin2018} and Lippert \cite{Lippert2006}.
 In short, Cyclic Dependency is detected using a Depth-First Search algorithm that visits all the nodes in the dependency graph while checking which were already visited. 
 Unstable Dependency is detected using Martin's Instability metric \cite{Martin2018}: if the \emph{majority} of a package's  dependencies are less stable than itself, then it is marked as an unstable dependency smell.
 Hublike Dependency is detected by simply looking at the number of incoming and outgoing dependencies a certain artefact has: if the sum of these dependencies surpasses a certain system-based threshold, then the artefact is marked as a hub.
-Finally, God Component is detected using an automatically-calculated variable threshold \cite{Arcelli2015} using the distribution of the total amount of lines of code of the packages in a benchmark of over 100 systems; the packages in the analysed system are then compared with this threshold and the artefacts surpassing it are marked as God Components \footnote{See \url{https://fse.studenttheses.ub.rug.nl/19603/} for more details.}.
+Finally, God Component is detected using an automatically-calculated variable threshold \cite{Arcelli2015} using the distribution of the total amount of lines of code of the packages in a benchmark of over 100 systems; the packages in the analysed system are then compared with this threshold and the artefacts surpassing it are marked as God Components\footnote{See \url{https://fse.studenttheses.ub.rug.nl/19603/} for more details.}.
 
-\textsc{Arcan}'s results were validated in different studies. A first validation of the results of \textsc{Arcan} was performed on two open source projects with a precision of 100\% \cite{Arcelli2016}. 
+\textsc{Arcan}'s results were validated in different studies. A first validation of the results of \textsc{Arcan} was performed on two open-source projects with a precision of 100\% \cite{Arcelli2016}. 
 Next, the results of \textsc{Arcan} were also validated in an industrial setting by two different studies: first on industrial C/C++ projects obtaining 50\% precision \cite{Martini2018} and then on industrial Java projects obtaining 70\% precision \cite{Arcelli2020}.
 The precision metric was chosen as the main indicator of \textsc{Arcan}'s performance because the true positive rate was found to be the main concern for developers during the mentioned studies.
 
@@ -290,8 +290,8 @@ At last, the Peregrine high performance computing cluster, offered by the Univer
 \section{Data analysis}\label{c5:sec:data-analysis}
 \subsection{Controlling for size}\label{c5:sec:data-analysis-size}
 Changes to source code files are intuitively more frequent in files of greater size (i.e. more lines of code). In fact, source code size has been empirically found to interfere with the actual findings in several cases \cite{ElEmam2001,Zhou2009}. Thus, source code size is a confounding factor in our analysis that could skew the results unpredictably and obfuscate the impact of smells on change frequency and size.
-To mitigate this threat, as already mentioned in the Introduction and Related Work sections, the data analysis will include controlling for size. Specifically, we will analyse the data both by considering all artefacts (without controlling for source code size) and by grouping the artefacts (either classes or packages) into four size groups, based on their effective lines of code (LOC). This way we can compare how smells impact files of similar size.
-The groups are defined as follows: Small = $[1, Q_1)$, Medium-Small (M-Small) = $[Q_1, Q_2)$, Medium-Large (M-Large) = $[Q_2, Q_3)$, and Large = $[Q_3, Q_4)$, where $Q_1$, $Q_2$, $Q_3$, $Q_4$ are the first, second, third, and fourth quartiles respectively of the distribution of the LOC of classes (or packages, when working with smells affecting packages) in a given project. This means that these values differ for each project. Table \ref{c5:tab:quartiles-loc} shows the quartiles of the LOC distribution in the whole data set.
+To mitigate this threat, as already mentioned in the Introduction and Related Work sections (Sections \ref{c5:sec:introduction} and \ref{c5:sec:related-work}), the data analysis will include controlling for size. Specifically, we will analyse the data both by considering all artefacts (without controlling for source code size) and by grouping the artefacts (either classes or packages) into four size groups, based on their effective lines of code (LOC). This way we can compare how smells impact files of similar size.
+The groups are defined as follows: Small = $[1, Q_1)$, Medium-Small (M-Small) = $[Q_1, Q_2)$, Medium-Large (M-Large) = $[Q_2, Q_3)$, and Large = $[Q_3, Q_4]$, where $Q_1$, $Q_2$, $Q_3$, $Q_4$ are the first, second, third, and fourth quartiles respectively of the distribution of the LOC of classes (or packages, when working with smells affecting packages) in a given project. This means that these values differ for each project. Table \ref{c5:tab:quartiles-loc} shows the quartiles of the LOC distribution in the whole data set.
 
 
 \begin{table}[]
@@ -301,8 +301,8 @@ The groups are defined as follows: Small = $[1, Q_1)$, Medium-Small (M-Small) = 
     \begin{tabular}{@{}llllll@{}}
     \toprule
             & \textbf{0\%} & \textbf{25\% ($Q_1$)} & \textbf{50\% ($Q_2$)} & \textbf{75\% ($Q_3$)} & \textbf{100\% ($Q_4$)} \\ \midrule
-    Class   & 1   & 10        & 27        & 77        & 14990 \\
-    Package & 1   & 549       & 1340      & 2976      & 59074 \\ \bottomrule
+    Classes   & 1   & 10        & 27        & 77        & 14,990 \\
+    Packages & 1   & 549       & 1,340      & 2,976      & 59,074 \\ \bottomrule
     \end{tabular}
 \end{table}
 
@@ -368,7 +368,7 @@ The analysis for this research question will look at the PCCC metric of a certai
 Formally, for every artefact $x$ affected by a smell in the lifetime of a system $S$ we compute 
 $$d_S(x) = PCCC_{after}(x) - PCCC_{before}(x)$$
 where $PCCC_{before}(x) = PCCC^i_k(x)$ and $PCCC_{after}(x) = PCCC^k_j(x)$ with $i$ being the commit index where $x$ first appeared, $k$ where it was first affected by a smell, and $j$ when it was last affected by a smell, or the final commit.
-Artefacts with either a before or after window smaller than 5 commits were filtered out to avoid skewed data.
+Artefacts with either a window before or after that is smaller than 5 commits were filtered out to avoid skewed data.
 The values assumed by $d_S$ for the selected artefacts from $S$ are used as input for the test.
 
 The hypotheses for this test are:
@@ -402,9 +402,9 @@ where $\sigma^2_{smelly}$ and $\sigma^2_{clean}$ represent the true variance in 
 
 \section{Results}\label{c5:sec:results}
 \subsection{Relation between change frequency and smelly artefacts (RQ1)}
-The results of the Fisher's tests (main question of RQ1) performed on each 4-month period of the thirty-one systems analysed are pretty straightforward when not controlling for size.
+The results of the Fisher's tests (main question of RQ1) performed on each 4-month period of the thirty-one systems analysed are straightforward when not controlling for size.
 Figure \ref{c5:fig:rq1-results} reports in detail the number of 4-month periods (or pseudo-releases) where the null hypothesis was accepted, rejected, or the test was unsupported by the data.
-The proportion of smelly artefacts that change is consistently higher than non-smelly artefacts that change in $82$\% of the total 4-month periods analysed in most of the projects (rejecting $H^{RQ1}_0$). In other words, \textbf{artefacts with smells do change more frequently}. For the remaining $18$\%, if we remain conservative and assume that the $11.5$\% of the unsupported tests are accepted, the smelly and non-smelly artefacts are equally likely to change (accepting $H^{RQ1}_0$).
+The proportion of smelly artefacts that change is consistently higher than non-smelly artefacts that change in $82$\% of the total 4-month periods analysed in most of the projects (rejecting $H^{RQ1}_0$). In other words, \textbf{artefacts with smells do change more frequently}. For the remaining $18$\%, if we remain conservative and assume that $11.5$\% of the unsupported tests are accepted, the smelly and non-smelly artefacts are equally likely to change (accepting $H^{RQ1}_0$).
 Note that the unsupported tests are usually the ones corresponding to the pseudo-releases in the early phases of the project with a relatively little number of smells and/or changes.
 We also note that these percentages hold for the majority of the projects, with six exceptions: Elasticsearch, Jena, HTTP-components, Guava, Retrofit, and Spring-boot.
 These projects exhibit the opposite scenario, with more than $50$\% of the pseudo-releases featuring changes in non-smelly artefacts (neither accepting nor rejecting $H^{RQ1}_0$).
@@ -423,7 +423,7 @@ In total,  $H^{RQ1}_0$ was rejected $55.7$\% of the times and accepted $30.2$\%,
 Ultimately, the results controlled for size do not deviate too much from the uncontrolled ones, but allow us to discern that \textbf{the larger the file, the more an artefact is likely to change if affected by a smell}.
 
 \begin{table}
-    \footnotesize
+   \footnotesize
     \centering
     \caption{Percentages of rejected $H^{RQ1}_0$ per project by size group. (Averages: Accepted: $33.6$\%; Rejected $59.1$\%; Unsupported: $7.3$\%)}\label{c5:tab:rq1-results}
     \begin{tabular}{l|r|r|r|r}
@@ -487,7 +487,7 @@ The results imply that, in most cases, HL is the smell that contributes the most
 Thus, we conclude that we accept $H^{RQ1a}_0$ and affirm that \textbf{there is \emph{no significant difference} in the prediction power of different smell types on source code changes}.
 
 \begin{table}
-    \footnotesize
+   \footnotesize
     \centering
     \caption{Results of the multinomial logistic regression in percentage of commits a variable was statistically significant in predicting a change (Rejecting $H^{RQ1a}_0$).}\label{c5:tab:rq1a-results}
     \begin{tabular}{l|r|r|r|r|r}
@@ -506,7 +506,7 @@ Thus, we conclude that we accept $H^{RQ1a}_0$ and affirm that \textbf{there is \
 
 \paragraph{RQ1b}
 Furthermore, for RQ1b, we tested whether the number of smells (including 0) affecting an artefact is an important variable contributing to its change frequency.
-The test results, depicted in Figure \ref{c5:fig:rq1b-test} show that in all projects, but two (Guava and Pgjdbc), the average number of smells in changing artefacts is statistically higher than in non-changing artefacts (rejecting $H^{RQ1b}_0$) when not controlling for size.
+The test results, depicted in Figure \ref{c5:fig:rq1b-test}, show that in all projects, but two (Guava and Pgjdbc), the average number of smells in changing artefacts is statistically higher than in non-changing artefacts (rejecting $H^{RQ1b}_0$) when not controlling for size.
 If we consider the different size groups, the rejection rate is higher in the larger ones, whereas in the \emph{Small} group we reject $H^{RQ1b}_0$ only twice. Additionally, larger size groups also have a larger Cliff's Delta coefficient with 31 tests having $\delta > .5$ in the Large and M-Large groups against the 3 in the M-Small and Small groups, highlighting the difference in magnitude between the values of the two variables tested.
 
 To better grasp the contrast in smell density between changing and non-changing artefacts in different size groups, Figure \ref{c5:fig:rq1b-density} plots the density (i.e. \# commits) of the (average) number of smells of these two categories.
@@ -549,7 +549,7 @@ This means that the tests were likely accepted because of an insufficient number
 
 
 \begin{table}[]
-    \footnotesize
+   \footnotesize
     \centering
     \caption{Wilcoxon Signed-Ranks results and the sample size (\# of artefacts) for the test ($H^{RQ2}_0$ rejected in bold). (Total: Accepted: $42.9\%$; Rejected: $57.1\%$). }\label{c5:tab:rq2-results}
     \begin{tabular}{l|r|l|r}
@@ -618,7 +618,7 @@ This can be further visualised in Figure \ref{c5:fig:rq3-violinplots}, where the
 By observing this figure, we note that the change size in smelly artefacts tends to increase (the violin shifts upwards) as the size of the artefacts increases. In stark contrast, the violin shapes of the non-smelly group are surprisingly similar across the four different groups; this contrast highlights the impact of smells on affected artefacts w.r.t. change size. 
 
 Hence, both visual analysis and statistical tests converge to the same conclusion that \textbf{smelly artefacts undergo changes of higher magnitude than non-smelly artefacts, especially in larger artefacts}.
-More precisely, smelly artefacts have an average change size (TACH) across all the projects of 1608, whereas non-smelly artefacts settle at 109. The difference is one order of magnitude higher in smelly artefacts; we note that the smelly artefacts also have a higher variance.
+More precisely, smelly artefacts have an average change size (TACH) across all the projects of $1,608$, whereas non-smelly artefacts settle at 109. The difference is one order of magnitude higher in smelly artefacts; we note that the smelly artefacts also have a higher variance.
 
 \begin{figure}
     \centering
@@ -643,7 +643,7 @@ The results from RQ1 show that artefacts affected by at least one smell exhibit 
 Interestingly, we found evidence suggesting that the four different types of smells that we studied affect change frequency in a similar way. 
 Theoretically speaking, the main drawback associated with the UD smell type \cite{Arcelli2016} is an increased likelihood to change caused by a low stability of the artefacts it depends upon \cite{Martin2018}.
 Indeed, while we observed that UD-affected artefacts have an increased change frequency, we also expected them to have a higher change frequency than artefacts affected by the other smell types. However, this is not what we observed, as all four smell types seem to have a similar effect on change, with HL surpassing UD in fact.
-The HL smell was hypothesised to be quite prone to propagate changes due to its numerous dependencies which increase the likelihood that a change propagates to the central component before rippling to the components depending on it (see Chapter \ref{chap:2} for further information).
+The HL smell was hypothesised to be prone to propagate changes due to its numerous dependencies which increase the likelihood that a change propagates to the central component before rippling to the components depending on it (see Chapter \ref{chap:2} for further information).
 Given this theoretical description, we would predict that changes may propagate within the structure of HL smells, but we did not expect it to deviate from the other smell types and surpass UD.
 
 %Overall, the implications of these findings are that architectural smells (regardless of their type) are quite likely to increase the maintenance effort required to maintain a software artefact. 
@@ -664,7 +664,7 @@ A perfect example of this is provided by the project PgJDBC.
 PgJDBC, among other projects, has a package named ``v2'', suggesting that functionality for the previous release (``v1'') is implemented separately in a different package.
 The classes implementing the functionality for the previous release are thus no longer extended and therefore they no longer change, but they are still kept in the repository in order to support legacy functionality.
 Assuming that at least some of these classes were affected by smell, the resulting effect is that their change frequency after the smell was introduced is close to zero.
-Moreover, given that these are open source projects, we cannot assume that they undergo constant development, and changes in the popularity of a project may influence how many pull requests, commits, and changes are performed. 
+Moreover, given that these are open-source projects, we cannot assume that they undergo constant development, and changes in the popularity of a project may influence how many pull requests, commits, and changes are performed. 
 Ultimately, these two factors greatly influence the variability in the results obtained from RQ2.
 
 With the obtained results from RQ3 there is additional evidence to support that developers spend \emph{more time} on smelly artefacts, where we noticed a consistently larger change size -- again, especially in the larger files. This is especially true in pull requests commits, the type of commits where usually new functionality, or big bug fixes, are introduced. This result becomes even clearer when observing Figure \ref{c5:fig:rq3-violinplots}: there is a strong contrast between the constant change size in non-smelly artefacts across the four different size groups, vs. the increasing change size in smelly artefacts. This clearly shows the spending of extra effort to perform changes in smelly artefacts.
@@ -718,7 +718,7 @@ This aspect of validity reflects to what extent the results of this study can be
 
 Two threats have been identified in this case.
 The first one involves the types of projects we selected for our study.
-While all of them are open source projects, eighteen of them are projects from the Apache Foundation and only thirteen are non-Apache projects.
+While all of them are open-source projects, eighteen of them are projects from the Apache Foundation and only thirteen are non-Apache projects.
 The imbalance is caused by the fact that most Apache projects have a very long and consistent history, which made them more likely to be adopted for our analysis.
 We decided to mitigate this aspect by diversifying as much as possible the application domains of the selected projects.
 Moreover, we collected our data from thirty-one projects, considerably more than what had been done by previous, similar studies (i.e. \cite{Le2015} used 14 projects; \cite{Le2018} used 8 projects, and \cite{Oyetoyan2015} used 12 projects), thus strengthening external validity.

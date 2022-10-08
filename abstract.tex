@@ -20,7 +20,7 @@
 
     There exist several types of architectural smells, therefore, to narrow down the scope of the investigation, we decide to focus on the four types that are the most prominent in the literature: Cyclic Dependency (CD), Hublike Dependency (HL), Unstable Dependency (UD), and God Component (GC).
     
-    To improve the support of AS management, we first opted to analyse the evolution of individual architectural smell instances in long-lived, open source systems by mining their software repositories.
+    To improve the support of AS management, we first opted to analyse the evolution of individual architectural smell instances in long-lived, open-source systems by mining their software repositories.
     This allowed us to investigate prioritisation opportunities based on the history of architectural smells.
     The results show how different smell types differ in multiple aspects, such as their growth rate, the importance of the affected elements over time in the dependency network of the system, and the time each instance affects the system.
     Based on these differences, we extrapolated that the refactoring of HL smells should be prioritised over CD smells and that many CD instances should have a low priority as they are likely to be organically removed in the upcoming releases.
@@ -38,7 +38,7 @@
     
     As part of the same investigation, we also elicited the opinion of software engineers and architects, who mentioned that the most problematic aspect of architectural smells are change ripple effects, that are unpredictable.
     This motivated us to investigate the relation between architectural smells and source code changes.
-    After analysing over 30 open source Java systems, we ran a series of statistical tests to determine whether source code changes were more frequent, and larger in size, in components that were affected by smells than in non-affected components.
+    After analysing over 30 open-source Java systems, we ran a series of statistical tests to determine whether source code changes were more frequent, and larger in size, in components that were affected by smells than in non-affected components.
     The findings show that this is indeed the case, and that all four architectural smells correlate with higher frequency of change of the affected part. 
     Interestingly, after talking to practitioners in the previous study we expected UD to be the smell with the highest correlation with changes. This turned out, however, not to be the case as we observed over 10\% higher change rate for the HL smell than for the UD smell.
     This means that prioritising the refactoring of HL instances over the other smell types is a more advantageous approach for practitioners.

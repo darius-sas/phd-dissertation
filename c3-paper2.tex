@@ -32,7 +32,7 @@ While there exist several types of AS in the literature, we limited our scope to
 	
 	\item[God Component (GC)]: is defined as a package (or component) whose size (measured using LOC) is noticeably bigger than the other components in the system  \cite{Lippert2006}. GC breaks system modularity and aggregates too many concerns into a single package.
 \end{description}
-More details concerning the smells can be found in Chapter \ref{c2:sec:arch-smells}.
+More details concerning the smells can be found in Section \ref{c2:sec:arch-smells}.
 
 It is important to note that the participants in our study were asked not to limit themselves to these four smells only and were free to mention experiences related to different types of AS.
 
@@ -57,12 +57,12 @@ To select the subjects that took part in the interviews we used \emph{convenienc
 The interview guide is available in Appendix \ref{c3:appendix}.
 
 The practitioners' background, as it can be seen from Table \ref{c3:tab:participants}, varies from a few years of activity (junior developers) up to 25 years of practice (architects).
-The average size of their projects is about 50 Million Lines of Code (LOC) for the first company, from 500.000 to 1.000.000 LOC for the second and from 250.000 to 750.000 LOC for the third (more details are reported in Table \ref{c3:tab:companies}). 
+The average size of their projects is about 50 Million Lines of Code (LOC) for the first company, from 500,000 to 1,000,000 LOC for the second and from 250,000 to 750,000 LOC for the third (more details are reported in Table \ref{c3:tab:companies}). 
 Interviews were semi-structured and each lasted approximately 30 minutes. We chose to use interviews because they allow for follow-up questions and clarifications, ensuring that participants have understood the questions. 
 
 \begin{table}[h!]
     \centering
-    \footnotesize
+   \footnotesize
     \caption{Demographics of the participants to the interviews.}
     \label{c3:tab:participants}
     \begin{tabular}{lclc}
@@ -127,7 +127,7 @@ The experiences about CD are rather diverse and range from dealing with deadlock
 
 Concerning HL, practitioners associated it with two types of issues: (1) difficulty of understanding the logic in the central component and (2) change ripple effects propagating from the components that the central component depends upon to the components depending on it, mentioning also a possible overlap with UD. The former was usually associated with how the central component exposes its functionality through its interface. The latter caused changes to unexpected parts of the system that practitioners did not expect to relate to the initial change, during activities such as bug fixing.
 
-The maintenance issues that associated with UD the most, were change ripple effects. In several instances, practitioners reported that functional changes to a certain component (or package) also required several files in other components to change as well. As reported by two participants, the possibility of changes propagating to other components increases the difficulty of making changes: practitioners are forced to only make changes compatible with the other components in order to avoid changing and recompiling those other components.
+The maintenance issues that associated with UD the most were change ripple effects. In several instances, practitioners reported that functional changes to a certain component (or package) also required several files in other components to change as well. As reported by two participants, the possibility of changes propagating to other components increases the difficulty of making changes: practitioners are forced to only make changes compatible with the other components in order to avoid changing and recompiling those other components.
 
 \subsection{RQ3: introduction and management of AS}
 Participants reported their experiences in how they get to introduce an AS in the system. Some participants admitted that it often happens by design; for instance, concerning GC, the component or the file is intended to be large. Subsequently, as reported by other interviewees, developers tend to underestimate the severity of the introduced GC, while the incremental changes applied to it contribute in making it even larger. 
@@ -150,7 +150,7 @@ Finally, we also asked whether practitioners use tools to manage architectural s
 
 \begin{table}[h]
     \centering
-    \footnotesize
+   \footnotesize
     \caption{Desired features of an ideal tool to manage AS with the reported frequency in parentheses.}
     \label{c3:tab:ideal-features}
     \begin{tabular}{@{}ll@{}}\toprule

@@ -86,20 +86,21 @@ In Section \ref{sec:intro:problem-statement} we elaborate on the reasons why we 
 The definitions of each AS type will be given in Section \ref{c2:sec:arch-smells}.
 
 
-\section{The project SDK4ED and \textsc{Arcan}}
+\section{The project SDK4ED and the \textsc{Arcan} tool}
 This PhD project was conducted in the context of the SDK4ED project, a project funded by the European Union under the Horizon 2020 programme.
 
 The vision of SDK4ED was to minimize the cost, the development time and the complexity of low-energy software development projects, by providing tools for automatic optimisation of multiple quality requirements, such as Technical debt, Energy efficiency, Dependability (i.e. Reliability, Availability, and Security) and Performance. 
-One of the topics on which the project has innovated, is researching and developing tools to identify the \textit{trade-offs} between runtime and design-time software quality attributes at multiple levels of abstractions (code, design, and architecture).
-In this regard, our study investigates specifically the interaction between Technical debt (i.e. Maintainability and Evolvability) and Reliability, which map to design-time and  runtime quality attributes, respectively. Further details on the project is available on its website\footnote{Browse \url{https://sdk4ed.eu/}.}.
+One of the topics on which the project has innovated is researching and developing tools to identify the \textit{trade-offs} between runtime and design-time software quality attributes at multiple levels of abstractions (code, design, and architecture).
+In this regard, our study investigates specifically the interaction between Technical debt (i.e. Maintainability and Evolvability) and Reliability, which map to design-time and  runtime quality attributes, respectively. Further details on the project are available on its website\footnote{Browse \url{https://sdk4ed.eu/}.}.
 
-As part of the SDK4ED project, I also contributed to the open source version of \textsc{Arcan}, a tool to automatically detect AS in a system, by adding support for Java source code, support for Git to do evolution analyses, and the detection of the God Component smell.
+As part of the SDK4ED project, I also contributed to the open-source version of \textsc{Arcan}, a tool to automatically detect AS in a system, by adding support for Java source code, support for Git to do evolution analyses, and the detection of the God Component smell.
 \textsc{Arcan} will be fully introduced in Section \ref{c2:sec:arcan}.
 
 \section{Research design}\label{sec:intro:research-design}
 \subsection{Problem statement}\label{sec:intro:problem-statement}
-In this dissertation, we address the problems that practitioners face when attempting to make changes to their systems in the presence of AS; we also argue that by providing better support to target AS as part of TD management, we can help practitioners to make changes more effectively and efficiently. 
-To better explain the problem, let us quickly look at the key activities of TD management \cite{Li2015}; note that we only mention the five most important and most studied activities \cite{Li2015}, and focus specifically on AS (out of all TD types).
+In this dissertation, we address the problems that practitioners face when attempting to make changes to their systems in the presence of AS. We also argue that by providing better support to target AS as part of TD management, we can help practitioners to make changes more effectively and efficiently. 
+To better explain the problem, let us quickly look at the key activities of TD management \cite{Li2015}. 
+Note that we only mention the five most important and most studied activities \cite{Li2015}, and focus specifically on AS (out of all TD types).
 These five activities are: (1) \emph{identify} what elements in the system are affected by AS and the type of the smells; (2) \emph{quantify} the impact of each smell on the development activities (both maintenance and evolution); (3) \emph{prioritise} the smells in order to determine the urgency to refactor; (4) \emph{repay} the debt by refactoring smells according to the prioritisation strategy adopted; and finally (5) regularly \emph{monitor} the evolution of TD and smells over time.
 
 The current research landscape contains plenty of studies that focus on the first activity of TD management for architectural smells -- i.e.  \emph{identification} -- whereas the work done on the other activities is not as mature.
@@ -114,12 +115,12 @@ Eventually, it becomes more convenient to rewrite the whole project \cite{Lehman
 
 This problem is summarised by the following statement:
 \begin{quote}\itshape
-    ``The detection of architectural smells alone is not sufficient for practitioners to take informed TD management decisions.
-    Practitioners need to know the amount of TD each instance amounts to, what the available prioritisation strategies are, and the trend of the TD incurred over time. This information can help them better implement TD repayment.''
+    The detection of architectural smells alone is not sufficient for practitioners to take informed TD management decisions.
+    Practitioners need to know the amount of TD each instance amounts to, what the available prioritisation strategies are, and the trend of the TD incurred over time. This information can help them better implement TD repayment.
 \end{quote}
 
-To further scope down the problem, we considered the fact that dozens of architectural smells have been reported in books and scientific literature, and it would be infeasible to address all of them. Thus, we decided to focus our attention only on the four architectural smells (CD, HL, GC, UD -- see Section \ref{c2:sec:arch-smells}) that are the most prominent in the literature\cite{Azadi2019}; two of them are also well known in the industry \cite{Lippert2006,Martin2018}.
-Moreover, the literature also provides manually-validated, open source tools that we can use to detect these smells.
+To further scope down the problem, we considered the fact that dozens of architectural smells have been reported in books and scientific literature, and it would be infeasible to address all of them. Thus, we decided to focus our attention only on the four architectural smells (CD, HL, GC, UD -- see Section \ref{c2:sec:arch-smells}) that are the most prominent in the literature \cite{Azadi2019}; two of them are also well known in the industry \cite{Lippert2006,Martin2018}.
+Moreover, the literature also provides manually-validated, open-source tools that we can use to detect these smells.
 In particular, we relied on \textsc{Arcan} \cite{Arcelli2016,Arcelli2017,Martini2018}, and through the work in this dissertation, we actively contributed to improving the tool.
 
 \subsection{Design science as research methodology}
@@ -171,15 +172,15 @@ The problem statement (see Figure \ref{fig:intro:problem-decomposition}) argues 
 The smells detected also need to be quantified in terms of TD, prioritised, monitored and paid back in order for AS management to be effective.
 Without support for these activities, the practitioners' ability to manage architectural TD is significantly limited, ultimately affecting the sustainability of the system.
 
-As a first step towards addressing the stated problem, we decided to investigate how AS evolve in long-lived software systems, starting with open source systems. Thus we formulated RQ1: \textit{``How do AS evolve in open source systems?''} 
+As a first step towards addressing the stated problem, we decided to investigate how AS evolve in long-lived software systems, starting with open-source systems. Thus we formulated RQ1: \textit{``How do AS evolve in open-source systems?''} 
 Answering RQ1 would allow to address the stated problem in two ways. First, obtaining an understanding of AS evolution can help researchers formulate general rules for prioritising AS based on their historical evolution.
 Second, a better understanding of the evolution of a smell can help design a better approach to quantify the amount of TD incurred.
-Studying the evolution of AS entails studying two aspects: the evolution of the individual AS instances (RQ1b) and the persistence of AS instances within the system (RQ1c). This study required analysing 524 releases belonging to 15 open source projects.
+Studying the evolution of AS entails studying two aspects: the evolution of the individual AS instances (RQ1b) and the persistence of AS instances within the system (RQ1c). This study required analysing 524 releases belonging to 15 open-source projects.
 The tool \textsc{Arcan} was used to detect the architectural smells and a custom tool was designed and developed to track them from one release to the next (RQ1a).
 
 One of the findings of RQ1 is that some smells may be the result of intentional design.
 The investigation of RQ1, being a purely quantitative analysis based on the mining of software repositories, cannot provide any further insight on why practitioners intentionally introduce smells or whether they consider the consequences of doing so on software maintenance and evolution.
-Moreover, since RQ1 focuses on open source projects only, it is hard to extend the findings to an industrial context.
+Moreover, since RQ1 focuses on open-source projects only, it is hard to extend the findings to an industrial context.
 Therefore, we formulated RQ2: \textit{``How are AS perceived by industrial practitioners?''}
 The goal of RQ2 is two-fold: (1) understand the issues stemming from the presence of AS and that affect maintenance and evolution (RQ2a); and (2) explore how and why practitioners introduce and deal with AS (RQ2b). 
 To answer RQ2, we designed a case study and interviewed 21 practitioners from 3 companies in Europe that work with both Java and C/C++.
@@ -189,7 +190,7 @@ The investigation of RQ2 has shown that practitioners are aware of the problems 
 To better understand this aspect, we had to study the evolution of and dependencies between AS while also collecting feedback from the architects and engineers that developed the components affected by the smells.
 Thus, we formulated RQ3 \textit{``How do AS evolve in industrial embedded systems?''}
 This RQ focuses on the evolution of AS, similarly with RQ1, but has a completely different focus: the introduction order (RQ3a) and the co-occurrence (RQ3b) of smells, taking into account also the experiences of practitioners (RQ3c).
-The context of the study also changes, as RQ3 focuses on industrial systems written in C/C++ (rather than open source Java systems) belonging to a large multinational company.
+The context of the study also changes, as RQ3 focuses on industrial systems written in C/C++ (rather than open-source Java systems) belonging to a large multinational company.
 Answering RQ3 allows us to understand if there exists any pattern that can predict the introduction of a smell given the presence of another and what practitioners think about specific AS instances (and their evolution).
 This kind of information can be used to improve prioritisation decisions (e.g. address the component that is most likely to be affected next).
 
@@ -199,14 +200,14 @@ To further study this aspect, and ensure that their feedback was not just the re
 Answering this question can help in understanding if elements affected by architectural smells have a higher chance of changing than elements that are not affected by smells (RQ4a), as well as if there is a difference before and after the introduction of the smell (RQ4b).
 Moreover, this question investigates if code churn in affected components is bigger than in non-affected ones (RQ4c).
 These three aspects can shed some light into the relation between AS and the amount of interest paid by practitioners that decide to not repay the debt represented by smells.
-Answering this RQ required investigating 27 Open Source projects, involving 360 years of total development and over 305 millions of lines of code.
+Answering this RQ required investigating 27 open-source projects, involving 360 years of total development and over 305 millions of lines of code.
 
 Research questions from 1 through 4 focus on investigating the problem: they are \emph{knowledge questions} and answering them can support researchers in understanding how smells evolve, how they are perceived by practitioners, how they relate with changes in the source code of the system; ultimately, they allow us to understand how to prioritise, quantify, and monitor smells.
 In contrast, RQ5 is a \emph{design problem} focusing on the solution: \textit{``Design an approach to estimate the technical debt principal generated by AS''}.
 The output obtained from the previous RQs is used in RQ5 to design a solution to quantify the amount of technical debt principal generated by architectural smells.
 In particular, we ranked a set of architectural smells instances based on the findings from previous RQs (and from the literature) on the prioritisation and severity of architectural smells, and then trained a machine learning model that is able to rank (from most to least severe) individual architectural smell instances based on their severity (RQ5a,b).
 Next, we designed an approach based on the machine learning model that estimates the amount of technical debt principal of each instance (RQ5c).
-Finally, we set up a case study to validate our approach by interviewing 16 practitioners (from both the open source and industrial worlds) and gauge how far the output provided is a relevant and meaningful estimate of the TD principal incurred by a smell (RQ5d).
+Finally, we set up a case study to validate our approach by interviewing 16 practitioners (from both the open-source and industrial worlds) and gauge how far the output provided is a relevant and meaningful estimate of the TD principal incurred by a smell (RQ5d).
 
 During the validation of the solution in RQ5, we discovered an interesting phenomenon: while practitioners understand and relate to the amount of TD principal, they often have to tolerate the existence of TD, hence sacrificing maintainability, in favor of other qualities.
 This means that TD management decisions are affected by other qualities as well, and to better understand the implications of these trade-offs we formulated RQ6: \textit{``How are trade-offs between quality attributes currently managed in industry?''}
@@ -222,14 +223,14 @@ To answer each knowledge question we adopted a number of different empirical met
 Table \ref{c1:tab:overview-methodology} lists the empirical methods that were used to answer each knowledge question, as well as the corresponding sections in this thesis elaborating on the respective study design.
 
 \begin{table}[]
-    \footnotesize
+   \footnotesize
     \centering
     \caption{Empirical methods used to answer the knowledge questions.}
     \label{c1:tab:overview-methodology}
     \begin{tabular}{@{}lm{3.75cm}m{2.75cm}m{2cm}l@{}}
     \toprule
     \textbf{Code} & \textbf{Knowledge Question} & \textbf{Empirical}\newline \textbf{Method} & \textbf{Data}\newline \textbf{Type} & \textbf{Described in} \\ \midrule
-    RQ1 & \textit{How do AS evolve in open source systems?} & Case study & Quantitative & Section \ref{c2:sec:case-study} \\
+    RQ1 & \textit{How do AS evolve in open-source systems?} & Case study & Quantitative & Section \ref{c2:sec:case-study} \\
     RQ2 & \textit{How are AS perceived by industrial practitioners?} & Case study,\newline Grounded Theory & Qualitative & Section \ref{c3:sec:case-study}  \\
     RQ3 & \textit{How do AS evolve in industrial embedded systems?} & Case study,\newline Grounded Theory & Quantitative \& Qualitative & Section \ref{c4:sec:case-study} \\
     RQ4 & \textit{How do AS correlate to changes in the source code of the system?} & Case study & Quantitative  & Section \ref{c5:sec:design} \\
@@ -269,7 +270,7 @@ Finally, Chapter \ref{chap:8} concludes the dissertation by outlining the main r
     \begin{tabular}{lm{6.5cm}lm{2cm}}
     \hline
     \textbf{Code} & \textbf{Research Question} & \textbf{Chapter} & \textbf{Published to} \\ \hline
-    RQ1 & \textit{How do AS evolve in open source systems?} &  Chapter \ref{chap:2} & ICSME'19 \\
+    RQ1 & \textit{How do AS evolve in open-source systems?} &  Chapter \ref{chap:2} & ICSME'19 \\
     RQ2 & \textit{How are AS perceived by industrial practitioners?} & Chapter \ref{chap:3} & IEEE Software \\
     RQ3 & \textit{How do AS evolve in industrial embedded systems?} &  Chapter \ref{chap:4} & EMSE \\
     RQ4 & \textit{How do AS correlate to changes in the source code of the system?} &  Chapter \ref{chap:5} & JSEP \\
@@ -279,22 +280,22 @@ Finally, Chapter \ref{chap:8} concludes the dissertation by outlining the main r
     %{\footnotesize*Under review}
 \end{table}
 
-Chapter \ref{chap:2} is based on a paper published in the 2019 International Conference of Software Maintenance and Evolution (ICSME)(Sas, Avgeriou, Arcelli).
-In the paper, we investigate the evolution of architectural smells in 14 open source Java systems.
+Chapter \ref{chap:2} is based on a paper published in the 2019 International Conference of Software Maintenance and Evolution (ICSME)(Sas, Avgeriou, Arcelli) \cite{Sas2019}.
+In the paper, we investigate the evolution of architectural smells in 14 open-source Java systems.
 In particular, we look at how their characteristics (or properties) evolve over time, and how long smells persist within the system. 
 
-Chapter \ref{chap:3} is based on a study published in the IEEE Software magazine (Sas, Pigazzini, Avgeriou, and Arcelli 2020).
+Chapter \ref{chap:3} is based on a study published in the IEEE Software magazine (Sas, Pigazzini, Avgeriou, and Arcelli 2020) \cite{Sas2021b}.
 This paper aims at understanding how practitioners perceive the impact of architectural smells on their systems.
-The specific goal is to allow researcher to better understand the practical maintenance issues faced by engineers when a system is affected by an architectural smell.
+The specific goal is to allow researchers to better understand the practical maintenance issues faced by engineers when a system is affected by an architectural smell.
 To do so, we interviewed 21 software practitioners from three different European companies and summarised their opinions on the matter.
 
-Chapter \ref{chap:4} is an article published in the Empirical Software Engineering journal (EMSE) (Sas, Avgeriou, Uyumaz, 2022).
+Chapter \ref{chap:4} is an article published in the Empirical Software Engineering journal (EMSE) (Sas, Avgeriou, Uyumaz, 2022) \cite{Sas2022}.
 This paper features an empirical study where we analyse 9 C/C++ industrial projects, amounting to a total of 20 millions lines of code, and 38 releases for each project.
 The goal of the study is two-fold: (1) investigate the evolution of architectural smells in C/C++ industrial projects; and (2) understand the opinions of the engineers on the findings of the first part.
 
 Chapter \ref{chap:5} is based on an article published in the Journal of Software Evolution and Process (JSEP) (Sas, Avgeriou, Pigazzini, Arcelli, 2022).
 This article investigates the relation between architectural smells and source code changes.
-In particular, we analysed 31 Java systems and over 3900 commits in order to determine the existence of a correlation between the presence of an architectural smell and a higher change frequency than a non-affected component. 
+In particular, we analysed 31 Java systems and over 3,900 commits in order to determine the existence of a correlation between the presence of an architectural smell and a higher change frequency than a non-affected component. 
 We studied two different aspects of source code change: frequency and size.
 
 Chapter \ref{chap:6} is based on a paper that is currently under review in a peer-reviewed journal.

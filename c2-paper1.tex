@@ -20,7 +20,7 @@ However, while the evolution of \emph{code} smell instances has been extensively
 
 We need to study the evolution of AS in detail because AS are a different type of ``affliction" than code smells: they usually involve more elements than code smells, they affect the system at a different scale, and they require more effort to be refactored \cite{Lippert2006}. At the same time,  the long-term advantages of this refactoring in terms of maintainability and changeability of the system are higher. Thus, the current theoretical knowledge on code smells cannot be applied to AS.
 
-In this study, we propose an approach to study the evolution of AS detected by an open source tool named \textsc{Arcan} \cite{Arcelli2017}, by tracking individual smell instances and measuring the evolution of the properties of each detected instance. We have detected almost 150.000 unique smell instances in over 500 versions across 14 open source Java projects.
+In this study, we propose an approach to study the evolution of AS detected by an open-source tool named \textsc{Arcan} \cite{Arcelli2017}, by tracking individual smell instances and measuring the evolution of the properties of each detected instance. We have detected almost 150,000 unique smell instances in over 500 versions across 14 open-source Java projects.
 We have performed four types of analyses: a generic data mining analysis to have a better understanding of the data, a trend analysis to understand the evolution of the smells over time, a correlation analysis to identify possible correlations among the smell characteristics\footnote{See Section \ref{c2:sec:smell-characteristics} for the definition of characteristics and the full list.} considered, and a survival analysis to document their probability to persist within the system.
 The focus of this study is on the architectural smells known as instability AS \cite{Arcelli2016}; these are introduced in more depth in Section \ref{c2:sec:arch-smells}.
 
@@ -139,7 +139,7 @@ The project's structural information contained in the dependency graph is then u
 Compared to other tools, \textsc{Arcan} uses only software metrics and structural dependencies in order to detect architectural smells. 
 This makes \textsc{Arcan} different from tools such as DV8 \cite{Mo2015} (a tool used by related work) which also requires the use of change metrics.
 While this type of metrics definitely provide important insights into the maintenance hotspots of the system, they also come with the requirement of needing historical data in order to be used.
-This aspect is of particular importance in our case as the version control system adopted by the company we worked with, \emph{did not provide} such information.
+This aspect is of particular importance in our case as the version control system adopted by the company we worked with \emph{did not provide} such information.
 
 Despite the different approaches to detect architectural smells, the two tools,  \textsc{Arcan} and DV8, have some overlap in the detected smells. 
 Both tools detect cycles among files and components and both detect hub structures (called \emph{Crossing} by DV8 and Hublike Dependency by \textsc{Arcan}), but DV8 also incorporates historical information for the detection of the latter type of smell.
@@ -149,11 +149,11 @@ Both tools detect cycles among files and components and both detect hub structur
 Distinguishing between code smells (CS) and AS may not always be easy as different authors have a different understanding of what constitutes one or the other.
 In this section, we try to provide a brief explanation about both and clarify the differences between these two concepts.
 
-Code smell is a term first popularised by Kent Beck in the late 1990s \footnote{Read \url{https://wiki.c2.com/?CodeSmell} for more info.} and then further defined by Martin Fowler and Kent Beck himself in the early 2000s \cite{Fowler2002}.
+Code smell is a term first popularised by Kent Beck in the late 1990s\footnote{Read \url{https://wiki.c2.com/?CodeSmell} for more info.} and then further defined by Martin Fowler and Kent Beck himself in the early 2000s \cite{Fowler2002}.
 A CS is a sign that the piece of code under inspection requires some changes (i.e. a refactoring) in order to be considered of good quality \cite{Fowler2002}. 
 In other words, code smells are symptoms of poor design and implementation choices \cite{Tufano2015}.
 
-The term architectural amell was first adopted by Lippert \cite{Lippert2006} in 2006 to describe a part of the system that required significant refactorings at the architecture level in order to meet the desired quality standards.
+The term architectural smell was first adopted by Lippert \cite{Lippert2006} in 2006 to describe a part of the system that required significant refactorings at the architecture level in order to meet the desired quality standards.
 To be more specific, Lippert mentions that architectural smells, contrary to code smells, require \emph{large refactorings} in order to be removed from the part of the system they affect and require longer than a day to be applied \cite{Lippert2006}.
 
 Both AS and CS manifest themselves in different forms that are commonly referred to as different \emph{types}.
@@ -168,7 +168,7 @@ For each architectural smell type, one can measure different characteristics. We
 The characteristics considered in this work are reported in Table \ref{tab:smell-characteristics}.
 
 \begin{table}[]
-    \footnotesize
+   \footnotesize
     \centering
     \caption{The smell characteristics identified by this study. * indicates this study. $^\dagger$ marks characteristics not studied in this study as they are intended as future work.}
     \label{tab:smell-characteristics}
@@ -222,7 +222,7 @@ Furthermore, the protocol used to conduct the study and keep track of the change
 The objective of this study is to expand the current knowledge of architectural smells evolution.
 Using the Goal-Question-Metric \cite{VanSolingen2002} approach, the objective formulation is:
 \begin{quote}\textit{
-    \textbf{Analyse} the evolution of individual architectural smells instances throughout the system's history \textbf{for the purpose} of understanding them \textbf{with respect to} their  characteristics and lifespan \textbf{from the point of view of} software architects \textbf{in the context of} open source systems.} 
+    \textbf{Analyse} the evolution of individual architectural smells instances throughout the system's history \textbf{for the purpose} of understanding them \textbf{with respect to} their  characteristics and lifespan \textbf{from the point of view of} software architects \textbf{in the context of} open-source systems.} 
 \end{quote} 
 Each one of the research questions that further refine the goal of this study focuses on a different aspect of their evolution: RQ1 studies the evolution trend of each type of smell w.r.t their characteristics, whereas RQ2 studies the survivability (or persistence) of each smell type. 
 The two research questions (RQ1 and RQ2) are answered by answering a number of sub-questions (e.g. RQ1a and b for the case of RQ1).
@@ -256,8 +256,8 @@ For example, one could choose to first refactor the types of smells that are mor
 We decided to focus on survivability because it is a time-based measurable dimension of architectural smells, affecting future maintenance: the longer an AS affects a system, the longer the developers and architects will spend extra maintenance effort on the affected components.
 
 \subsection{Case selection}
-In this study, we used a set of open source systems known as the Qualitas Corpus (QC) \cite{QualitasCorpus2010}.
-We decided to work with open source systems (OSS) for the following reasons: OSS are easy to retrieve and manipulate, the QC has a big variety of different projects ready to be used, and it is easier to develop static analysis tools when there is the possibility to inspect the source code analysed. An extension ot our analysis on industrial systems is described in Chapter \ref{chap:4}.
+In this study, we used a set of open-source systems known as the Qualitas Corpus (QC) \cite{QualitasCorpus2010}.
+We decided to work with open-source systems (OSS) for the following reasons: OSS are easy to retrieve and manipulate, the QC has a big variety of different projects ready to be used, and it is easier to develop static analysis tools when there is the possibility to inspect the source code analysed. An extension ot our analysis on industrial systems is described in Chapter \ref{chap:4}.
 
 The QC has more than 100 projects that can be potentially analysed. We required that projects have more than 15 versions available so to ensure smells have enough time to grow, evolve, and fade, thus limiting  the number of candidate projects to 15.
 We also removed EclipseSDK from our selection due to its size causing difficulties during tracking.
@@ -270,20 +270,20 @@ The demographics of the selected projects are shown in Table \ref{tab:projects}.
     \begin{tabular}{@{}lllll@{}}
     \toprule
     \textbf{Project} & \textbf{\# Versions} & \textbf{First version} & \textbf{Last version} & \textbf{\# Unique AS} \\ \midrule
-    Ant & 23 & 1.1 & 1.8.4 & 1211\\
-    Antlr & 22 & 2.4.0 & 4 & 1183 \\
-    ArgoUML & 16 & 0.16.1 & 0.34 & 3886 \\
-    Azureus & 63 & 2.0.8.2 & 4.8.1.2 & 108796 \\
-    Freecol & 32 & 0.3.0 & 0.10.3 & 13259 \\
+    Ant & 23 & 1.1 & 1.8.4 & 1,211\\
+    Antlr & 22 & 2.4.0 & 4 & 1,183 \\
+    ArgoUML & 16 & 0.16.1 & 0.34 & 3,886 \\
+    Azureus & 63 & 2.0.8.2 & 4.8.1.2 & 108,796 \\
+    Freecol & 32 & 0.3.0 & 0.10.3 & 13,259 \\
     Freemind & 16 & 0.0.2 & 0.9.0 & 994 \\
-    Hibernate & 115 & 0.8.1 & 4.2.2 & 13551\\
+    Hibernate & 115 & 0.8.1 & 4.2.2 & 13,551\\
     JGraph & 38 & 5.4.4 & 5.11.0.1 & 249\\
-    JMeter & 24 & 1.8.1 & 2.9 & 1846\\
+    JMeter & 24 & 1.8.1 & 2.9 & 1,846\\
     JStock & 30 & 1.0.6 & 1.0.7c & 927 \\
     Jung & 23 & 1.0.0 & 2.0.1 & 238 \\
     JUnit & 24 & 2 & 4.11 & 164 \\
-    Lucene & 35 & 1.3.0 & 4.3.0 & 1126 \\
-    Weka & 63 & 3.0.1 & 3.7.9 & 2164 \\ \bottomrule
+    Lucene & 35 & 1.3.0 & 4.3.0 & 1,126 \\
+    Weka & 63 & 3.0.1 & 3.7.9 & 2,164 \\ \bottomrule
     \end{tabular}
 \end{table}
 
@@ -523,7 +523,7 @@ Another pattern that emerges is that UD is the most persistent type of smell, be
 Its survival probability is so high that in some systems it never falls below 50\%, even when there are a lot of versions such as in the case of Azureus.
 Moreover, it also decreases at a much slower rate than the other types of smells, making it an ideal target for refactoring to avoid extra maintenance effort in the long run.
 
-HL smells, are more or less in between the other two smell types. They exhibit a similar decrease rate in survival probability as CD smells but eventually end up surviving for more releases. However, this pattern does not hold for all the projects, and in some cases, HL smells end up being removed within fewer versions than CD.
+HL smells are more or less in between the other two smell types. They exhibit a similar decrease rate in survival probability as CD smells but eventually end up surviving for more releases. However, this pattern does not hold for all the projects, and in some cases, HL smells end up being removed within fewer versions than CD.
 This trend holds true especially for HL at the class level, which tend to decay much faster than HL at the package level.
 Thus, it is reasonable to state that HL at package level can be prioritised over HL at class level as they have a higher chance of requiring extra maintenance over time.
 In general, from this analysis one can conclude that package level smells, such as UD and HL on packages, tend to last a little bit longer than class level smells, implying that smells at the package level are potentially more impactful on maintenance efforts than smells affecting classes only.
@@ -541,7 +541,7 @@ Additionally, tiny cycles are easier to understand and may also be intentionally
 
 On the other hand, the other, more complex, shapes are less \emph{resilient} (i.e. they disappear faster than tincy cycles) and there is very little difference between different shape types, making it hard to formulate any solid proposition on their survivability. In order for these complex shapes to persist, they must affect parts of the system that have a solid conceptual connection; otherwise they do not persist long within the system.
 
-Regarding instead the cycles \textsc{Arcan} could not classify into definite shapes, they have a more consistent trend and disappear quicker than all other shapes.
+The cycles \textsc{Arcan} could not classify into definite shapes have a more consistent trend and disappear quicker than all other shapes.
 A possible explanation could be related to their nature: we conjecture that this type of cycle is mostly random and caused by casual relationships among components that tend to connect multiple uncomplete cycles into a single one, possibly overlapping with other cycles as well.
 Thus these very volatile edges that interconnect multiple parts of a system have a high chance of getting changed because they are individual edges, and if one of these edges is removed, the whole cycle breaks.
 This is also evident from the clear difference in survival probability between the unclassified shapes and the complex shapes (circle, chain, clique, star).
@@ -551,25 +551,6 @@ This is also evident from the clear difference in survival probability between t
     We suggest that tiny shapes should not to be prioritised during refactoring even though it is the most persistent one, as it may be the \textbf{result of intentional design} (false positives).
     Refactoring activities, instead, should prioritise old cycles with complex shapes that  are more likely to affect important parts of the system, and thus that are more likely to incur extra maintenance effort.
 \end{minipage}}
-%IMPORTANT ADDITION FOR CAMERA READY
-%We hypothesise that this is imputable to the highly connected network that a system grows into as more and more components (due to new functionality, probably) are added. Hence, as soon as a single edge, or node, changes within this intricate network, one or multiple cy-cles are broken or created, which is also confirmed by the high overlapping between smells and the ‘less-constant’ trend of the characteristic number of edges. This has an important consequence on the smells that one should consider refactoring, both type-wise and in-stance-wise.
-
-%\section{Discussion}\label{c2:sec:discussion}
-
-% Smell density constant to project size
-% Smells tend to move to more central parts of the system
-% CD stable in size, but grow rapidly in number
-% CD smells decay much quicker than other smell types
-% Tiny shapes are most persistent probably due to the ease of creating them as intentional design
-% Unclassified shapes, and CD in general, may be the result of casual relations among components that complete/finish bigger cycles, thus explaining their volatility.
-% UD smells are the most persistent ones
-% HL smells are in the middle: class-level ones tend to survive more like CD, whereas package level ones tend to survive more like UD.
-% HL stable in number, grow rapidly in size
-
-% Give general interpretation of results
-% Implication for practitioners and researchers
-% Pillar components
-% Architectural index should weight the age based on survivability rates (i.e. CDs younger than 5 versions are only weighted 0.5, like their survival probability)
 
 \section{Threats to validity}\label{c2:sec:threats}
 We identified the possible threats to validity for this study and categorised them using the classification proposed by Runseson et al. \cite{Runeson2012}: \emph{construct validity}, \emph{external validity}, and \emph{reliability}.
@@ -592,7 +573,7 @@ We mitigated this threat by limiting the importance we attribute to the specific
 This aspect of validity reflects to what extent the results obtained by this study are generalisable to similar contexts.
 The second one regards the projects we used to collect the necessary data. These projects were all open-source Java systems, Hence, it is not possible to generalise these results to industrial projects or projects written in a different programming language.
 However, we addressed this threat by adopting a collection of systems (the Qualitas Corpus) specifically intended for scientific analyses and tried to include as many \emph{projects} and \emph{versions} as possible in order to increase the sampling size of the population analysed.
-Our findings can thus be generalised to other Java projects of similar size and history that have an active open source community backing the development efforts.
+Our findings can thus be generalised to other Java projects of similar size and history that have an active open-source community backing the development efforts.
 
 \paragraph{Reliability}
 Reliability is the aspect of validity focusing on the degree to which the data and the analysis are dependent on the researcher performing them.
@@ -603,11 +584,11 @@ The reliability of the findings is guaranteed by the fact that all the intermedi
 The analysis was also performed using well-established techniques already used in previous work for analysing similar artefacts (code smells) as well as also in different fields (e.g. survival analysis, in the biomedical sciences field).
 
 \section{Conclusions}\label{c2:sec:conclusions}
-This study has investigated the evolution of instability architectural smells in the context of open source systems with respect to their characteristics and persistence.
+This study has investigated the evolution of instability architectural smells in the context of open-source systems with respect to their characteristics and persistence.
 We presented multiple findings and practical implications useful both for practitioners and researchers that can help them improving the strategies for reducing long term maintenance efforts by managing architectural smells.
 
 The tooling used in this chapter to mine architectural smells has been extended to integrate with Git repositories, thus allowing us to link the current information to code churn and investigate the effects of smells on change rates, as reported in Chapter \ref{chap:5}.
 
 The findings of this chapter helped us understanding how architectural smells evolve and allowed us to deduce a few general prioritisation rules for different smell types.
-These rules, however, are based only on data mined from the software repositories of open source systems.
+These rules, however, are based only on data mined from the software repositories of open-source systems.
 To better understand the context of where these rules can be applied, we are going to study, in the next chapter, the perception of architectural smells in industrial practice through the eyes of software practitioners.

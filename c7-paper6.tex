@@ -32,7 +32,7 @@ Thus, this problem can be formulated as a high-level research question: \textit{
 We begin to address this problem through an exploratory case study  investigating how  embedded systems engineers manage trade-offs between run-time and design-time quality attributes and what kind of support they require.
 We collected data in three steps. 
 First, we performed a series of interviews with eight subjects to obtain a fine-grained understanding of the daily activities they performed and the trade-off decisions they experienced on their projects.
-Then, we planned a focus group session with eight subjects (two of the had also taken part in the interviews), discussing the issues, costs, decisions, and related trade-offs of design-time and run-time qualities. The interviewees and the focus group participants worked in five different companies in the embedded systems domain. 
+Then, we planned a focus group session with eight subjects (two of them had also taken part in the interviews), discussing the issues, costs, decisions, and related trade-offs of design-time and run-time qualities. The interviewees and the focus group participants worked in five different companies in the embedded systems domain. 
 And finally, we interviewed six more participants in order to check, confirm, and possibly extend the findings from the previous two phases.
 
 Our findings shed light on which qualities are prioritised in the studied domain, what kind of trade-offs occur, how these trade-offs take place in practice, and how they should ideally take place. We note that, while our scope encompasses run-time and design-time qualities in general, we pay special attention to  \textit{Maintainability}, \textit{Dependability}, and \textit{Energy Efficiency}. We selected these qualities due to their importance for the embedded systems software development lifecycle \cite{Knight2002,Koopman2004} (further motivation for these 3 qualities is given in Section \ref{c7:sec:objectives-rq}). 
@@ -125,7 +125,7 @@ We chose these criteria to compare our study to the related work as they compris
 Our study is the only one that fulfils all three of these criteria as summarised by Table \ref{c7:tab:rel-work}.
 
 \begin{table}[!h]
-    \footnotesize
+   \footnotesize
     \centering
     \caption{Comparison between related work studies and this study. TO stands for trade-off.}
     \label{c7:tab:rel-work}
@@ -135,7 +135,7 @@ Our study is the only one that fulfils all three of these criteria as summarised
     \cite{Ampatzoglou2016,Wahler2017} & \cmark & \cmark & \xmark \\
     \cite{Bellomo2015,Martini2015} & \cmark & \xmark & \xmark \\
     \cite{Feitosa2015,Papadopoulos2018,Correa2010,Mentis2009} & \xmark & \xmark & \xmark \\ \midrule
-    This work & \cmark & \cmark & \cmark \\ \bottomrule
+    This study & \cmark & \cmark & \cmark \\ \bottomrule
     \end{tabular}
 \end{table}
 
@@ -188,7 +188,7 @@ Due to the adoption of two data collection methods, interviews and focus group (
 \begin{enumerate}
     \item In the first step, each case subject was asked to designate two or three software engineers to take part in the interviews.
     \item Next, the case subjects were asked to provide, if possible, at least one or two additional engineers to take part in the focus group.
-    \item In the third and final step, a second round of interviews was performed interviewing different set of engineers.
+    \item In the third and final step, a second round of interviews was performed interviewing a different set of engineers.
 \end{enumerate}
 
 This process of data collection ensured \textit{data source triangulation} (i.e. collecting the same data at different occasions) and \textit{methodological triangulation} (i.e. combining different types of data collection methods) \cite{Runeson2012}.
@@ -205,7 +205,7 @@ Overall, \textit{\textbf{twenty engineers}} with experience ranging from one to 
 
 \begin{table}[tbp]
     \centering
-    \footnotesize
+   \footnotesize
     \caption{The case study subjects. Size classification follows European Union's SME classification based on the number of employees: Small ($< 50$), Medium ($< 250$), Large ($\ge 250$).}
     \label{c7:tab:case-study-subjects}
     \begin{tabular}{@{}cllc@{}}
@@ -248,7 +248,7 @@ Concerning the projects discussed with the fourteen interviewees, two of them ta
 Finally, all interviewees gave their explicit permission for their interview to be recorded.
 
 \begin{table}[tbp]
-    \footnotesize
+   \footnotesize
     \centering
     \caption{Background information on the interviewee and their respective projects.}
     \label{c7:tab:iw-participants-background}
@@ -303,7 +303,7 @@ This succinct explanation prepared them for the beginning of the session, wherea
 The discussion points were designed in a semi-structured way and focused on trade-off decision making and related support, since the data collected on these topics during the interviews needed to be further strengthened by the focus group.
 Specifically, they first covered the three main quality attributes of this study (i.e. Maintainability, Dependability, Energy Efficiency) in order to initiate the technical discussion.
 Then, the discussion moved to implicit and explicit trade-off experiences and related opinions.
-In the end, ideas on a envisioned tool supporting trade-offs management were proposed and discussed by the participants.
+In the end, ideas on an envisioned tool supporting trade-offs management were proposed and discussed by the participants.
 The contribution of each participant in the discussion was overall balanced.
 Nonetheless, two of the participants made fewer interventions than the average did, whereas another one intervened in most of the discussions and required the intervention of the moderator.
 Moreover, two factors, namely the semi-structured format of the focus group and the presence of two moderators, ensured that the discussion had a specific direction at any point and that the two participants (out of eight) that were also interviewed did not unveil details that would bias discussion and the other participants.
@@ -317,7 +317,7 @@ Moreover, two factors, namely the semi-structured format of the focus group and 
 \end{figure}
 
 \begin{table}[tbp]
-    \footnotesize
+   \footnotesize
     \centering
     \caption{Background information of the focus group participants, including the typical project size these practitioners work on. * denotes subjects that were also interviewed.}
     \label{c7:tab:fg-participants-background}
@@ -325,14 +325,14 @@ Moreover, two factors, namely the semi-structured format of the focus group and 
     \toprule
     \multirow{2}{*}{\textbf{ID}} & \multirow{2}{*}{\textbf{Company}} & \multicolumn{2}{c}{\textbf{Typical project size}} & \multirow{2}{*}{\bfseries\shortstack{Role in \\the company}} & \multicolumn{2}{c}{\textbf{Years of exp.}} \\
             &  & \multicolumn{1}{c|}{\textbf{in SLOC}} & \textbf{in PM} & \multicolumn{1}{c}{} & \multicolumn{1}{c|}{\textbf{curr. role}} & \textbf{in total} \\ \midrule
-    P1 & C1 & 1000000+ & 15-100 & Key Account Manager & 13 & 31 \\
-    P2 & C1 & 50000+ & 4 & System Architect & 15 & 22 \\
-    P3* & C2 & 10000+ & 3 & Software Architect & 5 & 11 \\
-    P4* & C2 & 10000+ & 3 & Software Engineer & 3 & 7 \\
-    P5 & C2 & 10000+ & 3 & CEO & 5 & 17 \\
+    P1 & C1 & 1,000,000+ & 15-100 & Key Account Manager & 13 & 31 \\
+    P2 & C1 & 50,000+ & 4 & System Architect & 15 & 22 \\
+    P3* & C2 & 10,000+ & 3 & Software Architect & 5 & 11 \\
+    P4* & C2 & 10,000+ & 3 & Software Engineer & 3 & 7 \\
+    P5 & C2 & 10,000+ & 3 & CEO & 5 & 17 \\
     P6 & C3 & N/A & 6 & Project and Research Manager & 3 & 5 \\ 
-    P7 & C4 & 15000 & 80 & Chief Engineer & 10 & 15 \\
-    P8 & C5 & 500000+ & 7 & Project Manager & 2 & 12 \\ \midrule\midrule
+    P7 & C4 & 15,000 & 80 & Chief Engineer & 10 & 15 \\
+    P8 & C5 & 500,000+ & 7 & Project Manager & 2 & 12 \\ \midrule\midrule
     \multicolumn{5}{l}{\textbf{\textit{Average}}} & 7 & 15 \\ \bottomrule
     \end{tabular}
 \end{table}
@@ -639,7 +639,7 @@ One of the reasons that we deem this as `prudent', rather than `reckless' \cite{
 This is reasonable since practitioners are required first and foremost to pursue customer satisfaction, rather than the long-term sustainability of source code. However, there needs to be a concrete strategy, after the demo, to monitor the incurred technical debt and strive to repay it as soon as possible.
 
 Considering the results obtained from RQ3, it is reasonable to wonder why the subjects of the study do not use any specific process to support their trade-off decisions.
-One possible explanation could be that, like most software engineering processes, those for managing trade-offs are not as well-known in industrial practice as in the academic domain..
+One possible explanation could be that, like most software engineering processes, those for managing trade-offs are not as well-known in industrial practice as in the academic domain.
 Even if practitioners are familiar with such processes, many of them require a non-trivial amount of time to learn, plan, and eventually execute.
 In particular, the planning and execution overhead are rather incompatible with the \textit{daily} routine of a developer and strict deadlines that characterise the industrial software domain, and, more specifically, the projects in our study. 
 Note that since implicit trade-offs can arise from any decision taken, it could be necessary, depending on the case, to apply these methods on a daily basis.

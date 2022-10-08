@@ -1,0 +1,208 @@
+Reviews
+
+prof. dr. G. Robles	
+I enjoyed much reading this work. It is superb!
+
+I offer below a set of recommended improvements that can be all considered of small significance to the thesis, although they would enhance the quality (esp. regarding to its presentation) of the submitted manuscript.
+
+[DONE] Sometimes you refer to "Open Source", sometimes to "open source", sometimes "open-source", others "open source software", and finally "OSS". Choose one and be consistent throughout the thesis
+
+[DONE] Usually there is no space between a word and the footnote. In the manuscript, sometimes there is no space, sometimes there is a space.
+
+[DONE] In English, commas (not dots) are used to separate numbers (usually those greater than 999)
+
+[DONE] Page 5: The project SDK4ED and Arcan -> The SDK4ED project and the Arcan tool
+
+[DONE] Page 5: has innovated, is researching -> has innovated is researching
+
+[DONE] Page 5: on the project is available -> on the project are available
+
+[DONE] Page 6: of AS; we also -> of AS. We also
+
+[DONE] Page 6: TD management [Li et al., 2015]; note that we only -> TD management [Li et al., 2015]. Note that we only
+
+[NO] Page 6: well-established practices; in the -> well-established practices. In the
+
+[NO] Page 7: party solution; but in -> party solution. But in
+
+[DONE] Page 7: This problem is summarised by the following statement: --> Add reference with the source of the statement, remove quotations if it is a statement by the author.
+
+[DONE] Page 7: literature[Azadi et al., 2019]; -> literature [Azadi et al., 2019];
+
+[DONE] Page 14: (ICSME)(Sas, Avgeriou, Arcelli). -> reference?
+
+[DONE] Page 15: allow researcher to better -> allow researchers to better
+
+[DONE] Page 24: with, did not provide -> with did not provide
+
+[DONE] Page 24: architectural amell -> architectural smell
+
+[DONE] Page 40: HL smells, are more -> HL smells are more
+
+[DONE] Page 40: some cases, HL smells -> some cases HL smells
+
+[DONE] Page 41: Regarding instead the cycles Arcan could not classify into definite shapes, they have a more consistent trend and disappear quicker than all other shapes. -> rewrite! Not clear what is said here
+
+[NO] Page 46: Cyclic Dependency (CD) : -> Cyclic Dependency (CD): (and the following ones, too)
+
+[DONE] Page 47: found in Chapter 2.3. -> found in Section 2.3.
+
+[DONE] Page 52: UD the most, were -> UD the most were
+
+[DONE] Page 59: Section ?? provides
+
+[DONE] Page 66: RQ4 and RQ5, is -> RQ4 and RQ5 is
+
+[DONE] Page 69: through the a dependency -> through a dependency
+
+[DONE] Page 72: in Phase 2, were -> in Phase 2 were
+
+[DONE] Page 74: by the model when -> by the model, when
+
+[DONE] Page 75: (internal to the system), -> (internal to the system):
+
+[DONE] Page 83: and its easier for an -> and it is easier for an
+
+[DONE] Page 86: result in UD instances will overlap with -> rewrite
+
+[DONE] Page 87: is most interesting, is -> is most interesting is
+
+[DONE] Page 88: first author of the chapter, while the second author reviewed the codes and coding schemes -> rewrite
+
+[DONE] Page 89: new components. ” -> new components.”
+
+[DONE] Page 90: to practitioners, is -> to practitioners is
+
+[DONE] Page 92: We cannot claim of course, -> We cannot claim, of course,
+
+[DONE] Page 92: the hardware, propagated -> the hardware propagated
+
+[DONE] Page 92: god components -> God Components (until now you have put them all starting with capital letters...). There are some more in the next few pages
+
+[DONE] Page 96: wined logic etc.); -> wined logic, etc.);
+
+[DONE] Page 99: itself. Which -> itself, which
+
+[DONE] Page 102: by the first two authors and an external researcher -> rewrite
+
+[DONE] Page 114: paid[El-Emam, 2000,-> paid [El-Emam, 2000,
+
+[DONE] Page 114: Discussion section. -> Discussion section (Section XXX).
+
+[DONE] Page 118: ASTracker , see Chapter 2 -> ASTracker, see Chapter 2
+
+[DONE] Page 118: their paper[Arcelli Fontana et al., 2016]. -> their paper [Arcelli Fontana et al., 2016].
+
+[DONE] Page 119: the Introduction and Related Work sections -> the Introduction and Related Work sections (Section XXX)
+
+[DONE] Page 119: Q4) -> shouldn't it be Q4] or do you leave the last one out?
+
+[DONE] Table 5.2: Class -> Classes
+
+[DONE] Table 5.2: Package -> Packages
+
+[DONE] Page 122: with either a before or after window smaller -> with either a window before or after that is smaller
+
+[DONE] Page 124: are pretty straightforward -> are straightforward
+
+[DONE] Page 124: that the 11.5% -> that 11.5%
+
+[DONE] Page 126: Figure 5.4 show -> Figure 5.4, show
+
+[DONE] Page 133: to be quite prone -> to be prone
+
+[DONE] Page 140: the customer[Cunningham, 1992]. -> the customer [Cunningham, 1992].
+
+[DONE] Page 142: instance , see Chapter 2. -> instance, see Chapter 2.
+
+[DONE] Page 144: each smell[Ampatzoglou et al., 2018]. -> each smell [Ampatzoglou et al., 2018].
+
+[DONE] Page 146: of an an architectural smell -> of an architectural smell
+
+[DONE] Page 149: needed be understood -> needed to be understood
+
+[DONE] Page 152: is x than it makes -> is x then it makes
+
+[NO] Page 157: (including the first author) and a -> rewrite
+
+[DONE] Page 170: correlated , see Chapter 2), -> correlated, see Chapter 2),
+
+[DONE] Page 170: positively contributes to -> positively contribute to
+
+[DONE] Page 180: challenging issue, is -> challenging issue is
+
+[DONE] Page 181: from RQ1, is -> from RQ1 is
+
+[DONE] Page 182: a such data set -> such a data set
+
+[DONE] Page 182: are quite promising -> are promising
+
+[DONE] Page 183: achieved, is by implementing -> achieved is by implementing
+
+[DONE] Page 184: move class to -> move a class to
+
+[DONE] Page 185: from, was limited -> from was limited
+
+[DONE] Page 196: (two of the had -> (two of them had
+
+[DONE] Table 7.1: This work -> This study
+
+[DONE] Page 203: interviewing different set of engineers. -> interviewing a different set of engineers.
+
+[DONE] Page 208: ideas on a envisioned -> ideas on an envisioned
+
+[DONE] Page 226: academic domain.. -> academic domain.
+
+[DONE] Page 236: with the only 10% of -> with only 10% of
+
+[DONE] Page 236: which is quite rare -> which is rare
+
+[DONE] Page 238: citing as the main reason, -> citing, as the main reason,
+
+[DONE] Page 239: to fix the all the issues -> to fix all the issues
+
+
+Prof Dr A. Capiluppi
+as a spoiler alert, I would like to ask the candidate the following questions
+* the future work/deployment seems quite promising, what are the next low-hanging fruits that can be <easily> accomplished using the results from RQ5 and RQ6?
+Answer: The low-hanging fruit is to study the impact of AS on Security. Is the presence of architectural smells a sign of more security vulnerabilities in the affected components?
+
+* the "metaphor" of technical debt is discussed only briefly, and the latest studies that have been evaluated to discuss its limitations are from 2013. Does that mean that after that study noone has discussed whether the metaphor can be applied, or that the metaphor is actually fine as is?
+Answer: TD is a metaphor that allows people with different background to comprehend common problems of software development.
+Since it's a metaphor, and not a framework or a standard, it inherently has shortcomings -- so Schmid's critic is still valid.
+However, being able to use a term to name a problem is a powerful cognitive instrument that allows us to better communicate and think about the problem.
+Trying to quantify it and measure it is beyond the metaphor. 
+Moreover, for a metaphor to be powerful it must to be simple.
+
+
+
+Prof. Serge Demeyers
+
+1. The use of acronyms
+I performa personal crusade against the use of Acronyms in academic writing. It makes texts aa lot harder to read for people not in the field. And even for people in the field sometimes. We have good coding practices of using meaningfull identifiers in source code because we know how much it contributes to the comprhensibility. And then we don't kjeep the same standards for writing prose.
+
+In particular.
+ - TD for me is the abbreviation of "Té Dansant"
+ - AS is the brand name of a big shopping chain here in Belgium.
+
+See each time I read this my brain must stop for a millisecond to reprogram what it has been trained for decades.
+
+
+2. Hyperref links
+        For the moment, you have all hyperref links coloured. I read most papers and Phd on-line and all this colours are really annoying.
+        You can easily turn off hyperlinks colouring like this
+\hypersetup{
+    colorlinks,%
+    citecolor=black,%
+    filecolor=black,%
+    linkcolor=black,%
+    urlcolor=gray,
+    linktocpage=true,
+    bookmarks=true,
+    bookmarksopen=true,
+    pdfpagemode=UseOutlines,
+    pdftitle={XXX},    % title
+    pdfauthor={XXX},     % author
+    pdfsubject={XXX},   % subject of the document
+    pdfcreator={PDF LaTex},   % creator of the document
+}
